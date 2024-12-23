@@ -1,9 +1,99 @@
-# 网站名，必填
-site_name: Cloudmosquito Site
+site_name: Cloudmosquito Site # 网站名，必填
+site_description: Cloudmosquito's Lib # 网站描述
+site_author: Cloudmosquito # 作者
+copyright: Copyright &copy; 2024 - 2025 Cloudmosquito # 版权
 
-# nav 是 navigation 的简写，用于生成导航栏
-nav:
-  - Home: index.md
-  - 文学: 文学
+# 主题
+theme:
+  name: material
+  palette:
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: teal
+      accent: indigo
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to dark mode
 
-theme: readthedocs
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: blue grey
+      accent: teal
+      toggle:
+        icon: material/weather-night
+        name: Switch to light mode
+
+  font:
+    text: Roboto
+    code: Roboto Mono
+
+  language: zh
+
+  features:
+    - navigation.instant
+    - navigation.instant.prefetch  # 修正拼写错误，应该是 prefetch
+    - navigation.instant.progress
+    - navigation.tabs
+    - navigation.expand
+    - navigation.path
+    - navigation.indexes
+    - navigation.top
+    - search.suggest
+    - search.highlight
+
+markdown_extensions:
+  - abbr
+  - admonition
+
+  # 图片相关
+  - attr_list
+  - md_in_html
+  - pymdownx.blocks.caption
+
+  # 列表相关
+  - def_list
+  - pymdownx.tasklist:
+      custom_checkbox: true
+
+  - footnotes
+  - tables
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem
+  - pymdownx.details
+  - pymdownx.caret
+  - pymdownx.mark
+  - pymdownx.tilde
+  - pymdownx.critic
+  - pymdownx.details
+
+  - pymdownx.highlight:
+      auto_title: true
+      anchor_linenums: true
+      linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.smartsymbols
+  - pymdownx.snippets
+  - pymdownx.tabbed:
+      alternate_style: true
+
+  
+
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+
+plugins:
+  - search
+  - glightbox
+extra_css:
+  - stylesheets/extra.css
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
