@@ -127,3 +127,5 @@ $$\frac{\partial \mathbf{f}}{\partial \mathbf{x}^T} = \begin{bmatrix}\frac{\part
 我们忽略掉高阶项$O(\mathbf{x})$，再做变量代换$\mathbf{z} = \mathbf{x} - \mathbf{x}_e$，即把原来的非线性系统，在平衡点附近化为了如下的线性系统形式
 
 $$\dot{\mathbf{z}} = A_n\mathbf{z}$$
+
+// TODO（补充完整）
