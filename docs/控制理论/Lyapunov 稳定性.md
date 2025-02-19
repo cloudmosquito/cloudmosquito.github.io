@@ -20,11 +20,11 @@ $$ \dot{\mathbf{x}}_n(t) = \mathbf{f}(\mathbf{x}_n(t)) $$
 
 > Note:
 > 这里的$\mathbf{f}(\cdot)$是一个定义在`n`维空间的向量函数，它可以表示为
-> 
+>
 > $$\mathbf{f} = \begin{bmatrix}f_1 & f_2 & ... & f_n\end{bmatrix}^T$$
-> 
+>
 > 其中，$f_1, f_2, ... ,f_n$都是定义在`n`维空间的标量函数。
-> 
+>
 > 举个例子，$\mathbf{f}(\mathbf{x}_2) = \begin{bmatrix}\sin(x_2) & x_1^2\end{bmatrix}^T$, 那么$f_1(\mathbf{x}_2) = \sin(x_2)$，$f_2(\mathbf{x}_2)=x_1^2$.
 
 ### 1.2 稳定状态/稳定点
@@ -33,7 +33,7 @@ $$ \dot{\mathbf{x}}_n(t) = \mathbf{f}(\mathbf{x}_n(t)) $$
 
 > Comment :
 > 这个定义很好理解，就是该状态下，系统所有状态关于时间的变化率都为0.
-> 
+>
 > 换言之，如果系统初始状态在稳定点，那么系统将始终保持在稳定点。
 
 #### 1.2 a 线性定常系统的稳定点
@@ -60,7 +60,7 @@ $$ \dot{x} = f(x) = Ax $$
 
 $$ S(x_e, H) = \{x | x\in \mathbb{R}^n, \|x-x_e\|_2 \le H\} $$
 
-> Comment : 
+> Comment :
 > 我借鉴的《现代控制理论》PPT中关于邻域的符号，没有$x_e$，只有$S(H)$，我个人觉得加上更好一点。其实本质就是一个球心加半径定义出来的一个`n`维球体区域。
 
 严格定义系统平衡点的 Lyapunov 稳定性：
@@ -74,9 +74,9 @@ $$ \forall \varepsilon > 0, \exists \delta > 0, \forall x(0) \in S(x_e,\delta), 
 
 说人话就是，在系统的`n`维状态空间里，以平衡点为球心画个任意大小的球，我都能在其中找到一个更小的球体范围。无论系统状态从新球体中哪一点开始演变，我都能保证系统状态不会超出老球体的范围。
 
-> Note : 
+> Note :
 > 该定义与 $\forall \delta > 0, \exists \varepsilon > 0, \forall x(0) \in S(x_e,\delta), \forall t\in[0,\infty),  x(t)\in S(x_e, \varepsilon)$ 是不等价的。
-> 
+>
 > 事实上，Lyapunov 稳定性的定义只规定了系统状态初值在离平衡点无限近的一个邻域内时，系统状态变化不越界。而这个新定义则要求系统状态初值在平衡点的任意大邻域内时，系统状态都不发散到无穷。
 
 #### 2.1 a Lyapunov 的渐进稳定性
@@ -115,9 +115,9 @@ $$\dot{\mathbf{x}} = \mathbf{f}(\mathbf{x})$$
 
 $$\dot{\mathbf{x}} = \frac{\partial \mathbf{f}}{\partial \mathbf{x}^T}(\mathbf{x}-\mathbf{x}_e)+O(\mathbf{x})$$
 
-> Comment : 
+> Comment :
 > Q：为什么这里求偏导的时候，是对`x`的转置求偏导而不是对`x`本身求偏导？
-> 
+>
 > A：参见[矩阵微积分](../数学/矩阵微积分.md/#113-分子布局-符号特别版)中关于“分子布局(符号特别版)”的介绍。
 
 这里的$\frac{\partial \mathbf{f}}{\partial \mathbf{x}^T}$本质上是一个$n\times 1$的向量关于一个$n\times 1$的向量求导，结果是
