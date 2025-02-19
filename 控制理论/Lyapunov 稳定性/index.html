@@ -319,7 +319,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../%E6%9D%82%E5%AD%A6%E6%97%81%E6%94%B6/%E5%A4%A9%E7%A9%BA%E4%B8%BA%E4%BB%80%E4%B9%88%E6%98%AF%E8%93%9D%E8%89%B2%E7%9A%84/" class="md-tabs__link">
+        <a href="../../%E6%9D%82%E5%AD%A6%E6%97%81%E6%94%B6/git%20%E7%94%A8%E6%B3%95/" class="md-tabs__link">
           
   
     
@@ -1394,6 +1394,8 @@
       
         
       
+        
+      
     
     
       
@@ -1427,6 +1429,28 @@
             杂学旁收
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%9D%82%E5%AD%A6%E6%97%81%E6%94%B6/git%20%E7%94%A8%E6%B3%95/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    git 相关操作
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
             
               
                 
@@ -1665,7 +1689,7 @@
 <p>首先，用<code>2-范数</code>定义自治系统关于平衡状态的邻域</p>
 <div class="arithmatex">\[ S(x_e, H) = \{x | x\in \mathbb{R}^n, \|x-x_e\|_2 \le H\} \]</div>
 <blockquote>
-<p>Comment : 
+<p>Comment :
 我借鉴的《现代控制理论》PPT中关于邻域的符号，没有<span class="arithmatex">\(x_e\)</span>，只有<span class="arithmatex">\(S(H)\)</span>，我个人觉得加上更好一点。其实本质就是一个球心加半径定义出来的一个<code>n</code>维球体区域。</p>
 </blockquote>
 <p>严格定义系统平衡点的 Lyapunov 稳定性：</p>
@@ -1676,7 +1700,7 @@
 </figure>
 <p>说人话就是，在系统的<code>n</code>维状态空间里，以平衡点为球心画个任意大小的球，我都能在其中找到一个更小的球体范围。无论系统状态从新球体中哪一点开始演变，我都能保证系统状态不会超出老球体的范围。</p>
 <blockquote>
-<p>Note : 
+<p>Note :
 该定义与 <span class="arithmatex">\(\forall \delta &gt; 0, \exists \varepsilon &gt; 0, \forall x(0) \in S(x_e,\delta), \forall t\in[0,\infty),  x(t)\in S(x_e, \varepsilon)\)</span> 是不等价的。</p>
 <p>事实上，Lyapunov 稳定性的定义只规定了系统状态初值在离平衡点无限近的一个邻域内时，系统状态变化不越界。而这个新定义则要求系统状态初值在平衡点的任意大邻域内时，系统状态都不发散到无穷。</p>
 </blockquote>
@@ -1706,7 +1730,7 @@
 <p>在<span class="arithmatex">\(\mathbf{x} = \mathbf{x}_e\)</span>位置有一个平衡点，那么我们可以在平衡点位置对其做泰勒展开，得到</p>
 <div class="arithmatex">\[\dot{\mathbf{x}} = \frac{\partial \mathbf{f}}{\partial \mathbf{x}^T}(\mathbf{x}-\mathbf{x}_e)+O(\mathbf{x})\]</div>
 <blockquote>
-<p>Comment : 
+<p>Comment :
 Q：为什么这里求偏导的时候，是对<code>x</code>的转置求偏导而不是对<code>x</code>本身求偏导？</p>
 <p>A：参见<a href="../../%E6%95%B0%E5%AD%A6/%E7%9F%A9%E9%98%B5%E5%BE%AE%E7%A7%AF%E5%88%86/#113-分子布局-符号特别版">矩阵微积分</a>中关于“分子布局(符号特别版)”的介绍。</p>
 </blockquote>
