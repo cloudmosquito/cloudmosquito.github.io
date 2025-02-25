@@ -1,4 +1,4 @@
-# sudo 不用密码
+# 怎么设置 sudo 不用密码
 
 ```shell
 sudo visudo # 打开/etc/sudoers.tmp
