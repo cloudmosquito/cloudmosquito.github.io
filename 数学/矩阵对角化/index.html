@@ -1553,28 +1553,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%E6%9D%82%E5%AD%A6%E6%97%81%E6%94%B6/LInux%20%28Ubuntu%29%20%E4%BD%BF%E7%94%A8%20Tips/%E6%80%8E%E4%B9%88%E5%88%A0%E9%99%A4%E6%96%87%E4%BB%B6%E5%A4%B9/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    怎么删除文件夹
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../%E6%9D%82%E5%AD%A6%E6%97%81%E6%94%B6/LInux%20%28Ubuntu%29%20%E4%BD%BF%E7%94%A8%20Tips/%E6%80%8E%E4%B9%88%E5%92%8C%20windows%20%E5%8F%8C%E7%B3%BB%E7%BB%9F%E6%97%B6%E9%97%B4%E4%B8%80%E8%87%B4/" class="md-nav__link">
         
   
@@ -1602,6 +1580,28 @@
   
   <span class="md-ellipsis">
     怎么换源 pip install
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%9D%82%E5%AD%A6%E6%97%81%E6%94%B6/LInux%20%28Ubuntu%29%20%E4%BD%BF%E7%94%A8%20Tips/%E6%80%8E%E4%B9%88%E6%96%B0%E5%BB%BA%E6%88%96%E5%88%A0%E9%99%A4%E6%96%87%E4%BB%B6%EF%BC%88%E5%A4%B9%EF%BC%89/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    怎么新建或删除文件（夹）
     
   </span>
   
@@ -1751,21 +1751,27 @@
 
 <h1 id="_1">矩阵对角化</h1>
 <p>我们讨论一个可逆的 <span class="arithmatex">\(n\)</span> 维矩阵 <span class="arithmatex">\(A\)</span>。</p>
-<p>首先，我们考察矩阵 <span class="arithmatex">\(A\)</span> 的特征值，它们满足
-<span class="arithmatex">\(<span class="arithmatex">\(Ax_i = \lambda_i x_i\)</span>\)</span></p>
-<p>一个很自然的想法是，我们把 <span class="arithmatex">\(n\)</span> 个特征值对应的上式合在一起，用矩阵表示，那么就是
-<span class="arithmatex">\(<span class="arithmatex">\(A\begin{bmatrix}x_1 &amp; x_2 &amp;...&amp;x_n\end{bmatrix} = \begin{bmatrix}\lambda_1x_1 &amp; \lambda_2x_2 &amp;...&amp;\lambda_nx_n\end{bmatrix}\)</span>\)</span></p>
-<p>下面这一步思考需要一点灵感。构造一个矩阵 <span class="arithmatex">\(B\)</span>：
-<span class="arithmatex">\(<span class="arithmatex">\(B = \begin{bmatrix}b_{1,1\times n}\\b_2\\...\\b_n\end{bmatrix}_{n\times n},\begin{bmatrix}b_1\\b_2\\...\\b_n\end{bmatrix}\begin{bmatrix}\lambda_1x_1 &amp; \lambda_2x_2 &amp;...&amp;\lambda_2x_n\end{bmatrix} = \begin{bmatrix}\lambda_1b_1x_1 &amp; \lambda_2b_1x_2 &amp;...&amp;\lambda_nb_1x_n\\ \lambda_1b_2x_1 &amp; \lambda_2b_2x_2 &amp; ... &amp; \lambda_nb_2x_n\\ ...\\ \lambda_1b_nx_1 &amp; \lambda_2b_nx_2 &amp; ... &amp; \lambda_nb_nx_n\end{bmatrix}\)</span>\)</span></p>
+<p>首先，我们考察矩阵 <span class="arithmatex">\(A\)</span> 的特征值，它们满足</p>
+<div class="arithmatex">\[Ax_i = \lambda_i x_i\]</div>
+<p>这里的 <span class="arithmatex">\(x_i\)</span> 是一个 <span class="arithmatex">\(n\times 1\)</span> 的向量。</p>
+<p>一个很自然的想法是，我们把 <span class="arithmatex">\(n\)</span> 个特征值对应的上式合在一起，用矩阵表示，那么就是</p>
+<div class="arithmatex">\[A\begin{bmatrix}x_1 &amp; x_2 &amp;...&amp;x_n\end{bmatrix} = \begin{bmatrix}\lambda_1x_1 &amp; \lambda_2x_2 &amp;...&amp;\lambda_nx_n\end{bmatrix}\]</div>
+<p>下面这一步思考需要一点灵感。构造一个矩阵 <span class="arithmatex">\(B\)</span>：</p>
+<div class="arithmatex">\[B = \begin{bmatrix}b_{1,1\times n}\\b_2\\...\\b_n\end{bmatrix}_{n\times n},\begin{bmatrix}b_1\\b_2\\...\\b_n\end{bmatrix}\begin{bmatrix}\lambda_1x_1 &amp; \lambda_2x_2 &amp;...&amp;\lambda_2x_n\end{bmatrix} = \begin{bmatrix}\lambda_1b_1x_1 &amp; \lambda_2b_1x_2 &amp;...&amp;\lambda_nb_1x_n\\ \lambda_1b_2x_1 &amp; \lambda_2b_2x_2 &amp; ... &amp; \lambda_nb_2x_n\\ ...\\ \lambda_1b_nx_1 &amp; \lambda_2b_nx_2 &amp; ... &amp; \lambda_nb_nx_n\end{bmatrix}\]</div>
 <p>如果 <span class="arithmatex">\(b_ix_i = 1\)</span> 且 <span class="arithmatex">\(b_ix_j = 0\)</span>，那么上式的结果就是一个由矩阵 <span class="arithmatex">\(A\)</span> 的特征值组成的对角阵了。</p>
-<p>什么样的矩阵 <span class="arithmatex">\(B\)</span> 具有以上性质呢？其实只要把所有 <span class="arithmatex">\(\lambda\)</span> 都去了，就很容易发现，<span class="arithmatex">\(B\)</span> 就是特征向量组成的矩阵的逆矩阵。</p>
-<p>现在就有一个问题，特征向量组成的这个矩阵可逆吗？</p>
+<p>什么样的矩阵 <span class="arithmatex">\(B\)</span> 具有以上性质呢？其实只要把所有 <span class="arithmatex">\(\lambda\)</span> 都去了，就很容易发现，<span class="arithmatex">\(B\)</span> 就是特征向量组成的矩阵的逆矩阵（ <span class="arithmatex">\(\begin{bmatrix}x_1 &amp; x_2 &amp;...&amp;x_n\end{bmatrix}^{-1}\)</span> ）。</p>
+<hr />
+<p>现在有一个问题，特征向量组成的这个矩阵可逆吗（ <span class="arithmatex">\(\begin{bmatrix}x_1 &amp; x_2 &amp;...&amp;x_n\end{bmatrix}^{-1}\)</span> 存在吗）？</p>
 <p>当每个特征值都不一样时，该矩阵确实是可逆的。我们可以说明：此时，一组特征向量就是一组基。</p>
-<p>利用反证法。假设 <span class="arithmatex">\(x_i = ax_j + bx_k\)</span>，然后等号左右两边同时左乘一个矩阵 <span class="arithmatex">\(A\)</span>，得到
-<span class="arithmatex">\(<span class="arithmatex">\(\begin{aligned}Ax_i &amp;= aAx_j + bAx_k\\
+<p>利用反证法。假设 <span class="arithmatex">\(x_i = ax_j + bx_k\)</span> ，然后等号左右两边同时左乘一个矩阵 <span class="arithmatex">\(A\)</span> ，得到</p>
+<div class="arithmatex">\[\begin{aligned}Ax_i &amp;= aAx_j + bAx_k\\
 \lambda_ix_i &amp;= a\lambda_jx_j + b\lambda_kx_k\\
-x_i &amp;= a\frac{\lambda_j}{\lambda_i}x_j + b\frac{\lambda_k}{\lambda_i}x_k\end{aligned}\)</span>\)</span>
-由于每个特征值都不一样，我们就构造出了一个矛盾，说明假设不成立。</p>
+x_i &amp;= a\frac{\lambda_j}{\lambda_i}x_j + b\frac{\lambda_k}{\lambda_i}x_k\end{aligned}\]</div>
+<p>从而，我们有</p>
+<div class="arithmatex">\[a(1-\frac{\lambda_j}{\lambda_i})x_j = b(\frac{\lambda_k}{\lambda_i}-1)x_k\]</div>
+<p>因为 <span class="arithmatex">\(Ax_j = \lambda_j x_j\)</span> ，把 <span class="arithmatex">\(x_j\)</span> 用 <span class="arithmatex">\(x_k\)</span> 表示，就可以得到 <span class="arithmatex">\(Ax_k = \lambda_j x_k\)</span> . 但是 <span class="arithmatex">\(Ax_k = \lambda_k x_k\)</span> ，推导得到 <span class="arithmatex">\(\lambda_j = \lambda_k\)</span> .</p>
+<p>这与“每个特征值都不一样的条件”不符，说明我们假设错误。所以特征向量组成的这个矩阵可逆（ <span class="arithmatex">\(\begin{bmatrix}x_1 &amp; x_2 &amp;...&amp;x_n\end{bmatrix}^{-1}\)</span> 存在）。</p>
+<hr />
 <p>综上所述，当一个可逆的 <span class="arithmatex">\(n\)</span> 维矩阵 <span class="arithmatex">\(A\)</span> 的所有特征值都不一样时，可以用它的特征值向量构成的矩阵来将其对角化：</p>
 <div class="arithmatex">\[\begin{bmatrix}x_1 &amp; x_2 &amp;...&amp;x_n\end{bmatrix}^{-1}A\begin{bmatrix}x_1 &amp; x_2 &amp;...&amp;x_n\end{bmatrix} = diag\begin{bmatrix}\lambda_1 &amp; \lambda_2 &amp;...&amp;\lambda_n\end{bmatrix}\]</div>
 
