@@ -69,7 +69,7 @@ $$ \forall \varepsilon > 0, \exists \delta > 0, \forall x(0) \in S(x_e,\delta), 
 
 <figure markdown>
 ![](./Lyapunov 稳定性.assets/Lyapunov稳定性定义.png){width=100%}
-<!-- <figcaption>Lyapunov稳定性定义示意图</figcaption> -->
+<!-- <figcaption>Lyapunov 稳定性定义示意图</figcaption> -->
 </figure>
 
 说人话就是，在系统的`n`维状态空间里，以平衡点为球心画个任意大小的球，我都能在其中找到一个更小的球体范围。无论系统状态从新球体中哪一点开始演变，我都能保证系统状态不会超出老球体的范围。
@@ -83,7 +83,7 @@ $$ \forall \varepsilon > 0, \exists \delta > 0, \forall x(0) \in S(x_e,\delta), 
 
 <figure markdown>
 ![](./Lyapunov 稳定性.assets/Lyapunov稳定性分类.png){width=100%}
-<!-- <figcaption>Lyapunov稳定性定义示意图</figcaption> -->
+<!-- <figcaption>Lyapunov 稳定性定义示意图</figcaption> -->
 </figure>
 
 1. 考虑一个Lyapunov稳定的平衡点$x_e$，如果系统状态从邻域$S(x_e, \delta)$内任意一点开始演变，最后都能收敛到$x_e$，那么称$x_e$是**渐进稳定的**。把邻域$S(x_e, \delta)$称为$x_e$的**吸引域**。
@@ -92,7 +92,7 @@ $$ \forall \varepsilon > 0, \exists \delta > 0, \forall x(0) \in S(x_e,\delta), 
 
 $$\exists \varepsilon > 0,\forall \delta>0, \exists x(0) \in S(x_e, \delta), \exists t \in[0,\infty), x(t) \notin S(x_e, \varepsilon) $$
 
-### 2.2 如何使用Lyapunov稳定性？
+### 2.2 如何使用 Lyapunov 稳定性？
 
 #### 2.2 b 线性定常系统 Lyapunov 稳定的条件
 
@@ -118,7 +118,7 @@ $$\dot{\mathbf{x}} = \frac{\partial \mathbf{f}}{\partial \mathbf{x}^T}(\mathbf{x
 > Comment :
 > Q：为什么这里求偏导的时候，是对`x`的转置求偏导而不是对`x`本身求偏导？
 >
-> A：参见[矩阵微积分](../数学/矩阵微积分.md/#113-分子布局-符号特别版)中关于“分子布局(符号特别版)”的介绍。
+> A：参见[矩阵微积分](../数学/矩阵微积分.md/#113)中关于“分子布局(符号特别版)”的介绍。
 
 这里的$\frac{\partial \mathbf{f}}{\partial \mathbf{x}^T}$本质上是一个$n\times 1$的向量关于一个$n\times 1$的向量求导，结果是
 
