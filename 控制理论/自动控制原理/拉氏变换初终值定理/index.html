@@ -24,7 +24,7 @@
     
     
       
-        <title>初/终值定理 - Cloudmosquito Site</title>
+        <title>Laplace变换初/终值定理 - Cloudmosquito Site</title>
       
     
     
@@ -87,7 +87,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
+        <a href="#laplace" class="md-skip">
           跳转至
         </a>
       
@@ -121,7 +121,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              初/终值定理
+              Laplace变换初/终值定理
             
           </span>
         </div>
@@ -715,7 +715,7 @@
           
   
   <span class="md-ellipsis">
-    初/终值定理
+    Laplace变换初/终值定理
     
   </span>
   
@@ -727,7 +727,7 @@
         
   
   <span class="md-ellipsis">
-    初/终值定理
+    Laplace变换初/终值定理
     
   </span>
   
@@ -792,7 +792,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       思考细节
     </span>
@@ -801,7 +801,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       不知道是否严谨的推导方式
     </span>
@@ -810,7 +810,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       附录 三角函数的拉式变换
     </span>
@@ -1329,6 +1329,8 @@
       
         
       
+        
+      
     
     
       
@@ -1375,6 +1377,28 @@
   
   <span class="md-ellipsis">
     Chapter 2 刚性运动和齐次变换
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E6%9C%BA%E5%99%A8%E4%BA%BA%26%E9%A3%9E%E6%9C%BA/%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%AD%A6/%E6%97%8B%E8%BD%AC%E7%9F%A9%E9%98%B5%E7%9A%84%E5%AF%BC%E6%95%B0/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    旋转矩阵的导数
     
   </span>
   
@@ -1884,7 +1908,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       思考细节
     </span>
@@ -1893,7 +1917,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       不知道是否严谨的推导方式
     </span>
@@ -1902,7 +1926,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       附录 三角函数的拉式变换
     </span>
@@ -1926,7 +1950,7 @@
 
 
 
-<h1 id="_1">初/终值定理</h1>
+<h1 id="laplace">Laplace变换初/终值定理</h1>
 <h2 id="introduction">Introduction</h2>
 <p>本文的诞生缘于自控课上老师的一句话：“对于三角函数输入，响应不能利用（拉氏变换后）终值定理求解。”本文回答了为什么不能这么做。</p>
 <h2 id="background">Background</h2>
@@ -1958,14 +1982,14 @@
 <p>若 <span class="arithmatex">\(\mathcal{L}[f(t)] = F(s)\)</span>，<span class="arithmatex">\(\mathrm{d}f/\mathrm{d}t\)</span> 是可以 Laplace 变换的，且 <span class="arithmatex">\(f(+\infty)\)</span> 存在，<span class="arithmatex">\(sF(s)\)</span> 的所有奇点在半平面 <span class="arithmatex">\(Re(s) &lt; 0\)</span> 内（除了原点），则有终值定理：</p>
 <div class="arithmatex">\[ f(+\infty) = \lim_{s \to 0}sF(s) \]</div>
 </blockquote>
-<h2 id="_2">思考细节</h2>
+<h2 id="_1">思考细节</h2>
 <p>我们考虑输入信号为 <span class="arithmatex">\(r(t) = A \sin(\omega t + \theta)\)</span>.（三角函数的标准形式）
 对其做拉氏变换，可以得到 <span class="arithmatex">\(R(s) = A \frac{s \sin\theta + \omega \text{cos}\theta}{s^2 + \omega^2}\)</span>.</p>
 <p>进一步有：</p>
 <div class="arithmatex">\[sR(s) = As\frac{s \sin\theta + \omega \text{cos}\theta}{s^2 + \omega^2}\]</div>
 <p>我们可以很容易地得到它的奇点：<span class="arithmatex">\(s_{p_1,p_2} = \pm j\omega\)</span> .</p>
 <p>所以三角函数输入不满足终值定理的使用条件。（不满足第三句话）。</p>
-<h2 id="_3">不知道是否严谨的推导方式</h2>
+<h2 id="_2">不知道是否严谨的推导方式</h2>
 <p>首先，我们分析 <span class="arithmatex">\(f(t)\)</span> 一阶导数的 Laplace 变换，同时设 <span class="arithmatex">\(\mathcal{L}(f(t)) = F(s)\)</span> .</p>
 <div class="arithmatex">\[\begin{aligned}
 \mathcal{L}(\dot{f}) &amp;= \int_{0_+}^{+\infty}\frac{\mathrm{d}f}{\mathrm{d}t}e^{-st}\mathrm{d}t\\
@@ -1985,7 +2009,7 @@
 &amp;= \int_{0_+}^{+\infty}\frac{\mathrm{d}f}{\mathrm{d}t}(\lim_{s\to \infty}e^{-st})\mathrm{d}t + f(0_+)\\
 &amp;= f(0_+)
 \end{aligned}\]</div>
-<h2 id="_4">附录 三角函数的拉式变换</h2>
+<h2 id="_3">附录 三角函数的拉式变换</h2>
 <p>考虑</p>
 <div class="arithmatex">\[ f(t) = A \sin(\omega t + \theta) = A\frac{e^{i(\omega t + \theta)} - e^{-i(\omega t + \theta)}}{2i} \]</div>
 <p>求 <span class="arithmatex">\(f(t)\)</span> 的拉式变换，过程如下：</p>
