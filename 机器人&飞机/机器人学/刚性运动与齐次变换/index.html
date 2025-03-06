@@ -1187,6 +1187,8 @@
       
         
       
+        
+      
     
     
       
@@ -1399,6 +1401,81 @@
   
   <span class="md-ellipsis">
     旋转矩阵的导数
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    论文阅读
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            论文阅读
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/%E5%9B%9B%E6%97%8B%E7%BF%BC%E5%BE%AE%E5%88%86%E5%B9%B3%E5%9D%A6%E4%B8%8E%E6%9C%80%E5%B0%8F%20snap%20%E8%BD%A8%E8%BF%B9/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    四旋翼微分平坦与最小 snap 轨迹
     
   </span>
   
@@ -1968,6 +2045,15 @@
 k_x^2v_{\theta}+c_{\theta} &amp; k_xk_yv_{\theta}-k_zs_{\theta} &amp; k_xk_zv_{\theta}+k_ys_{\theta}\\ k_xk_yv_{\theta}+k_zs_{\theta} &amp; k_y^2v_{\theta}+c_{\theta} &amp; k_yk_zv_{\theta}-k_xs_{\theta}\\ k_xk_zv_{\theta}-k_ys_{\theta} &amp; k_yk_zv_{\theta}+k_xs_{\theta} &amp; k_z^2v_{\theta}+c_{\theta}
 \end{bmatrix} \]</div>
 <p>其中，<span class="arithmatex">\(v_{\theta} = vers(\theta) = 1 - c_{\theta}\)</span>，<span class="arithmatex">\(k\)</span>是单位向量<span class="arithmatex">\(\begin{bmatrix}k_x &amp; k_y &amp; k_z\end{bmatrix}^T\)</span></p>
+<p>若已知一个等轴角表示的旋转矩阵：</p>
+<div class="arithmatex">\[R_{\mathbf{k}, \theta} = \begin{bmatrix}
+r_{11} &amp; r_{12} &amp; r_{13}\\
+r_{21} &amp; r_{22} &amp; r_{23}\\
+r_{31} &amp; r_{32} &amp; r_{33}
+\end{bmatrix}\]</div>
+<p>则有</p>
+<div class="arithmatex">\[\theta = \arccos \frac{r_{11} + r_{22} + r_{33} - 1}{2}\]</div>
+<div class="arithmatex">\[\mathbf{k} = \frac{1}{2\sin\theta}\begin{bmatrix}r_{32} - r_{23}\\ r_{13} - r_{31}\\ r_{21} - r_{12}\end{bmatrix}\]</div>
 <h2 id="2">2 相似变换</h2>
 <p>如果A描述了一个给定线性变换在坐标系1中的表示，B描述了一个给定线性变换在坐标系0中的表示，则有：</p>
 <div class="arithmatex">\[ B = (_1^0R) A (_0^1R) \]</div>
