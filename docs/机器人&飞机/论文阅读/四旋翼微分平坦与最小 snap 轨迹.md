@@ -23,10 +23,7 @@
 坐标系 $\{\mathcal{W}'\}$ 是坐标系 $\{\mathcal{W}\}$ 平移到机体坐标系 $\{B\}$ 使得两原点重合的结果。
 坐标系 $\{\mathcal{C_1}\}$ 是 $\{\mathcal{W}\}$ 绕 yaw 轴（$\mathbf{z}_\mathcal{W}$）旋转了 $\psi$ 角度。坐标系 $\{\mathcal{C}_2\}$ 是坐标系 $\{\mathcal{C}_1\}$ 平移到机体坐标系 $\{\mathcal{B}\}$ 使得两原点重合的结果。坐标系 $\{\mathcal{D}\}$ 是坐标系 $\{\mathcal{C}_2\}$ 绕 roll 轴（$\mathbf{x}_{\mathcal{C}_2}$）旋转了 $\phi$ 角度，坐标系 $\{\mathcal{B}\}$ 是坐标系 $\{\mathcal{D}\}$ 绕 pitch 轴（$\mathbf{y}_{\mathcal{D}}$）旋转了 $\theta$ 角度。
 
-<figure markdown>
-![](./四旋翼微分平坦与最小 snap 轨迹.assets/坐标系.png){width=100%}
-<!-- <figcaption>RCL Layers</figcaption> -->
-</figure>
+![坐标系示意图](./四旋翼微分平坦与最小%20snap%20轨迹.assets/坐标系.png){width=100%}
 
 $$\begin{aligned}\mathcal{W} & \overset{Translation}\Longleftrightarrow \mathcal{W}'\\
 \mathcal{C}_1 &\overset{Translation}\Longleftrightarrow \mathcal{C}_2\\
