@@ -2079,15 +2079,15 @@
 <li><span class="arithmatex">\(_1^0 R\)</span>的每行每列都是一个单位向量。（评：第一行就是<span class="arithmatex">\(x_0\)</span>在坐标系1的表示，第一列就是<span class="arithmatex">\(x_1\)</span>在坐标系0的表示）</li>
 </ol>
 <p><strong>基本旋转矩阵</strong>：</p>
-<div class="arithmatex">\[ R_{z, \theta} = \begin{bmatrix}
-  \cos\theta &amp; -\sin \theta &amp; 0 \\
-  \sin \theta &amp; \cos \theta &amp; 0 \\
+<div class="arithmatex">\[ R_{z, \psi} = \begin{bmatrix}
+  \cos\psi &amp; -\sin \psi &amp; 0 \\
+  \sin \psi &amp; \cos \psi &amp; 0 \\
   0 &amp; 0 &amp; 1
 \end{bmatrix}\]</div>
-<div class="arithmatex">\[ R_{x, \theta} = \begin{bmatrix}
+<div class="arithmatex">\[ R_{x, \phi} = \begin{bmatrix}
   1 &amp; 0 &amp; 0 \\
-  0 &amp; \cos \theta &amp; -\sin\theta \\
-  0 &amp; \sin\theta &amp; \cos\theta
+  0 &amp; \cos \phi &amp; -\sin\phi \\
+  0 &amp; \sin\phi &amp; \cos\phi
 \end{bmatrix} \]</div>
 <div class="arithmatex">\[ R_{y, \theta} = \begin{bmatrix}
   \cos\theta &amp; 0 &amp; \sin\theta \\
@@ -2132,7 +2132,7 @@ s\phi s\theta c\psi + c\phi s\psi &amp; -s\phi s\theta s\psi + c\phi c\psi &amp;
 <div class="arithmatex">\[R_{ZYX} = \begin{bmatrix}
 c\psi c\theta &amp; -s\psi c\phi + c\psi s\theta s\phi &amp; s\psi s\phi + c\psi s\theta c\phi\\
 s\psi s\theta &amp; c\psi c\phi + s\psi s\theta s\phi &amp; -c\psi s\phi + s\psi s\theta c\phi\\
--s\theta &amp; c\theta s\phi &amp; -c\theta c\phi
+-s\theta &amp; c\theta s\phi &amp; c\theta c\phi
 \end{bmatrix}\]</div>
 <h2 id="4">4 齐次变换</h2>
 <p>齐次变换利用 SE(3) 中的矩阵来描述刚性运动：平移和旋转。</p>
