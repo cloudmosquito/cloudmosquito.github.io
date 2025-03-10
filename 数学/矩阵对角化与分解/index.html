@@ -24,7 +24,7 @@
     
     
       
-        <title>矩阵对角化 - Cloudmosquito Site</title>
+        <title>矩阵对角化与分解 - Cloudmosquito Site</title>
       
     
     
@@ -121,7 +121,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              矩阵对角化
+              矩阵对角化与分解
             
           </span>
         </div>
@@ -891,16 +891,146 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    矩阵对角化与分解
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
-    矩阵对角化
+    矩阵对角化与分解
     
   </span>
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1 矩阵对角化（特征值分解）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1 矩阵对角化（特征值分解）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1 结论
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2 思考过程
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.3 拓展
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-svdsingular-value-decomposition" class="md-nav__link">
+    <span class="md-ellipsis">
+      2 SVD（Singular Value Decomposition）奇异值分解
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2 SVD（Singular Value Decomposition）奇异值分解">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 结论
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 思考过程
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-svd" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3 SVD 的用处
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.3 SVD 的用处">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#231" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3.1 求伪逆
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1884,6 +2014,113 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1 矩阵对角化（特征值分解）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1 矩阵对角化（特征值分解）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1 结论
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2 思考过程
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.3 拓展
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-svdsingular-value-decomposition" class="md-nav__link">
+    <span class="md-ellipsis">
+      2 SVD（Singular Value Decomposition）奇异值分解
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2 SVD（Singular Value Decomposition）奇异值分解">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 结论
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 思考过程
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-svd" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3 SVD 的用处
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.3 SVD 的用处">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#231" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3.1 求伪逆
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1898,31 +2135,110 @@
 
 
 
-<h1 id="_1">矩阵对角化</h1>
-<p>我们讨论一个可逆的 <span class="arithmatex">\(n\)</span> 维矩阵 <span class="arithmatex">\(A\)</span>。</p>
+<h1 id="_1">矩阵对角化与分解</h1>
+<h2 id="1">1 矩阵对角化（特征值分解）</h2>
+<h3 id="11">1.1 结论</h3>
+<p>一个特征向量线性无关（所有特征值都不同）的 <span class="arithmatex">\(n\)</span> 维矩阵 <span class="arithmatex">\(A\)</span>，可以写成如下形式</p>
+<div class="arithmatex">\[A =  W \Sigma W^{-1}\]</div>
+<p>其中，<span class="arithmatex">\(\Sigma\)</span> 是由 <span class="arithmatex">\(A\)</span> 的特征值组成的对角阵，<span class="arithmatex">\(W\)</span> 是由 <span class="arithmatex">\(A\)</span> 的特征向量组成的矩阵，<span class="arithmatex">\(W\)</span> 的每一列都是 <span class="arithmatex">\(A\)</span> 的一个特征向量。</p>
+<h3 id="12">1.2 思考过程</h3>
+<p>我们讨论一个 <span class="arithmatex">\(n\)</span> 维矩阵 <span class="arithmatex">\(A\)</span>。</p>
 <p>首先，我们考察矩阵 <span class="arithmatex">\(A\)</span> 的特征值，它们满足</p>
-<div class="arithmatex">\[Ax_i = \lambda_i x_i\]</div>
-<p>这里的 <span class="arithmatex">\(x_i\)</span> 是一个 <span class="arithmatex">\(n\times 1\)</span> 的向量。</p>
+<div class="arithmatex">\[A\mathbf{x}_i = \lambda_i \mathbf{x}_i\]</div>
+<p>这里的 <span class="arithmatex">\(\mathbf{x}_i\)</span> 是一个 <span class="arithmatex">\(n\times 1\)</span> 的向量。</p>
 <p>一个很自然的想法是，我们把 <span class="arithmatex">\(n\)</span> 个特征值对应的上式合在一起，用矩阵表示，那么就是</p>
-<div class="arithmatex">\[A\begin{bmatrix}x_1 &amp; x_2 &amp;...&amp;x_n\end{bmatrix} = \begin{bmatrix}\lambda_1x_1 &amp; \lambda_2x_2 &amp;...&amp;\lambda_nx_n\end{bmatrix}\]</div>
+<div class="arithmatex">\[A\begin{bmatrix}\mathbf{x}_1 &amp; \mathbf{x}_2 &amp;...&amp;\mathbf{x}_n\end{bmatrix} = \begin{bmatrix}\lambda_1\mathbf{x}_1 &amp; \lambda_2\mathbf{x}_2 &amp;...&amp;\lambda_n\mathbf{x}_n\end{bmatrix}\]</div>
 <p>下面这一步思考需要一点灵感。构造一个矩阵 <span class="arithmatex">\(B\)</span>：</p>
-<div class="arithmatex">\[B = \begin{bmatrix}b_{1,1\times n}\\b_2\\...\\b_n\end{bmatrix}_{n\times n},\begin{bmatrix}b_1\\b_2\\...\\b_n\end{bmatrix}\begin{bmatrix}\lambda_1x_1 &amp; \lambda_2x_2 &amp;...&amp;\lambda_2x_n\end{bmatrix} = \begin{bmatrix}\lambda_1b_1x_1 &amp; \lambda_2b_1x_2 &amp;...&amp;\lambda_nb_1x_n\\ \lambda_1b_2x_1 &amp; \lambda_2b_2x_2 &amp; ... &amp; \lambda_nb_2x_n\\ ...\\ \lambda_1b_nx_1 &amp; \lambda_2b_nx_2 &amp; ... &amp; \lambda_nb_nx_n\end{bmatrix}\]</div>
-<p>如果 <span class="arithmatex">\(b_ix_i = 1\)</span> 且 <span class="arithmatex">\(b_ix_j = 0\)</span>，那么上式的结果就是一个由矩阵 <span class="arithmatex">\(A\)</span> 的特征值组成的对角阵了。</p>
-<p>什么样的矩阵 <span class="arithmatex">\(B\)</span> 具有以上性质呢？其实只要把所有 <span class="arithmatex">\(\lambda\)</span> 都去了，就很容易发现，<span class="arithmatex">\(B\)</span> 就是特征向量组成的矩阵的逆矩阵（ <span class="arithmatex">\(\begin{bmatrix}x_1 &amp; x_2 &amp;...&amp;x_n\end{bmatrix}^{-1}\)</span> ）。</p>
+<div class="arithmatex">\[B = \begin{bmatrix}\mathbf{b}_{1,1\times n}\\\mathbf{b}_2\\...\\\mathbf{b}_n\end{bmatrix}_{n\times n}\]</div>
+<p>让 <span class="arithmatex">\(B\)</span> 左乘 <span class="arithmatex">\(A\begin{bmatrix}\mathbf{x}_1 &amp; \mathbf{x}_2 &amp; \cdots &amp; \mathbf{x}_n\end{bmatrix}\)</span> ：</p>
+<div class="arithmatex">\[\begin{bmatrix}\mathbf{b}_1\\\mathbf{b}_2\\...\\\mathbf{b}_n\end{bmatrix}\begin{bmatrix}\lambda_1\mathbf{x}_1 &amp; \lambda_2\mathbf{x}_2 &amp;...&amp;\lambda_2\mathbf{x}_n\end{bmatrix} = \begin{bmatrix}\lambda_1\mathbf{b}_1\mathbf{x}_1 &amp; \lambda_2\mathbf{b}_1\mathbf{x}_2 &amp;...&amp;\lambda_n\mathbf{b}_1\mathbf{x}_n\\ \lambda_1\mathbf{b}_2\mathbf{x}_1 &amp; \lambda_2\mathbf{b}_2\mathbf{x}_2 &amp; ... &amp; \lambda_n\mathbf{b}_2\mathbf{x}_n\\ ...\\ \lambda_1\mathbf{b}_n\mathbf{x}_1 &amp; \lambda_2\mathbf{b}_n\mathbf{x}_2 &amp; ... &amp; \lambda_n\mathbf{b}_n\mathbf{x}_n\end{bmatrix}\]</div>
+<p>不难发现，如果 <span class="arithmatex">\(\mathbf{b}_i\mathbf{x}_i = 1\)</span> 且 <span class="arithmatex">\(\mathbf{b}_i\mathbf{x}_j = 0, \ i \neq j\)</span>，上式的结果就是一个由矩阵 <span class="arithmatex">\(A\)</span> 的特征值组成的对角阵。</p>
+<p>什么样的矩阵 <span class="arithmatex">\(B\)</span> 能够满足 <span class="arithmatex">\(\mathbf{b}_i\mathbf{x}_i = 1\)</span> 且 <span class="arithmatex">\(\mathbf{b}_i\mathbf{x}_j = 0, \ i \neq j\)</span> 呢？其实只要把所有 <span class="arithmatex">\(\lambda\)</span> 都去了，就很容易发现，<span class="arithmatex">\(B\)</span> 就是特征向量组成的矩阵的逆矩阵（ <span class="arithmatex">\(\begin{bmatrix}\mathbf{x}_1 &amp; \mathbf{x}_2 &amp;...&amp;\mathbf{x}_n\end{bmatrix}^{-1}\)</span> ）。</p>
+<blockquote>
+<p>这里还有一个观察：如果 <span class="arithmatex">\(\mathbf{x}_i, \ i=1,2,...,n\)</span> 两两正交，单位长度，那么，矩阵 <span class="arithmatex">\(B = \begin{bmatrix}\mathbf{x}_1 &amp; \mathbf{x}_2 &amp; \cdots &amp; \mathbf{x}_n\end{bmatrix}^{-1} = \begin{bmatrix}\mathbf{x}_1 &amp; \mathbf{x}_2 &amp; \cdots &amp; \mathbf{x}_n\end{bmatrix}^T\)</span> 。这时候的 <span class="arithmatex">\(B\)</span> 就是一个酉矩阵。</p>
+</blockquote>
 <hr />
-<p>现在有一个问题，特征向量组成的这个矩阵可逆吗（ <span class="arithmatex">\(\begin{bmatrix}x_1 &amp; x_2 &amp;...&amp;x_n\end{bmatrix}^{-1}\)</span> 存在吗）？</p>
-<p>当每个特征值都不一样时，该矩阵确实是可逆的。我们可以说明：此时，一组特征向量就是一组基。</p>
-<p>利用反证法。假设 <span class="arithmatex">\(x_i = ax_j + bx_k\)</span> ，然后等号左右两边同时左乘一个矩阵 <span class="arithmatex">\(A\)</span> ，得到</p>
-<div class="arithmatex">\[\begin{aligned}Ax_i &amp;= aAx_j + bAx_k\\
-\lambda_ix_i &amp;= a\lambda_jx_j + b\lambda_kx_k\\
-x_i &amp;= a\frac{\lambda_j}{\lambda_i}x_j + b\frac{\lambda_k}{\lambda_i}x_k\end{aligned}\]</div>
+<p>现在有一个问题，矩阵 <span class="arithmatex">\(A\)</span> 的特征向量组成的这个矩阵可逆吗（ <span class="arithmatex">\(\begin{bmatrix}\mathbf{x}_1 &amp; \mathbf{x}_2 &amp;...&amp;\mathbf{x}_n\end{bmatrix}^{-1}\)</span> 存在吗）？</p>
+<p>当矩阵 <span class="arithmatex">\(A\)</span> 特征向量都线性无关的时候，显然矩阵可逆。</p>
+<p><strong>当矩阵 <span class="arithmatex">\(A\)</span> 的每个特征值都不一样时</strong>，该矩阵也是可逆的。我们可以说明：此时，<span class="arithmatex">\(A\)</span> 的特征向量都线性无关。</p>
+<p>利用反证法。假设 <span class="arithmatex">\(\mathbf{x}_i = a\mathbf{x}_j + b\mathbf{x}_k\)</span> ，然后等号左右两边同时左乘一个矩阵 <span class="arithmatex">\(A\)</span> ，得到</p>
+<div class="arithmatex">\[\begin{aligned}A\mathbf{x}_i &amp;= aA\mathbf{x}_j + bA\mathbf{x}_k\\
+\lambda_i\mathbf{x}_i &amp;= a\lambda_j\mathbf{x}_j + b\lambda_k\mathbf{x}_k\\
+\mathbf{x}_i &amp;= a\frac{\lambda_j}{\lambda_i}\mathbf{x}_j + b\frac{\lambda_k}{\lambda_i}\mathbf{x}_k\end{aligned}\]</div>
 <p>从而，我们有</p>
-<div class="arithmatex">\[a(1-\frac{\lambda_j}{\lambda_i})x_j = b(\frac{\lambda_k}{\lambda_i}-1)x_k\]</div>
-<p>因为 <span class="arithmatex">\(Ax_j = \lambda_j x_j\)</span> ，把 <span class="arithmatex">\(x_j\)</span> 用 <span class="arithmatex">\(x_k\)</span> 表示，就可以得到 <span class="arithmatex">\(Ax_k = \lambda_j x_k\)</span> . 但是 <span class="arithmatex">\(Ax_k = \lambda_k x_k\)</span> ，推导得到 <span class="arithmatex">\(\lambda_j = \lambda_k\)</span> .</p>
-<p>这与“每个特征值都不一样的条件”不符，说明我们假设错误。所以特征向量组成的这个矩阵可逆（ <span class="arithmatex">\(\begin{bmatrix}x_1 &amp; x_2 &amp;...&amp;x_n\end{bmatrix}^{-1}\)</span> 存在）。</p>
+<div class="arithmatex">\[a(1-\frac{\lambda_j}{\lambda_i})\mathbf{x}_j = b(\frac{\lambda_k}{\lambda_i}-1)\mathbf{x}_k\]</div>
+<p>因为 <span class="arithmatex">\(A\mathbf{x}_j = \lambda_j \mathbf{x}_j\)</span> ，把 <span class="arithmatex">\(\mathbf{x}_j\)</span> 用 <span class="arithmatex">\(\mathbf{x}_k\)</span> 表示，就可以得到 <span class="arithmatex">\(A\mathbf{x}_k = \lambda_j \mathbf{x}_k\)</span> . 但是 <span class="arithmatex">\(A\mathbf{x}_k = \lambda_k \mathbf{x}_k\)</span> ，推导得到 <span class="arithmatex">\(\lambda_j = \lambda_k\)</span> .</p>
+<p>这与“每个特征值都不一样的条件”不符，说明我们假设错误，说明 <span class="arithmatex">\(A\)</span> 的特征向量都线性无关。</p>
+<p>所以特征向量组成的这个矩阵可逆（ <span class="arithmatex">\(\begin{bmatrix}\mathbf{x}_1 &amp; \mathbf{x}_2 &amp;...&amp;\mathbf{x}_n\end{bmatrix}^{-1}\)</span> 存在）。</p>
 <hr />
-<p>综上所述，当一个可逆的 <span class="arithmatex">\(n\)</span> 维矩阵 <span class="arithmatex">\(A\)</span> 的所有特征值都不一样时，可以用它的特征值向量构成的矩阵来将其对角化：</p>
-<div class="arithmatex">\[\begin{bmatrix}x_1 &amp; x_2 &amp;...&amp;x_n\end{bmatrix}^{-1}A\begin{bmatrix}x_1 &amp; x_2 &amp;...&amp;x_n\end{bmatrix} = diag\begin{bmatrix}\lambda_1 &amp; \lambda_2 &amp;...&amp;\lambda_n\end{bmatrix}\]</div>
+<p>综上所述，当一个 <span class="arithmatex">\(n\)</span> 维矩阵 <span class="arithmatex">\(A\)</span> 的特征向量线性无关（所有特征值都不同）时，可以用它的特征值向量构成的矩阵来将其对角化：</p>
+<div class="arithmatex">\[\begin{bmatrix}\mathbf{x}_1 &amp; \mathbf{x}_2 &amp;...&amp;\mathbf{x}_n\end{bmatrix}^{-1}A\begin{bmatrix}\mathbf{x}_1 &amp; \mathbf{x}_2 &amp;...&amp;\mathbf{x}_n\end{bmatrix} = diag\begin{bmatrix}\lambda_1 &amp; \lambda_2 &amp;...&amp;\lambda_n\end{bmatrix}\]</div>
+<h3 id="13">1.3 拓展</h3>
+<p>我们 callback 一下上文的观察，当 <span class="arithmatex">\(n\)</span> 维矩阵 <span class="arithmatex">\(A\)</span> 的所有特征值都不一样时，<span class="arithmatex">\(A\)</span> 的所有特征向量就是一组基，两两正交。但是，特征向量的长度是不确定的，不一定是 1 。这问题不大，我们将其长度归 1 化处理。</p>
+<p>我们构造一个新的矩阵 <span class="arithmatex">\(W\)</span> ：</p>
+<div class="arithmatex">\[W = \begin{bmatrix}\frac{\mathbf{x}_1}{\left\| \mathbf{x}_1 \right\|} &amp; \frac{\mathbf{x}_2}{\left\| \mathbf{x}_2 \right\|} &amp; \cdots &amp; \frac{\mathbf{x}_n}{\left\| \mathbf{x}_n \right\|}\end{bmatrix}\]</div>
+<p>首先，<span class="arithmatex">\(W\)</span> 的每一列向量仍然是矩阵 <span class="arithmatex">\(A\)</span> 的特征向量：</p>
+<div class="arithmatex">\[A \frac{\mathbf{x}_i}{\left\| \mathbf{x}_i \right\|} = \lambda_i \frac{\mathbf{x}_i}{\left\| \mathbf{x}_i \right\|}\]</div>
+<p>其次，<span class="arithmatex">\(W\)</span> 是一个<strong>酉矩阵</strong>：</p>
+<div class="arithmatex">\[W^TW = I\]</div>
+<p>利用矩阵 <span class="arithmatex">\(W\)</span>，我们可以做一个更加优美的矩阵对角化：</p>
+<div class="arithmatex">\[A = W\Sigma W^T\]</div>
+<h2 id="2-svdsingular-value-decomposition">2 SVD（Singular Value Decomposition）奇异值分解</h2>
+<p>上文讲了一个方阵如何对角化，现在我们试着将结论推广到 <span class="arithmatex">\(m\times n\)</span> 的矩阵上来。当然，此时“对角阵”不是严格意义上的对角阵。</p>
+<h3 id="21">2.1 结论</h3>
+<p>一个 <span class="arithmatex">\(m\times n\)</span> 的矩阵 <span class="arithmatex">\(A\)</span> 可以写成</p>
+<div class="arithmatex">\[A = U \Sigma V^* \tag{2-1}\]</div>
+<p>的形式。其中 <span class="arithmatex">\(A \in \mathbb{R}^{m\times n}\)</span> 或 <span class="arithmatex">\(A\in \mathbb{C}^{m\times n}\)</span>。 <span class="arithmatex">\(U_{m\times m}\)</span> 和 <span class="arithmatex">\(V_{n\times n}\)</span> 都是酉矩阵。<span class="arithmatex">\(V^*\)</span> 是 <span class="arithmatex">\(V\)</span> 的共轭转置。</p>
+<p>不妨令 <span class="arithmatex">\(m &gt; n\)</span> 。若 <span class="arithmatex">\(m &lt; n\)</span>，只需要先计算共轭转置的 SVD 分解，再将结果取共轭转置即可。</p>
+<p>这里的 <span class="arithmatex">\(\Sigma\)</span> 是一个“对角阵”，也就是说</p>
+<div class="arithmatex">\[\Sigma = \begin{bmatrix}\Sigma_1 \\ 0\end{bmatrix}\]</div>
+<div class="arithmatex">\[\Sigma_1 = \begin{bmatrix}\sigma_1\\ &amp; \sigma_2\\ &amp; &amp; \cdots\\ &amp; &amp; &amp; \sigma_n\end{bmatrix}\]</div>
+<p><span class="arithmatex">\(\sigma_i\)</span> 称为<strong>奇异值</strong>，是 <span class="arithmatex">\(AA^*\)</span> 或 <span class="arithmatex">\(A^*A\)</span> 的非零特征值开根号的结果，<span class="arithmatex">\(U\)</span> 是由 <span class="arithmatex">\(AA^*\)</span> 的正交单位特征向量组成的矩阵，<span class="arithmatex">\(V\)</span> 是由 <span class="arithmatex">\(A^*A\)</span> 的正交单位特征向量组成的矩阵。</p>
+<h3 id="22">2.2 思考过程</h3>
+<p>我们假设结论成立，来试着反推一下 <span class="arithmatex">\(U\)</span>，<span class="arithmatex">\(\Sigma\)</span> 和 <span class="arithmatex">\(V\)</span> 分别应当如何表示。</p>
+<p>首先，我们有</p>
+<div class="arithmatex">\[A^* = V \Sigma^* U^*\]</div>
+<p>则有</p>
+<div class="arithmatex">\[\begin{aligned}
+AA^* &amp;= U\Sigma V^* V \Sigma^* U^*\\
+&amp;= U \Sigma\Sigma^* U^*\\
+A^*A &amp;= V\Sigma^* U^* U \Sigma V^*\\
+&amp;= V\Sigma^* \Sigma V^*\\
+\end{aligned} \tag{2-2}\]</div>
+<p>这里的 <span class="arithmatex">\(\Sigma\Sigma^*\)</span> 和 <span class="arithmatex">\(\Sigma^*\Sigma\)</span> 都是对角阵：</p>
+<div class="arithmatex">\[\begin{aligned}
+\begin{bmatrix}\Sigma_1 \\ 0\end{bmatrix}\begin{bmatrix}\Sigma_1^* &amp; 0\end{bmatrix} &amp;= \begin{bmatrix}\Sigma_1\Sigma_1^* &amp; 0\\ 0 &amp; 0\end{bmatrix}\\
+\begin{bmatrix}\Sigma_1^* &amp; 0\end{bmatrix}\begin{bmatrix}\Sigma_1 \\ 0\end{bmatrix} &amp;= \begin{bmatrix} \Sigma_1^* \Sigma_1 \end{bmatrix}\\
+\end{aligned}\]</div>
+<p>我们观察一下 (2-2) 式，可以发现其形式酷似矩阵对角化。也就是说，<span class="arithmatex">\(\Sigma\Sigma^*\)</span> 是一个由 <span class="arithmatex">\(AA^*\)</span> 的特征值组成的对角阵，<span class="arithmatex">\(U\)</span> 是一个由 <span class="arithmatex">\(AA^*\)</span> 的正交单位特征向量组成的矩阵。<span class="arithmatex">\(\Sigma^*\Sigma\)</span> 是一个由 <span class="arithmatex">\(A^*A\)</span> 的特征值组成的对角阵，<span class="arithmatex">\(V\)</span> 是一个由 <span class="arithmatex">\(A^*A\)</span> 的正交单位特征向量组成的矩阵。</p>
+<div class="arithmatex">\[\begin{aligned}
+AA^*\mathbf{u}_i &amp;= \sigma_i^2 \mathbf{u}_i\\
+A^*A\mathbf{v}_i &amp;= \sigma_i^2 \mathbf{v}_i
+\end{aligned} \tag{2-3}\]</div>
+<hr />
+<p>首先，我们证明一下，<strong><span class="arithmatex">\(AA^*\)</span> 的特征值中，有 <span class="arithmatex">\(m-n\)</span> 个 0</strong>.</p>
+<p>特征值用 <span class="arithmatex">\(A\mathbf{v} = \lambda \mathbf{v}\)</span> 定义。当特征值为 0 时，即代表有不为 <span class="arithmatex">\(\mathbf{0}\)</span> 的向量 <span class="arithmatex">\(\mathbf{v}\)</span>，使得 <span class="arithmatex">\(A\mathbf{v} = \mathbf{0}\)</span>，也即 <span class="arithmatex">\(v_1\mathbf{a}_1 + v_2\mathbf{a}_2 + ... + v_n\mathbf{a}_n = \mathbf{0}\)</span> ，即 <span class="arithmatex">\(A\)</span> 的列向量中，至少有一个列向量与其它列向量线性相关。</p>
+<p>所以我们需要证明，<span class="arithmatex">\(AA^*\)</span> 的列向量中，至少有 <span class="arithmatex">\(m-n\)</span> 个列向量与其它列向量线性相关。</p>
+<p>设 <span class="arithmatex">\(A^* = \begin{bmatrix}\mathbf{a}_1 &amp; \mathbf{a}_2 &amp; \cdots &amp; \mathbf{a}_m \end{bmatrix}\)</span>，那么 <span class="arithmatex">\(AA^*\)</span> 的列向量就是 <span class="arithmatex">\(A\mathbf{a}_1, A\mathbf{a}_2 , \cdots, A\mathbf{a}_m\)</span>，那么 <span class="arithmatex">\(AA^*\)</span> 的列向量维度小于等于 <span class="arithmatex">\(A^*\)</span> 的列向量维度，而 <span class="arithmatex">\(A^*_{n\times m}\)</span> 维度小于等于 <span class="arithmatex">\(n\)</span> 。因此，<span class="arithmatex">\(AA^*\)</span> 的列向量维度小于等于 <span class="arithmatex">\(n\)</span>，也就是说至少有 <span class="arithmatex">\(m-n\)</span> 个列向量与其它列向量线性相关。</p>
+<p>接下来，我们证明 <strong><span class="arithmatex">\(AA^*\)</span> 的非零特征值和 <span class="arithmatex">\(A^*A\)</span> 的非零特征值相同</strong>。</p>
+<p>对于 <span class="arithmatex">\(AA^*\)</span> 的非零特征值 <span class="arithmatex">\(\lambda\)</span>，有 <span class="arithmatex">\(AA^* \mathbf{v} = \lambda \mathbf{v}\)</span>，这里的 <span class="arithmatex">\(A^*\mathbf{v}\)</span> 显然不可能为 0. 我们在该式等号左右两边都左乘一个 <span class="arithmatex">\(A^*\)</span>，有 <span class="arithmatex">\((A^*A)(A^*\mathbf{v}) = \lambda (A^*\mathbf{v})\)</span>，我们将 <span class="arithmatex">\(A^*\mathbf{v}\)</span> 看成 <span class="arithmatex">\(A^*A\)</span> 的特征向量，<span class="arithmatex">\(\lambda\)</span> 也就是 <span class="arithmatex">\(A^*A\)</span> 的特征值了。因此，我们就证明了 <span class="arithmatex">\(AA^*\)</span> 的非零特征值和 <span class="arithmatex">\(A^*A\)</span> 的非零特征值相同。</p>
+<p>再者，我们证明 <strong><span class="arithmatex">\(AA^*\)</span> 和 <span class="arithmatex">\(A^*A\)</span> 都是半正定的</strong>。</p>
+<p>对于 <span class="arithmatex">\(AA^*\)</span>，取其特征值有 <span class="arithmatex">\(AA^* \mathbf{v} = \lambda \mathbf{v}\)</span>，左乘 <span class="arithmatex">\(\mathbf{v}^*\)</span>，有 <span class="arithmatex">\(\mathbf{v}^*AA^* \mathbf{v} = (A^*\mathbf{v})^*(A^*\mathbf{v}) = \lambda \mathbf{v}^* \mathbf{v} \ge 0\)</span> 。<span class="arithmatex">\(A^*A\)</span> 同理。</p>
+<p>综上，我们足以说明 (2-3) 式是成立的。我们称呼 (2-3) 式为<strong>特征值方程</strong>。</p>
+<p>根据特征值方程，我们可以知道，<span class="arithmatex">\(\Sigma\)</span> 是由 <span class="arithmatex">\(AA^*\)</span> 的特征值开根号组成的“对角阵”，<span class="arithmatex">\(U\)</span> 是由 <span class="arithmatex">\(AA^*\)</span> 的正交单位特征向量组成的矩阵，<span class="arithmatex">\(V\)</span> 是由 <span class="arithmatex">\(A^*A\)</span> 的正交单位特征向量组成的矩阵。</p>
+<p>此外，还有<strong>奇异值方程</strong></p>
+<div class="arithmatex">\[A\mathbf{v}_i = \sigma_i \mathbf{u}_i \ \ \ A^*\mathbf{u}_i = \bar{\sigma}_i \mathbf{u}_i\]</div>
+<h3 id="23-svd">2.3 SVD 的用处</h3>
+<h4 id="231">2.3.1 求伪逆</h4>
+<p>SVD 奇异值分解经常用来求伪逆。</p>
+<div class="arithmatex">\[A_{m\times n} = U\Sigma V^*\]</div>
+<p>那么矩阵 <span class="arithmatex">\(A\)</span> 的伪逆 <span class="arithmatex">\(A^{+}\)</span> 是</p>
+<div class="arithmatex">\[A^{+}_{n\times m} = V\Sigma^{+}U^{*}\]</div>
+<p>其中 <span class="arithmatex">\(\Sigma^{+}\)</span> 是由 <span class="arithmatex">\(\Sigma\)</span> 的倒数组成的对角阵，即</p>
+<div class="arithmatex">\[\begin{aligned}
+&amp;\Sigma = \begin{bmatrix}\sigma_1 \\ &amp; \sigma_2\\ &amp; &amp; \cdots\\ &amp; &amp; &amp; \sigma_m &amp; 0 &amp; \cdots &amp; 0 \end{bmatrix} \ \ \Sigma^{+} = \begin{bmatrix}\frac{1}{\sigma_1}\\ &amp; \frac{1}{\sigma_2}\\ &amp; &amp; \cdots\\ &amp; &amp; &amp; \frac{1}{\sigma_m}\\ &amp; &amp; &amp; 0\\ &amp; &amp; &amp; \vdots\\ &amp; &amp; &amp; 0\end{bmatrix}\\
+&amp; \Sigma = \begin{bmatrix}\sigma_1 \\ &amp; \sigma_2\\ &amp; &amp; \cdots\\ &amp; &amp; &amp; \sigma_n \\ &amp; &amp; &amp; 0 \\ &amp; &amp; &amp;\vdots \\ &amp; &amp; &amp;0 \end{bmatrix} \ \ \Sigma^{+} = \begin{bmatrix}\frac{1}{\sigma_1}\\ &amp; \frac{1}{\sigma_2}\\ &amp; &amp; \cdots\\ &amp; &amp; &amp; \frac{1}{\sigma_n} &amp; 0 &amp; \cdots &amp; 0\end{bmatrix}
+\end{aligned}\]</div>
 
 
 
