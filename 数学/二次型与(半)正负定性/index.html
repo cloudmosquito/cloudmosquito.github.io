@@ -20,7 +20,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.7">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.8">
     
     
       
@@ -2098,37 +2098,37 @@
 <li><strong>不定性</strong>：<span class="arithmatex">\(\exists x_1,x_2 \in \mathbb{R}^n, V(x_1) &gt; 0, V(x_2) &lt; 0\)</span></li>
 </ul>
 <h2 id="2">2 二次型的正(负)定性</h2>
-<p>当标量函数<code>V(x)</code>是二次型形式，也就是说，<span class="arithmatex">\(V(x) = x^TAx\)</span>，其中<span class="arithmatex">\(A\)</span>是一个线性定常矩阵时，我们也会说，<span class="arithmatex">\(A\)</span> 具有与 <span class="arithmatex">\(V(x)\)</span> 一致的 (半)正/负定性。</p>
+<p>当标量函数<code>V(x)</code>是二次型形式，也就是说，<span class="arithmatex">\(V(x) = x^TAx\)</span> ，其中 <span class="arithmatex">\(A\)</span> 是一个线性定常矩阵时，我们也会说，<span class="arithmatex">\(A\)</span> 具有与 <span class="arithmatex">\(V(x)\)</span> 一致的 (半)正/负定性。</p>
 <h3 id="21">2.1 二次型为什么要求矩阵对称？</h3>
 <p>这里有数学上的一个Trick。</p>
 <p>去看各种参考书中关于“二次型”的定义，它们会告诉你，二次型长这个样子</p>
 <div class="arithmatex">\[x^TAx = \sum\limits_{i}\sum\limits_{j}a_{i,j}x_ix_j\]</div>
-<p>但它们同时也会要求<span class="arithmatex">\(A\)</span><strong>是一个对称矩阵</strong>，这是为什么呢？</p>
-<p>我们从字面意义上思考“二次型”这个概念，很自然会觉得，如果标量函数可以完全表示成完全平方形式的线性组合，那么它就是一个二次型。这种直觉对吗？我觉得不无道理。</p>
-<p>但其实，所有二次型都能表示为完全平方形式的线性组合。</p>
-<p>举个例子，<span class="arithmatex">\(x_1^2+2x_1x_2+2x_2^2 = (x_1+x_2)^2+x_2^2\)</span>，只要根据耦合项配系数，再留出单独的平方项，就能把任意一个二次型转化为完全平方的形式。</p>
-<p>所以，对于任意矩阵<span class="arithmatex">\(A\)</span>，理论上<span class="arithmatex">\(x^TAx\)</span>都应该是符合我们直觉的一个二次型。</p>
-<p>那么可以合理怀疑，<span class="arithmatex">\(\forall A, \exists B, B = B^T, x^TAx = x^TBx\)</span>.</p>
-<p>事实上，我们也确实可以找到这样的一个<span class="arithmatex">\(B\)</span>，<span class="arithmatex">\(B = (A^T + A)/2\)</span>.</p>
+<p>但它们同时也会要求 <span class="arithmatex">\(A\)</span> <strong>是一个对称矩阵</strong>，这是为什么呢？</p>
+<p>我们从字面意义上思考“二次型”这个概念，很自然会觉得，如果标量函数 <span class="arithmatex">\(\sum\limits_{i}\sum\limits_{j}a_{i,j}x_ix_j\)</span> 可以表示成完全平方形式的线性组合，那么它才称得上是一个二次型。</p>
+<p>但其实，所有标量函数 <span class="arithmatex">\(\sum\limits_{i}\sum\limits_{j}a_{i,j}x_ix_j\)</span> 都能表示为完全平方形式的线性组合。</p>
+<p>举个例子，<span class="arithmatex">\(x_1^2+2x_1x_2+2x_2^2 = (x_1+x_2)^2+x_2^2\)</span> ，只要根据耦合项配系数，再留出单独的平方项，就能把任意一个二次型转化为完全平方的形式。</p>
+<p>所以，对于任意矩阵 <span class="arithmatex">\(A\)</span> ，理论上 <span class="arithmatex">\(x^TAx\)</span> 都应该是符合我们直觉的一个二次型。</p>
+<p>那么可以合理怀疑，<span class="arithmatex">\(\forall A, \exists B, B = B^T, x^TAx = x^TBx\)</span> .</p>
+<p>事实上，我们也确实可以找到这样的一个 <span class="arithmatex">\(B\)</span> ， <span class="arithmatex">\(B = (A^T + A)/2\)</span> .</p>
 <p>具体推导过程如下所示</p>
 <div class="arithmatex">\[\begin{aligned}x^T(\frac{A^T+A}{2})x &amp;= \frac{1}{2}(x^TA^Tx + x^TAx)\\ &amp;= \frac{1}{2}[(x^TAx)^T+x^TAx]\\ &amp;= \frac{1}{2}(x^TAx+x^TAx)\\ &amp;=x^TAx\end{aligned}\]</div>
 <h3 id="22">2.2 二次型正定的充要条件：方阵的顺序主子式都大于零</h3>
 <p><strong>塞尔维斯特准则</strong>：二次型正定的充要条件是方阵的顺序主子式都大于零。</p>
 <blockquote>
-<p>顺序主子式：对于给定的<span class="arithmatex">\(n\)</span>阶方阵<span class="arithmatex">\(A_n\)</span>，其前<span class="arithmatex">\(k\)</span>行<span class="arithmatex">\(k\)</span>列组成的方阵<span class="arithmatex">\(A_{(k)}\)</span>的行列式<span class="arithmatex">\(\Delta_k\)</span>为<span class="arithmatex">\(A_n\)</span>的<span class="arithmatex">\(k\)</span>阶顺序主子式。</p>
+<p>顺序主子式：对于给定的 <span class="arithmatex">\(n\)</span> 阶方阵 <span class="arithmatex">\(A_n\)</span> ，其前 <span class="arithmatex">\(k\)</span> 行 <span class="arithmatex">\(k\)</span> 列组成的方阵 <span class="arithmatex">\(A_{(k)}\)</span> 的行列式 <span class="arithmatex">\(\Delta_k\)</span> 为 <span class="arithmatex">\(A_n\)</span> 的 <span class="arithmatex">\(k\)</span> 阶顺序主子式。</p>
 </blockquote>
-<p><strong>Sylvester Criterion：</strong><span class="arithmatex">\(A_n \in \mathbb{R}^{n\times n}, A_n \text{是正定的, iff,} \Delta_1 &gt; 0, \Delta_2 &gt; 0, ..., \Delta_n &gt; 0\)</span>.</p>
+<p><strong>Sylvester Criterion：</strong><span class="arithmatex">\(A_n \in \mathbb{R}^{n\times n}, A_n \text{是正定的, iff,}\ \Delta_1 &gt; 0, \Delta_2 &gt; 0, ..., \Delta_n &gt; 0\)</span> .</p>
 <h4 id="221">2.2.1 证明准备——引理</h4>
 <ol>
 <li>
 <p>【引理1】：正定矩阵的特征值大于<code>0</code>。</p>
-<p><span class="arithmatex">\(\forall x \neq 0, x^TAx = x^T\lambda_i x &gt; 0\)</span>，其中<span class="arithmatex">\(\lambda_i\)</span>是<code>A</code>的第<code>i</code>个特征值。所以有<span class="arithmatex">\(\lambda_i &gt; 0\)</span>.</p>
+<p><span class="arithmatex">\(\forall x \neq 0, x^TAx = x^T\lambda_i x &gt; 0\)</span> ，其中<span class="arithmatex">\(\lambda_i\)</span> 是<code>A</code>的第<code>i</code>个特征值。所以有 <span class="arithmatex">\(\lambda_i &gt; 0\)</span> .</p>
 </li>
 <li>
 <p>【引理2】：方阵的行列式等于特征值的积。</p>
-<p>方阵的特征多项式<span class="arithmatex">\(|A-\lambda E| = (\lambda_1-\lambda)(\lambda_2 - \lambda)...(\lambda_n -\lambda)\)</span>。</p>
-<p>（注意：不是<span class="arithmatex">\((\lambda-\lambda_1)(\lambda-\lambda_2)...(\lambda-\lambda_n)\)</span>，因为左式的负号在<span class="arithmatex">\(\lambda\)</span>上）</p>
-<p>取<span class="arithmatex">\(\lambda = 0\)</span>，就得到了<span class="arithmatex">\(|A| = \prod_{i=1}^{n}\lambda_i\)</span>.</p>
+<p>方阵的特征多项式 <span class="arithmatex">\(|A-\lambda E| = (\lambda_1-\lambda)(\lambda_2 - \lambda)...(\lambda_n -\lambda)\)</span> 。</p>
+<p>（注意：不是 <span class="arithmatex">\((\lambda-\lambda_1)(\lambda-\lambda_2)...(\lambda-\lambda_n)\)</span> ，因为左式的负号在 <span class="arithmatex">\(\lambda\)</span> 上）</p>
+<p>取 <span class="arithmatex">\(\lambda = 0\)</span> ，就得到了 <span class="arithmatex">\(|A| = \prod_{i=1}^{n}\lambda_i\)</span> .</p>
 </li>
 <li>
 <p>【引理3】：正定矩阵的行列式大于<code>0</code>。</p>
@@ -2136,42 +2136,42 @@
 </li>
 <li>
 <p>【引理4】：实对称矩阵的不同特征值对应的特征向量相互正交。</p>
-<p>对于一个实对称矩阵<span class="arithmatex">\(A_n\)</span>，设它的两个不相等的特征值为<span class="arithmatex">\(\lambda_1,\lambda_2\)</span>，分别对应特征向量<span class="arithmatex">\(x_1, x_2\)</span>.</p>
-<p>有<span class="arithmatex">\(A_nx_1 = \lambda_1x_1\)</span>，将等式两边都取转置，得<span class="arithmatex">\(x_1^TA_n^T = \lambda_1x_1^T\)</span>，再右乘<span class="arithmatex">\(x_2\)</span>，有</p>
+<p>对于一个实对称矩阵 <span class="arithmatex">\(A_n\)</span> ，设它的两个不相等的特征值为 <span class="arithmatex">\(\lambda_1,\lambda_2\)</span> ，分别对应特征向量 <span class="arithmatex">\(x_1, x_2\)</span> .</p>
+<p>有 <span class="arithmatex">\(A_nx_1 = \lambda_1x_1\)</span> ，将等式两边都取转置，得 <span class="arithmatex">\(x_1^TA_n^T = \lambda_1x_1^T\)</span> ，再右乘 <span class="arithmatex">\(x_2\)</span> ，有</p>
 <div class="arithmatex">\[x_1^TA_n^Tx_2 = \lambda_1x_1^Tx_2\]</div>
-<p>同理，有<span class="arithmatex">\(A_nx_2 = \lambda_2x_2\)</span>，左乘<span class="arithmatex">\(x_1^T\)</span>，有</p>
+<p>同理，有 <span class="arithmatex">\(A_nx_2 = \lambda_2x_2\)</span> ，左乘 <span class="arithmatex">\(x_1^T\)</span> ，有</p>
 <div class="arithmatex">\[x_1^TA_nx_2 = \lambda_2x_1^Tx_2\]</div>
-<p>因为<span class="arithmatex">\(A_n^T=A_n\)</span>，我们可以得到<span class="arithmatex">\((\lambda_1-\lambda_2)x_1^Tx_2 = 0\)</span>，因为<span class="arithmatex">\(\lambda_1 \neq \lambda_2\)</span>，所以<span class="arithmatex">\(x_1^Tx_2 = 0\)</span>，证毕.</p>
+<p>因为 <span class="arithmatex">\(A_n^T=A_n\)</span> ，我们可以得到 <span class="arithmatex">\((\lambda_1-\lambda_2)x_1^Tx_2 = 0\)</span> ，因为 <span class="arithmatex">\(\lambda_1 \neq \lambda_2\)</span> ，所以<span class="arithmatex">\(x_1^Tx_2 = 0\)</span> ，证毕.</p>
 </li>
 </ol>
 <h4 id="222">2.2.2 证明第一部分——充分性</h4>
-<p>已知<span class="arithmatex">\(A_n\)</span>正定，需要证明<span class="arithmatex">\(\Delta_k&gt;0, 0&lt;k\le n\)</span>.</p>
+<p>已知 <span class="arithmatex">\(A_n\)</span> 正定，需要证明 <span class="arithmatex">\(\Delta_k&gt;0, 0&lt;k\le n\)</span> .</p>
 <ul>
 <li>
 <p>proof：</p>
-<p>对于任意一个<span class="arithmatex">\(k\)</span>维向量<span class="arithmatex">\(z_k = \{z_1,z_2,...,z_k\}^T\)</span>，</p>
-<p>我们都可以构造一个<span class="arithmatex">\(n\)</span>维向量<span class="arithmatex">\(\mathbf{x}_{(k)} = \{x_1, x_2,...,x_k,0,0,...,0\}^T\)</span>.</p>
-<p>因为<span class="arithmatex">\(\mathbf{x_{(k)}}^TA\mathbf{x_{(k)}}&gt;0\)</span>，所以<span class="arithmatex">\(z_k^TA_{(k)}z_k&gt;0\)</span>恒成立。</p>
-<p>所以<span class="arithmatex">\(A_{(k)}\)</span>也是正定的，根据【引理3】，<span class="arithmatex">\(\Delta_k&gt;0\)</span>.</p>
+<p>对于任意一个 <span class="arithmatex">\(k\)</span> 维向量 <span class="arithmatex">\(z_k = \{z_1,z_2,...,z_k\}^T\)</span> ，</p>
+<p>我们都可以构造一个 <span class="arithmatex">\(n\)</span> 维向量 <span class="arithmatex">\(\mathbf{x}_{(k)} = \{x_1, x_2,...,x_k,0,0,...,0\}^T\)</span> .</p>
+<p>因为 <span class="arithmatex">\(\mathbf{x_{(k)}}^TA\mathbf{x_{(k)}}&gt;0\)</span> ，所以 <span class="arithmatex">\(z_k^TA_{(k)}z_k&gt;0\)</span> 恒成立。</p>
+<p>所以 <span class="arithmatex">\(A_{(k)}\)</span> 也是正定的，根据【引理3】，<span class="arithmatex">\(\Delta_k&gt;0\)</span> .</p>
 </li>
 </ul>
 <h4 id="223">2.2.3 证明第二部分——必要性</h4>
-<p>对于给定方阵<span class="arithmatex">\(A_n\)</span>，已知<span class="arithmatex">\(\Delta_k&gt;0, 0&lt;k\le n\)</span>，需要证明<span class="arithmatex">\(A\)</span>正定。</p>
+<p>对于给定方阵 <span class="arithmatex">\(A_n\)</span> ，已知 <span class="arithmatex">\(\Delta_k&gt;0, 0&lt;k\le n\)</span> ，需要证明 <span class="arithmatex">\(A\)</span> 正定。</p>
 <p>proof：用数学归纳法证明。</p>
-<p>首先，当<code>n=1</code>时，<span class="arithmatex">\(\Delta_1 = a_1 &gt; 0\)</span>，有<span class="arithmatex">\(x^TA_{(1)}x = a_1x^Tx = a_1x^2 &gt; 0, x \neq 0\)</span>，所以<span class="arithmatex">\(A_{(1)}\)</span>是正定的；</p>
-<p>其次，当<code>n=2</code>时，<span class="arithmatex">\(\Delta_1 = a_{11}&gt;0, \Delta_2 = a_{11}a_{22}-a_{12}^2&gt;0\)</span>，有</p>
+<p>首先，当<code>n=1</code>时，<span class="arithmatex">\(\Delta_1 = a_1 &gt; 0\)</span> ，有 <span class="arithmatex">\(x^TA_{(1)}x = a_1x^Tx = a_1x^2 &gt; 0, x \neq 0\)</span> ，所以 <span class="arithmatex">\(A_{(1)}\)</span> 是正定的；</p>
+<p>其次，当<code>n=2</code>时，<span class="arithmatex">\(\Delta_1 = a_{11}&gt;0, \Delta_2 = a_{11}a_{22}-a_{12}^2&gt;0\)</span> ，有</p>
 <div class="arithmatex">\[x^TA_{(2)}x = a_{11}x_1^2+2a_{12}x_1x_2+a_{22}x_2^2 = a_{11}(x_1+\frac{a_{12}}{a_{11}}x_2)^2+\frac{a_{11}a_{22}-a_{12}^2}{a_{11}}x_2^2\]</div>
-<p>再者，当<span class="arithmatex">\(x_1,x_2\neq 0\)</span>时，<span class="arithmatex">\(x^TA_{(2)}x\)</span>恒成立，所以<span class="arithmatex">\(A_{(2)}\)</span>是正定的。</p>
-<p>接下来需要证明，若<span class="arithmatex">\(A_{(j)}\)</span>正定且<span class="arithmatex">\(\Delta_{j+1}&gt;0\)</span>，则<span class="arithmatex">\(A_{(j+1)}\)</span>也正定。其中<span class="arithmatex">\(1\le j \le n-1\)</span>.</p>
-<p>我们使用反证法。假设<span class="arithmatex">\(A_{(j+1)}\)</span>非正定，利用<span class="arithmatex">\(\Delta_{j+1}&gt;0\)</span>导出<span class="arithmatex">\(A_{(j)}\)</span>非正定。</p>
-<p>根据【引理1】，<span class="arithmatex">\(A_{(j+1)}\)</span>非正定，则有一个小于等于<code>0</code>的特征值。</p>
-<p>因为<span class="arithmatex">\(\Delta_{j+1}&gt;0\)</span>，根据【引理2】，这个特征值必须小于<code>0</code>，并且同时存在偶数个负特征值。</p>
-<p>我们挑取其中<code>2</code>个负特征值<span class="arithmatex">\(\lambda_a, \lambda_b\)</span>，其对应的<code>j+1</code>维特征向量分别为<span class="arithmatex">\(x_a,x_b\)</span>。</p>
-<p>选择<span class="arithmatex">\(\alpha,\beta\)</span>，我们可以得到一个新的<code>j+1</code>维向量<span class="arithmatex">\(u = \alpha x_a + \beta x_b \neq 0\)</span>，其第<code>j+1</code>维值为<code>0</code>.</p>
+<p>再者，当 <span class="arithmatex">\(x_1,x_2\neq 0\)</span> 时，<span class="arithmatex">\(x^TA_{(2)}x\)</span> 恒成立，所以 <span class="arithmatex">\(A_{(2)}\)</span> 是正定的。</p>
+<p>接下来需要证明，若 <span class="arithmatex">\(A_{(j)}\)</span> 正定且 <span class="arithmatex">\(\Delta_{j+1}&gt;0\)</span> ，则 <span class="arithmatex">\(A_{(j+1)}\)</span> 也正定。其中 <span class="arithmatex">\(1\le j \le n-1\)</span> .</p>
+<p>我们使用反证法。假设 <span class="arithmatex">\(A_{(j+1)}\)</span> 非正定，利用 <span class="arithmatex">\(\Delta_{j+1}&gt;0\)</span> 导出 <span class="arithmatex">\(A_{(j)}\)</span> 非正定。</p>
+<p>根据【引理1】，<span class="arithmatex">\(A_{(j+1)}\)</span> 非正定，则有一个小于等于<code>0</code>的特征值。</p>
+<p>因为 <span class="arithmatex">\(\Delta_{j+1}&gt;0\)</span> ，根据【引理2】，这个特征值必须小于<code>0</code>，并且同时存在偶数个负特征值。</p>
+<p>我们挑取其中<code>2</code>个负特征值 <span class="arithmatex">\(\lambda_a, \lambda_b\)</span> ，其对应的<code>j+1</code>维特征向量分别为 <span class="arithmatex">\(x_a,x_b\)</span> 。</p>
+<p>选择 <span class="arithmatex">\(\alpha,\beta\)</span> ，我们可以得到一个新的<code>j+1</code>维向量 <span class="arithmatex">\(u = \alpha x_a + \beta x_b \neq 0\)</span> ，其第<code>j+1</code>维值为<code>0</code>.</p>
 <p>考虑二次型</p>
 <div class="arithmatex">\[\begin{aligned} u^TA_{(j+1)}u &amp;= (\alpha x_a+\beta x_b)^TA_{(j+1)}(\alpha x_a+\beta x_b)\\ &amp;= (\alpha x_a^T + \beta x_b^T)(\alpha A_{(j+1)}x_a + \beta A_{(j+1)}x_b)\\ &amp;= (\alpha x_a^T + \beta x_b^T)(\alpha\lambda_ax_a+\beta\lambda_bx_b)\\ &amp;= (\alpha^2\lambda_ax_a^Tx_a + \alpha\beta\lambda_bx_a^Tx_b + \beta\alpha\lambda_ax_b^Tx_a+\beta^2\lambda_bx_b^Tx_b)\\ &amp;= (\alpha^2\lambda_ax_a^Tx_a + \beta^2\lambda_bx_b^Tx_b)\\ &amp;= \alpha^2x_a^TA_{(j+1)}x_a + \beta^2x_b^TA_{j+1}x_b\\ &amp; &lt; 0\end{aligned}\]</div>
 <p>其中的化简过程利用了【引理4】。</p>
-<p>因为<code>u</code>的第<code>j+1</code>维值为0，所以利用分块矩阵的计算可知<span class="arithmatex">\(u^TA_{(j+1)}u = u_{(j)}^TA_{(j)}u_{(j)} &lt; 0\)</span>，这与<span class="arithmatex">\(A_{(j)}\)</span>正定相互矛盾，因此我们的假设错误，<span class="arithmatex">\(A_{(j+1)}\)</span>是正定的。</p>
+<p>因为<code>u</code>的第<code>j+1</code>维值为0，所以利用分块矩阵的计算可知 <span class="arithmatex">\(u^TA_{(j+1)}u = u_{(j)}^TA_{(j)}u_{(j)} &lt; 0\)</span> ，这与 <span class="arithmatex">\(A_{(j)}\)</span> 正定相互矛盾，因此我们的假设错误，<span class="arithmatex">\(A_{(j+1)}\)</span> 是正定的。</p>
 <p>综上所述，我们完成了 <strong>Sylvester Criterion</strong> 的证明。</p>
 
 

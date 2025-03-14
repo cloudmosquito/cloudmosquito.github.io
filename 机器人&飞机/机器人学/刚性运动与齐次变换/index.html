@@ -20,7 +20,7 @@
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.7">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.8">
     
     
       
@@ -1403,6 +1403,21 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="3.1 欧拉角">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#311" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1.1 欧拉角奇异点（万向节死锁）
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
       </ul>
@@ -2025,6 +2040,21 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="3.1 欧拉角">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#311" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1.1 欧拉角奇异点（万向节死锁）
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
       </ul>
@@ -2061,22 +2091,28 @@
 <h2 id="_2">参考书目</h2>
 <p>《机器人建模与控制》[美] Mark W. Spong, Seth Hutchinson, M. Vidyasager</p>
 <h2 id="1">1 旋转矩阵</h2>
-<div class="arithmatex">\[ _1^0 R = \begin{bmatrix}
+<div class="arithmatex">\[\begin{aligned} _1^0 R &amp;= \begin{bmatrix}
   x_0 \cdot x_1 &amp; x_0 \cdot y_1 &amp; x_0 \cdot z_1 \\
   y_0 \cdot x_1 &amp; y_0 \cdot y_1 &amp; y_0 \cdot z_1 \\
   z_0 \cdot x_1 &amp; z_o \cdot y_1 &amp; z_0 \cdot z_1
-\end{bmatrix}\]</div>
-<p>这里的<span class="arithmatex">\(x_0, y_0, z_0\)</span>是坐标系0的三个单位向量，<span class="arithmatex">\(x_1, y_1, z_1\)</span>是坐标系1的三个单位向量。要求，坐标系0和坐标系1的<strong>原点是重合的</strong>。</p>
-<p>矩阵既表示三维坐标系<span class="arithmatex">\(o_1x_1y_1z_1\)</span>相对于参考系<span class="arithmatex">\(o_0x_0y_0z_0\)</span>的姿态角，也描述了从三维坐标系1到三维坐标系0的旋转坐标变换。
-<strong>此外，还可以看作在固定坐标系0中的一个旋转操作符！！！</strong>。
-（我在做习题4.13中误认为<span class="arithmatex">\(_0^1R\)</span>是这个旋转操作符）</p>
-<p>对于一个隶属于坐标系1的向量<span class="arithmatex">\(^1 A = \begin{bmatrix} ^1x_{a} \\ ^1y_{a} \\ ^1z_{a} \end{bmatrix}\)</span>，可以用<span class="arithmatex">\(_1^0 R \cdot ^1A\)</span>的方式计算该向量在坐标系0下的表示方式<span class="arithmatex">\(^0A\)</span>。</p>
-<p><strong>理解</strong>：<span class="arithmatex">\(_1^0 R \cdot ^1A\)</span>的第一行是将<span class="arithmatex">\(^1x_{a}, ^1y_{a}, ^1z_{a}\)</span>投影到<span class="arithmatex">\(x_0\)</span>的部分求和，第二行是将<span class="arithmatex">\(^1x_{a}, ^1y_{a}, ^1z_{a}\)</span>投影到<span class="arithmatex">\(y_0\)</span>的部分求和，第三行是将<span class="arithmatex">\(^1x_{a}, ^1y_{a}, ^1z_{a}\)</span>投影到<span class="arithmatex">\(z_0\)</span>的部分求和。</p>
+\end{bmatrix}\\
+&amp;= \begin{bmatrix}^0\mathbf{x}_1 &amp; ^0\mathbf{y}_1 &amp; ^0\mathbf{z}_1\end{bmatrix}\\
+&amp;= \begin{bmatrix}^1\mathbf{x}_0 \\ ^1\mathbf{y}_0 \\ ^1\mathbf{z}_0\end{bmatrix}
+\end{aligned}\]</div>
+<p>这里的 <span class="arithmatex">\(x_0, y_0, z_0\)</span> 是坐标系 0 的三个单位向量，<span class="arithmatex">\(x_1, y_1, z_1\)</span> 是坐标系 1 的三个单位向量。要求，坐标系 0 和坐标系 1 的<strong>原点是重合的</strong>。</p>
+<p>矩阵既表示</p>
+<p><strong>三维坐标系 <span class="arithmatex">\(o_1x_1y_1z_1\)</span> 相对于参考系 <span class="arithmatex">\(o_0x_0y_0z_0\)</span> 的姿态角</strong></p>
+<p>也描述了</p>
+<p><strong>从三维坐标系 1 到三维坐标系 0 的旋转坐标变换</strong></p>
+<p>此外，还可以看作</p>
+<p><strong>在固定坐标系0中的一个旋转操作符</strong>。</p>
+<p>对于一个隶属于坐标系 1 的向量 <span class="arithmatex">\(^1 A = \begin{bmatrix} ^1x_{a} \\ ^1y_{a} \\ ^1z_{a} \end{bmatrix}\)</span> ，可以用 <span class="arithmatex">\(_1^0 R \cdot (^1A)\)</span> 的方式计算该向量在坐标系 0 下的表示方式 <span class="arithmatex">\(^0A\)</span> 。</p>
+<p><strong>理解</strong>：<span class="arithmatex">\(_1^0 R\)</span> 将坐标系 1 的基在坐标系 0 下重新表示了一遍。</p>
 <p><strong>性质</strong>：</p>
 <ol>
-<li><span class="arithmatex">\((_1^0 R)^T = (_1^0 R)^{-1} = (_0^1 R)\)</span>。（评：符合直觉）</li>
-<li><sub>（补充上一条）</sub>旋转矩阵是一个正交矩阵。（正交矩阵：每个列向量具有单位长度并且相互垂直）</li>
-<li><span class="arithmatex">\(_1^0 R\)</span>的每行每列都是一个单位向量。（评：第一行就是<span class="arithmatex">\(x_0\)</span>在坐标系1的表示，第一列就是<span class="arithmatex">\(x_1\)</span>在坐标系0的表示）</li>
+<li><span class="arithmatex">\((_1^0 R)^T = (_1^0 R)^{-1} = (_0^1 R)\)</span> 。</li>
+<li>旋转矩阵是一个正交矩阵。（正交矩阵：每个列向量具有单位长度并且相互垂直，或者直接用 <span class="arithmatex">\(A^TA = E\)</span> 来定义。）</li>
+<li><span class="arithmatex">\(_1^0 R\)</span> 的每行每列都是一个单位向量。（第一行就是 <span class="arithmatex">\(x_0\)</span> 在坐标系 1 的表示，第一列就是 <span class="arithmatex">\(x_1\)</span> 在坐标系 0 的表示。）</li>
 </ol>
 <p><strong>基本旋转矩阵</strong>：</p>
 <div class="arithmatex">\[ R_{z, \psi} = \begin{bmatrix}
@@ -2098,7 +2134,7 @@
 <div class="arithmatex">\[ R_{k, \theta} = \begin{bmatrix}
 k_x^2v_{\theta}+c_{\theta} &amp; k_xk_yv_{\theta}-k_zs_{\theta} &amp; k_xk_zv_{\theta}+k_ys_{\theta}\\ k_xk_yv_{\theta}+k_zs_{\theta} &amp; k_y^2v_{\theta}+c_{\theta} &amp; k_yk_zv_{\theta}-k_xs_{\theta}\\ k_xk_zv_{\theta}-k_ys_{\theta} &amp; k_yk_zv_{\theta}+k_xs_{\theta} &amp; k_z^2v_{\theta}+c_{\theta}
 \end{bmatrix} \]</div>
-<p>其中，<span class="arithmatex">\(v_{\theta} = vers(\theta) = 1 - c_{\theta}\)</span>，<span class="arithmatex">\(k\)</span>是单位向量<span class="arithmatex">\(\begin{bmatrix}k_x &amp; k_y &amp; k_z\end{bmatrix}^T\)</span></p>
+<p>其中，<span class="arithmatex">\(v_{\theta} = vers(\theta) = 1 - c_{\theta}\)</span> ，<span class="arithmatex">\(k\)</span>是单位向量<span class="arithmatex">\(\begin{bmatrix}k_x &amp; k_y &amp; k_z\end{bmatrix}^T\)</span> .</p>
 <p>若已知一个等轴角表示的旋转矩阵：</p>
 <div class="arithmatex">\[R_{\mathbf{k}, \theta} = \begin{bmatrix}
 r_{11} &amp; r_{12} &amp; r_{13}\\
@@ -2109,13 +2145,13 @@ r_{31} &amp; r_{32} &amp; r_{33}
 <div class="arithmatex">\[\theta = \arccos \frac{r_{11} + r_{22} + r_{33} - 1}{2}\]</div>
 <div class="arithmatex">\[\mathbf{k} = \frac{1}{2\sin\theta}\begin{bmatrix}r_{32} - r_{23}\\ r_{13} - r_{31}\\ r_{21} - r_{12}\end{bmatrix}\]</div>
 <h2 id="2">2 相似变换</h2>
-<p>如果A描述了一个给定线性变换在坐标系1中的表示，B描述了一个给定线性变换在坐标系0中的表示，则有：</p>
+<p>如果 A 描述了一个给定线性变换在坐标系 1 中的表示，B 描述了一个给定线性变换在坐标系 0 中的表示，则有：</p>
 <div class="arithmatex">\[ B = (_1^0R) A (_0^1R) \]</div>
-<p><strong>理解</strong>：以<span class="arithmatex">\((^0\zeta) = B \cdot (^0\alpha) = (_1^0R) A (_0^1R)\cdot (^1\alpha)\)</span>为例</p>
+<p><strong>理解</strong>：以 <span class="arithmatex">\((^0\zeta) = B \cdot (^0\alpha) = (_1^0R) A (_0^1R)\cdot (^1\alpha)\)</span> 为例</p>
 <ol>
-<li><span class="arithmatex">\(\beta = (_0^1R)\cdot (^1\alpha)\)</span>：将<span class="arithmatex">\(^0\alpha\)</span>向量转换到坐标系1内，得到<span class="arithmatex">\(^1\beta\)</span>向量。</li>
-<li><span class="arithmatex">\(\gamma = A \cdot \beta\)</span>：对<span class="arithmatex">\(^1\beta\)</span>作线性变换A，得到<span class="arithmatex">\(^1\gamma\)</span>向量。</li>
-<li><span class="arithmatex">\((^0\zeta) = B \cdot (^0\alpha) = (_1^0R)\cdot \gamma\)</span>：将<span class="arithmatex">\(^1\gamma\)</span>向量转换回坐标系0，得到<span class="arithmatex">\(^0\zeta\)</span>向量。</li>
+<li><span class="arithmatex">\(\beta = (_0^1R)\cdot (^1\alpha)\)</span>：将 <span class="arithmatex">\(^0\alpha\)</span> 向量转换到坐标系 1 内，得到 <span class="arithmatex">\(^1\beta\)</span> 向量。</li>
+<li><span class="arithmatex">\(\gamma = A \beta\)</span> ：对 <span class="arithmatex">\(^1\beta\)</span> 作线性变换 A，得到 <span class="arithmatex">\(^1\gamma\)</span> 向量。</li>
+<li><span class="arithmatex">\((^0\zeta) = B(^0\alpha) = (_1^0R) \gamma\)</span> ：将 <span class="arithmatex">\(^1\gamma\)</span> 向量转换回坐标系 0，得到 <span class="arithmatex">\(^0\zeta\)</span> 向量。</li>
 </ol>
 <h2 id="3">3 任意旋转的最小参数化</h2>
 <p>四个参数就足以描述一个三维旋转：旋转轴和旋转角度。</p>
@@ -2134,6 +2170,8 @@ c\psi c\theta &amp; -s\psi c\phi + c\psi s\theta s\phi &amp; s\psi s\phi + c\psi
 s\psi s\theta &amp; c\psi c\phi + s\psi s\theta s\phi &amp; -c\psi s\phi + s\psi s\theta c\phi\\
 -s\theta &amp; c\theta s\phi &amp; c\theta c\phi
 \end{bmatrix}\]</div>
+<h4 id="311">3.1.1 欧拉角奇异点（万向节死锁）</h4>
+<p>我们以 <span class="arithmatex">\(ZY'X''\)</span> 欧拉角为例，当绕 <span class="arithmatex">\(Y'\)</span> 轴转动的 Pitch 角度 <span class="arithmatex">\(\theta\)</span> 是 <span class="arithmatex">\(\pi\)</span> 的奇数倍时，<span class="arithmatex">\(X''\)</span> 轴和 <span class="arithmatex">\(Z\)</span> 轴重合了，此时 <span class="arithmatex">\(\phi\)</span> 和 <span class="arithmatex">\(\psi\)</span> 有无穷多种可能，无法确定。这就是<strong>欧拉角的奇异点</strong>，该现象又称<strong>万向节死锁</strong>。</p>
 <h2 id="4">4 齐次变换</h2>
 <p>齐次变换利用 SE(3) 中的矩阵来描述刚性运动：平移和旋转。</p>
 <div class="arithmatex">\[

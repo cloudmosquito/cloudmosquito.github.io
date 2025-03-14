@@ -20,7 +20,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.7">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.8">
     
     
       
@@ -960,18 +960,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#21-so3" class="md-nav__link">
+  <a href="#21-mathfrakso3" class="md-nav__link">
     <span class="md-ellipsis">
-      2.1 李代数 so(3)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#22" class="md-nav__link">
-    <span class="md-ellipsis">
-      2.2 指数映射
+      2.1 李代数 \(\mathfrak{so}(3)\)
     </span>
   </a>
   
@@ -979,6 +970,48 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      3 映射
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3 映射">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 指数映射（李代数到李群）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2 对数映射（李群到李代数）
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      4 伴随表示
+    </span>
+  </a>
   
 </li>
       
@@ -2049,18 +2082,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#21-so3" class="md-nav__link">
+  <a href="#21-mathfrakso3" class="md-nav__link">
     <span class="md-ellipsis">
-      2.1 李代数 so(3)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#22" class="md-nav__link">
-    <span class="md-ellipsis">
-      2.2 指数映射
+      2.1 李代数 \(\mathfrak{so}(3)\)
     </span>
   </a>
   
@@ -2068,6 +2092,48 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      3 映射
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3 映射">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 指数映射（李代数到李群）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2 对数映射（李群到李代数）
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      4 伴随表示
+    </span>
+  </a>
   
 </li>
       
@@ -2089,13 +2155,14 @@
 
 <h1 id="_1">李群与李代数</h1>
 <h2 id="0">0 前言</h2>
-<p>以下大部分知识来自于 AI 和 高翔博士的《视觉 SLAM 十四讲》。我学习李群和李代数的主要动机是因为在机器人学中，描述空间坐标系的旋转平移变换时，经常出现诸如 SO(3)，SE(3)，so(3) 等内容。</p>
-<p>我们不妨先说明一下 SO(3) 和 SE(3) 是什么：</p>
+<p>我学习李群和李代数的主要动机是因为在机器人学中，描述空间坐标系的旋转平移变换时，经常出现诸如 <span class="arithmatex">\(\mathrm{SO}(3)\)</span>，SE(3)，<span class="arithmatex">\(\mathfrak{so}(3)\)</span> 等内容。</p>
+<p>我们不妨先说明一下 <span class="arithmatex">\(\mathrm{SO}(3)\)</span> 和 SE(3) 是什么：</p>
 <div class="arithmatex">\[\begin{aligned}
 \mathrm{SO(3)} &amp;= \{\mathbf{R} \in \mathbb{R}^{3\times3} | \mathbf{R}\mathbf{R}^T = \mathbf{I}, \mathrm{det}(\mathbf{R}) = 1\}\\
 \mathrm{SE(3)} &amp;= \left\{\mathbf{T} = \begin{bmatrix}\mathbf{R} &amp; \mathbf{t}\\ \mathbf{0}^T &amp; 1\end{bmatrix} \in \mathbb{R}^{4\times4} | \mathbf{R}\in \mathrm{SO(3), \mathbf{t}\in\mathbb{R}^{3}}\right\}
 \end{aligned}\]</div>
-<p>SO(3) 又被称为特殊正交群，SE(3) 又被称为特殊欧式群。</p>
+<p><span class="arithmatex">\(\mathrm{SO}(3)\)</span> 又被称为特殊正交群，SE(3) 又被称为特殊欧式群。</p>
+<p>在机器人学中，通常将 <span class="arithmatex">\(\mathrm{SO}(3)\)</span> 理解为旋转矩阵群，而 SE(3) 则是齐次变换群。</p>
 <hr />
 <h2 id="1">1 李群</h2>
 <h3 id="11-group">1.1 群（Group）</h3>
@@ -2123,51 +2190,113 @@
 <li>自反性： <span class="arithmatex">\(\forall \mathbf{X} \in \mathbb{V}, [\mathbf{X}, \mathbf{X}] = \mathbf{0}\)</span>.</li>
 <li>雅可比等价：<span class="arithmatex">\(\forall \mathbf{X}, \mathbf{Y}, \mathbf{Z} \in \mathbb{V}, [\mathbf{X},[\mathbf{Y},\mathbf{Z}]]+[\mathbf{Z},[\mathbf{X},\mathbf{Y}]]+[\mathbf{Y},[\mathbf{Z},\mathbf{X}]] = 0\)</span></li>
 </ul>
-<h3 id="21-so3">2.1 李代数 so(3)</h3>
-<p>SO(3) 对应的李代数是 so(3)，该集合中的元素为三维向量：</p>
-<div class="arithmatex">\[\mathfrak{so}(3) = \left\{\phi \in \mathbb{R}^3\right\}\]</div>
+<h3 id="21-mathfrakso3">2.1 李代数 <span class="arithmatex">\(\mathfrak{so}(3)\)</span></h3>
+<blockquote>
+<p>什么是代数？代数又叫线性代数，本质就是定义了矢量乘法 <span class="arithmatex">\(V\times V \rightarrow V\)</span> 的线性空间 <span class="arithmatex">\(\{V\}\)</span>.</p>
+</blockquote>
+<p><span class="arithmatex">\(\mathrm{SO}(3)\)</span> 对应的李代数是 <span class="arithmatex">\(\mathfrak{so}(3)\)</span>，该集合中的元素有两种表示方法 <span class="arithmatex">\(\phi\)</span> 或者 <span class="arithmatex">\(\Phi\)</span>，由于两者是一一对应的，所以二者表示的其实是同一个李代数：</p>
+<div class="arithmatex">\[\mathfrak{so}(3) = \left\{\phi \in \mathbb{R}^3,\Phi = \hat{\phi}\in\mathbb{R}^{3\times3}\right\}\]</div>
+<blockquote>
+<p>李代数的乘法称为李括号。给定一个李代数 <span class="arithmatex">\(\mathfrak{g}\)</span>，对于 <span class="arithmatex">\(\forall A, B \in \mathfrak{g}, \left[A, B\right] = C \in \mathfrak{g}\)</span> 。</p>
+</blockquote>
 <p>对应的李括号为</p>
-<div class="arithmatex">\[[\phi_1, \phi_2] = (\Phi_1\Phi_2 - \Phi_2\Phi_1)^{\vee}, \Phi = \phi^{\wedge}\in\mathbb{R}^{3\times3}\]</div>
+<div class="arithmatex">\[\begin{aligned}
+[\phi_1, \phi_2] &amp;= (\Phi_1\Phi_2 - \Phi_2\Phi_1)^{\vee}, \Phi = \hat{\phi}\in\mathbb{R}^{3\times3}\\
+[\Phi_1, \Phi_2] &amp;= \Phi_1\Phi_2 - \Phi_2\Phi_1
+\end{aligned}\]</div>
 <p>其中，<span class="arithmatex">\(^{\wedge}\)</span> 表示取三维向量的反对称矩阵，<span class="arithmatex">\(^{\vee}\)</span> 表示取反对称矩阵对应的三维向量。</p>
 <div class="arithmatex">\[\begin{aligned}
 &amp;\begin{bmatrix}\phi_1 \\ \phi_2\\ \phi_3\end{bmatrix}^{\wedge} = \begin{bmatrix}0 &amp; -\phi_3 &amp; \phi_2\\ \phi_3 &amp; 0 &amp; -\phi_1\\ -\phi_2 &amp; \phi_1 &amp; 0\end{bmatrix}\\
 &amp;\begin{bmatrix}0 &amp; -\phi_3 &amp; \phi_2\\ \phi_3 &amp; 0 &amp; -\phi_1\\ -\phi_2 &amp; \phi_1 &amp; 0\end{bmatrix}^{\vee}= \begin{bmatrix}\phi_1 \\ \phi_2\\ \phi_3\end{bmatrix}
 \end{aligned}\]</div>
-<h3 id="22">2.2 指数映射</h3>
-<p>李代数 <span class="arithmatex">\(\mathfrak{so}(3)\)</span> 与李群 <span class="arithmatex">\(\mathrm{SO}(3)\)</span> 的关系由指数映射给定：</p>
+<blockquote>
+<p><span class="arithmatex">\(\mathrm{SO}(3)\)</span> 对应于旋转矩阵，<span class="arithmatex">\(\mathfrak{so}(3)\)</span> 对应于等轴角表示的角速度向量。</p>
+</blockquote>
+<h2 id="3">3 映射</h2>
+<h3 id="31">3.1 指数映射（李代数到李群）</h3>
+<p>从李代数 <span class="arithmatex">\(\mathfrak{so}(3)\)</span> 到李群 <span class="arithmatex">\(\mathrm{SO}(3)\)</span> 的映射是如下的指数映射：</p>
 <div class="arithmatex">\[\begin{aligned}
-\mathbf{R} &amp;= \text{exp}\left(\phi^{\wedge}\right)\\
-&amp;= \sum_{n = 0}^{\infty}\frac{1}{n!}\left(\phi^{\wedge}\right)^{n}
+\mathbf{R} &amp;= \text{exp}\left(\hat{\phi} \right)\\
+&amp;= \sum_{n = 0}^{\infty}\frac{1}{n!}\left(\hat{\phi}\right)^{n}
 \end{aligned}\]</div>
 <p>以下给出计算证明：</p>
 <p>此处矩阵的无穷次幂难以计算，我们考虑一些数学技巧。</p>
 <p>首先，我们注意到</p>
-<div class="arithmatex">\[(c_1\phi_1)^{\wedge} \cdot (c_2\phi_2)^{\wedge} = c_1c_2(\phi_1^{\wedge}\cdot\phi_2^{\wedge}) \tag{1}\]</div>
+<div class="arithmatex">\[(c_1\phi_1)^{\wedge} \cdot (c_2\phi_2)^{\wedge} = c_1c_2(\hat{\phi_1}\cdot \hat{\phi_2}) \tag{1}\]</div>
 <div class="arithmatex">\[\begin{aligned}
-\phi^{\wedge}\phi^{\wedge} &amp;= \begin{bmatrix}-\phi_2^2-\phi_3^2 &amp; \phi_1\phi_2 &amp; \phi_1\phi_3\\ \phi_1\phi_2 &amp; -\phi_1^2-\phi_3^2 &amp;\phi_2\phi_3\\ \phi_1\phi_3 &amp; \phi_2\phi_3 &amp; -\phi_1^2-\phi_2^2\end{bmatrix}\\
-&amp;= \phi \cdot \phi^{T} - \begin{bmatrix}\phi_1^2+\phi_2^2+\phi_3^2 &amp; 0 &amp; 0\\ 0 &amp; \phi_1^2+\phi_2^2+\phi_3^2 &amp; 0\\ 0 &amp; 0 &amp; \phi_1^2+\phi_2^2+\phi_3^2\end{bmatrix}
+\hat{\phi}\hat{\phi} &amp;= \begin{bmatrix}-\phi_2^2-\phi_3^2 &amp; \phi_1\phi_2 &amp; \phi_1\phi_3\\ \phi_1\phi_2 &amp; -\phi_1^2-\phi_3^2 &amp;\phi_2\phi_3\\ \phi_1\phi_3 &amp; \phi_2\phi_3 &amp; -\phi_1^2-\phi_2^2\end{bmatrix}\\
+&amp;= \phi \phi^{T} - \begin{bmatrix}\phi_1^2+\phi_2^2+\phi_3^2 &amp; 0 &amp; 0\\ 0 &amp; \phi_1^2+\phi_2^2+\phi_3^2 &amp; 0\\ 0 &amp; 0 &amp; \phi_1^2+\phi_2^2+\phi_3^2\end{bmatrix}
 \end{aligned}\tag{2}\]</div>
-<div class="arithmatex">\[\phi^{\wedge}\phi\cdot\phi^T = 0\tag{3}\]</div>
-<p>因此，我们想到一个思路，那就是把 <span class="arithmatex">\(\phi\)</span> 用模长 <span class="arithmatex">\(\theta\)</span> 和方向 <span class="arithmatex">\(\mathbf{a}\)</span> 来表示，即 <span class="arithmatex">\(\phi = \theta \mathbf{a}\)</span> . 这里的 <span class="arithmatex">\(\mathbf{a}\)</span> 是个长度为 1 的方向向量，所以 <span class="arithmatex">\(\mathbf{a}^{\wedge}\mathbf{a}^{\wedge} = \mathbf{a} \cdot \mathbf{a}^T - \mathbf{I}\)</span>，<span class="arithmatex">\(\mathbf{a}^{\wedge}\mathbf{a}^{\wedge}\mathbf{a}^{\wedge} = -\mathbf{a}^{\wedge}\)</span> .</p>
+<div class="arithmatex">\[\hat{\phi}\phi\cdot\phi^T = \begin{bmatrix}0 &amp; -\phi_3 &amp; \phi_2\\
+\phi_3 &amp; 0 &amp; -\phi_1\\
+-\phi_2 &amp; \phi_1 &amp; 0\end{bmatrix}\begin{bmatrix}\phi_1^2 &amp; \phi_1\phi_2 &amp; \phi_1\phi_3\\
+\phi_1\phi_2 &amp; \phi_2^2 &amp; \phi_2\phi_3\\
+\phi_1\phi_3 &amp; \phi_2\phi_3 &amp; \phi_3^2\end{bmatrix} = 0\tag{3}\]</div>
+<p>因此，我们想到一个思路，那就是把 <span class="arithmatex">\(\phi\)</span> 用模长 <span class="arithmatex">\(\theta\)</span> 和方向 <span class="arithmatex">\(\mathbf{a}\)</span> 来表示，即 <span class="arithmatex">\(\phi = \theta \mathbf{a}\)</span> . 这里的 <span class="arithmatex">\(\mathbf{a}\)</span> 是个长度为 1 的方向向量，所以 <span class="arithmatex">\(\hat{\mathbf{a}} \hat{\mathbf{a}} = \mathbf{a} \mathbf{a}^T - \mathbf{I}\)</span>，$\hat{\mathbf{a}} \hat{\mathbf{a}} \hat{\mathbf{a}}  = -\hat{\mathbf{a}} $ .</p>
 <p>于是</p>
 <div class="arithmatex">\[\begin{aligned}
-\sum_{n = 0}^{\infty}\frac{1}{n!}(\phi^{\wedge})^{n} &amp;= \sum_{n=0}^{\infty}\frac{1}{n!}(\theta\mathbf{a}^{\wedge})^{n}\\
-&amp;= \mathbf{I} + \theta\mathbf{a}^{\wedge} + \frac{1}{2}\theta^2\mathbf{a}^{\wedge}\mathbf{a}^{\wedge} + \frac{1}{3!}\theta^3\mathbf{a}^{\wedge}\mathbf{a}^{\wedge}\mathbf{a}^{\wedge} + ...\\
-&amp;= (\mathbf{a} \cdot \mathbf{a}^T -\mathbf{a}^{\wedge}\mathbf{a}^{\wedge})+\theta\mathbf{a}^{\wedge} + \frac{1}{2}\theta^2\mathbf{a}^{\wedge}\mathbf{a}^{\wedge}-\frac{1}{3!}\theta^3\mathbf{a}^{\wedge}-\frac{1}{4!}\theta^4\mathbf{a}^{\wedge}\mathbf{a}^{\wedge}\\
-&amp;= \mathbf{a} \cdot \mathbf{a}^T + \mathbf{a}^{\wedge}(\theta - \frac{1}{3!}\theta^3 + \frac{1}{5!}\theta^5 + ...) + \mathbf{a}^{\wedge}\mathbf{a}^{\wedge}(-1 + \frac{1}{2}\theta^2-\frac{1}{4}\theta^4 + ...)\\
-&amp;= \mathbf{a} \cdot \mathbf{a}^T + \mathbf{a}^{\wedge}\sin\theta + \mathbf{a}^{\wedge}\mathbf{a}^{\wedge}(-\cos\theta)\\
-&amp;= \mathbf{a} \cdot \mathbf{a}^T + \mathbf{a}^{\wedge}\sin\theta + (\mathbf{I}-\mathbf{a} \cdot \mathbf{a}^T)\cos\theta\\
-&amp;= \mathbf{I}\cos\theta + (1-\cos\theta)\mathbf{a} \cdot \mathbf{a}^T + \mathbf{a}^{\wedge}\sin\theta
+\sum_{n = 0}^{\infty}\frac{1}{n!}(\hat{\phi})^{n} &amp;= \sum_{n=0}^{\infty}\frac{1}{n!}(\theta\hat{\mathbf{a}} )^{n}\\
+&amp;= \mathbf{I} + \theta\hat{\mathbf{a}}  + \frac{1}{2}\theta^2\hat{\mathbf{a}} \hat{\mathbf{a}}  + \frac{1}{3!}\theta^3\hat{\mathbf{a}} \hat{\mathbf{a}} \hat{\mathbf{a}}  + ...\\
+&amp;= (\mathbf{a} \mathbf{a}^T -\hat{\mathbf{a}} \hat{\mathbf{a}} )+\theta\hat{\mathbf{a}}  + \frac{1}{2}\theta^2\hat{\mathbf{a}} \hat{\mathbf{a}} -\frac{1}{3!}\theta^3\hat{\mathbf{a}} -\frac{1}{4!}\theta^4\hat{\mathbf{a}} \hat{\mathbf{a}} \\
+&amp;= \mathbf{a} \mathbf{a}^T + \hat{\mathbf{a}} (\theta - \frac{1}{3!}\theta^3 + \frac{1}{5!}\theta^5 + ...) + \hat{\mathbf{a}} \hat{\mathbf{a}} (-1 + \frac{1}{2}\theta^2-\frac{1}{4}\theta^4 + ...)\\
+&amp;= \mathbf{a}\mathbf{a}^T + \hat{\mathbf{a}} \sin\theta + \hat{\mathbf{a}} \hat{\mathbf{a}} (-\cos\theta)\\
+&amp;= \mathbf{a} \mathbf{a}^T + \hat{\mathbf{a}} \sin\theta + (\mathbf{I}-\mathbf{a} \mathbf{a}^T)\cos\theta\\
+&amp;= \mathbf{I}\cos\theta + (1-\cos\theta)\mathbf{a} \mathbf{a}^T + \hat{\mathbf{a}} \sin\theta
 \end{aligned}\]</div>
+<div class="arithmatex">\[\mathbf{R} = \sum_{n = 0}^{\infty}\frac{1}{n!}(\hat{\phi})^{n} = \mathbf{I}\cos\theta + (1-\cos\theta)\mathbf{a} \mathbf{a}^T + \hat{\mathbf{a}} \sin\theta \tag{4}\]</div>
 <hr />
-<p>怎么理解上式？</p>
+<p>怎么理解 (4) 式？</p>
 <p>我们需要引入一个罗德里格斯公式（Rodrigue's Formula）：</p>
-<div class="arithmatex">\[\mathbf{R} = \cos\theta \mathbf{I} + (1-\cos\theta)\mathbf{n}\mathbf{n}^T + \sin\theta \mathbf{n}^{\wedge}\]</div>
+<div class="arithmatex">\[\mathbf{R} = \cos\theta \mathbf{I} + (1-\cos\theta)\mathbf{n}\mathbf{n}^T + \sin\theta \hat{\mathbf{n}}\tag{5}\]</div>
 <p>其中，<span class="arithmatex">\(\mathbf{R}\)</span> 代表旋转矩阵，<span class="arithmatex">\(\mathbf{n}\)</span> 代表转轴，<span class="arithmatex">\(\theta\)</span> 代表旋转角度。</p>
-<p>我们把李代数 so(3) 中的三维向量理解为一个角速度向量 <span class="arithmatex">\(\omega\)</span>，而指数映射写成 <span class="arithmatex">\(\text{exp}(\omega t)\)</span>，则有</p>
-<div class="arithmatex">\[\text{exp}(\omega t) = \sum_{n=0}^{\infty}\frac{1}{n!}\left(\left\|\omega\right\|t \cdot\Omega^{\wedge}\right)^{n}\]</div>
+<p>我们把李代数 <span class="arithmatex">\(\mathfrak{so}(3)\)</span> 中的三维向量理解为一个角速度向量 <span class="arithmatex">\(\omega\)</span>，而指数映射写成 <span class="arithmatex">\(\text{exp}(\omega t)\)</span>，则有</p>
+<div class="arithmatex">\[\text{exp}(\omega t) = \sum_{n=0}^{\infty}\frac{1}{n!}\left(\left\|\omega\right\|t \cdot \hat{\Omega}\right)^{n}\]</div>
 <p>这里的 <span class="arithmatex">\(\left\|\omega \right\|t\)</span> 就是上文的 <span class="arithmatex">\(\theta\)</span>，角速度乘以时间等于角度，非常合理。</p>
-<p>所以，SO(3) 可以理解为三维旋转矩阵的集合，而 so(3) 可以理解为角速度向量的集合。</p>
+<p>所以，<span class="arithmatex">\(\mathrm{SO}(3)\)</span> 可以理解为三维旋转矩阵的集合，而 <span class="arithmatex">\(\mathfrak{so}(3)\)</span> 可以理解为角速度向量的集合。</p>
+<hr />
+<p>一般而言，<span class="arithmatex">\(\mathfrak{so}(3)\)</span> 中的元素不是三维向量，而是其对应的三维反对称矩阵。在这种情况下，指数映射的公式略有差异。</p>
+<p>根据 (2) 式，我们有</p>
+<div class="arithmatex">\[\hat{\mathbf{a}}\hat{\mathbf{a}} = \mathbf{a}\mathbf{a}^T - \mathbf{I} \tag{6}\]</div>
+<p>把 (6) 式代入到 (4) 式，我们得到</p>
+<div class="arithmatex">\[\mathbf{R} = e^{\hat{\mathbf{a}}\theta} = \mathbf{I} + \hat{\mathbf{a}}\sin\theta + \hat{\mathbf{a}}^2(1-\cos\theta) \tag{7}\]</div>
+<blockquote>
+<p>注意：当 <span class="arithmatex">\(\theta = 0\)</span> 时，<span class="arithmatex">\(\hat{\mathbf{a}}\)</span> 可以任意取值，这是指数映射的一个奇异点。</p>
+</blockquote>
+<hr />
+<h3 id="32">3.2 对数映射（李群到李代数）</h3>
+<p>我们同样可以定义从 <span class="arithmatex">\(\mathrm{SO}(3)\)</span> 到 <span class="arithmatex">\(\mathfrak{so}(3)\)</span> 的映射，这是指数映射的逆运算，被称为对数映射。</p>
+<div class="arithmatex">\[\phi = \ln(\mathbf{R})^{\vee} = \left(\sum_{n=0}^{\infty} \frac{(-1)^{n}}{n+1}(\mathbf{R} - \mathbf{I})^{n+1} \right)^{\vee}\tag{8} \]</div>
+<p>当然我们不会真的用 (8) 式计算 <span class="arithmatex">\(\phi\)</span>，这是个无穷级数，我们无法求解。我们可以利用 (7) 式对其进行求解。</p>
+<p>首先，我们对 (7) 式左右两边求迹，得到</p>
+<div class="arithmatex">\[\begin{aligned}
+\text{tr}(\mathbf{R}) &amp;= \text{tr}(\mathbf{I}) + (1-\cos\theta)\text{tr}\left(\hat{\mathbf{a}}^2\right) + \text{tr}(\hat{\mathbf{a}} )\sin\theta\\
+&amp;= 3 + (1-\cos\theta)(-\omega_2^2-\omega_3^2-\omega_1^2-\omega_3^2-\omega_1^2-\omega_2^2)\\
+&amp;= 1+2\cos\theta
+\end{aligned}\]</div>
+<p>所以</p>
+<div class="arithmatex">\[\theta = \arccos\dfrac{\text{tr}(\mathbf{R})-1}{2} \tag{9}\]</div>
+<p>接下来，我们需要求解旋转矩阵对应的的等轴角表示时的转轴，我们给出两种方法。</p>
+<p><strong>第一种方法</strong>：可以注意到，转轴是旋转过程中的一个不变量，因此有</p>
+<div class="arithmatex">\[\mathbf{R}\mathbf{a} = \mathbf{a} \tag{10}\]</div>
+<p>怎么理解上面这个式子？</p>
+<p><span class="arithmatex">\(\mathbf{a}\)</span> 是 <span class="arithmatex">\(\mathbf{R}\)</span> 的特征值 1 所对应的特征向量！</p>
+<p><strong>第二种方法</strong>：仍然利用 (7) 式，对 (7) 式左右两边取转置，我们得到</p>
+<div class="arithmatex">\[\begin{aligned}
+\mathbf{R}^T &amp;= \mathbf{I} + \hat{\mathbf{a}}^T \sin\theta + \left(\hat{\mathbf{a}}^T\right)^2(1-\cos\theta) \\
+&amp;= \mathbf{I} - \hat{\mathbf{a}}\sin\theta + \hat{\mathbf{a}}^2(1-\cos\theta)
+\end{aligned}\tag{11}\]</div>
+<p>用 (7) 式减去 (11) 式，我们得到</p>
+<div class="arithmatex">\[\begin{aligned}
+\mathbf{R} - \mathbf{R}^T &amp;= 2\hat{\mathbf{a}}\sin\theta\\
+\hat{\mathbf{a}} &amp;= \frac{\mathbf{R}-\mathbf{R}^T}{2\sin\theta}
+\end{aligned} \tag{12}\]</div>
+<p>综上，<span class="arithmatex">\(\Phi = \dfrac{\theta}{2\sin\theta}(\mathbf{R} - \mathbf{R}^T)\)</span>，<span class="arithmatex">\(\theta = \arccos\dfrac{\text{tr}(\mathbf{R})-1}{2}\)</span>，<span class="arithmatex">\(\phi = \check{\Phi}\)</span> 。</p>
+<hr />
+<h2 id="4">4 伴随表示</h2>
+<p>我们考虑一般的矩阵李群 <span class="arithmatex">\(G\)</span>，它对应的李代数是 <span class="arithmatex">\(\mathfrak{g}\)</span>，我们可以定义一个伴随表示</p>
+<div class="arithmatex">\[\forall g \in G, \forall X \in \mathfrak{g}, \ \ \ Ad_g(X) = gXg^{-1}\in \mathfrak{g}\]</div>
+<p>我们考虑李群 <span class="arithmatex">\(\mathrm{SO}(3)\)</span>，它的李代数用矩阵形式表示是</p>
+<div class="arithmatex">\[\mathfrak{so}(3) = \left\{\Phi = \phi^{\wedge}\in\mathbb{R}^{3\times3}\right\}\]</div>
 
 
 
