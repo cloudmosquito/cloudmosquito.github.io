@@ -53,7 +53,7 @@ $$\begin{aligned}
 
 四旋翼的四个螺旋桨转速分别定义为 $\omega_1,\omega_2,\omega_3,\omega_4$，则其提供的升力
 
-$$F_i = k_F\omega_i, M_i = k_M\omega_i^2$$
+$$F_i = k_F\omega_i^2, M_i = k_M\omega_i^2$$
 
 从而我们可以定义一个输入量 $\mathbf{u}$
 
