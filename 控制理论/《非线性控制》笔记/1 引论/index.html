@@ -16,7 +16,7 @@
         <link rel="prev" href="../../Lyapunov%20%E7%A8%B3%E5%AE%9A%E6%80%A7/">
       
       
-        <link rel="next" href="../../%E6%BB%A4%E6%B3%A2%E5%99%A8/%E4%B8%80%E9%98%B6%E6%BB%9E%E5%90%8E%E6%BB%A4%E6%B3%A2/">
+        <link rel="next" href="../%E5%B9%B3%E8%A1%A1%E7%82%B9%E7%9A%84%E7%A8%B3%E5%AE%9A%E6%80%A7/">
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
@@ -489,6 +489,10 @@
       
         
       
+        
+      
+        
+      
     
     
       
@@ -740,6 +744,50 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%B9%B3%E8%A1%A1%E7%82%B9%E7%9A%84%E7%A8%B3%E5%AE%9A%E6%80%A7/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    平衡点的稳定性
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%89%B9%E6%AE%8A%E5%9E%8B%E9%9D%9E%E7%BA%BF%E6%80%A7%E7%B3%BB%E7%BB%9F/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    特殊型非线性系统
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -860,6 +908,8 @@
       
         
       
+        
+      
     
     
       
@@ -928,6 +978,28 @@
   
   <span class="md-ellipsis">
     Laplace变换初/终值定理
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%87%AA%E5%8A%A8%E6%8E%A7%E5%88%B6%E5%8E%9F%E7%90%86/%E8%83%BD%E6%8E%A7%E6%80%A7%E5%92%8C%E8%83%BD%E8%A7%82%E6%80%A7/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    能控性与能观性
     
   </span>
   
@@ -2252,11 +2324,22 @@
 <h1 id="_1">一、引论</h1>
 <h2 id="_2">概念笔记</h2>
 <h3 id="1-lipschitz">1 局部 Lipschitz</h3>
-<p>考虑一个函数 <span class="arithmatex">\(y = f(x)\)</span>，其中 <span class="arithmatex">\(x\)</span> 和 <span class="arithmatex">\(y\)</span> 都是向量。对于一个给定的点 <span class="arithmatex">\(x_0\)</span>，如果存在一个邻域 <span class="arithmatex">\(N(x_0, r)\)</span> （<span class="arithmatex">\(N(x_0, r) = \{\parallel x-x_0 \parallel &lt; r\}\)</span>）和正常数 <span class="arithmatex">\(L\)</span>，使得对于任意 <span class="arithmatex">\(x, y \in N(x_0, r)\)</span>，有 Lipschitz 条件如下：</p>
+<p>考虑一个函数 <span class="arithmatex">\(y = f(x)\)</span>，其中 <span class="arithmatex">\(x\)</span> 和 <span class="arithmatex">\(y\)</span> 都是向量。对于一个给定的点 <span class="arithmatex">\(x_0\)</span>，如果存在一个邻域 <span class="arithmatex">\(N(x_0, r)\)</span> （<span class="arithmatex">\(N(x_0, r) = \{\parallel x-x_0 \parallel &lt; r\}\)</span>）和正常数 <span class="arithmatex">\(L\)</span>，使得 <span class="arithmatex">\(\forall x, y \in N(x_0, r)\)</span>，有 Lipschitz 条件如下：</p>
 <div class="arithmatex">\[ \parallel f(x) - f(y) \parallel \le L \parallel x - y \parallel \]</div>
 <p>其中，<span class="arithmatex">\(L\)</span> 称为 Lipschitz常数，范数 <span class="arithmatex">\(\parallel x \parallel\)</span> 定义为</p>
 <div class="arithmatex">\[ \parallel x \parallel = \sqrt{x^Tx} \]</div>
 <p>那么就称  <span class="arithmatex">\(f(x)\)</span> 在点 <span class="arithmatex">\(x_0\)</span> 上是局部 Lipschitz 的。</p>
+<blockquote>
+<p>由于该定义要求 <span class="arithmatex">\(\forall x, y \in N(x_0, r)\)</span>，所以 <span class="arithmatex">\(x_0\)</span> 必须在函数的定义域里。</p>
+</blockquote>
+<hr />
+<p>Lipstchitz 性质指的是系统在某个点附近，其广义斜率是有界的。考虑一维的情况，诸如 <span class="arithmatex">\(y = x^{10000}, y = \sin(0.5x+0.7), y = e^{9x}\)</span> 等函数，在 <span class="arithmatex">\(x_0 = 0\)</span> 位置都是局部 Lipschitz 的。</p>
+<p>而 <span class="arithmatex">\(y = \sqrt{\left|x\right|}\)</span> 在 <span class="arithmatex">\(x_0 = 0\)</span> 处就不是局部 Lipschitz 的，因为它在该点处的斜率无界：</p>
+<div class="arithmatex">\[\begin{aligned}
+\lim_{x\to0^+}\frac{f(x)-f(0)}{x-0} &amp;= \lim_{x\to0^+}\frac{\sqrt{x}}{x} = \lim_{x\to0^+}\frac{1}{\sqrt{x}} = +\infty\\
+\lim_{x\to0^-}\frac{f(x)-f(0)}{x-0} &amp;= \lim_{x\to0^-}\frac{\sqrt{-x}}{x} = \lim_{x\to0^-}\frac{1}{-\sqrt{-x}} = -\infty
+\end{aligned}\]</div>
+<hr />
 <p>如果 <span class="arithmatex">\(f(x)\)</span> 的定义域是开的且连通的，<span class="arithmatex">\(f(x)\)</span> 在定义域的任意一个点上都局部 Lipschitz，那么我们就称 <span class="arithmatex">\(f(x)\)</span> 在定义域上是局部 Lipschitz 的。</p>
 <p>对于一个集合 <span class="arithmatex">\(W\)</span> ，如果其中的任意两个点 <span class="arithmatex">\(x, y\)</span> ，<span class="arithmatex">\(f(x)\)</span> 都满足 Lipschitz 条件，且 Lipschitz 常数与 <span class="arithmatex">\(x,y\)</span> 的选择无关，那么 <span class="arithmatex">\(f(x)\)</span> 在 <span class="arithmatex">\(W\)</span> 上就是 Lipschitz 的。</p>
 <p>在定义域上局部 Lipschitz 的函数不一定是 Lipschitz 的，因为常数可能并非一致。但是，这个函数在定义域里的一个紧子集（有界闭集）上必定是 Lipschitz 的。</p>
@@ -2266,6 +2349,10 @@
 <p>局部 Lipschitz 性质可以用于保证无控制系统 <span class="arithmatex">\(\dot{x} = f(t,x)\)</span> 解的存在性和唯一性：</p>
 <h5 id="111-1">1.1.1 引理1</h5>
 <p>如果 <span class="arithmatex">\(f(t,x)\)</span> 关于 <span class="arithmatex">\(t\)</span> 分段连续，并且对于所有的 <span class="arithmatex">\(t\in[t_0, t_1]\)</span>，<span class="arithmatex">\(f(t,x)\)</span> 在初值 <span class="arithmatex">\(x_0\)</span> 位置是局部 Lipschitz 的，那么存在一个正值 <span class="arithmatex">\(\delta &gt; 0\)</span>，使得上述无控制系统状态方程的初值问题 <span class="arithmatex">\(x(t_0) = x_0\)</span> 在 <span class="arithmatex">\([t_0, t_0+\delta]\)</span> 上存在唯一解。</p>
+<hr />
+<p>换言之，倘若 <span class="arithmatex">\(f(t,x)\)</span> 不是局部 Lipschitz 的，那么 <span class="arithmatex">\(x(t_0) = x_0\)</span> 的解在 <span class="arithmatex">\([t_0, t_0+\delta]\)</span> 上不存在唯一解。</p>
+<p>仍然举一个一维的例子： <span class="arithmatex">\(\dot{x} = \sqrt{\left|x\right|}\)</span> 初值 <span class="arithmatex">\(x(t_0) = 0\)</span> ，它可能的解为 <span class="arithmatex">\(x(t) = 0, x(t) = \dfrac{1}{4}t^2\)</span> 。</p>
+<hr />
 <h5 id="112-2">1.1.2 引理2</h5>
 <p>更进一步，如果 <span class="arithmatex">\(f(t,x)\)</span> 对于所有 <span class="arithmatex">\(t\in [t_0, t_1]\)</span> 是全局 Lipschitz 的，那么初值问题在 <span class="arithmatex">\([t_0, t_1]\)</span> 上存在唯一解。</p>
 <h5 id="113-3">1.1.3 引理3</h5>
@@ -2303,7 +2390,7 @@ T^{-1}AT &amp;= \begin{bmatrix}\frac{1}{2} &amp; -\frac{i}{2}\\ \frac{1}{2} &amp
 &amp;= \begin{bmatrix}\cos(t-t_0) &amp; \sin(t-t_0)\\ -\sin(t-t_0) &amp; \cos(t-t_0)\end{bmatrix}x_0
 \end{aligned}\]</div>
 <p>可以发现，线性系统特征值是一对纯虚数（<span class="arithmatex">\(i, -i\)</span>），系统是振荡的，并且振幅与初值条件 <span class="arithmatex">\(x_0\)</span> 相关。</p>
-<p>但是非线性系统可以产生固定幅值和频率的稳定振荡，与初值无关。<strong>现实世界中，稳定的振荡只能出现在非线性系统里。</strong></p>
+<p>但是非线性系统可以产生固定幅值和频率的稳定振荡，与初值无关。<strong>现实世界中，稳定的振荡只能出现在非线性系统里。</strong> 这种振荡被称为<strong>极限环</strong>。</p>
 <h2 id="_3">参考资料</h2>
 <p>《非线性控制》 [美] Hassan K. Khalil 著，韩正之、王划、王少华、刘磊坡、谢七月 译，机械工业出版社</p>
 
