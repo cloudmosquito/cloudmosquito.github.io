@@ -2377,8 +2377,8 @@ J\dot\omega^b &amp;= -\omega^b \ \times \ J\omega^b + \tau\end{cases} \tag{2-3}\
 <div class="arithmatex">\[\omega_{e}^b = \omega_{desired}^b - \omega^b \overset{\text{引入} k_p}\Longrightarrow \omega_{e}^b = k_p\omega_{desired}^b - \omega^b\]</div>
 <p>该增益的作用是调整系统响应速度，不会影响控制器的稳定性。因为只要当前姿态与目标姿态不一致，我们就能求得一个不为 0 的期望角速度 <span class="arithmatex">\(\ln(R_e)^{\vee}\)</span> 。换言之，只要四旋翼角度有误差，控制器就会让它一直转动，逼近目标角度。</p>
 <p>我们直接计算得到的期望角速度包含方向和角速率两个信息，其中关键的是方向信息，这保证了角度轨迹在 <span class="arithmatex">\(\mathrm{SO}(3)\)</span> 上连续；而角速率，也可以理解为系统的响应速度，是一个我们希望可以调整的参数。这就是 <span class="arithmatex">\(k_p\)</span> 的作用。</p>
-<p>其次，我们的控制器最终输出是四个螺旋桨转速指令；受限于电机性能及其内部的控制器性能，螺旋桨的响应具有一定延迟，这不利于高机动工况下的控制。我们可以考虑将整个螺旋桨视为一个具有纯滞后的广义对象，采用 Smith 预估器优化控制器性能。</p>
-<p>论文中给出的螺旋桨广义对象模型为</p>
+<p>其次，我们的控制器最终输出是四个螺旋桨转速指令；受限于电机性能及其内部的控制器性能，螺旋桨的响应具有一定延迟，这不利于高机动工况下的控制。我们可以考虑将整个四旋翼姿态视为一个具有纯滞后的广义对象，输入是三轴力矩指令，反馈是三轴加速度，采用 Smith 预估器优化控制器性能。</p>
+<p>论文中给出的 Pitch 角度广义对象模型为</p>
 <div class="arithmatex">\[G_p(s) = \frac{e^{-\tau s}}{T_{\phi}s + 1}\]</div>
 <p>这里的 <span class="arithmatex">\(e^{-\tau s}\)</span> 代表对象有一个纯滞后时间 <span class="arithmatex">\(\tau\)</span> 。除开纯滞后，系统是一个一阶对象，它对于阶跃输入 <span class="arithmatex">\(u(t) = r\)</span> 的响应是 <span class="arithmatex">\(y(t) = r\left(1-e^{-\frac{1}{T_{\phi}}t}\right)\)</span> 。所以这里的 <span class="arithmatex">\(T_{\phi}\)</span> 就代表系统响应到达阶跃输入的 <span class="arithmatex">\(\left(1-e^{-1}\right)\)</span> ，即 <span class="arithmatex">\(63.2\%\)</span> 所需要的时间。</p>
 <p>最后，控制律用到了惯性张量阵 <span class="arithmatex">\(J\)</span> ，但论文并没有说明如何对该变量做系统辨识。这将是本文遗留的一个工程问题。</p>
