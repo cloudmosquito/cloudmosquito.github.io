@@ -13,25 +13,25 @@
       
       
       
-        <link rel="prev" href="../%E6%9D%8E%E7%BE%A4%E4%B8%8E%E6%9D%8E%E4%BB%A3%E6%95%B0/">
+        <link rel="prev" href="../../%E8%87%AA%E5%8A%A8%E6%8E%A7%E5%88%B6%E5%8E%9F%E7%90%86/PID%20%E7%9B%B8%E5%85%B3/%E7%B3%BB%E7%BB%9F%E9%98%B6%E6%95%B0%E4%B8%8E%20PID/">
       
       
-        <link rel="next" href="../%E7%9F%A9%E9%98%B5%E5%BE%AE%E7%A7%AF%E5%88%86/">
+        <link rel="next" href="../../../%E6%95%B0%E5%AD%A6/%E6%9D%8E%E7%BE%A4%E4%B8%8E%E6%9D%8E%E4%BB%A3%E6%95%B0/">
       
       
-      <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.9">
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.11">
     
     
       
-        <title>矩阵对角化与分解 - Cloudmosquito Site</title>
+        <title>引言（系统能观性） - Cloudmosquito Site</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.4af4bdda.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.4af4bdda.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -50,16 +50,16 @@
       
     
     
-      <link rel="stylesheet" href="../../stylesheets/extra.css">
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
     
     
     
-   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+   <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
     html.glightbox-open { overflow: initial; height: 100%; }
     .gslide-title { margin-top: 0px; user-select: text; }
     .gslide-desc { color: #666; user-select: text; }
@@ -68,7 +68,7 @@
     .gdesc-inner { font-size: 0.75rem; }
     body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
     body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
-    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -101,7 +101,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="页眉">
-    <a href="../.." title="Cloudmosquito Site" class="md-header__button md-logo" aria-label="Cloudmosquito Site" data-md-component="logo">
+    <a href="../../.." title="Cloudmosquito Site" class="md-header__button md-logo" aria-label="Cloudmosquito Site" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -121,7 +121,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              矩阵对角化与分解
+              引言（系统能观性）
             
           </span>
         </div>
@@ -159,11 +159,13 @@
     
     
     
-      <label class="md-header__button md-icon" for="__search">
-        
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
-      </label>
-      <div class="md-search" data-md-component="search" role="dialog">
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
@@ -197,6 +199,7 @@
     </div>
   </div>
 </div>
+      
     
     
   </nav>
@@ -217,9 +220,11 @@
   
   
   
+  
     <li class="md-tabs__item">
-      <a href="../.." class="md-tabs__link">
+      <a href="../../.." class="md-tabs__link">
         
+  
   
     
   
@@ -235,10 +240,14 @@
   
   
     
+  
+  
     
-      <li class="md-tabs__item">
-        <a href="../../%E6%8E%A7%E5%88%B6%E7%90%86%E8%AE%BA/" class="md-tabs__link">
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../" class="md-tabs__link">
           
+  
   
     
   
@@ -253,14 +262,14 @@
         
   
   
-    
   
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../Jordan%20%E6%A0%87%E5%87%86%E5%9E%8B/" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../../%E6%95%B0%E5%AD%A6/%E6%9D%8E%E7%BE%A4%E4%B8%8E%E6%9D%8E%E4%BB%A3%E6%95%B0/" class="md-tabs__link">
           
+  
   
     
   
@@ -276,11 +285,13 @@
   
   
   
+  
     
     
       <li class="md-tabs__item">
-        <a href="../../%E6%96%87%E5%AD%A6/" class="md-tabs__link">
+        <a href="../../../%E6%96%87%E5%AD%A6/" class="md-tabs__link">
           
+  
   
     
   
@@ -296,11 +307,13 @@
   
   
   
+  
     
     
       <li class="md-tabs__item">
-        <a href="../../%E6%9C%BA%E5%99%A8%E4%BA%BA%26%E9%A3%9E%E6%9C%BA/" class="md-tabs__link">
+        <a href="../../../%E6%9C%BA%E5%99%A8%E4%BA%BA%26%E9%A3%9E%E6%9C%BA/" class="md-tabs__link">
           
+  
   
     
   
@@ -316,11 +329,13 @@
   
   
   
+  
     
     
       <li class="md-tabs__item">
-        <a href="../../%E6%9D%82%E5%AD%A6%E6%97%81%E6%94%B6/ROS2%20%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" class="md-tabs__link">
+        <a href="../../../%E6%9D%82%E5%AD%A6%E6%97%81%E6%94%B6/ROS2%20%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" class="md-tabs__link">
           
+  
   
     
   
@@ -354,7 +369,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="Cloudmosquito Site" class="md-nav__button md-logo" aria-label="Cloudmosquito Site" data-md-component="logo">
+    <a href="../../.." title="Cloudmosquito Site" class="md-nav__button md-logo" aria-label="Cloudmosquito Site" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -372,8 +387,9 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href="../../.." class="md-nav__link">
         
+  
   
   <span class="md-ellipsis">
     WELCOME
@@ -390,8 +406,10 @@
       
   
   
+    
   
   
+  
     
     
       
@@ -407,25 +425,29 @@
       
         
       
+        
+      
     
     
+    
+      
+        
+        
       
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-          
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
-        
-          
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../%E6%8E%A7%E5%88%B6%E7%90%86%E8%AE%BA/" class="md-nav__link ">
+            <a href="../../" class="md-nav__link ">
               
+  
   
   <span class="md-ellipsis">
     控制理论
@@ -436,13 +458,13 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             控制理论
@@ -458,8 +480,9 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%E6%8E%A7%E5%88%B6%E7%90%86%E8%AE%BA/Lyapunov%20%E7%A8%B3%E5%AE%9A%E6%80%A7/" class="md-nav__link">
+      <a href="../../Lyapunov%20%E7%A8%B3%E5%AE%9A%E6%80%A7/" class="md-nav__link">
         
+  
   
   <span class="md-ellipsis">
     Lyapunov 稳定性
@@ -490,6 +513,7 @@
       
     
     
+    
       
       
     
@@ -505,6 +529,7 @@
           
           <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
             
+  
   
   <span class="md-ellipsis">
     《非线性控制》笔记
@@ -529,8 +554,9 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%E6%8E%A7%E5%88%B6%E7%90%86%E8%AE%BA/%E3%80%8A%E9%9D%9E%E7%BA%BF%E6%80%A7%E6%8E%A7%E5%88%B6%E3%80%8B%E7%AC%94%E8%AE%B0/1%20%E5%BC%95%E8%AE%BA/" class="md-nav__link">
+      <a href="../../%E3%80%8A%E9%9D%9E%E7%BA%BF%E6%80%A7%E6%8E%A7%E5%88%B6%E3%80%8B%E7%AC%94%E8%AE%B0/1%20%E5%BC%95%E8%AE%BA/" class="md-nav__link">
         
+  
   
   <span class="md-ellipsis">
     一、引论
@@ -551,8 +577,9 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%E6%8E%A7%E5%88%B6%E7%90%86%E8%AE%BA/%E3%80%8A%E9%9D%9E%E7%BA%BF%E6%80%A7%E6%8E%A7%E5%88%B6%E3%80%8B%E7%AC%94%E8%AE%B0/%E5%B9%B3%E8%A1%A1%E7%82%B9%E7%9A%84%E7%A8%B3%E5%AE%9A%E6%80%A7/" class="md-nav__link">
+      <a href="../../%E3%80%8A%E9%9D%9E%E7%BA%BF%E6%80%A7%E6%8E%A7%E5%88%B6%E3%80%8B%E7%AC%94%E8%AE%B0/%E5%B9%B3%E8%A1%A1%E7%82%B9%E7%9A%84%E7%A8%B3%E5%AE%9A%E6%80%A7/" class="md-nav__link">
         
+  
   
   <span class="md-ellipsis">
     平衡点的稳定性
@@ -573,8 +600,9 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%E6%8E%A7%E5%88%B6%E7%90%86%E8%AE%BA/%E3%80%8A%E9%9D%9E%E7%BA%BF%E6%80%A7%E6%8E%A7%E5%88%B6%E3%80%8B%E7%AC%94%E8%AE%B0/%E7%89%B9%E6%AE%8A%E5%9E%8B%E9%9D%9E%E7%BA%BF%E6%80%A7%E7%B3%BB%E7%BB%9F/" class="md-nav__link">
+      <a href="../../%E3%80%8A%E9%9D%9E%E7%BA%BF%E6%80%A7%E6%8E%A7%E5%88%B6%E3%80%8B%E7%AC%94%E8%AE%B0/%E7%89%B9%E6%AE%8A%E5%9E%8B%E9%9D%9E%E7%BA%BF%E6%80%A7%E7%B3%BB%E7%BB%9F/" class="md-nav__link">
         
+  
   
   <span class="md-ellipsis">
     特殊型非线性系统
@@ -611,6 +639,7 @@
       
     
     
+    
       
       
     
@@ -626,6 +655,7 @@
           
           <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
             
+  
   
   <span class="md-ellipsis">
     滤波器
@@ -650,8 +680,9 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%E6%8E%A7%E5%88%B6%E7%90%86%E8%AE%BA/%E6%BB%A4%E6%B3%A2%E5%99%A8/%E4%B8%80%E9%98%B6%E6%BB%9E%E5%90%8E%E6%BB%A4%E6%B3%A2/" class="md-nav__link">
+      <a href="../../%E6%BB%A4%E6%B3%A2%E5%99%A8/%E4%B8%80%E9%98%B6%E6%BB%9E%E5%90%8E%E6%BB%A4%E6%B3%A2/" class="md-nav__link">
         
+  
   
   <span class="md-ellipsis">
     一阶滞后滤波
@@ -672,8 +703,9 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%E6%8E%A7%E5%88%B6%E7%90%86%E8%AE%BA/%E6%BB%A4%E6%B3%A2%E5%99%A8/%E9%99%B7%E6%B3%A2%E5%99%A8%E8%AF%B4%E6%98%8E/" class="md-nav__link">
+      <a href="../../%E6%BB%A4%E6%B3%A2%E5%99%A8/%E9%99%B7%E6%B3%A2%E5%99%A8%E8%AF%B4%E6%98%8E/" class="md-nav__link">
         
+  
   
   <span class="md-ellipsis">
     陷波器说明
@@ -712,6 +744,7 @@
       
     
     
+    
       
       
     
@@ -727,6 +760,7 @@
           
           <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
             
+  
   
   <span class="md-ellipsis">
     自动控制原理
@@ -751,30 +785,9 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%E6%8E%A7%E5%88%B6%E7%90%86%E8%AE%BA/%E8%87%AA%E5%8A%A8%E6%8E%A7%E5%88%B6%E5%8E%9F%E7%90%86/PID%20%E7%90%86%E8%AE%BA%E5%88%86%E6%9E%90/" class="md-nav__link">
+      <a href="../../%E8%87%AA%E5%8A%A8%E6%8E%A7%E5%88%B6%E5%8E%9F%E7%90%86/%E6%8B%89%E6%B0%8F%E5%8F%98%E6%8D%A2%E5%88%9D%E7%BB%88%E5%80%BC%E5%AE%9A%E7%90%86/" class="md-nav__link">
         
   
-  <span class="md-ellipsis">
-    云台 PID 控制理论分析
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../%E6%8E%A7%E5%88%B6%E7%90%86%E8%AE%BA/%E8%87%AA%E5%8A%A8%E6%8E%A7%E5%88%B6%E5%8E%9F%E7%90%86/%E6%8B%89%E6%B0%8F%E5%8F%98%E6%8D%A2%E5%88%9D%E7%BB%88%E5%80%BC%E5%AE%9A%E7%90%86/" class="md-nav__link">
-        
   
   <span class="md-ellipsis">
     Laplace变换初/终值定理
@@ -795,8 +808,9 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%E6%8E%A7%E5%88%B6%E7%90%86%E8%AE%BA/%E8%87%AA%E5%8A%A8%E6%8E%A7%E5%88%B6%E5%8E%9F%E7%90%86/%E8%83%BD%E6%8E%A7%E6%80%A7%E5%92%8C%E8%83%BD%E8%A7%82%E6%80%A7/" class="md-nav__link">
+      <a href="../../%E8%87%AA%E5%8A%A8%E6%8E%A7%E5%88%B6%E5%8E%9F%E7%90%86/%E8%83%BD%E6%8E%A7%E6%80%A7%E5%92%8C%E8%83%BD%E8%A7%82%E6%80%A7/" class="md-nav__link">
         
+  
   
   <span class="md-ellipsis">
     能控性与能观性
@@ -810,26 +824,9 @@
 
               
             
-          </ul>
-        </nav>
-      
-    </li>
-  
-
               
-            
-          </ul>
-        </nav>
-      
-    </li>
+                
   
-
-    
-      
-      
-  
-  
-    
   
   
   
@@ -840,33 +837,28 @@
       
         
       
-        
-      
-        
-      
-        
-      
     
     
-      
-        
-        
+    
       
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_5_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_5_3" id="__nav_2_5_3_label" tabindex="0">
             
   
+  
   <span class="md-ellipsis">
-    数学
+    PID 相关
     
   </span>
   
@@ -874,10 +866,10 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_3">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_5_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5_3">
             <span class="md-nav__icon md-icon"></span>
-            数学
+            PID 相关
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -888,11 +880,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../Jordan%20%E6%A0%87%E5%87%86%E5%9E%8B/" class="md-nav__link">
+      <a href="../../%E8%87%AA%E5%8A%A8%E6%8E%A7%E5%88%B6%E5%8E%9F%E7%90%86/PID%20%E7%9B%B8%E5%85%B3/%E4%BA%91%E5%8F%B0%20PID%20%E7%90%86%E8%AE%BA%E5%88%86%E6%9E%90/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
-    Jordan 标准型
+    云台 PID 控制理论分析
     
   </span>
   
@@ -910,11 +903,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../%E4%BA%8C%E6%AC%A1%E5%9E%8B%E4%B8%8E%28%E5%8D%8A%29%E6%AD%A3%E8%B4%9F%E5%AE%9A%E6%80%A7/" class="md-nav__link">
+      <a href="../../%E8%87%AA%E5%8A%A8%E6%8E%A7%E5%88%B6%E5%8E%9F%E7%90%86/PID%20%E7%9B%B8%E5%85%B3/%E7%B3%BB%E7%BB%9F%E9%98%B6%E6%95%B0%E4%B8%8E%20PID/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
-    二次型与（半）正负定性
+    系统阶数与 PID
     
   </span>
   
@@ -925,27 +919,68 @@
 
               
             
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../%E6%9D%8E%E7%BE%A4%E4%B8%8E%E6%9D%8E%E4%BB%A3%E6%95%B0/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    李群与李代数
-    
-  </span>
-  
-
-      </a>
+          </ul>
+        </nav>
+      
     </li>
   
 
               
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    观测器
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            观测器
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
             
               
                 
@@ -966,8 +1001,9 @@
         <label class="md-nav__link md-nav__link--active" for="__toc">
           
   
+  
   <span class="md-ellipsis">
-    矩阵对角化与分解
+    引言（系统能观性）
     
   </span>
   
@@ -978,8 +1014,9 @@
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
+  
   <span class="md-ellipsis">
-    矩阵对角化与分解
+    引言（系统能观性）
     
   </span>
   
@@ -1002,37 +1039,28 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
-      1 矩阵对角化（特征值分解）
+      为什么需要观测器
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="1 矩阵对角化（特征值分解）">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      系统能观测吗
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="系统能观测吗">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#11" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
-      1.1 结论
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#12" class="md-nav__link">
-    <span class="md-ellipsis">
-      1.2 思考过程
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#13" class="md-nav__link">
-    <span class="md-ellipsis">
-      1.3 拓展
+      更加深刻的观察
     </span>
   </a>
   
@@ -1044,54 +1072,39 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-svdsingular-value-decomposition" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
-      2 SVD（Singular Value Decomposition）奇异值分解
+      能观性矩阵判据
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="2 SVD（Singular Value Decomposition）奇异值分解">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      能观性秩判据
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="能观性秩判据">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#21" class="md-nav__link">
+  <a href="#pbh" class="md-nav__link">
     <span class="md-ellipsis">
-      2.1 结论
+      PBH 秩判据
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#22" class="md-nav__link">
+  <a href="#pbh_1" class="md-nav__link">
     <span class="md-ellipsis">
-      2.2 思考过程
+      PBH 秩向量判据
     </span>
   </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#23-svd" class="md-nav__link">
-    <span class="md-ellipsis">
-      2.3 SVD 的用处
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="2.3 SVD 的用处">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#231" class="md-nav__link">
-    <span class="md-ellipsis">
-      2.3.1 求伪逆
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
         
@@ -1109,6 +1122,72 @@
 
               
             
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    数学
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            数学
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
               
                 
   
@@ -1116,8 +1195,32 @@
   
   
     <li class="md-nav__item">
-      <a href="../%E7%9F%A9%E9%98%B5%E5%BE%AE%E7%A7%AF%E5%88%86/" class="md-nav__link">
+      <a href="../../../%E6%95%B0%E5%AD%A6/%E6%9D%8E%E7%BE%A4%E4%B8%8E%E6%9D%8E%E4%BB%A3%E6%95%B0/" class="md-nav__link">
         
+  
+  
+  <span class="md-ellipsis">
+    李群与李代数
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E6%95%B0%E5%AD%A6/%E7%9F%A9%E9%98%B5%E5%BE%AE%E7%A7%AF%E5%88%86/" class="md-nav__link">
+        
+  
   
   <span class="md-ellipsis">
     矩阵微积分
@@ -1126,6 +1229,159 @@
   
 
       </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    高等代数
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            高等代数
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E6%95%B0%E5%AD%A6/%E9%AB%98%E7%AD%89%E4%BB%A3%E6%95%B0/Hamilton-Cayley%20%E5%AE%9A%E7%90%86/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    哈密顿-凯莱定理（Hamilton-Cayley theorem）
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E6%95%B0%E5%AD%A6/%E9%AB%98%E7%AD%89%E4%BB%A3%E6%95%B0/Jordan%20%E6%A0%87%E5%87%86%E5%9E%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Jordan 标准型
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E6%95%B0%E5%AD%A6/%E9%AB%98%E7%AD%89%E4%BB%A3%E6%95%B0/%E4%BA%8C%E6%AC%A1%E5%9E%8B%E4%B8%8E%28%E5%8D%8A%29%E6%AD%A3%E8%B4%9F%E5%AE%9A%E6%80%A7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    二次型与（半）正负定性
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E6%95%B0%E5%AD%A6/%E9%AB%98%E7%AD%89%E4%BB%A3%E6%95%B0/%E7%9F%A9%E9%98%B5%E5%AF%B9%E8%A7%92%E5%8C%96%E4%B8%8E%E5%88%86%E8%A7%A3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    矩阵对角化与分解
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -1157,6 +1413,7 @@
       
     
     
+    
       
       
     
@@ -1170,10 +1427,10 @@
         <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
         
           
-          
           <div class="md-nav__link md-nav__container">
-            <a href="../../%E6%96%87%E5%AD%A6/" class="md-nav__link ">
+            <a href="../../../%E6%96%87%E5%AD%A6/" class="md-nav__link ">
               
+  
   
   <span class="md-ellipsis">
     文学
@@ -1212,6 +1469,7 @@
       
     
     
+    
       
       
     
@@ -1227,6 +1485,7 @@
           
           <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
             
+  
   
   <span class="md-ellipsis">
     小说创作
@@ -1251,8 +1510,9 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%E6%96%87%E5%AD%A6/%E5%B0%8F%E8%AF%B4%E5%88%9B%E4%BD%9C/%E5%92%AB%E5%B0%BA%E5%A4%A9%E6%B6%AF/" class="md-nav__link">
+      <a href="../../../%E6%96%87%E5%AD%A6/%E5%B0%8F%E8%AF%B4%E5%88%9B%E4%BD%9C/%E5%92%AB%E5%B0%BA%E5%A4%A9%E6%B6%AF/" class="md-nav__link">
         
+  
   
   <span class="md-ellipsis">
     咫尺天涯
@@ -1287,6 +1547,7 @@
       
     
     
+    
       
       
     
@@ -1302,6 +1563,7 @@
           
           <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
             
+  
   
   <span class="md-ellipsis">
     阅读笔记
@@ -1332,6 +1594,7 @@
       
     
     
+    
       
       
     
@@ -1347,6 +1610,7 @@
           
           <label class="md-nav__link" for="__nav_4_3_1" id="__nav_4_3_1_label" tabindex="0">
             
+  
   
   <span class="md-ellipsis">
     《中国叙事学》
@@ -1371,8 +1635,9 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%E6%96%87%E5%AD%A6/%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/%E3%80%8A%E4%B8%AD%E5%9B%BD%E5%8F%99%E4%BA%8B%E5%AD%A6%E3%80%8B/%E3%80%8A%E4%B8%AD%E5%9B%BD%E5%8F%99%E4%BA%8B%E5%AD%A6%E3%80%8B%E7%AC%94%E8%AE%B0/" class="md-nav__link">
+      <a href="../../../%E6%96%87%E5%AD%A6/%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/%E3%80%8A%E4%B8%AD%E5%9B%BD%E5%8F%99%E4%BA%8B%E5%AD%A6%E3%80%8B/%E3%80%8A%E4%B8%AD%E5%9B%BD%E5%8F%99%E4%BA%8B%E5%AD%A6%E3%80%8B%E7%AC%94%E8%AE%B0/" class="md-nav__link">
         
+  
   
   <span class="md-ellipsis">
     绪论笔记
@@ -1428,6 +1693,7 @@
       
     
     
+    
       
       
     
@@ -1441,10 +1707,10 @@
         <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
         
           
-          
           <div class="md-nav__link md-nav__container">
-            <a href="../../%E6%9C%BA%E5%99%A8%E4%BA%BA%26%E9%A3%9E%E6%9C%BA/" class="md-nav__link ">
+            <a href="../../../%E6%9C%BA%E5%99%A8%E4%BA%BA%26%E9%A3%9E%E6%9C%BA/" class="md-nav__link ">
               
+  
   
   <span class="md-ellipsis">
     机器人&飞机
@@ -1485,6 +1751,7 @@
       
     
     
+    
       
       
     
@@ -1500,6 +1767,7 @@
           
           <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
             
+  
   
   <span class="md-ellipsis">
     机器人学
@@ -1524,8 +1792,9 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%E6%9C%BA%E5%99%A8%E4%BA%BA%26%E9%A3%9E%E6%9C%BA/%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%AD%A6/%E5%88%9A%E6%80%A7%E8%BF%90%E5%8A%A8%E4%B8%8E%E9%BD%90%E6%AC%A1%E5%8F%98%E6%8D%A2/" class="md-nav__link">
+      <a href="../../../%E6%9C%BA%E5%99%A8%E4%BA%BA%26%E9%A3%9E%E6%9C%BA/%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%AD%A6/%E5%88%9A%E6%80%A7%E8%BF%90%E5%8A%A8%E4%B8%8E%E9%BD%90%E6%AC%A1%E5%8F%98%E6%8D%A2/" class="md-nav__link">
         
+  
   
   <span class="md-ellipsis">
     刚性运动和齐次变换
@@ -1546,8 +1815,9 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%E6%9C%BA%E5%99%A8%E4%BA%BA%26%E9%A3%9E%E6%9C%BA/%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%AD%A6/%E6%97%8B%E8%BD%AC%E7%9F%A9%E9%98%B5%E5%92%8C%E6%AC%A7%E6%8B%89%E8%A7%92%E7%9A%84%E5%AF%BC%E6%95%B0/" class="md-nav__link">
+      <a href="../../../%E6%9C%BA%E5%99%A8%E4%BA%BA%26%E9%A3%9E%E6%9C%BA/%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%AD%A6/%E6%97%8B%E8%BD%AC%E7%9F%A9%E9%98%B5%E5%92%8C%E6%AC%A7%E6%8B%89%E8%A7%92%E7%9A%84%E5%AF%BC%E6%95%B0/" class="md-nav__link">
         
+  
   
   <span class="md-ellipsis">
     旋转矩阵和欧拉角的导数
@@ -1584,6 +1854,7 @@
       
     
     
+    
       
       
     
@@ -1599,6 +1870,7 @@
           
           <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
             
+  
   
   <span class="md-ellipsis">
     论文阅读
@@ -1623,8 +1895,9 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%E6%9C%BA%E5%99%A8%E4%BA%BA%26%E9%A3%9E%E6%9C%BA/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/%E5%9B%9B%E6%97%8B%E7%BF%BC%20SO%283%29%20%E5%A7%BF%E6%80%81%E6%8E%A7%E5%88%B6/" class="md-nav__link">
+      <a href="../../../%E6%9C%BA%E5%99%A8%E4%BA%BA%26%E9%A3%9E%E6%9C%BA/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/%E5%9B%9B%E6%97%8B%E7%BF%BC%20SO%283%29%20%E5%A7%BF%E6%80%81%E6%8E%A7%E5%88%B6/" class="md-nav__link">
         
+  
   
   <span class="md-ellipsis">
     四旋翼 SO(3) 姿态控制
@@ -1645,8 +1918,9 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%E6%9C%BA%E5%99%A8%E4%BA%BA%26%E9%A3%9E%E6%9C%BA/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/%E5%9B%9B%E6%97%8B%E7%BF%BC%E5%BE%AE%E5%88%86%E5%B9%B3%E5%9D%A6%E4%B8%8E%E6%9C%80%E5%B0%8F%20snap%20%E8%BD%A8%E8%BF%B9/" class="md-nav__link">
+      <a href="../../../%E6%9C%BA%E5%99%A8%E4%BA%BA%26%E9%A3%9E%E6%9C%BA/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/%E5%9B%9B%E6%97%8B%E7%BF%BC%E5%BE%AE%E5%88%86%E5%B9%B3%E5%9D%A6%E4%B8%8E%E6%9C%80%E5%B0%8F%20snap%20%E8%BD%A8%E8%BF%B9/" class="md-nav__link">
         
+  
   
   <span class="md-ellipsis">
     四旋翼微分平坦与最小 snap 轨迹
@@ -1696,6 +1970,7 @@
       
     
     
+    
       
       
     
@@ -1711,6 +1986,7 @@
           
           <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
             
+  
   
   <span class="md-ellipsis">
     杂学旁收
@@ -1735,8 +2011,9 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%E6%9D%82%E5%AD%A6%E6%97%81%E6%94%B6/ROS2%20%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" class="md-nav__link">
+      <a href="../../../%E6%9D%82%E5%AD%A6%E6%97%81%E6%94%B6/ROS2%20%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" class="md-nav__link">
         
+  
   
   <span class="md-ellipsis">
     ROS2 学习记录
@@ -1757,8 +2034,9 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%E6%9D%82%E5%AD%A6%E6%97%81%E6%94%B6/git%20%E7%94%A8%E6%B3%95/" class="md-nav__link">
+      <a href="../../../%E6%9D%82%E5%AD%A6%E6%97%81%E6%94%B6/git%20%E7%94%A8%E6%B3%95/" class="md-nav__link">
         
+  
   
   <span class="md-ellipsis">
     git 相关操作
@@ -1779,8 +2057,9 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%E6%9D%82%E5%AD%A6%E6%97%81%E6%94%B6/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99%E6%90%AD%E5%BB%BA%E6%8C%87%E5%8D%97/" class="md-nav__link">
+      <a href="../../../%E6%9D%82%E5%AD%A6%E6%97%81%E6%94%B6/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99%E6%90%AD%E5%BB%BA%E6%8C%87%E5%8D%97/" class="md-nav__link">
         
+  
   
   <span class="md-ellipsis">
     个人网站搭建指南
@@ -1801,8 +2080,9 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%E6%9D%82%E5%AD%A6%E6%97%81%E6%94%B6/%E5%A4%A9%E7%A9%BA%E4%B8%BA%E4%BB%80%E4%B9%88%E6%98%AF%E8%93%9D%E8%89%B2%E7%9A%84/" class="md-nav__link">
+      <a href="../../../%E6%9D%82%E5%AD%A6%E6%97%81%E6%94%B6/%E5%A4%A9%E7%A9%BA%E4%B8%BA%E4%BB%80%E4%B9%88%E6%98%AF%E8%93%9D%E8%89%B2%E7%9A%84/" class="md-nav__link">
         
+  
   
   <span class="md-ellipsis">
     天空为什么是蓝色的？
@@ -1845,6 +2125,7 @@
       
     
     
+    
       
       
     
@@ -1860,6 +2141,7 @@
           
           <label class="md-nav__link" for="__nav_6_5" id="__nav_6_5_label" tabindex="0">
             
+  
   
   <span class="md-ellipsis">
     LInux (Ubuntu) 使用 Tips
@@ -1884,8 +2166,9 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%E6%9D%82%E5%AD%A6%E6%97%81%E6%94%B6/LInux%20%28Ubuntu%29%20%E4%BD%BF%E7%94%A8%20Tips/terminator%20%E5%BF%AB%E6%8D%B7%E9%94%AE/" class="md-nav__link">
+      <a href="../../../%E6%9D%82%E5%AD%A6%E6%97%81%E6%94%B6/LInux%20%28Ubuntu%29%20%E4%BD%BF%E7%94%A8%20Tips/terminator%20%E5%BF%AB%E6%8D%B7%E9%94%AE/" class="md-nav__link">
         
+  
   
   <span class="md-ellipsis">
     terminator 快捷键
@@ -1906,8 +2189,9 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%E6%9D%82%E5%AD%A6%E6%97%81%E6%94%B6/LInux%20%28Ubuntu%29%20%E4%BD%BF%E7%94%A8%20Tips/%E5%AE%89%E8%A3%85%E4%B8%8E%E5%8D%B8%E8%BD%BD%E8%BD%AF%E4%BB%B6/" class="md-nav__link">
+      <a href="../../../%E6%9D%82%E5%AD%A6%E6%97%81%E6%94%B6/LInux%20%28Ubuntu%29%20%E4%BD%BF%E7%94%A8%20Tips/%E5%AE%89%E8%A3%85%E4%B8%8E%E5%8D%B8%E8%BD%BD%E8%BD%AF%E4%BB%B6/" class="md-nav__link">
         
+  
   
   <span class="md-ellipsis">
     安装与卸载软件
@@ -1928,8 +2212,9 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%E6%9D%82%E5%AD%A6%E6%97%81%E6%94%B6/LInux%20%28Ubuntu%29%20%E4%BD%BF%E7%94%A8%20Tips/%E6%80%8E%E4%B9%88%E5%92%8C%20windows%20%E5%8F%8C%E7%B3%BB%E7%BB%9F%E6%97%B6%E9%97%B4%E4%B8%80%E8%87%B4/" class="md-nav__link">
+      <a href="../../../%E6%9D%82%E5%AD%A6%E6%97%81%E6%94%B6/LInux%20%28Ubuntu%29%20%E4%BD%BF%E7%94%A8%20Tips/%E6%80%8E%E4%B9%88%E5%92%8C%20windows%20%E5%8F%8C%E7%B3%BB%E7%BB%9F%E6%97%B6%E9%97%B4%E4%B8%80%E8%87%B4/" class="md-nav__link">
         
+  
   
   <span class="md-ellipsis">
     怎么设置双系统时间一致
@@ -1950,8 +2235,9 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%E6%9D%82%E5%AD%A6%E6%97%81%E6%94%B6/LInux%20%28Ubuntu%29%20%E4%BD%BF%E7%94%A8%20Tips/%E6%80%8E%E4%B9%88%E6%8D%A2%E6%BA%90%20pip%20install/" class="md-nav__link">
+      <a href="../../../%E6%9D%82%E5%AD%A6%E6%97%81%E6%94%B6/LInux%20%28Ubuntu%29%20%E4%BD%BF%E7%94%A8%20Tips/%E6%80%8E%E4%B9%88%E6%8D%A2%E6%BA%90%20pip%20install/" class="md-nav__link">
         
+  
   
   <span class="md-ellipsis">
     怎么换源 pip install
@@ -1972,8 +2258,9 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%E6%9D%82%E5%AD%A6%E6%97%81%E6%94%B6/LInux%20%28Ubuntu%29%20%E4%BD%BF%E7%94%A8%20Tips/%E6%80%8E%E4%B9%88%E6%96%B0%E5%BB%BA%E6%88%96%E5%88%A0%E9%99%A4%E6%96%87%E4%BB%B6%EF%BC%88%E5%A4%B9%EF%BC%89/" class="md-nav__link">
+      <a href="../../../%E6%9D%82%E5%AD%A6%E6%97%81%E6%94%B6/LInux%20%28Ubuntu%29%20%E4%BD%BF%E7%94%A8%20Tips/%E6%80%8E%E4%B9%88%E6%96%B0%E5%BB%BA%E6%88%96%E5%88%A0%E9%99%A4%E6%96%87%E4%BB%B6%EF%BC%88%E5%A4%B9%EF%BC%89/" class="md-nav__link">
         
+  
   
   <span class="md-ellipsis">
     怎么新建或删除文件（夹）
@@ -1994,8 +2281,9 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%E6%9D%82%E5%AD%A6%E6%97%81%E6%94%B6/LInux%20%28Ubuntu%29%20%E4%BD%BF%E7%94%A8%20Tips/%E6%80%8E%E4%B9%88%E7%9C%8B%E7%A1%AC%E7%9B%98%E5%89%A9%E4%BD%99%E7%A9%BA%E9%97%B4/" class="md-nav__link">
+      <a href="../../../%E6%9D%82%E5%AD%A6%E6%97%81%E6%94%B6/LInux%20%28Ubuntu%29%20%E4%BD%BF%E7%94%A8%20Tips/%E6%80%8E%E4%B9%88%E7%9C%8B%E7%A1%AC%E7%9B%98%E5%89%A9%E4%BD%99%E7%A9%BA%E9%97%B4/" class="md-nav__link">
         
+  
   
   <span class="md-ellipsis">
     怎么看硬盘剩余空间
@@ -2016,8 +2304,9 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%E6%9D%82%E5%AD%A6%E6%97%81%E6%94%B6/LInux%20%28Ubuntu%29%20%E4%BD%BF%E7%94%A8%20Tips/%E6%80%8E%E4%B9%88%E8%A7%A3%E5%86%B3%E5%85%B3%E6%9C%BA%E4%B8%BB%E6%9D%BF%E4%B8%8D%E6%96%AD%E7%94%B5%E7%9A%84%E9%97%AE%E9%A2%98/" class="md-nav__link">
+      <a href="../../../%E6%9D%82%E5%AD%A6%E6%97%81%E6%94%B6/LInux%20%28Ubuntu%29%20%E4%BD%BF%E7%94%A8%20Tips/%E6%80%8E%E4%B9%88%E8%A7%A3%E5%86%B3%E5%85%B3%E6%9C%BA%E4%B8%BB%E6%9D%BF%E4%B8%8D%E6%96%AD%E7%94%B5%E7%9A%84%E9%97%AE%E9%A2%98/" class="md-nav__link">
         
+  
   
   <span class="md-ellipsis">
     怎么解决 Ubuntu 关机后电脑主板不断电
@@ -2038,8 +2327,9 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%E6%9D%82%E5%AD%A6%E6%97%81%E6%94%B6/LInux%20%28Ubuntu%29%20%E4%BD%BF%E7%94%A8%20Tips/%E6%80%8E%E4%B9%88%E8%AE%BE%E7%BD%AE%20sudo%20%E4%B8%8D%E7%94%A8%E5%AF%86%E7%A0%81/" class="md-nav__link">
+      <a href="../../../%E6%9D%82%E5%AD%A6%E6%97%81%E6%94%B6/LInux%20%28Ubuntu%29%20%E4%BD%BF%E7%94%A8%20Tips/%E6%80%8E%E4%B9%88%E8%AE%BE%E7%BD%AE%20sudo%20%E4%B8%8D%E7%94%A8%E5%AF%86%E7%A0%81/" class="md-nav__link">
         
+  
   
   <span class="md-ellipsis">
     怎么设置 sudo 不用密码
@@ -2060,8 +2350,9 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%E6%9D%82%E5%AD%A6%E6%97%81%E6%94%B6/LInux%20%28Ubuntu%29%20%E4%BD%BF%E7%94%A8%20Tips/%E6%80%8E%E4%B9%88%E9%A6%96%E9%80%89%E5%90%AF%E7%94%A8%20Nvidia%20%E6%98%BE%E5%8D%A1/" class="md-nav__link">
+      <a href="../../../%E6%9D%82%E5%AD%A6%E6%97%81%E6%94%B6/LInux%20%28Ubuntu%29%20%E4%BD%BF%E7%94%A8%20Tips/%E6%80%8E%E4%B9%88%E9%A6%96%E9%80%89%E5%90%AF%E7%94%A8%20Nvidia%20%E6%98%BE%E5%8D%A1/" class="md-nav__link">
         
+  
   
   <span class="md-ellipsis">
     怎么首选启用 Nvdia 显卡
@@ -2117,37 +2408,28 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
-      1 矩阵对角化（特征值分解）
+      为什么需要观测器
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="1 矩阵对角化（特征值分解）">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      系统能观测吗
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="系统能观测吗">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#11" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
-      1.1 结论
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#12" class="md-nav__link">
-    <span class="md-ellipsis">
-      1.2 思考过程
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#13" class="md-nav__link">
-    <span class="md-ellipsis">
-      1.3 拓展
+      更加深刻的观察
     </span>
   </a>
   
@@ -2159,54 +2441,39 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-svdsingular-value-decomposition" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
-      2 SVD（Singular Value Decomposition）奇异值分解
+      能观性矩阵判据
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="2 SVD（Singular Value Decomposition）奇异值分解">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      能观性秩判据
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="能观性秩判据">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#21" class="md-nav__link">
+  <a href="#pbh" class="md-nav__link">
     <span class="md-ellipsis">
-      2.1 结论
+      PBH 秩判据
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#22" class="md-nav__link">
+  <a href="#pbh_1" class="md-nav__link">
     <span class="md-ellipsis">
-      2.2 思考过程
+      PBH 秩向量判据
     </span>
   </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#23-svd" class="md-nav__link">
-    <span class="md-ellipsis">
-      2.3 SVD 的用处
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="2.3 SVD 的用处">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#231" class="md-nav__link">
-    <span class="md-ellipsis">
-      2.3.1 求伪逆
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
         
@@ -2231,110 +2498,73 @@
 
 
 
-<h1 id="_1">矩阵对角化与分解</h1>
-<h2 id="1">1 矩阵对角化（特征值分解）</h2>
-<h3 id="11">1.1 结论</h3>
-<p>一个特征向量线性无关（所有特征值都不同）的 <span class="arithmatex">\(n\)</span> 维矩阵 <span class="arithmatex">\(A\)</span>，可以写成如下形式</p>
-<div class="arithmatex">\[A =  W \Sigma W^{-1}\]</div>
-<p>其中，<span class="arithmatex">\(\Sigma\)</span> 是由 <span class="arithmatex">\(A\)</span> 的特征值组成的对角阵，<span class="arithmatex">\(W\)</span> 是由 <span class="arithmatex">\(A\)</span> 的特征向量组成的矩阵，<span class="arithmatex">\(W\)</span> 的每一列都是 <span class="arithmatex">\(A\)</span> 的一个特征向量。</p>
-<h3 id="12">1.2 思考过程</h3>
-<p>我们讨论一个 <span class="arithmatex">\(n\)</span> 维矩阵 <span class="arithmatex">\(A\)</span>。</p>
-<p>首先，我们考察矩阵 <span class="arithmatex">\(A\)</span> 的特征值，它们满足</p>
-<div class="arithmatex">\[A\mathbf{x}_i = \lambda_i \mathbf{x}_i\]</div>
-<p>这里的 <span class="arithmatex">\(\mathbf{x}_i\)</span> 是一个 <span class="arithmatex">\(n\times 1\)</span> 的向量。</p>
-<p>一个很自然的想法是，我们把 <span class="arithmatex">\(n\)</span> 个特征值对应的上式合在一起，用矩阵表示，那么就是</p>
-<div class="arithmatex">\[A\begin{bmatrix}\mathbf{x}_1 &amp; \mathbf{x}_2 &amp;...&amp;\mathbf{x}_n\end{bmatrix} = \begin{bmatrix}\lambda_1\mathbf{x}_1 &amp; \lambda_2\mathbf{x}_2 &amp;...&amp;\lambda_n\mathbf{x}_n\end{bmatrix}\]</div>
-<p>下面这一步思考需要一点灵感。构造一个矩阵 <span class="arithmatex">\(B\)</span>：</p>
-<div class="arithmatex">\[B = \begin{bmatrix}\mathbf{b}_{1,1\times n}\\\mathbf{b}_2\\...\\\mathbf{b}_n\end{bmatrix}_{n\times n}\]</div>
-<p>让 <span class="arithmatex">\(B\)</span> 左乘 <span class="arithmatex">\(A\begin{bmatrix}\mathbf{x}_1 &amp; \mathbf{x}_2 &amp; \cdots &amp; \mathbf{x}_n\end{bmatrix}\)</span> ：</p>
-<div class="arithmatex">\[\begin{bmatrix}\mathbf{b}_1\\\mathbf{b}_2\\...\\\mathbf{b}_n\end{bmatrix}\begin{bmatrix}\lambda_1\mathbf{x}_1 &amp; \lambda_2\mathbf{x}_2 &amp;...&amp;\lambda_2\mathbf{x}_n\end{bmatrix} = \begin{bmatrix}\lambda_1\mathbf{b}_1\mathbf{x}_1 &amp; \lambda_2\mathbf{b}_1\mathbf{x}_2 &amp;...&amp;\lambda_n\mathbf{b}_1\mathbf{x}_n\\ \lambda_1\mathbf{b}_2\mathbf{x}_1 &amp; \lambda_2\mathbf{b}_2\mathbf{x}_2 &amp; ... &amp; \lambda_n\mathbf{b}_2\mathbf{x}_n\\ ...\\ \lambda_1\mathbf{b}_n\mathbf{x}_1 &amp; \lambda_2\mathbf{b}_n\mathbf{x}_2 &amp; ... &amp; \lambda_n\mathbf{b}_n\mathbf{x}_n\end{bmatrix}\]</div>
-<p>不难发现，如果 <span class="arithmatex">\(\mathbf{b}_i\mathbf{x}_i = 1\)</span> 且 <span class="arithmatex">\(\mathbf{b}_i\mathbf{x}_j = 0, \ i \neq j\)</span>，上式的结果就是一个由矩阵 <span class="arithmatex">\(A\)</span> 的特征值组成的对角阵。</p>
-<p>什么样的矩阵 <span class="arithmatex">\(B\)</span> 能够满足 <span class="arithmatex">\(\mathbf{b}_i\mathbf{x}_i = 1\)</span> 且 <span class="arithmatex">\(\mathbf{b}_i\mathbf{x}_j = 0, \ i \neq j\)</span> 呢？其实只要把所有 <span class="arithmatex">\(\lambda\)</span> 都去了，就很容易发现，<span class="arithmatex">\(B\)</span> 就是特征向量组成的矩阵的逆矩阵（ <span class="arithmatex">\(\begin{bmatrix}\mathbf{x}_1 &amp; \mathbf{x}_2 &amp;...&amp;\mathbf{x}_n\end{bmatrix}^{-1}\)</span> ）。</p>
+<h1 id="_1">引言（系统能观性）</h1>
+<h2 id="_2">为什么需要观测器</h2>
+<p>我们先考虑简单的线性定常连续系统：</p>
+<div class="arithmatex">\[\begin{aligned}\dot{\mathbf{x}} &amp;= A\mathbf{x}+B\mathbf u\\
+\mathbf{y}&amp;= C\mathbf{x}+D\mathbf{u} \end{aligned}\tag{1-1}\]</div>
+<p>为了控制或其它目的，我们需要获知系统内部状态信息，即状态变量 <span class="arithmatex">\(\mathbf{x}\)</span> 的值。一般而言，我们已知控制输入 <span class="arithmatex">\(\mathbf{u}\)</span> ，可通过特定传感器获知系统输出 <span class="arithmatex">\(\mathbf{y}\)</span> ，但难以通过传感器直接获取状态变量 <span class="arithmatex">\(\mathbf{x}\)</span> 中的每一个分量值。因此，我们要设计观测器，间接观测状态变量。</p>
+<h2 id="_3">系统能观测吗</h2>
+<p>我们首先给出<strong>能观性</strong>的定义：</p>
+<p><strong>已知系统 <span class="arithmatex">\((A,B,C,D)\)</span> 和一个时间段 <span class="arithmatex">\(t\in[t_0, t_f]\)</span> ，如果我们能根据该时间段内系统的输出 <span class="arithmatex">\(\mathbf{y}(t)\)</span> 和控制输入 <span class="arithmatex">\(\mathbf{u}(t)\)</span> 来唯一确定初始状态 <span class="arithmatex">\(\mathbf{x}(0)\)</span> ，那么系统就是完全能观的</strong>。</p>
 <blockquote>
-<p>这里还有一个观察：如果 <span class="arithmatex">\(\mathbf{x}_i, \ i=1,2,...,n\)</span> 两两正交，单位长度，那么，矩阵 <span class="arithmatex">\(B = \begin{bmatrix}\mathbf{x}_1 &amp; \mathbf{x}_2 &amp; \cdots &amp; \mathbf{x}_n\end{bmatrix}^{-1} = \begin{bmatrix}\mathbf{x}_1 &amp; \mathbf{x}_2 &amp; \cdots &amp; \mathbf{x}_n\end{bmatrix}^T\)</span> 。这时候的 <span class="arithmatex">\(B\)</span> 就是一个酉矩阵。</p>
+<p>Q：为什么只要求确定初始状态，而不是时间段内任意时刻的状态？
+A：因为已知系统 <span class="arithmatex">\((A,B,C,D)\)</span> 、初始状态和控制输入，即可求出任意时刻的系统状态。</p>
+<div class="arithmatex">\[\mathbf{x}(t) = e^{At}\mathbf{x}(0)+\int_{0}^te^{A(t-\tau)}B\mathbf{u}(\tau)\mathrm{d}\tau\]</div>
 </blockquote>
-<hr />
-<p>现在有一个问题，矩阵 <span class="arithmatex">\(A\)</span> 的特征向量组成的这个矩阵可逆吗（ <span class="arithmatex">\(\begin{bmatrix}\mathbf{x}_1 &amp; \mathbf{x}_2 &amp;...&amp;\mathbf{x}_n\end{bmatrix}^{-1}\)</span> 存在吗）？</p>
-<p>当矩阵 <span class="arithmatex">\(A\)</span> 特征向量都线性无关的时候，显然矩阵可逆。</p>
-<p><strong>当矩阵 <span class="arithmatex">\(A\)</span> 的每个特征值都不一样时</strong>，该矩阵也是可逆的。我们可以说明：此时，<span class="arithmatex">\(A\)</span> 的特征向量都线性无关。</p>
-<p>利用反证法。假设 <span class="arithmatex">\(\mathbf{x}_i = a\mathbf{x}_j + b\mathbf{x}_k\)</span> ，然后等号左右两边同时左乘一个矩阵 <span class="arithmatex">\(A\)</span> ，得到</p>
-<div class="arithmatex">\[\begin{aligned}A\mathbf{x}_i &amp;= aA\mathbf{x}_j + bA\mathbf{x}_k\\
-\lambda_i\mathbf{x}_i &amp;= a\lambda_j\mathbf{x}_j + b\lambda_k\mathbf{x}_k\\
-\mathbf{x}_i &amp;= a\frac{\lambda_j}{\lambda_i}\mathbf{x}_j + b\frac{\lambda_k}{\lambda_i}\mathbf{x}_k\end{aligned}\]</div>
-<p>从而，我们有</p>
-<div class="arithmatex">\[a(1-\frac{\lambda_j}{\lambda_i})\mathbf{x}_j = b(\frac{\lambda_k}{\lambda_i}-1)\mathbf{x}_k\]</div>
-<p>因为 <span class="arithmatex">\(A\mathbf{x}_j = \lambda_j \mathbf{x}_j\)</span> ，把 <span class="arithmatex">\(\mathbf{x}_j\)</span> 用 <span class="arithmatex">\(\mathbf{x}_k\)</span> 表示，就可以得到 <span class="arithmatex">\(A\mathbf{x}_k = \lambda_j \mathbf{x}_k\)</span> . 但是 <span class="arithmatex">\(A\mathbf{x}_k = \lambda_k \mathbf{x}_k\)</span> ，推导得到 <span class="arithmatex">\(\lambda_j = \lambda_k\)</span> .</p>
-<p>这与“每个特征值都不一样的条件”不符，说明我们假设错误，说明 <span class="arithmatex">\(A\)</span> 的特征向量都线性无关。</p>
-<p>所以特征向量组成的这个矩阵可逆（ <span class="arithmatex">\(\begin{bmatrix}\mathbf{x}_1 &amp; \mathbf{x}_2 &amp;...&amp;\mathbf{x}_n\end{bmatrix}^{-1}\)</span> 存在）。</p>
-<hr />
-<p>综上所述，当一个 <span class="arithmatex">\(n\)</span> 维矩阵 <span class="arithmatex">\(A\)</span> 的特征向量线性无关（所有特征值都不同）时，可以用它的特征值向量构成的矩阵来将其对角化：</p>
-<div class="arithmatex">\[\begin{bmatrix}\mathbf{x}_1 &amp; \mathbf{x}_2 &amp;...&amp;\mathbf{x}_n\end{bmatrix}^{-1}A\begin{bmatrix}\mathbf{x}_1 &amp; \mathbf{x}_2 &amp;...&amp;\mathbf{x}_n\end{bmatrix} = diag\begin{bmatrix}\lambda_1 &amp; \lambda_2 &amp;...&amp;\lambda_n\end{bmatrix}\]</div>
-<h3 id="13">1.3 拓展</h3>
-<p>我们 callback 一下上文的观察，当 <span class="arithmatex">\(n\)</span> 维矩阵 <span class="arithmatex">\(A\)</span> 的所有特征值都不一样时，<span class="arithmatex">\(A\)</span> 的所有特征向量就是一组基，两两正交。但是，特征向量的长度是不确定的，不一定是 1 。这问题不大，我们将其长度归 1 化处理。</p>
-<p>我们构造一个新的矩阵 <span class="arithmatex">\(W\)</span> ：</p>
-<div class="arithmatex">\[W = \begin{bmatrix}\frac{\mathbf{x}_1}{\left\| \mathbf{x}_1 \right\|} &amp; \frac{\mathbf{x}_2}{\left\| \mathbf{x}_2 \right\|} &amp; \cdots &amp; \frac{\mathbf{x}_n}{\left\| \mathbf{x}_n \right\|}\end{bmatrix}\]</div>
-<p>首先，<span class="arithmatex">\(W\)</span> 的每一列向量仍然是矩阵 <span class="arithmatex">\(A\)</span> 的特征向量：</p>
-<div class="arithmatex">\[A \frac{\mathbf{x}_i}{\left\| \mathbf{x}_i \right\|} = \lambda_i \frac{\mathbf{x}_i}{\left\| \mathbf{x}_i \right\|}\]</div>
-<p>其次，<span class="arithmatex">\(W\)</span> 是一个<strong>酉矩阵</strong>：</p>
-<div class="arithmatex">\[W^TW = I\]</div>
-<p>利用矩阵 <span class="arithmatex">\(W\)</span>，我们可以做一个更加优美的矩阵对角化：</p>
-<div class="arithmatex">\[A = W\Sigma W^T\]</div>
-<h2 id="2-svdsingular-value-decomposition">2 SVD（Singular Value Decomposition）奇异值分解</h2>
-<p>上文讲了一个方阵如何对角化，现在我们试着将结论推广到 <span class="arithmatex">\(m\times n\)</span> 的矩阵上来。当然，此时“对角阵”不是严格意义上的对角阵。</p>
-<h3 id="21">2.1 结论</h3>
-<p>一个 <span class="arithmatex">\(m\times n\)</span> 的矩阵 <span class="arithmatex">\(A\)</span> 可以写成</p>
-<div class="arithmatex">\[A = U \Sigma V^* \tag{2-1}\]</div>
-<p>的形式。其中 <span class="arithmatex">\(A \in \mathbb{R}^{m\times n}\)</span> 或 <span class="arithmatex">\(A\in \mathbb{C}^{m\times n}\)</span>。 <span class="arithmatex">\(U_{m\times m}\)</span> 和 <span class="arithmatex">\(V_{n\times n}\)</span> 都是酉矩阵。<span class="arithmatex">\(V^*\)</span> 是 <span class="arithmatex">\(V\)</span> 的共轭转置。</p>
-<p>不妨令 <span class="arithmatex">\(m &gt; n\)</span> 。若 <span class="arithmatex">\(m &lt; n\)</span>，只需要先计算共轭转置的 SVD 分解，再将结果取共轭转置即可。</p>
-<p>这里的 <span class="arithmatex">\(\Sigma\)</span> 是一个“对角阵”，也就是说</p>
-<div class="arithmatex">\[\Sigma = \begin{bmatrix}\Sigma_1 \\ 0\end{bmatrix}\]</div>
-<div class="arithmatex">\[\Sigma_1 = \begin{bmatrix}\sigma_1\\ &amp; \sigma_2\\ &amp; &amp; \cdots\\ &amp; &amp; &amp; \sigma_n\end{bmatrix}\]</div>
-<p><span class="arithmatex">\(\sigma_i\)</span> 称为<strong>奇异值</strong>，是 <span class="arithmatex">\(AA^*\)</span> 或 <span class="arithmatex">\(A^*A\)</span> 的非零特征值开根号的结果，<span class="arithmatex">\(U\)</span> 是由 <span class="arithmatex">\(AA^*\)</span> 的正交单位特征向量组成的矩阵，<span class="arithmatex">\(V\)</span> 是由 <span class="arithmatex">\(A^*A\)</span> 的正交单位特征向量组成的矩阵。</p>
-<h3 id="22">2.2 思考过程</h3>
-<p>我们假设结论成立，来试着反推一下 <span class="arithmatex">\(U\)</span>，<span class="arithmatex">\(\Sigma\)</span> 和 <span class="arithmatex">\(V\)</span> 分别应当如何表示。</p>
-<p>首先，我们有</p>
-<div class="arithmatex">\[A^* = V \Sigma^* U^*\]</div>
-<p>则有</p>
+<p>观察（1-1）式，其中 <span class="arithmatex">\(B\mathbf{u}\)</span> 和 <span class="arithmatex">\(D\mathbf{u}\)</span> 都是已知信息，倘若 <span class="arithmatex">\(\mathbf{u} = \mathbf{0}\)</span> 时系统完全能观，那么当 <span class="arithmatex">\(\mathbf{u} \neq \mathbf{0}\)</span> 时系统也是完全能观的。换言之，<strong>系统是否能观，仅与矩阵 <span class="arithmatex">\(A,C\)</span> 相关</strong>。因此，下文在讨论能观性时，均假设零输入条件，用 <span class="arithmatex">\((A,C)\)</span> 指代系统。</p>
+<h3 id="_4">更加深刻的观察</h3>
+<p>考虑能观性定义的否命题：若系统存在两个不同的初始状态 <span class="arithmatex">\(\mathbf{x}_1(0)\)</span> 和 <span class="arithmatex">\(\mathbf{x}_2(0)\)</span> ，在时间段 <span class="arithmatex">\(t\in[t_0, t_f]\)</span> 里，对于同样的控制输入 <span class="arithmatex">\(\mathbf{u}(t)\)</span> ，具有同样的输出 <span class="arithmatex">\(\mathbf{y}(t)\)</span> ，则系统不能观。</p>
+<p>针对<strong>线性系统</strong>，“不能观”的定义与下面的表述是等价的：系统存在一个初始状态 <span class="arithmatex">\(\mathbf{x}_3(0) = \mathbf{x}_1(0)-\mathbf{x}_2(0) \neq 0\)</span> ，在时间段 <span class="arithmatex">\(t\in[t_0, t_f]\)</span> 里，输出 <span class="arithmatex">\(\mathbf{y}(t) = Ce^{At}\mathbf{x}(0) \equiv 0\)</span> 。</p>
+<p>对输出求任意阶导数，可以得到</p>
+<div class="arithmatex">\[\mathbf{y}^{(k)}(t) = CA^{k}e^{At}\mathbf{x}(0) \equiv 0 \ \ \ k = 1,2,\cdots\]</div>
+<p>换言之，存在不为 0 的向量 <span class="arithmatex">\(\mathbf{x}\)</span> 使得 <span class="arithmatex">\(CA^k\mathbf{x} = 0\)</span> ，这其实就是下面的能观性矩阵判据。</p>
+<h2 id="_5">能观性矩阵判据</h2>
+<p><strong>系统 <span class="arithmatex">\((A,C)\)</span> 能观的充要条件是矩阵 <span class="arithmatex">\(\begin{bmatrix}C\\ CA \\ \vdots\\ CA^{n-1}\end{bmatrix}\)</span>  列满秩</strong>。</p>
+<div class="arithmatex">\[\dot{\mathbf{x}} = A\mathbf{x}\ \ \ \ \ \ \ \mathbf{y} = C\mathbf{x} \tag{1-2}\]</div>
+<p>该系统的输出为 <span class="arithmatex">\(\mathbf{y}(t) = Ce^{At}\mathbf{x}(0)\)</span> 。 <span class="arithmatex">\(e^{At}\)</span> 需要展开计算，即</p>
 <div class="arithmatex">\[\begin{aligned}
-AA^* &amp;= U\Sigma V^* V \Sigma^* U^*\\
-&amp;= U \Sigma\Sigma^* U^*\\
-A^*A &amp;= V\Sigma^* U^* U \Sigma V^*\\
-&amp;= V\Sigma^* \Sigma V^*\\
-\end{aligned} \tag{2-2}\]</div>
-<p>这里的 <span class="arithmatex">\(\Sigma\Sigma^*\)</span> 和 <span class="arithmatex">\(\Sigma^*\Sigma\)</span> 都是对角阵：</p>
-<div class="arithmatex">\[\begin{aligned}
-\begin{bmatrix}\Sigma_1 \\ 0\end{bmatrix}\begin{bmatrix}\Sigma_1^* &amp; 0\end{bmatrix} &amp;= \begin{bmatrix}\Sigma_1\Sigma_1^* &amp; 0\\ 0 &amp; 0\end{bmatrix}\\
-\begin{bmatrix}\Sigma_1^* &amp; 0\end{bmatrix}\begin{bmatrix}\Sigma_1 \\ 0\end{bmatrix} &amp;= \begin{bmatrix} \Sigma_1^* \Sigma_1 \end{bmatrix}\\
+e^{At} &amp;= I + At + \frac{1}{2!}(At)^2 + \frac{1}{3!}(At)^3 + \cdots\\
+&amp;= \beta_0(t)I + \beta_1(t)A + \beta_2(t)A^2 + \cdots + \beta_{n-1}(t)A^{n-1}
 \end{aligned}\]</div>
-<p>我们观察一下 (2-2) 式，可以发现其形式酷似矩阵对角化。也就是说，<span class="arithmatex">\(\Sigma\Sigma^*\)</span> 是一个由 <span class="arithmatex">\(AA^*\)</span> 的特征值组成的对角阵，<span class="arithmatex">\(U\)</span> 是一个由 <span class="arithmatex">\(AA^*\)</span> 的正交单位特征向量组成的矩阵。<span class="arithmatex">\(\Sigma^*\Sigma\)</span> 是一个由 <span class="arithmatex">\(A^*A\)</span> 的特征值组成的对角阵，<span class="arithmatex">\(V\)</span> 是一个由 <span class="arithmatex">\(A^*A\)</span> 的正交单位特征向量组成的矩阵。</p>
+<p>上式第二行基于 <a href="../../../%E6%95%B0%E5%AD%A6/%E9%AB%98%E7%AD%89%E4%BB%A3%E6%95%B0/Hamilton-Cayley%20%E5%AE%9A%E7%90%86/">Hamilton-Cayley 定理</a>的推论，其中 <span class="arithmatex">\(\beta_0(t), \beta_1(t), \cdots, \beta_{n-1}(t)\)</span> 是线性无关的，因为 <span class="arithmatex">\(\beta_0(t)\)</span> 的最低阶项是 1， <span class="arithmatex">\(\beta_1(t)\)</span> 的最低阶项是 <span class="arithmatex">\(t\)</span> ， <span class="arithmatex">\(\beta_2(t)\)</span> 的最低阶项是 <span class="arithmatex">\(\frac{1}{2!}t^2\)</span> …… 从而，可以改写系统输出：</p>
 <div class="arithmatex">\[\begin{aligned}
-AA^*\mathbf{u}_i &amp;= \sigma_i^2 \mathbf{u}_i\\
-A^*A\mathbf{v}_i &amp;= \sigma_i^2 \mathbf{v}_i
-\end{aligned} \tag{2-3}\]</div>
-<hr />
-<p>首先，我们证明一下，<strong><span class="arithmatex">\(AA^*\)</span> 的特征值中，有 <span class="arithmatex">\(m-n\)</span> 个 0</strong>.</p>
-<p>特征值用 <span class="arithmatex">\(A\mathbf{v} = \lambda \mathbf{v}\)</span> 定义。当特征值为 0 时，即代表有不为 <span class="arithmatex">\(\mathbf{0}\)</span> 的向量 <span class="arithmatex">\(\mathbf{v}\)</span>，使得 <span class="arithmatex">\(A\mathbf{v} = \mathbf{0}\)</span>，也即 <span class="arithmatex">\(v_1\mathbf{a}_1 + v_2\mathbf{a}_2 + ... + v_n\mathbf{a}_n = \mathbf{0}\)</span> ，即 <span class="arithmatex">\(A\)</span> 的列向量中，至少有一个列向量与其它列向量线性相关。</p>
-<p>所以我们需要证明，<span class="arithmatex">\(AA^*\)</span> 的列向量中，至少有 <span class="arithmatex">\(m-n\)</span> 个列向量与其它列向量线性相关。</p>
-<p>设 <span class="arithmatex">\(A^* = \begin{bmatrix}\mathbf{a}_1 &amp; \mathbf{a}_2 &amp; \cdots &amp; \mathbf{a}_m \end{bmatrix}\)</span>，那么 <span class="arithmatex">\(AA^*\)</span> 的列向量就是 <span class="arithmatex">\(A\mathbf{a}_1, A\mathbf{a}_2 , \cdots, A\mathbf{a}_m\)</span>，那么 <span class="arithmatex">\(AA^*\)</span> 的列向量维度小于等于 <span class="arithmatex">\(A^*\)</span> 的列向量维度，而 <span class="arithmatex">\(A^*_{n\times m}\)</span> 维度小于等于 <span class="arithmatex">\(n\)</span> 。因此，<span class="arithmatex">\(AA^*\)</span> 的列向量维度小于等于 <span class="arithmatex">\(n\)</span>，也就是说至少有 <span class="arithmatex">\(m-n\)</span> 个列向量与其它列向量线性相关。</p>
-<p>接下来，我们证明 <strong><span class="arithmatex">\(AA^*\)</span> 的非零特征值和 <span class="arithmatex">\(A^*A\)</span> 的非零特征值相同</strong>。</p>
-<p>对于 <span class="arithmatex">\(AA^*\)</span> 的非零特征值 <span class="arithmatex">\(\lambda\)</span>，有 <span class="arithmatex">\(AA^* \mathbf{v} = \lambda \mathbf{v}\)</span>，这里的 <span class="arithmatex">\(A^*\mathbf{v}\)</span> 显然不可能为 0. 我们在该式等号左右两边都左乘一个 <span class="arithmatex">\(A^*\)</span>，有 <span class="arithmatex">\((A^*A)(A^*\mathbf{v}) = \lambda (A^*\mathbf{v})\)</span>，我们将 <span class="arithmatex">\(A^*\mathbf{v}\)</span> 看成 <span class="arithmatex">\(A^*A\)</span> 的特征向量，<span class="arithmatex">\(\lambda\)</span> 也就是 <span class="arithmatex">\(A^*A\)</span> 的特征值了。因此，我们就证明了 <span class="arithmatex">\(AA^*\)</span> 的非零特征值和 <span class="arithmatex">\(A^*A\)</span> 的非零特征值相同。</p>
-<p>再者，我们证明 <strong><span class="arithmatex">\(AA^*\)</span> 和 <span class="arithmatex">\(A^*A\)</span> 都是半正定的</strong>。</p>
-<p>对于 <span class="arithmatex">\(AA^*\)</span>，取其特征值有 <span class="arithmatex">\(AA^* \mathbf{v} = \lambda \mathbf{v}\)</span>，左乘 <span class="arithmatex">\(\mathbf{v}^*\)</span>，有 <span class="arithmatex">\(\mathbf{v}^*AA^* \mathbf{v} = (A^*\mathbf{v})^*(A^*\mathbf{v}) = \lambda \mathbf{v}^* \mathbf{v} \ge 0\)</span> 。<span class="arithmatex">\(A^*A\)</span> 同理。</p>
-<p>综上，我们足以说明 (2-3) 式是成立的。我们称呼 (2-3) 式为<strong>特征值方程</strong>。</p>
-<p>根据特征值方程，我们可以知道，<span class="arithmatex">\(\Sigma\)</span> 是由 <span class="arithmatex">\(AA^*\)</span> 的特征值开根号组成的“对角阵”，<span class="arithmatex">\(U\)</span> 是由 <span class="arithmatex">\(AA^*\)</span> 的正交单位特征向量组成的矩阵，<span class="arithmatex">\(V\)</span> 是由 <span class="arithmatex">\(A^*A\)</span> 的正交单位特征向量组成的矩阵。</p>
-<p>此外，还有<strong>奇异值方程</strong></p>
-<div class="arithmatex">\[A\mathbf{v}_i = \sigma_i \mathbf{u}_i \ \ \ A^*\mathbf{u}_i = \bar{\sigma}_i \mathbf{u}_i\]</div>
-<h3 id="23-svd">2.3 SVD 的用处</h3>
-<h4 id="231">2.3.1 求伪逆</h4>
-<p>SVD 奇异值分解经常用来求伪逆。</p>
-<div class="arithmatex">\[A_{m\times n} = U\Sigma V^*\]</div>
-<p>那么矩阵 <span class="arithmatex">\(A\)</span> 的伪逆 <span class="arithmatex">\(A^{+}\)</span> 是</p>
-<div class="arithmatex">\[A^{+}_{n\times m} = V\Sigma^{+}U^{*}\]</div>
-<p>其中 <span class="arithmatex">\(\Sigma^{+}\)</span> 是由 <span class="arithmatex">\(\Sigma\)</span> 的倒数组成的对角阵，即</p>
-<div class="arithmatex">\[\begin{aligned}
-&amp;\Sigma = \begin{bmatrix}\sigma_1 \\ &amp; \sigma_2\\ &amp; &amp; \cdots\\ &amp; &amp; &amp; \sigma_m &amp; 0 &amp; \cdots &amp; 0 \end{bmatrix} \ \ \Sigma^{+} = \begin{bmatrix}\frac{1}{\sigma_1}\\ &amp; \frac{1}{\sigma_2}\\ &amp; &amp; \cdots\\ &amp; &amp; &amp; \frac{1}{\sigma_m}\\ &amp; &amp; &amp; 0\\ &amp; &amp; &amp; \vdots\\ &amp; &amp; &amp; 0\end{bmatrix}\\
-&amp; \Sigma = \begin{bmatrix}\sigma_1 \\ &amp; \sigma_2\\ &amp; &amp; \cdots\\ &amp; &amp; &amp; \sigma_n \\ &amp; &amp; &amp; 0 \\ &amp; &amp; &amp;\vdots \\ &amp; &amp; &amp;0 \end{bmatrix} \ \ \Sigma^{+} = \begin{bmatrix}\frac{1}{\sigma_1}\\ &amp; \frac{1}{\sigma_2}\\ &amp; &amp; \cdots\\ &amp; &amp; &amp; \frac{1}{\sigma_n} &amp; 0 &amp; \cdots &amp; 0\end{bmatrix}
-\end{aligned}\]</div>
+\mathbf{y}(t) &amp;= \beta_0(t)C\mathbf{x}(0) + \beta_1(t)CA\mathbf{x}(0)+\cdots+\beta_{n-1}(t)CA^{n-1}\mathbf{x}(0)\\
+&amp;= \begin{bmatrix}\beta_0(t)I &amp; \beta_1(t)I &amp; \cdots &amp; \beta_{n-1}(t)I\end{bmatrix}\begin{bmatrix}C\\ CA \\ \vdots\\ CA^{n-1}\end{bmatrix}\mathbf{x}(0)
+\end{aligned} \tag{1-3}\]</div>
+<p>已知（1-3）式，判别系统的能观性。这相当于已知 <span class="arithmatex">\(y = Mx\)</span> 以及 <span class="arithmatex">\(y, M\)</span> ，求 <span class="arithmatex">\(x\)</span> 。易知，<span class="arithmatex">\(x\)</span> 有唯一解的充分必要条件是矩阵 <span class="arithmatex">\(M\)</span> 列满秩。证明如下。</p>
+<p>首先，系统状态 <span class="arithmatex">\(x\)</span> 必然存在，否则没有输出 <span class="arithmatex">\(y\)</span> 可言。因此，只需证明解的唯一性的充要条件是矩阵 <span class="arithmatex">\(M\)</span> 列满秩。</p>
+<p><strong>充分性：（列满秩 -&gt; 唯一解）</strong> 假设矩阵 <span class="arithmatex">\(M\)</span> 列满秩时，有两个不同解 <span class="arithmatex">\(x_1, x_2\)</span> ，则有 <span class="arithmatex">\(M(x_1-x_2) = 0\)</span> 。因为矩阵 <span class="arithmatex">\(M\)</span> 列满秩，所以 <span class="arithmatex">\(x_1-x_2 = 0\)</span> ，这与假设矛盾，所以只有唯一解。</p>
+<p><strong>必要性：（唯一解 -&gt; 列满秩）</strong> 假设方程有唯一解 <span class="arithmatex">\(x_1\)</span> 时，矩阵 <span class="arithmatex">\(M\)</span> 不是列满秩的。那么必然有一个非零 <span class="arithmatex">\(x_2\)</span> 满足 <span class="arithmatex">\(Mx_2 = 0\)</span> ，从而有 <span class="arithmatex">\(y = Mx_1 = M(x_1-x_2)\)</span> ，此处 <span class="arithmatex">\(x_1-x_2 \neq x_1\)</span> ，这与假设矛盾，所以矩阵 <span class="arithmatex">\(M\)</span> 必须是列满秩的。</p>
+<p>根据上述定理，要证明系统（A,C）能观，即证明（1-3）中的系数矩阵列满秩。</p>
+<p>因为 <span class="arithmatex">\(\beta_0(t), \beta_1(t), \cdots, \beta_{n-1}(t)\)</span> 是线性无关的，所以 <span class="arithmatex">\(\begin{bmatrix}\beta_0(t)I &amp; \beta_1(t)I &amp; \cdots &amp; \beta_{n-1}(t)I\end{bmatrix}\)</span> 列满秩。</p>
+<p>问题转化为已知矩阵 <span class="arithmatex">\(H\)</span> 列满秩，问矩阵 <span class="arithmatex">\(F\)</span> 满足什么条件时，矩阵 <span class="arithmatex">\(HF\)</span> 列满秩。易知，当矩阵 <span class="arithmatex">\(H\)</span> 列满秩时，矩阵 <span class="arithmatex">\(HF\)</span> 列满秩的充要条件是矩阵 <span class="arithmatex">\(F\)</span> 列满秩。证明如下。</p>
+<p><strong>充分性：</strong> 假设矩阵 <span class="arithmatex">\(F\)</span> 列满秩时，矩阵 <span class="arithmatex">\(HF\)</span> 不是列满秩的。则存在一个不为零的系数向量 <span class="arithmatex">\(c\)</span> 使得 <span class="arithmatex">\(HFc = H(Fc) = 0\)</span> ，由于矩阵 <span class="arithmatex">\(H\)</span> 列满秩，因此 <span class="arithmatex">\(Fc = 0\)</span> ，这与假设矛盾，所以矩阵 <span class="arithmatex">\(HF\)</span> 必然是列满秩的。</p>
+<p><strong>必要性：</strong> 假设矩阵 <span class="arithmatex">\(HF\)</span> 列满秩时，矩阵 <span class="arithmatex">\(F\)</span> 不是列满秩的。则存在一个不为零的系数向量 <span class="arithmatex">\(c\)</span> 使得 <span class="arithmatex">\(Fc = 0\)</span> ，那么 <span class="arithmatex">\(HFc = 0\)</span> ，这与假设矛盾，所以矩阵 <span class="arithmatex">\(F\)</span> 必然是列满秩的。</p>
+<p>综上所述，<strong>系统 <span class="arithmatex">\((A,C)\)</span> 能观的充要条件是矩阵 <span class="arithmatex">\(\begin{bmatrix}C\\ CA \\ \vdots\\ CA^{n-1}\end{bmatrix}\)</span>  列满秩</strong>。</p>
+<h2 id="_6">能观性秩判据</h2>
+<h3 id="pbh">PBH 秩判据</h3>
+<p>线性定常连续系统（1-1）或者其能观性的等价系统（1-2）能观的充分必要条件是，对系统矩阵 <span class="arithmatex">\(A\)</span> 的所有特征值 <span class="arithmatex">\(\lambda_i\)</span>，有</p>
+<div class="arithmatex">\[rank\begin{bmatrix}\lambda_i I-A\\C\end{bmatrix} = n,\ \ i=1,2,\cdots,n\]</div>
+<p>或者等价地表示为</p>
+<div class="arithmatex">\[rank\begin{bmatrix}sI-A\\C\end{bmatrix} = n, \forall s \in \text{复数域 S}\]</div>
+<ol>
+<li>由于矩阵 <span class="arithmatex">\(A,C\)</span> 都是 <span class="arithmatex">\(n\)</span> 列的，所以定理中的 <span class="arithmatex">\(rank = n\)</span> 等同于列满秩。</li>
+<li>当 <span class="arithmatex">\(s\)</span> 不是 <span class="arithmatex">\(A\)</span> 的特征值时，<span class="arithmatex">\((sI-A)\alpha \neq 0, \forall \alpha \neq 0\)</span> ， <span class="arithmatex">\(sI-A\)</span> 必定是列满秩的，所以两种表示等价。</li>
+</ol>
+<p>该定理证明如下。</p>
+<p><strong>充分性：（列满秩 -&gt; 能观）</strong> 假设 <span class="arithmatex">\(\begin{bmatrix}\lambda_i I-A\\C\end{bmatrix}\)</span> 列满秩时，系统（A,C）不能观。此时，矩阵 <span class="arithmatex">\(\begin{bmatrix}C\\ CA \\ \vdots\\ CA^{n-1}\end{bmatrix}\)</span>  不是列满秩的。也就是说，存在不为零的 n 维向量 <span class="arithmatex">\(\alpha\)</span> ，满足 <span class="arithmatex">\(\begin{bmatrix}C\\ CA \\ \vdots\\ CA^{n-1}\end{bmatrix} \alpha = 0\)</span> ，即</p>
+<div class="arithmatex">\[C\alpha = 0, \ CA\alpha = 0, \ \cdots ,\ CA^{n-1}\alpha = 0\]</div>
+<p>如果我们能说明，有一个 <span class="arithmatex">\(\alpha\)</span> 是 <span class="arithmatex">\(A\)</span> 的一个特征向量，就有 <span class="arithmatex">\(\begin{bmatrix}\lambda_i I-A\\C\end{bmatrix} \alpha = 0\)</span> ，进而有 <span class="arithmatex">\(\begin{bmatrix}\lambda_i I-A\\C\end{bmatrix}\)</span> 不是列满秩的，与假设矛盾。所以系统（A,C）必然能观。</p>
+<p>现在，我们说明必然有一个 <span class="arithmatex">\(\alpha\)</span> 是 <span class="arithmatex">\(A\)</span> 的一个特征向量。首先，倘若 <span class="arithmatex">\(C = 0\)</span> ，那么 <span class="arithmatex">\(\begin{bmatrix}\lambda_i I-A\\C\end{bmatrix}\)</span> 不是列满秩的，与假设矛盾。在 <span class="arithmatex">\(C \neq 0\)</span> 时，所有 <span class="arithmatex">\(\alpha\)</span> 组成了一个 <span class="arithmatex">\(A\)</span> 的不变子空间。<strong>这个不变子空间里必然存在一个 <span class="arithmatex">\(A\)</span> 的特征向量</strong>。</p>
+<blockquote>
+<p>TODO：黑体的这一步似乎有问题，凭我当前的知识无法给出严谨证明。</p>
+</blockquote>
+<p><strong>必要性：（能观 -&gt; 列满秩）</strong> 假设系统（A,C）能观时， <span class="arithmatex">\(\begin{bmatrix}\lambda_i I-A\\C\end{bmatrix}\)</span> 列不满秩。此时，存在一个 <span class="arithmatex">\(v \in \mathbb{C}^n, v\neq \mathbf{0}\)</span> ，满足 <span class="arithmatex">\((\lambda_iI-A)v = Cv = 0\)</span> 。可知 <span class="arithmatex">\(v\)</span> 为矩阵 <span class="arithmatex">\(A\)</span> 的特征向量。设系统（A,C）的状态初值 <span class="arithmatex">\(\mathbf{x}(0) = v\)</span> ，则系统状态 <span class="arithmatex">\(\mathbf{x}(t) = e^{At}v = e^{\lambda t}v\)</span> （这是因为 <span class="arithmatex">\(e^{At}\)</span> 展开之后， <span class="arithmatex">\(A^kv = \lambda^kv\)</span> ），系统输出 <span class="arithmatex">\(\mathbf{y}(t) = C\mathbf{x}(t) = e^{\lambda t}Cv = 0\)</span> 。此时，我们无法由系统输出求解系统状态，系统（A,C）不能观。这与假设矛盾，因此 <span class="arithmatex">\(\begin{bmatrix}\lambda_i I-A\\C\end{bmatrix}\)</span> 列满秩。</p>
+<h3 id="pbh_1">PBH 秩向量判据</h3>
+<p>线性定常连续系统（1-1）或者其能观性的等价系统（1-2）能观的充分必要条件是，对 <span class="arithmatex">\(A\)</span> 的任意一个特征值 <span class="arithmatex">\(\lambda_i, i=1,2,\cdots,n\)</span> ，只有特征向量 <span class="arithmatex">\(\alpha \equiv 0\)</span> 能同时满足</p>
+<div class="arithmatex">\[A\alpha = \lambda_i\alpha \ \ \ \ \ \ C\alpha = 0\]</div>
+<p>这与PBH秩判据是等价的。</p>
 
 
 
@@ -2393,12 +2623,14 @@ A^*A\mathbf{v}_i &amp;= \sigma_i^2 \mathbf{v}_i
       <div class="md-progress" data-md-component="progress" role="progressbar"></div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.tabs", "navigation.expand", "navigation.path", "navigation.indexes", "navigation.top", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
-    
-      <script src="../../assets/javascripts/bundle.c8b220af.min.js"></script>
       
-        <script src="../../javascripts/mathjax.js"></script>
+      <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.instant", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.tabs", "navigation.expand", "navigation.path", "navigation.indexes", "navigation.top", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.f8cc74c7.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
       
         <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
