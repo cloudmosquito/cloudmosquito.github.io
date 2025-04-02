@@ -986,6 +986,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#pid_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      比例微分积分控制 PID
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       一阶系统
@@ -999,6 +1008,15 @@
   <a href="#p_1" class="md-nav__link">
     <span class="md-ellipsis">
       比例控制 P
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pi_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      比例积分控制 PI
     </span>
   </a>
   
@@ -2492,6 +2510,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#pid_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      比例微分积分控制 PID
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       一阶系统
@@ -2505,6 +2532,15 @@
   <a href="#p_1" class="md-nav__link">
     <span class="md-ellipsis">
       比例控制 P
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pi_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      比例积分控制 PI
     </span>
   </a>
   
@@ -2603,83 +2639,114 @@
 <h1 id="pid">系统阶数与 PID</h1>
 <p>我们分别讨论以下三个系统的 PID 控制器设计原则：</p>
 <div class="arithmatex">\[\begin{aligned}
-y_1 &amp;= k_1u_1\\
-\dot{y}_2 &amp;= k_2u_2\\
-\ddot{y}_3 &amp;= k_3u_3\\
+y_1 &amp;= k_1u_1 - f\\
+\dot{y}_2 &amp;= k_2u_2 - f\\
+\ddot{y}_3 &amp;= k_3u_3 - f\\
 \end{aligned}\]</div>
-<p>其中， <span class="arithmatex">\(y\)</span> 是系统输出，可以被测量； <span class="arithmatex">\(u\)</span> 是控制输入； <span class="arithmatex">\(k\)</span> 是常系数。</p>
+<p>其中， <span class="arithmatex">\(y\)</span> 是系统输出，可以被测量； <span class="arithmatex">\(u\)</span> 是控制输入， <span class="arithmatex">\(k\)</span>是常系数， <span class="arithmatex">\(f\)</span> 是扰动项，简单建模为一个大于零的定值。</p>
+<p>本文讨论是非常理想化的，建立在我们能完美无损求导、求积分的基础上。工程实际中，这是不可能的，因此控制结果与下文计算结果或有所出入，但定性性质一致。</p>
 <h2 id="_1">零阶系统</h2>
 <h3 id="p">比例控制 P</h3>
-<p>针对零阶系统 <span class="arithmatex">\(y = ku\)</span> ，倘若我们单纯采用比例控制，那么有</p>
-<div class="arithmatex">\[\begin{aligned}y &amp;= k\cdot K_p(y_{ref} - y)\\
-\overset{拉氏变换}\Rightarrow Y(s) &amp;= kK_p(Y_{ref}(s) - Y(s))\\
-\frac{Y}{Y_{ref}} &amp;= \frac{kK_p}{1+kK_p} 
+<p>针对零阶系统 <span class="arithmatex">\(y = ku-f\)</span> ，倘若我们单纯采用比例控制，那么有</p>
+<div class="arithmatex">\[\begin{aligned}y &amp;= k\cdot K_p(y_{ref} - y)-f\\
+\overset{拉氏变换}\Rightarrow Y(s) &amp;= kK_p(Y_{ref}(s) - Y(s)) - \frac{f}{s}\\
+Y &amp;= \frac{kK_p}{1+kK_p}Y_{ref}-\frac{f}{(1+kK_p)s}
 \end{aligned}\]</div>
-<p>对于阶跃期望值 <span class="arithmatex">\(Y_{ref} = \dfrac{r}{s}\)</span> ，系统响应为 <span class="arithmatex">\(\dfrac{kK_pr}{(1+kK_p)s}\)</span> ，转化到时域为 <span class="arithmatex">\(\dfrac{kK_pr}{1+kK_p}\)</span> ，是一个有稳态误差的阶跃值。</p>
-<p><a class="glightbox" href="../%E7%B3%BB%E7%BB%9F%E9%98%B6%E6%95%B0%E4%B8%8E%20PID.assets/Figure_1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Figure_1.png" src="../%E7%B3%BB%E7%BB%9F%E9%98%B6%E6%95%B0%E4%B8%8E%20PID.assets/Figure_1.png" /></a></p>
+<p>对于阶跃期望值 <span class="arithmatex">\(Y_{ref} = \dfrac{r}{s}\)</span> ，系统响应为 <span class="arithmatex">\(\dfrac{kK_pr-f}{(1+kK_p)s}\)</span> ，转化到时域为 <span class="arithmatex">\(\dfrac{kK_pr-f}{1+kK_p}\)</span> ，是一个有稳态误差的阶跃值，并且必然没有超调。</p>
 <h2 id="pi">比例积分控制 PI</h2>
 <p>为了消除这一稳态误差，我们需要采用 PI 控制，有</p>
-<div class="arithmatex">\[\begin{aligned}y &amp;= k\left(K_p(y_{ref} - y) + K_iD^{-1}(y_{ref}-y)\right)\\
-\overset{拉氏变换}\Rightarrow sY(s) &amp;= kK_ps(Y_{ref}(s) - Y(s)) + kK_i(Y_{ref}(s)-Y(s))\\
-\frac{Y}{Y_{ref}} &amp;= \frac{kK_ps + kK_i}{s+kK_ps+kK_i} = 1-\frac{s}{s+kK_ps+kK_i} 
+<div class="arithmatex">\[\begin{aligned}y &amp;= k\left(K_p(y_{ref} - y) + K_iD^{-1}(y_{ref}-y)\right) - f\\
+\overset{拉氏变换}\Rightarrow sY(s) &amp;= kK_ps(Y_{ref}(s) - Y(s)) + kK_i(Y_{ref}(s)-Y(s)) - f\\
+Y &amp;= \frac{kK_ps+kK_i}{(1+kK_p)s+kK_i}Y_{ref}-\frac{f}{(1+kK_p)s+kK_i}\\
+&amp;= Y_{ref}-\frac{sY_{ref}+f}{(1+kK_p)s+kK_i}
 \end{aligned}\]</div>
-<p>对于阶跃期望值 <span class="arithmatex">\(Y_{ref} = \dfrac{r}{s}\)</span> ，系统响应为 <span class="arithmatex">\(\dfrac{r}{s} - \dfrac{r}{s+kK_ps+kK_i}\)</span> ，转化到时域就是 <span class="arithmatex">\(r-\dfrac{r}{1+kK_p}e^{-\frac{kK_i}{1+kK_p}t}\)</span> 。稳态误差是 0 。</p>
+<p>对于阶跃期望值 <span class="arithmatex">\(Y_{ref} = \dfrac{r}{s}\)</span> ，系统响应为 <span class="arithmatex">\(\dfrac{r}{s} - \dfrac{r+f}{(1+kK_p)s+kK_i}\)</span> ，转化到时域就是 <span class="arithmatex">\(r-\dfrac{r+f}{1+kK_p}e^{-\frac{kK_i}{1+kK_p}t}\)</span> 。稳态误差是 0 ，必然没有超调。</p>
+<blockquote>
+<p>需要注意，积分项会带来系统响应的“滞后”。“滞后”是根据“系统从接收到控制信号到输出稳定的时间”来判断的。</p>
+</blockquote>
+<h2 id="pid_1">比例微分积分控制 PID</h2>
 <p>在此基础上，我们思考一下是否需要引入微分控制。倘若采用 PID 控制，有</p>
-<div class="arithmatex">\[\begin{aligned}y &amp;= k\left( K_p(y_{ref} - y) + K_iD^{-1}(y_{ref}-y) + K_dD(y_{ref}-y) \right)\\
-\overset{拉氏变换}\Rightarrow sY(s) &amp;= kK_ps(Y_{ref}(s) - Y(s)) + kK_i(Y_{ref}(s)-Y(s)) + kK_ds^2(Y_{ref}(s)-Y(s))\\
-\frac{Y}{Y_{ref}} &amp;= \frac{kK_ds^2+kK_ps + kK_i}{kK_ds^2+(1+kK_p)s+kK_i} = 1-\frac{s}{kK_ds^2+(1+kK_p)s+kK_i} 
+<div class="arithmatex">\[\begin{aligned}y &amp;= k\left( K_p(y_{ref} - y) + K_iD^{-1}(y_{ref}-y) + K_dD(y_{ref}-y) \right)-f\\
+\overset{拉氏变换}\Rightarrow sY(s) &amp;= kK_ps(Y_{ref}(s) - Y(s)) + kK_i(Y_{ref}(s)-Y(s)) + kK_ds^2(Y_{ref}(s)-Y(s))-f\\
+Y &amp;= \frac{(kK_ds^2+kK_ps + kK_i)Y_{ref}-f}{kK_ds^2+(1+kK_p)s+kK_i}\\
+&amp;= Y_{ref}-\frac{sY_{ref}+f}{kK_ds^2+(1+kK_p)s+kK_i}
 \end{aligned}\]</div>
-<p>对于阶跃期望值 <span class="arithmatex">\(Y_{ref} = \dfrac{r}{s}\)</span> ，系统响应为 <span class="arithmatex">\(\dfrac{r}{s} - \dfrac{r}{kK_ds^2+(1+kK_p)s+kK_i}\)</span> ，转化到时域就是 <span class="arithmatex">\(r-\dfrac{r}{\sqrt{(1+kK_p)^2-4k^2K_iK_d}}e^{-\dfrac{1+kK_p}{2kK_d}t}\left(e^{\dfrac{\sqrt{(1+kK_p)^2-4k^2K_iK_d}}{2kK_d}t} - e^{-\dfrac{\sqrt{(1+kK_p)^2-4k^2K_iK_d}}{2kK_d}t}\right)\)</span> ，稳态误差是 0 ，但是有超调。</p>
-<p><a class="glightbox" href="../%E7%B3%BB%E7%BB%9F%E9%98%B6%E6%95%B0%E4%B8%8E%20PID.assets/Figure_3.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Figure_3.png" src="../%E7%B3%BB%E7%BB%9F%E9%98%B6%E6%95%B0%E4%B8%8E%20PID.assets/Figure_3.png" /></a></p>
-<p>所以，零阶系统从理论上最好用 PI 控制。</p>
+<p>对于阶跃期望值 <span class="arithmatex">\(Y_{ref} = \dfrac{r}{s}\)</span> ，系统响应为 <span class="arithmatex">\(\dfrac{r}{s} - \dfrac{r+f}{kK_ds^2+(1+kK_p)s+kK_i}\)</span> ，转化到时域就是 <span class="arithmatex">\(r-\dfrac{r+f}{\sqrt{(1+kK_p)^2-4k^2K_iK_d}}e^{-\dfrac{1+kK_p}{2kK_d}t}\left(e^{\dfrac{\sqrt{(1+kK_p)^2-4k^2K_iK_d}}{2kK_d}t} - e^{-\dfrac{\sqrt{(1+kK_p)^2-4k^2K_iK_d}}{2kK_d}t}\right)\)</span> ，稳态误差是 0 ，但是有超调。</p>
+<p>要注意，上述形式的解只适用于 <span class="arithmatex">\((1+kK_p)^2-4k^2K_iK_d &gt; 0\)</span> 的过阻尼情况。如果是欠阻尼情况，过渡过程会有减幅振荡。</p>
+<p><a class="glightbox" href="../%E7%B3%BB%E7%BB%9F%E9%98%B6%E6%95%B0%E4%B8%8E%20PID.assets/Figure_1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Figure_1.png" src="../%E7%B3%BB%E7%BB%9F%E9%98%B6%E6%95%B0%E4%B8%8E%20PID.assets/Figure_1.png" /></a></p>
 <h2 id="_2">一阶系统</h2>
 <h3 id="p_1">比例控制 P</h3>
-<p>针对一阶系统 <span class="arithmatex">\(\dot{y} = ku\)</span> ，倘若我们单纯采用比例控制，那么有</p>
-<div class="arithmatex">\[\begin{aligned}\dot{y} &amp;= k\cdot K_p(y_{ref} - y)\\
-\overset{拉氏变换}\Rightarrow sY(s) &amp;= kK_p(Y_{ref}(s) - Y(s))\\
-\frac{Y}{Y_{ref}} &amp;= \frac{kK_p}{s+kK_p} 
+<p>针对一阶系统 <span class="arithmatex">\(\dot{y} = ku-f\)</span> ，倘若我们单纯采用比例控制，那么有</p>
+<div class="arithmatex">\[\begin{aligned}\dot{y} &amp;= k\cdot K_p(y_{ref} - y)-f\\
+\overset{拉氏变换}\Rightarrow sY(s) &amp;= kK_p(Y_{ref}(s) - Y(s))-\frac{f}{s}\\
+Y &amp;= \frac{kK_pY_{ref}}{s+kK_p} - \frac{f}{s(s+kK_p)}
 \end{aligned}\]</div>
-<p>这是一个一阶惯性环节。对于阶跃期望值 <span class="arithmatex">\(Y_{ref} = \dfrac{r}{s}\)</span> ，系统响应为 <span class="arithmatex">\(\dfrac{kK_pr}{(s+kK_p)s}\)</span> ，转化到时域为 <span class="arithmatex">\(r\left(1-e^{-kK_pt}\right)\)</span> ，稳态误差为 0 。</p>
+<p>对于阶跃期望值 <span class="arithmatex">\(Y_{ref} = \dfrac{r}{s}\)</span> ，系统响应为 <span class="arithmatex">\(\dfrac{kK_pr-f}{(s+kK_p)s}\)</span> ，转化到时域为 <span class="arithmatex">\(\left(r-\dfrac{f}{kK_p}\right)\left(1-e^{-kK_pt}\right)\)</span> ，稳态误差为 <span class="arithmatex">\(\dfrac{f}{kK_p}\)</span> ，<strong>必然没有超调</strong>。</p>
+<h3 id="pi_1">比例积分控制 PI</h3>
+<p>我们考虑是否需要引入积分控制。倘若采用 PI 控制，有</p>
+<div class="arithmatex">\[\begin{aligned}\dot{y} &amp;= k\left( K_p(y_{ref} - y) + K_iD^{-1}(y_{ref} - y) \right)-f\\
+\overset{拉氏变换}\Rightarrow s^2Y(s) &amp;= kK_ps(Y_{ref}(s) - Y(s)) + kK_i(Y_{ref}(s)-Y(s))-f\\
+Y &amp;= \frac{(kK_ps + kK_i)Y_{ref} - f}{s^2 + kK_ps+kK_i}\\
+&amp;= \left(1-\frac{s^2}{s^2+kK_ps+kK_i}\right)Y_{ref} - \frac{f}{s^2+kK_ps+kK_i}
+\end{aligned}\]</div>
+<p>对于阶跃期望值 <span class="arithmatex">\(Y_{ref} = \dfrac{r}{s}\)</span> ，系统响应为 <span class="arithmatex">\(\dfrac{r}{s} - \dfrac{sr-f}{s^2+kK_ps+kK_i}\)</span> ，转化到时域为 $r-\dfrac{r}{\sqrt{k<sup>2K_p</sup>2-4kK_i}}\left(\frac{kK_p+\sqrt{k<sup>2K_p</sup>2-4kK_i}}{2}e<sup>{-\frac{kK_p+\sqrt{k</sup>2K_p^2-4kK_i}}{2}t} - \frac{kK_p-\sqrt{k<sup>2K_p</sup>2-4kK_i}}{2}e<sup>{-\frac{kK_p-\sqrt{k</sup>2K_p^2-4kK_i}}{2}t}\right) -\dfrac{f}{\sqrt{k<sup>2K_p</sup>2-4kK_i}}\left(e<sup>{-\frac{kK_p+\sqrt{k</sup>2K_p^2-4kK_i}}{2}t} - e<sup>{-\frac{kK_p-\sqrt{k</sup>2K_p^2-4kK_i}}{2}t}\right) $ ，稳态误差为 0 。</p>
+<p>注意，以上形式的解仅适用于 <span class="arithmatex">\(K_p^2&gt;4K_i\)</span> 的情况。<strong>倘若 <span class="arithmatex">\(K_i\)</span> 相比于 <span class="arithmatex">\(K_p\)</span> 过大，过渡过程会出现超调乃至高频减幅振荡</strong>。</p>
 <h3 id="pd">比例微分控制 PD</h3>
-<p>既然稳态误差已经是 0 了，我们自然没有必要考虑引入积分控制。我们考虑一下是否需要引入微分控制。倘若采用 PD 控制，有</p>
-<div class="arithmatex">\[\begin{aligned}\dot{y} &amp;= k\left( K_p(y_{ref} - y) + K_dD(y_{ref} - y) \right)\\
-\overset{拉氏变换}\Rightarrow sY(s) &amp;= kK_p(Y_{ref}(s) - Y(s)) + kK_ds(Y_{ref}(s)-Y(s))\\
-\frac{Y}{Y_{ref}} &amp;= \frac{kK_ds + kK_p}{s(1+kK_d)+kK_p}  = 1-\frac{s}{s(1+kK_d)+kK_p}
+<p>我们考虑是否需要引入微分控制。倘若采用 PD 控制，有</p>
+<div class="arithmatex">\[\begin{aligned}\dot{y} &amp;= k\left( K_p(y_{ref} - y) + K_dD(y_{ref} - y) \right)-f\\
+\overset{拉氏变换}\Rightarrow sY(s) &amp;= kK_p(Y_{ref}(s) - Y(s)) + kK_ds(Y_{ref}(s)-Y(s))-\frac{f}{s}\\
+Y &amp;= \frac{(kK_ds + kK_p)Y_{ref} - f/s}{s(1+kK_d)+kK_p}\\
+&amp;= \left(1-\frac{s}{s(1+kK_d)+kK_p}\right)Y_{ref}-\frac{f}{s\left(s(1+kK_d)+kK_p\right)}
 \end{aligned}\]</div>
-<p>对于阶跃期望值 <span class="arithmatex">\(Y_{ref} = \dfrac{r}{s}\)</span> ，系统响应为 <span class="arithmatex">\(\dfrac{r}{s} - \dfrac{r}{s(1+kK_d)+kK_p}\)</span> ，转化到时域为 <span class="arithmatex">\(r - \dfrac{r}{1+kK_d}e^{-\dfrac{kK_p}{1+kK_d}t}\)</span> ，稳态误差为 0 。加了微分控制之后，系统瞬时响应更快，调节时间变长。</p>
-<p><a class="glightbox" href="../%E7%B3%BB%E7%BB%9F%E9%98%B6%E6%95%B0%E4%B8%8E%20PID.assets/Figure_4.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Figure_4.png" src="../%E7%B3%BB%E7%BB%9F%E9%98%B6%E6%95%B0%E4%B8%8E%20PID.assets/Figure_4.png" /></a></p>
-<p>所以，一阶系统从理论上最好用 P 控制。</p>
+<p>对于阶跃期望值 <span class="arithmatex">\(Y_{ref} = \dfrac{r}{s}\)</span> ，系统响应为 <span class="arithmatex">\(\dfrac{r}{s} - \dfrac{r}{s(1+kK_d)+kK_p}-\dfrac{f}{s\left(s(1+kK_d)+kK_p\right)}\)</span> ，转化到时域为 <span class="arithmatex">\(r-\dfrac{f}{kK_p} + (\dfrac{f}{kK_p}-\dfrac{r}{1+kK_d})e^{-\dfrac{kK_p}{1+kK_d}t}\)</span> ，稳态误差为 <span class="arithmatex">\(\dfrac{f}{kK_p}\)</span> 。当 <span class="arithmatex">\(\dfrac{f}{kK_p}-\dfrac{r}{1+kK_d} &gt; 0\)</span> 时有超调，反之没有超调。但系统输出总小于给定值。引入微分控制后，系统瞬时响应更快，调节时间变长。</p>
+<p><a class="glightbox" href="../%E7%B3%BB%E7%BB%9F%E9%98%B6%E6%95%B0%E4%B8%8E%20PID.assets/Figure_2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Figure_2.png" src="../%E7%B3%BB%E7%BB%9F%E9%98%B6%E6%95%B0%E4%B8%8E%20PID.assets/Figure_2.png" /></a></p>
+<ol>
+<li>如果控制器的前馈补偿足够好，使得扰动项 <span class="arithmatex">\(f = 0\)</span> ，那么我们不考虑 PI 控制。</li>
+<li>如果控制器的前馈补偿一般，扰动项存在，但是很不明显，那么我们一般也不考虑 PI 控制。</li>
+<li>如果要求高控制精度，选用 PI 控制（要小心过渡过程的震荡风险！）。</li>
+<li>如果给定值变化频率较快，要求高响应速度，选用 PD 控制。</li>
+<li>如果对控制器要求不高，只用 P 控制就能满足大部分工况。</li>
+</ol>
 <h2 id="_3">一阶系统串级控制</h2>
 <p>在这一小节，我们来分析一下，针对一阶系统，使用串级控制方案能否获得更好的控制效果。</p>
 <h3 id="pp">内外环比例控制 P+P</h3>
 <p>一阶系统是 <span class="arithmatex">\(\dot{y} = ku\)</span> ，我们先简单一点，内外双环都用比例控制，也就是说</p>
 <div class="arithmatex">\[\begin{aligned}
 \left(\dot{y}\right)_{ref} &amp;= K_{p1}(y_{ref} - y)\\
-\dot{y} &amp;= kK_{p2}(\left(\dot{y}\right)_{ref} - \dot{y})\\
-&amp;= kK_{p2}(K_{p1}(y_{ref}-y)-\dot{y})\\
-\overset{拉氏变换}\Rightarrow sY(s) &amp;= kK_{p1}K_{p2}Y_{ref}(s)-kK_{p1}K_{p2}Y(s)-kK_{p2}sY(s)\\
-\frac{Y}{Y_{ref}} &amp;= \frac{kK_{p1}K_{p2}}{(1+kK_{p2})s+kK_{p1}K_{p2}}
+\dot{y} &amp;= kK_{p2}(\left(\dot{y}\right)_{ref} - \dot{y})-f\\
+&amp;= kK_{p2}(K_{p1}(y_{ref}-y)-\dot{y})-f\\
+\overset{拉氏变换}\Rightarrow sY(s) &amp;= kK_{p1}K_{p2}Y_{ref}(s)-kK_{p1}K_{p2}Y(s)-kK_{p2}sY(s)-\frac{f}{s}\\
+Y &amp;= \frac{kK_{p1}K_{p2}Y_{ref}-f/s}{(1+kK_{p2})s+kK_{p1}K_{p2}}
 \end{aligned}\]</div>
-<p>这也是个一阶惯性环节，对于阶跃期望值 <span class="arithmatex">\(Y_{ref} = \dfrac{r}{s}\)</span> ，系统响应为 <span class="arithmatex">\(\dfrac{kK_{p1}K_{p2}r}{\left[(1+kK_{p2})s+kK_{p1}K_{p2}\right]s}\)</span> ，转化到时域为 <span class="arithmatex">\(r\left(1-e^{-\frac{kK_{p1}K_{p2}}{1+kK_{p2}}t}\right)\)</span> ，稳态误差为 0 。</p>
+<p>这也是个一阶惯性环节，对于阶跃期望值 <span class="arithmatex">\(Y_{ref} = \dfrac{r}{s}\)</span> ，系统响应为 <span class="arithmatex">\(\dfrac{kK_{p1}K_{p2}r-f}{\left[(1+kK_{p2})s+kK_{p1}K_{p2}\right]s}\)</span> ，转化到时域为 <span class="arithmatex">\(\dfrac{kK_{p1}K_{p2}r-f}{kK_{p1}K_{p2}}\left(1-e^{-\frac{kK_{p1}K_{p2}}{1+kK_{p2}}t}\right)\)</span> ，稳态误差为 <span class="arithmatex">\(\dfrac{kK_{p1}K_{p2}r-f}{kK_{p1}K_{p2}}\)</span> ，必然没有超调。</p>
 <p>控制效果与一阶系统直接比例控制基本等价。</p>
 <h3 id="ppi">外环比例控制，内环比例积分控制 P+PI</h3>
-<p>之所以想到内环用 PI ，是因为上文已经证明零阶系统用 PI 控制效果最好。此时有</p>
+<p>之所以想到内环用 PI ，是因为上文已经证明零阶系统用 PI 控制效果最好。</p>
+<blockquote>
+<p>Q：积分项会引入系统响应的“滞后”，为什么我们可以在内环引入微分项？
+A：我们引入积分项，是为了让内环误差更快缩减至容许范围内；至于误差要花更长时间变为 0 ，内环要花更长时间才能稳定，在某些情况下我们是可以接受的。</p>
+</blockquote>
+<p>此时有</p>
 <div class="arithmatex">\[\begin{aligned}
 \left(\dot{y}\right)_{ref} &amp;= K_{p1}(y_{ref} - y)\\
-\dot{y} &amp;= kK_{p2}(\left(\dot{y}\right)_{ref} - \dot{y}) + kK_{i}D^{-1}(\left(\dot{y}\right)_{ref} - \dot{y})\\
-&amp;= kK_{p2}(K_{p1}(y_{ref}-y)-\dot{y}) + kK_{i}D^{-1}(K_{p1}(y_{ref}-y)-\dot{y})\\
+\dot{y} &amp;= kK_{p2}(\left(\dot{y}\right)_{ref} - \dot{y}) + kK_{i}D^{-1}(\left(\dot{y}\right)_{ref} - \dot{y})-f\\
+&amp;= kK_{p2}(K_{p1}(y_{ref}-y)-\dot{y}) + kK_{i}D^{-1}(K_{p1}(y_{ref}-y)-\dot{y})-f\\
 \overset{拉氏变换}\Rightarrow s^2Y(s) &amp;= kK_{p1}K_{p2}sY_{ref}(s)-kK_{p1}K_{p2}sY(s)-kK_{p2}s^2Y(s)\\
-&amp;\ \ \ + kK_iK_{p1}Y_{ref}(s)-kK_iK_{p1}Y(s)-kK_isY(s)\\
-\frac{Y}{Y_{ref}} &amp;= \frac{kK_{p1}K_{p2}s + kK_iK_{p1}}{(1+kK_{p2})s^2+k(K_{p1}K_{p2}+K_i)s+kK_iK_{p1}}\\
-&amp;= \frac{kK_{p1}K_{p2}}{1+kK_{p2}}\frac{s+K_i/K_{p2}}{s^2+\frac{k(K_{p1}K_{p2}+K_i)}{1+kK_{p2}}s+\frac{kK_iK_{p1}}{1+kK_{p2}}}
+&amp;\ \ \ + kK_iK_{p1}Y_{ref}(s)-kK_iK_{p1}Y(s)-kK_isY(s)-f\\
+Y &amp;= \frac{(kK_{p1}K_{p2}s + kK_iK_{p1})Y_{ref}-f}{(1+kK_{p2})s^2+k(K_{p1}K_{p2}+K_i)s+kK_iK_{p1}}\\
+&amp;= \frac{kK_{p1}K_{p2}}{1+kK_{p2}}\frac{(s+K_i/K_{p2})Y_{ref}-f/(kK_{p1}K_{p2})}{s^2+\frac{k(K_{p1}K_{p2}+K_i)}{1+kK_{p2}}s+\frac{kK_iK_{p1}}{1+kK_{p2}}}
 \end{aligned}\]</div>
-<p>对于阶跃期望值 <span class="arithmatex">\(Y_{ref} = \dfrac{r}{s}\)</span> ，系统响应为 <span class="arithmatex">\(r\frac{kK_{p1}K_{p2}}{1+kK_{p2}}\frac{s+K_i/K_{p2}}{s(s^2+\frac{k(K_{p1}K_{p2}+K_i)}{1+kK_{p2}}s+\frac{kK_iK_{p1}}{1+kK_{p2}})}\)</span> ，转化到时域的表达式有点复杂，此处略去。起始点是 0 ，稳态误差为 0 ，其动态性能有所改善。</p>
+<p>对于阶跃期望值 <span class="arithmatex">\(Y_{ref} = \dfrac{r}{s}\)</span> ，系统响应为 <span class="arithmatex">\(\frac{kK_{p1}K_{p2}}{1+kK_{p2}}\frac{(r-f/(kK_{p1}K_{p2}))s+rK_i/K_{p2}}{s(s^2+\frac{k(K_{p1}K_{p2}+K_i)}{1+kK_{p2}}s+\frac{kK_iK_{p1}}{1+kK_{p2}})}\)</span> ，转化到时域的表达式有点复杂，此处略去。起始点是 0 ，稳态误差为 0 ，内环运行过程中的误差值减小，系统动态性能有所改善。</p>
 <h3 id="pdpi">外环比例微分控制，内环比例积分控制 PD+PI</h3>
-<p>推导有点繁琐，懒得抄了，直接给结论：系统的阶跃响应为</p>
-<div class="arithmatex">\[\frac{r}{s}-\frac{(\frac{1}{k}+K_p+1)rs}{(\frac{1}{k}+K_p+1+K_pK_d)s^2+(K_pK_{p1}+K_iK_d)s+K_iK_{p1}}\]</div>
-<p>起始点位于 <span class="arithmatex">\((0,r)\)</span> 之间，稳态误差为 0 ，调节时间稍有增长。</p>
+<p>推导太繁琐，懒得写了，直接给结论：</p>
+<p>起始点位于 <span class="arithmatex">\((0,r)\)</span> 之间，稳态误差为 0 ，瞬态响应增加，调节时间稍有增长。</p>
 <h3 id="_4">小结</h3>
-<p>综上所述，对于一阶系统，使用串级控制方案是可行的，能获得更好的控制效果。但这样做的性价比不高。</p>
+<p>综上所述，对于一阶系统，使用串级控制方案是可行的，如果参数调得足够好，的确能获得更好的控制效果。但相较于单环纯比例控制 + 较好的前馈，其控制效果提升不明显。因此这样做的<strong>性价比一般</strong>。</p>
+<p>在工程实际中，需要思考：是否能获得 <span class="arithmatex">\(\dot{y}\)</span> 的反馈信号？如果能，其准确性、噪声如何？（此处但凡有一个答案是否定的，我们都不应首先考虑串级控制方案。）</p>
+<p>此外，还有一些与 PID 本身相关的工程问题：
+1. 以上分析都局限于阶跃输入情况。当给定值频繁变化时，微分项会放大这一变化，导致系统输出频繁波动，甚至引发振荡。为了避免这一问题，可以只对反馈信号做微分，称为“微分先行”。
+2. 微分项会放大反馈信号的噪声，对控制造成干扰。为解决这一问题，可以考虑对微分项输出做滤波。
+3. 内环的积分项会引入“滞后”，需要斟酌是否能接受。如果遇到了积分饱和现象，这一“滞后”就更加严重。</p>
 <h2 id="_5">二阶系统</h2>
 <p>参见 <a href="../%E4%BA%91%E5%8F%B0%20PID%20%E7%90%86%E8%AE%BA%E5%88%86%E6%9E%90/">云台 PID 理论分析</a></p>
 
