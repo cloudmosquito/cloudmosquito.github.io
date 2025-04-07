@@ -24,7 +24,7 @@
     
     
       
-        <title>一阶滞后滤波 - Cloudmosquito Site</title>
+        <title>一阶惯性滤波 - Cloudmosquito Site</title>
       
     
     
@@ -121,7 +121,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              一阶滞后滤波
+              一阶惯性滤波
             
           </span>
         </div>
@@ -694,7 +694,7 @@
   
   
   <span class="md-ellipsis">
-    一阶滞后滤波
+    一阶惯性滤波
     
   </span>
   
@@ -707,7 +707,7 @@
   
   
   <span class="md-ellipsis">
-    一阶滞后滤波
+    一阶惯性滤波
     
   </span>
   
@@ -732,7 +732,7 @@
         <li class="md-nav__item">
   <a href="#1" class="md-nav__link">
     <span class="md-ellipsis">
-      1 一阶滞后滤波的形式
+      1 一阶惯性滤波的形式
     </span>
   </a>
   
@@ -760,7 +760,7 @@
           <li class="md-nav__item">
   <a href="#22" class="md-nav__link">
     <span class="md-ellipsis">
-      2.2 开始分析
+      2.2 幅频响应
     </span>
   </a>
   
@@ -768,6 +768,24 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      3 之所以被称为“一阶惯性滤波”
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      4 再深入一点
+    </span>
+  </a>
   
 </li>
       
@@ -2377,7 +2395,7 @@
         <li class="md-nav__item">
   <a href="#1" class="md-nav__link">
     <span class="md-ellipsis">
-      1 一阶滞后滤波的形式
+      1 一阶惯性滤波的形式
     </span>
   </a>
   
@@ -2405,7 +2423,7 @@
           <li class="md-nav__item">
   <a href="#22" class="md-nav__link">
     <span class="md-ellipsis">
-      2.2 开始分析
+      2.2 幅频响应
     </span>
   </a>
   
@@ -2413,6 +2431,24 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      3 之所以被称为“一阶惯性滤波”
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      4 再深入一点
+    </span>
+  </a>
   
 </li>
       
@@ -2432,53 +2468,78 @@
 
 
 
-<h1 id="_1">一阶滞后滤波</h1>
-<h2 id="1">1 一阶滞后滤波的形式</h2>
-<p>一阶滞后滤波是一种常用、简单的滤波方式，对于输入序列<span class="arithmatex">\(u(n)\)</span>，输出序列<span class="arithmatex">\(y(n)\)</span>，滤波器公式如下：</p>
+<h1 id="_1">一阶惯性滤波</h1>
+<h2 id="1">1 一阶惯性滤波的形式</h2>
+<p>一阶惯性滤波是一种常用、简单的滤波方式，对于输入序列 <span class="arithmatex">\(u(n)\)</span> ，输出序列 <span class="arithmatex">\(y(n)\)</span> ，滤波器公式如下：</p>
 <div class="arithmatex">\[y(n) = \alpha \cdot y(n-1) + (1-\alpha)\cdot u(n)\]</div>
-<p>其中<span class="arithmatex">\(\alpha\)</span>是滤波器系数。</p>
+<p>其中 <span class="arithmatex">\(\alpha\)</span> 是滤波器系数。</p>
 <h2 id="2">2 频域角度分析</h2>
 <h3 id="21-zs">2.1 准备工作：从Z域到S域</h3>
-<p>对一个Z域的函数<span class="arithmatex">\(H(z)\)</span>，<strong>我们可以用<span class="arithmatex">\(e^{sT_s}\)</span>代替<span class="arithmatex">\(z\)</span>，从而将此函数从Z域转化到s域</strong>。</p>
-<p>这是因为：假设我们有个连续的函数<span class="arithmatex">\(y(t)\)</span>，然后我们对它进行周期采样，得到</p>
+<p>对一个 Z 域的函数 <span class="arithmatex">\(H(z)\)</span> ，<strong>我们可以用 <span class="arithmatex">\(e^{sT_s}\)</span> 代替 <span class="arithmatex">\(z\)</span> ，从而将此函数从Z域转化到s域</strong>。</p>
+<p>这是因为：假设我们有个连续的函数 <span class="arithmatex">\(y(t)\)</span> ，然后我们对它进行周期采样，得到</p>
 <div class="arithmatex">\[y^*(t) = \sum_{k=0}^{+\infty} y(t)\delta(t-kT_s) = \sum_{k=0}^{+\infty}y(kT_s)\delta(t-kT_s)\]</div>
-<p>那么对<span class="arithmatex">\(y^*(t)\)</span>的拉氏变换结果是</p>
+<p>那么对 <span class="arithmatex">\(y^*(t)\)</span> 的拉氏变换结果是</p>
 <div class="arithmatex">\[\begin{aligned}Y^*(s) &amp;= \int_{0}^{+\infty}y^*(t)e^{-st}\mathrm{d}t\\
 &amp;= \int_{0}^{+\infty}\sum_{k=0}^{+\infty}y(kT_s)\delta(t-kT_s)e^{-st}\mathrm{d}t\\
 &amp;= \sum_{k=0}^{+\infty}y(kT_s)\int_0^{+\infty}\delta(t-kT_s)e^{-st}\mathrm{d}t\\
 &amp;= \sum_{k=0}^{+\infty}y(kT_s)\int_{kT_s^-}^{kT_s^+}e^{-st}\mathrm{d}t\\
 &amp;= \sum_{k=0}^{+\infty}y(kT_s)e^{-kT_ss}
 \end{aligned}\]</div>
-<p>而<span class="arithmatex">\(Y(z)\)</span>可以定义为</p>
+<p>而 <span class="arithmatex">\(Y(z)\)</span> 可以定义为</p>
 <div class="arithmatex">\[Y(z) = Y^*(s)|_{z = e^{sT_s}} = \sum_{k=0}^{+\infty}y(kT_s)z^{-k}\]</div>
-<h3 id="22">2.2 开始分析</h3>
-<p>我们从频域角度对该滤波器进行分析。首先，对上式进行Z变换：</p>
+<h3 id="22">2.2 幅频响应</h3>
+<p>我们从频域角度对该滤波器进行分析。首先，对上式进行 Z 变换：</p>
 <div class="arithmatex">\[Y(z) = \alpha z^{-1}Y(z)+(1-\alpha)U(z)\]</div>
 <p>从而可以求得传递函数:</p>
 <div class="arithmatex">\[H(z) = \frac{Y(z)}{U(z)} = \frac{1-\alpha}{1-\alpha z^{-1}}\]</div>
-<p>首先，根据Z变换的知识，我们可以用<span class="arithmatex">\(e^{js}\)</span>代替<span class="arithmatex">\(z\)</span>，从而将此函数从Z域转化到s域。</p>
-<p>所以，<span class="arithmatex">\(H(s)\)</span>可以表示为</p>
-<div class="arithmatex">\[H(s) = \frac{1-\alpha}{1-\alpha e^{-sT_s}}\]</div>
-<p>然后把<span class="arithmatex">\(s\)</span>转化为<span class="arithmatex">\(j\omega\)</span>，就能得到频率响应函数。</p>
+<p>首先，根据 Z 变换的知识，我们可以用 <span class="arithmatex">\(e^{sT_s}\)</span> 代替 <span class="arithmatex">\(z\)</span> ，从而将此函数从 Z 域转化到 s 域。</p>
+<p>所以，<span class="arithmatex">\(H(s)\)</span> 可以表示为</p>
+<div class="arithmatex">\[H(s) = \frac{1-\alpha}{1-\alpha e^{-sT_s}} \tag{2-2-1}\]</div>
+<p>然后把 <span class="arithmatex">\(s\)</span> 转化为 <span class="arithmatex">\(j\omega\)</span> ，就能得到频率响应函数。</p>
 <div class="arithmatex">\[H(j\omega) = \frac{1-\alpha}{1-\alpha e^{-j\omega T_s}}\]</div>
-<p>这里的<span class="arithmatex">\(\omega\)</span>是把输入信号视为连续信号之后的角频率。
+<p>这里的 <span class="arithmatex">\(\omega\)</span> 是把输入信号视为连续信号之后的角频率。
 频率响应函数反映了该滤波器对于某一特定频率的周期函数的幅值放大和角度偏移。</p>
 <div class="arithmatex">\[\begin{aligned}
 |H(j\omega)| &amp;= \frac{1-\alpha}{|1-\alpha e^{-j\omega T_s}|} = \frac{1-\alpha}{\sqrt{1+\alpha^2-2\alpha\cos(\omega T_s)}}\\
 &amp;= \frac{1-\alpha}{\sqrt{(1-\alpha)^2+2\alpha[1-\cos(2\pi T_s/T)]}}
 \end{aligned}\]</div>
-<p>我们不难发现，当输入信号的周期<span class="arithmatex">\(T\)</span>大于<span class="arithmatex">\(2T_s\)</span>之后，随着周期的增大/频率的降低，幅值响应越来越接近于1。而<span class="arithmatex">\(T\)</span>在<span class="arithmatex">\([0,2T_s]\)</span>区间内时，幅值响应是振荡的。</p>
-<p>我们用python画个图来详细看一下。我们取<span class="arithmatex">\(T_s = 0.001s, \alpha = 0.8\)</span>。</p>
-<figure>
-<p><a class="glightbox" href="../%E4%B8%80%E9%98%B6%E6%BB%9E%E5%90%8E%E6%BB%A4%E6%B3%A2.assets/%E6%A6%82%E8%A7%88.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../%E4%B8%80%E9%98%B6%E6%BB%9E%E5%90%8E%E6%BB%A4%E6%B3%A2.assets/%E6%A6%82%E8%A7%88.png" width="100%" /></a></p>
-<!-- <figcaption>一阶滞后滤波效果</figcaption> -->
-</figure>
+<p>我们不难发现，当输入信号的周期 <span class="arithmatex">\(T\)</span> 大于 <span class="arithmatex">\(2T_s\)</span> 之后，随着周期的增大/频率的降低，幅值响应越来越接近于 1 。而 <span class="arithmatex">\(T\)</span> 在 <span class="arithmatex">\([0,2T_s]\)</span> 区间内时，幅值响应是振荡的。</p>
+<p>我们用 python 画个图来详细看一下。我们取 <span class="arithmatex">\(T_s = 0.001s, \alpha = 0.8\)</span> 。</p>
+<p><a class="glightbox" href="../%E4%B8%80%E9%98%B6%E6%83%AF%E6%80%A7%E6%BB%A4%E6%B3%A2.assets/%E6%A6%82%E8%A7%88.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../%E4%B8%80%E9%98%B6%E6%83%AF%E6%80%A7%E6%BB%A4%E6%B3%A2.assets/%E6%A6%82%E8%A7%88.png" width="100%" /></a></p>
 <p>像一个很漂亮的低通滤波器，但是在更高频段会振荡，下图详细看看。</p>
-<figure>
-<p><a class="glightbox" href="../%E4%B8%80%E9%98%B6%E6%BB%9E%E5%90%8E%E6%BB%A4%E6%B3%A2.assets/%E9%AB%98%E9%A2%91%E9%83%A8%E5%88%86.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../%E4%B8%80%E9%98%B6%E6%BB%9E%E5%90%8E%E6%BB%A4%E6%B3%A2.assets/%E9%AB%98%E9%A2%91%E9%83%A8%E5%88%86.png" width="100%" /></a></p>
-<!-- <figcaption>一阶滞后滤波效果（高频部分）</figcaption> -->
-</figure>
-<p>很明显可以发现，<strong>一阶滞后滤波只在采样频率大于2倍输入信号频率的情况下发挥作用</strong>。</p>
+<p><a class="glightbox" href="../%E4%B8%80%E9%98%B6%E6%83%AF%E6%80%A7%E6%BB%A4%E6%B3%A2.assets/%E9%AB%98%E9%A2%91%E9%83%A8%E5%88%86.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../%E4%B8%80%E9%98%B6%E6%83%AF%E6%80%A7%E6%BB%A4%E6%B3%A2.assets/%E9%AB%98%E9%A2%91%E9%83%A8%E5%88%86.png" width="100%" /></a></p>
+<p>很明显可以发现，<strong>一阶惯性滤波只在采样频率大于2倍输入信号频率的情况下发挥作用</strong>。</p>
+<h2 id="3">3 之所以被称为“一阶惯性滤波”</h2>
+<p>我们熟知，一阶惯性环节的频域形式为</p>
+<div class="arithmatex">\[G(s) = \frac{1}{Ts+1} \tag{3-1}\]</div>
+<p>这与（2-2-1）式的形式不太一样。事实上，倘若我们用一阶的后向差分代替求导，就可以得到（3-1）式的形式：</p>
+<div class="arithmatex">\[\begin{aligned}
+y\left[n\right] &amp;= \alpha y\left[n-1\right] + (1-\alpha)u\left[n\right]\\
+\alpha(y\left[n\right] - y\left[n-1\right])+(1-\alpha)y\left[n\right] &amp;= (1-\alpha)u\left[n\right]\\
+\alpha\frac{y\left[n\right] - y\left[n-1\right]}{T_s} + \frac{1-\alpha}{T_s}y\left[n\right] &amp;= \frac{1-\alpha}{T_s}u\left[n\right]\\
+\overset{\text{转化到时域}}\Rightarrow \alpha \dot{y} + \frac{1-\alpha}{T_s}y &amp;= \frac{1-\alpha}{T_s}u\\
+\overset{\text{转化到频域}}\Rightarrow \alpha sY + \frac{1-\alpha}{T_s}Y &amp;= \frac{1-\alpha}{T_s}U\\
+\frac{Y}{U} &amp;= \frac{(1-\alpha)/T_s}{\alpha s + (1-\alpha)/T_s}\\
+&amp;= \frac{1}{(\alpha T_s)/(1-\alpha) s + 1}
+\end{aligned}\]</div>
+<p>换一个角度。我们对（2-2-1）式中的 <span class="arithmatex">\(e^{-sT_s}\)</span> 项做一阶的泰勒展开线性化，也能得到（3-1）式的形式：</p>
+<div class="arithmatex">\[\begin{aligned}
+\frac{1-\alpha}{1-\alpha e^{-sT_s}} &amp;= \frac{1-\alpha}{1-\alpha(1-sT_s)}\\
+&amp;= \frac{1-\alpha}{1-\alpha+\alpha T_s s}\\
+&amp;= \frac{1}{\dfrac{\alpha T_s}{1-\alpha}s + 1}
+\end{aligned}\]</div>
+<p>这里面的原理是这样的：</p>
+<div class="arithmatex">\[\begin{aligned}
+&amp;y\left[n-1\right] \Leftrightarrow z^{-1}y\left[n\right] \Leftrightarrow e^{-sT_s}Y(s) \overset{一阶线性化}\Rightarrow (1-sT_s)Y(s)\\
+&amp;(1-sT_s)Y(s) \Leftrightarrow y(t) - T_s\dot{y}(t) \overset{一阶后向差分}\Rightarrow y\left[n\right]-T_s\frac{y\left[n\right]-y\left[n-1\right]}{T_s} = y\left[n-1\right]
+\end{aligned}\]</div>
+<p>观察一阶惯性环节的幅频响应函数：</p>
+<div class="arithmatex">\[\left|G(j\omega)\right| = \frac{1}{\sqrt{1+(T\omega)^2}}\]</div>
+<p>这是一个非常完美的低通滤波器。但是我们用<strong>离散一阶后向差分代替求导</strong>后，得到的滤波器就在高频处存在严重缺陷（振荡）。</p>
+<h2 id="4">4 再深入一点</h2>
+<p>为什么离散化的一阶惯性环节滤波器，其幅频响应曲线振荡的临界点恰好是采样频率等于 2 倍输入信号频率的位置，并且与参数 <span class="arithmatex">\(\alpha\)</span> 无关？</p>
+<p>因为 <strong>香农/奈奎斯特采样定理</strong> ：采样频率必须大于等于模拟信号最高频率的 2 倍，才能不失真地恢复模拟信号。</p>
+<p>也就是说，对于所有的离散化滤波器，我们都要求采样频率大于等于 2 倍的输入信号最高频率，否则滤波器都会失效。这并不是一阶惯性滤波器的固有缺陷，而是信号采样原理所决定的。</p>
 
 
 
