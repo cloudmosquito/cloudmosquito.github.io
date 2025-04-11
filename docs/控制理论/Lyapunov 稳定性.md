@@ -78,7 +78,7 @@ $$ \forall \varepsilon > 0, \exists \delta > 0, \forall \mathbf{x}(0) \in S(\mat
 >
 > 事实上，Lyapunov 稳定性的定义只规定了**系统状态初值在离平衡点无限近的一个邻域内时，系统状态无限趋近于稳定**。而这个新定义则要求系统状态初值在平衡点的任意大邻域内时，系统状态都不发散到无穷。
 
-### 2.1 Lyapunov 的渐进稳定性
+### 2.1 渐进稳定性
 
 ![](./Lyapunov%20稳定性.assets/Lyapunov稳定性分类.png){width=100%}
 
@@ -92,7 +92,7 @@ $$\exists \varepsilon > 0,\forall \delta>0, \exists x(0) \in S(x_e, \delta), \ex
 
 ---
 
-## 3 如何使用Lyapunov稳定性？
+## 3 如何使用 Lyapunov 稳定
 
 ### 3.1 线性定常系统 Lyapunov 稳定的条件
 
@@ -110,7 +110,7 @@ $$\exists \varepsilon > 0,\forall \delta>0, \exists x(0) \in S(x_e, \delta), \ex
 
 ---
 
-### 3.2 Lyapunov 第一法（间接法，用的不多）
+### 3.2 Lyapunov 第一法
 
 **基本思路**：对于一个非线性系统，将它在平衡点位置做线性化，然后按照线性系统的方式来判断其Lyapunov稳定性。
 
@@ -160,7 +160,7 @@ Lyapunov 构造了一个虚拟的“能量函数” $V(x)$ ，称之为 Lyapunov
 
 ---
 
-#### 3.3.1 Lyapunov 第二法 定理 1
+#### 3.3.1 定理 1
 
 **定理：考虑一个非线性系统 $\dot{\mathbf{x}}(t) = \mathbf{f}(\mathbf{x}(t))$ ，设其平衡状态在原点，即 $\mathbf{f}(\mathbf{0}) = \mathbf{0}$ ，对所有 $t \ge t_0$ ，如果存在一个具有连续一阶偏导数的标量函数 $V(\mathbf{x},t)$ ，满足 $V(\mathbf{x}, t)$ 正定，$\dfrac{\mathrm{d}V}{\mathrm{d}t}(\mathbf{x}, t)$ 负定，则原点处的平衡点是渐近稳定的。**
 
@@ -182,7 +182,7 @@ Lyapunov 构造了一个虚拟的“能量函数” $V(x)$ ，称之为 Lyapunov
 
 ---
 
-#### 3.3.2 Lyapunov 第二法 定理 2
+#### 3.3.2 定理 2
 
 **定理：（克拉索夫斯基，巴巴辛）考虑一个非线性系统 $\dot{\mathbf{x}}(t) = \mathbf{f}(\mathbf{x}(t))$ ，设其平衡状态在原点，即 $\mathbf{f}(\mathbf{0}) = \mathbf{0}$ ，对所有 $t \ge t_0$ ，如果存在一个具有连续一阶偏导数的标量函数 $V(\mathbf{x},t)$ ，满足 $V(\mathbf{x}, t)$ 正定，$\dfrac{\mathrm{d}V}{\mathrm{d}t}(\mathbf{x}, t)$ 半负定； $\dfrac{\mathrm{d}V}{\mathrm{d}t}(\Phi(t;x_0,t_0),t)$ 对于任意 $t_0$ 和任意 $x_0 \neq 0$ ，在 $t \ge t_0$ 时，不恒等于 0 ；当 $\left\|\mathbf{x}\right\| \to \infty$ 时， $V(\mathbf{x}) \to \infty$ ；则原点处的平衡点是大范围渐近稳定的。**
 
@@ -192,7 +192,7 @@ Lyapunov 构造了一个虚拟的“能量函数” $V(x)$ ，称之为 Lyapunov
 
 ---
 
-#### 3.3.3 Lyapunov 第二法 定理 3
+#### 3.3.3 定理 3
 
 **定理：（李雅普诺夫）考虑一个非线性系统 $\dot{\mathbf{x}}(t) = \mathbf{f}(\mathbf{x}(t))$ ，设其平衡状态在原点，即 $\mathbf{f}(\mathbf{0}) = \mathbf{0}$ ，对所有 $t \ge t_0$ ，如果存在一个具有连续一阶偏导数的标量函数 $V(\mathbf{x},t)$ ，满足 $V(\mathbf{x}, t)$ 正定，$\dfrac{\mathrm{d}V}{\mathrm{d}t}(\mathbf{x}, t)$ 半负定； $\dfrac{\mathrm{d}V}{\mathrm{d}t}(\Phi(t;x_0,t_0),t)$ 对于任意 $t_0$ 和任意 $x_0 \neq 0$ ，在 $t \ge t_0$ 时，恒等于 0 ，则系统在原点处的平衡状态是 Lyapunov 意义下稳定的。**
 
@@ -200,7 +200,7 @@ Lyapunov 构造了一个虚拟的“能量函数” $V(x)$ ，称之为 Lyapunov
 
 ---
 
-#### 3.3.4 Lyapunov 第二法 定理 4
+#### 3.3.4 定理 4
 
 （关于不稳定性）
 
@@ -210,7 +210,7 @@ Lyapunov 构造了一个虚拟的“能量函数” $V(x)$ ，称之为 Lyapunov
 
 ---
 
-## 4 线性系统的 Lyapunov 稳定性分析
+## 4 线性系统
 
 线性系统是非线性系统的一种特殊形式，自然可以用 Lyapunov 第二法进行稳定性分析。
 
@@ -223,13 +223,13 @@ $$\begin{aligned}\dot{V}(\mathbf{x}) &= \dot{\mathbf{x}}^TP\mathbf{x} + \mathbf{
 &=\mathbf{x}^T(A^TP+PA)\mathbf{x}\\
 &= -\mathbf{x}^TQ\mathbf{x}\end{aligned}$$
 
-根据 [Lyapunov 第二法定理 1](#331-lyapunov-第二法-定理-1)，如果我们能找到正定矩阵 $P,Q$ 满足
+根据 [Lyapunov 第二法定理 1](#331-1)，如果我们能找到正定矩阵 $P,Q$ 满足
 
 $$A^TP+PA+Q = 0 \tag{4-1}$$
 
 则可说明该系统在原点平衡状态渐近稳定。式 (4-1) 被称为 **Lyapunov 方程**。
 
-[根据 Lyapunov 第二法定理 2](#332-lyapunov-第二法-定理-2)，如果我们能找到正定矩阵 $P$ 和半正定矩阵 $Q$ ，并且保证沿系统任意一条不恒为零状态的轨迹， $-\mathbf{x}^TQ\mathbf{x}$ 不恒为 0，同样可以判别系统的渐近稳定性。
+[根据 Lyapunov 第二法定理 2](#332-2)，如果我们能找到正定矩阵 $P$ 和半正定矩阵 $Q$ ，并且保证沿系统任意一条不恒为零状态的轨迹， $-\mathbf{x}^TQ\mathbf{x}$ 不恒为 0，同样可以判别系统的渐近稳定性。
 
 > 线性定常系统 $\dot{\mathbf{x}} = A\mathbf{x} + B\mathbf{u}$ 内稳定，等价于对应自治系统 $\dot{\mathbf{x}} = A\mathbf{x}$ 在原点平衡状态渐近稳定。
 >
@@ -241,7 +241,7 @@ $$A^TP+PA+Q = 0 \tag{4-1}$$
 
 ---
 
-### 4.1 线性连续系统 Lyapunov 稳定性定理
+### 4.1 连续系统
 
 **线性定常连续系统 $\dot{\mathbf{x}} = A\mathbf{x}+B\mathbf{u}$ 渐近稳定的充要条件是：给定任意正定实对称矩阵  $Q$ ，存在正定实对称矩阵 $P$ ，满足 Lyapunov 方程：**
 
@@ -253,15 +253,15 @@ $$A^TP+PA+Q=0$$
 
 与上一节的讨论相比，该定理对 $P,Q$ 的对称性给出了要求，但我们不应认为这个要求是更高的，事实上，对称和不对称是等价的：
 
-在[二次型与(半)正负定性](../数学/二次型与(半)正负定性.md)一文中我们指出， $\mathbf{x}^TP\mathbf{x} = \mathbf{x}^T\dfrac{P+P^T}{2}\mathbf{x}$ ，因此我们可以用 $\dfrac{P+P^T}{2}$ 这一正定实对称矩阵代替正定实矩阵 $P$ ，而不影响上一节的推导过程。因此，可以认为 $P$ 必然是一个实对称矩阵。从而， $Q = -(A^TP+PA)$ 也是一个实对称矩阵。
+在[二次型与(半)正负定性](../数学/高等代数/二次型与(半)正负定性.md)一文中我们指出， $\mathbf{x}^TP\mathbf{x} = \mathbf{x}^T\dfrac{P+P^T}{2}\mathbf{x}$ ，因此我们可以用 $\dfrac{P+P^T}{2}$ 这一正定实对称矩阵代替正定实矩阵 $P$ ，而不影响上一节的推导过程。因此，可以认为 $P$ 必然是一个实对称矩阵。从而， $Q = -(A^TP+PA)$ 也是一个实对称矩阵。
 
 ---
 
-### 4.2 线性离散系统 Lyapunov 稳定性定理
+### 4.2 离散系统
 
 我们把上文的结论扩展到离散系统。
 
-线性定常离散系统的状态方程为 $\mathbf{x}(k+1) = G\mathbf{x}(k)$ 。我们取一个 Lyapunov 函数 $V(\mathbf{x}(k)) = \mathbf{x}(k)^TP\mathbf{x}(k)$ ，我们同样利用 [Lyapunov 第二法的定理 1](#331-lyapunov-第二法-定理-1) 和 [2](#332-lyapunov-第二法-定理-2) 来说明系统的渐近稳定性：
+线性定常离散系统的状态方程为 $\mathbf{x}(k+1) = G\mathbf{x}(k)$ 。我们取一个 Lyapunov 函数 $V(\mathbf{x}(k)) = \mathbf{x}(k)^TP\mathbf{x}(k)$ ，我们同样利用 [Lyapunov 第二法的定理 1](#331-1) 和 [2](#332-2) 来说明系统的渐近稳定性：
 
 首先，我们需要对 Lyapunov 函数求对时间的一阶偏导数，由于是离散系统，我们采用 $\Delta V(\mathbf{x}) = V(\mathbf{x}(k+1))-V(\mathbf{x}(k))$ 的方式代替求导。
 
@@ -271,7 +271,7 @@ $$\begin{aligned}\Delta V(\mathbf{x}) &= V(\mathbf{x}(k+1))-V(\mathbf{x}(k))\\
 &= \mathbf{x}(k)^T(G^TPG-P)\mathbf{x}(k)\\
 &= \mathbf{x}(k)^T(-Q)\mathbf{x}(k) \end{aligned}$$
 
-根据 [Lyapunov 第二法定理 1](#331-lyapunov-第二法-定理-1) ，系统在平衡状态 $\mathbf{x}_e = \mathbf{0}$ 的充要条件是 $-Q$ 负定；根据  [Lyapunov 第二法定理 2](#332-lyapunov-第二法-定理-2) ，如果能保证沿系统任意一条不恒为零状态的轨迹， $\mathbf{x}(k)^TQ\mathbf{x}(k)$ 序列不恒为 0 ，则 $-Q$ 可以放宽要求至半负定。
+根据 [Lyapunov 第二法定理 1](#331-1) ，系统在平衡状态 $\mathbf{x}_e = \mathbf{0}$ 的充要条件是 $-Q$ 负定；根据  [Lyapunov 第二法定理 2](#332-2) ，如果能保证沿系统任意一条不恒为零状态的轨迹， $\mathbf{x}(k)^TQ\mathbf{x}(k)$ 序列不恒为 0 ，则 $-Q$ 可以放宽要求至半负定。
 
 写成定理：
 
@@ -283,7 +283,7 @@ $$\begin{aligned}\Delta V(\mathbf{x}) &= V(\mathbf{x}(k+1))-V(\mathbf{x}(k))\\
 
 ---
 
-## 5 非线性系统的 Lyapunov 稳定性分析
+## 5 非线性系统
 
 **克拉索夫斯基方法：**
 

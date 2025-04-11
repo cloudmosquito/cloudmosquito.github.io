@@ -23,7 +23,7 @@ $$\begin{aligned}y &= k\cdot K_p(y_{ref} - y)-f\\
 Y &= \frac{kK_p}{1+kK_p}Y_{ref}-\frac{f}{(1+kK_p)s}
 \end{aligned}$$
 
-对于阶跃期望值 $Y_{ref} = \dfrac{r}{s}$ ，系统响应为 $\dfrac{kK_pr-f}{(1+kK_p)s}$ ，转化到时域为 $\dfrac{kK_pr-f}{1+kK_p}$ ，是一个有稳态误差的阶跃值，并且必然没有超调。
+对于阶跃期望值 $Y_{ref} = \frac{r}{s}$ ，系统响应为 $\frac{kK_pr-f}{(1+kK_p)s}$ ，转化到时域为 $\frac{kK_pr-f}{1+kK_p}$ ，是一个有稳态误差的阶跃值，并且必然没有超调。
 
 ## 比例积分控制 PI
 
@@ -35,7 +35,7 @@ Y &= \frac{kK_ps+kK_i}{(1+kK_p)s+kK_i}Y_{ref}-\frac{f}{(1+kK_p)s+kK_i}\\
 &= Y_{ref}-\frac{sY_{ref}+f}{(1+kK_p)s+kK_i}
 \end{aligned}$$
 
-对于阶跃期望值 $Y_{ref} = \dfrac{r}{s}$ ，系统响应为 $\dfrac{r}{s} - \dfrac{r+f}{(1+kK_p)s+kK_i}$ ，转化到时域就是 $r-\dfrac{r+f}{1+kK_p}e^{-\frac{kK_i}{1+kK_p}t}$ 。稳态误差是 0 ，必然没有超调。
+对于阶跃期望值 $Y_{ref} = \frac{r}{s}$ ，系统响应为 $\frac{r}{s} - \frac{r+f}{(1+kK_p)s+kK_i}$ ，转化到时域就是 $r-\frac{r+f}{1+kK_p}e^{-\frac{kK_i}{1+kK_p}t}$ 。稳态误差是 0 ，必然没有超调。
 
 > 需要注意，积分项会带来系统响应的“滞后”。“滞后”是根据“系统从接收到控制信号到输出稳定的时间”来判断的。
 
@@ -49,7 +49,7 @@ Y &= \frac{(kK_ds^2+kK_ps + kK_i)Y_{ref}-f}{kK_ds^2+(1+kK_p)s+kK_i}\\
 &= Y_{ref}-\frac{sY_{ref}+f}{kK_ds^2+(1+kK_p)s+kK_i}
 \end{aligned}$$
 
-对于阶跃期望值 $Y_{ref} = \dfrac{r}{s}$ ，系统响应为 $\dfrac{r}{s} - \dfrac{r+f}{kK_ds^2+(1+kK_p)s+kK_i}$ ，转化到时域就是 $r-\dfrac{r+f}{\sqrt{(1+kK_p)^2-4k^2K_iK_d}}e^{-\dfrac{1+kK_p}{2kK_d}t}\left(e^{\dfrac{\sqrt{(1+kK_p)^2-4k^2K_iK_d}}{2kK_d}t} - e^{-\dfrac{\sqrt{(1+kK_p)^2-4k^2K_iK_d}}{2kK_d}t}\right)$ ，稳态误差是 0 ，但是有超调。
+对于阶跃期望值 $Y_{ref} = \frac{r}{s}$ ，系统响应为 $\frac{r}{s} - \frac{r+f}{kK_ds^2+(1+kK_p)s+kK_i}$ ，转化到时域就是 $r-\frac{r+f}{\sqrt{(1+kK_p)^2-4k^2K_iK_d}}e^{-\frac{1+kK_p}{2kK_d}t}\left(e^{\frac{\sqrt{(1+kK_p)^2-4k^2K_iK_d}}{2kK_d}t} - e^{-\frac{\sqrt{(1+kK_p)^2-4k^2K_iK_d}}{2kK_d}t}\right)$ ，稳态误差是 0 ，但是有超调。
 
 要注意，上述形式的解只适用于 $(1+kK_p)^2-4k^2K_iK_d > 0$ 的过阻尼情况。如果是欠阻尼情况，过渡过程会有减幅振荡。
 
@@ -66,7 +66,7 @@ $$\begin{aligned}\dot{y} &= k\cdot K_p(y_{ref} - y)-f\\
 Y &= \frac{kK_pY_{ref}}{s+kK_p} - \frac{f}{s(s+kK_p)}
 \end{aligned}$$
 
-对于阶跃期望值 $Y_{ref} = \dfrac{r}{s}$ ，系统响应为 $\dfrac{kK_pr-f}{(s+kK_p)s}$ ，转化到时域为 $\left(r-\dfrac{f}{kK_p}\right)\left(1-e^{-kK_pt}\right)$ ，稳态误差为 $\dfrac{f}{kK_p}$ ，**必然没有超调**。
+对于阶跃期望值 $Y_{ref} = \frac{r}{s}$ ，系统响应为 $\frac{kK_pr-f}{(s+kK_p)s}$ ，转化到时域为 $\left(r-\frac{f}{kK_p}\right)\left(1-e^{-kK_pt}\right)$ ，稳态误差为 $\frac{f}{kK_p}$ ，**必然没有超调**。
 
 ### 比例积分控制 PI
 
@@ -78,7 +78,7 @@ Y &= \frac{(kK_ps + kK_i)Y_{ref} - f}{s^2 + kK_ps+kK_i}\\
 &= \left(1-\frac{s^2}{s^2+kK_ps+kK_i}\right)Y_{ref} - \frac{f}{s^2+kK_ps+kK_i}
 \end{aligned}$$
 
-对于阶跃期望值 $Y_{ref} = \dfrac{r}{s}$ ，系统响应为 $\dfrac{r}{s} - \dfrac{sr-f}{s^2+kK_ps+kK_i}$ ，转化到时域为 $r-\dfrac{r}{\sqrt{k^2K_p^2-4kK_i}}\left(\frac{kK_p+\sqrt{k^2K_p^2-4kK_i}}{2}e^{-\frac{kK_p+\sqrt{k^2K_p^2-4kK_i}}{2}t} - \frac{kK_p-\sqrt{k^2K_p^2-4kK_i}}{2}e^{-\frac{kK_p-\sqrt{k^2K_p^2-4kK_i}}{2}t}\right) -\dfrac{f}{\sqrt{k^2K_p^2-4kK_i}}\left(e^{-\frac{kK_p+\sqrt{k^2K_p^2-4kK_i}}{2}t} - e^{-\frac{kK_p-\sqrt{k^2K_p^2-4kK_i}}{2}t}\right) $ ，稳态误差为 0 。
+对于阶跃期望值 $Y_{ref} = \frac{r}{s}$ ，系统响应为 $\frac{r}{s} - \frac{sr-f}{s^2+kK_ps+kK_i}$ ，转化到时域为 $r-\frac{r}{\sqrt{k^2K_p^2-4kK_i}}\left(\frac{kK_p+\sqrt{k^2K_p^2-4kK_i}}{2}e^{-\frac{kK_p+\sqrt{k^2K_p^2-4kK_i}}{2}t} - \frac{kK_p-\sqrt{k^2K_p^2-4kK_i}}{2}e^{-\frac{kK_p-\sqrt{k^2K_p^2-4kK_i}}{2}t}\right) -\frac{f}{\sqrt{k^2K_p^2-4kK_i}}\left(e^{-\frac{kK_p+\sqrt{k^2K_p^2-4kK_i}}{2}t} - e^{-\frac{kK_p-\sqrt{k^2K_p^2-4kK_i}}{2}t}\right)$ ，稳态误差为 0 。
 
 注意，以上形式的解仅适用于 $K_p^2>4K_i$ 的情况。**倘若 $K_i$ 相比于 $K_p$ 过大，过渡过程会出现超调乃至高频减幅振荡**。
 
@@ -92,7 +92,7 @@ Y &= \frac{(kK_ds + kK_p)Y_{ref} - f/s}{s(1+kK_d)+kK_p}\\
 &= \left(1-\frac{s}{s(1+kK_d)+kK_p}\right)Y_{ref}-\frac{f}{s\left(s(1+kK_d)+kK_p\right)}
 \end{aligned}$$
 
-对于阶跃期望值 $Y_{ref} = \dfrac{r}{s}$ ，系统响应为 $\dfrac{r}{s} - \dfrac{r}{s(1+kK_d)+kK_p}-\dfrac{f}{s\left(s(1+kK_d)+kK_p\right)}$ ，转化到时域为 $r-\dfrac{f}{kK_p} + (\dfrac{f}{kK_p}-\dfrac{r}{1+kK_d})e^{-\dfrac{kK_p}{1+kK_d}t}$ ，稳态误差为 $\dfrac{f}{kK_p}$ 。当 $\dfrac{f}{kK_p}-\dfrac{r}{1+kK_d} > 0$ 时有超调，反之没有超调。但系统输出总小于给定值。引入微分控制后，系统瞬时响应更快，调节时间变长。
+对于阶跃期望值 $Y_{ref} = \frac{r}{s}$ ，系统响应为 $\frac{r}{s} - \frac{r}{s(1+kK_d)+kK_p}-\frac{f}{s\left(s(1+kK_d)+kK_p\right)}$ ，转化到时域为 $r-\frac{f}{kK_p} + (\frac{f}{kK_p}-\frac{r}{1+kK_d})e^{-\frac{kK_p}{1+kK_d}t}$ ，稳态误差为 $\frac{f}{kK_p}$ 。当 $\frac{f}{kK_p}-\frac{r}{1+kK_d} > 0$ 时有超调，反之没有超调。但系统输出总小于给定值。引入微分控制后，系统瞬时响应更快，调节时间变长。
 
 ![Figure_2.png](./系统阶数与%20PID.assets/Figure_2.png)
 
@@ -118,7 +118,7 @@ $$\begin{aligned}
 Y &= \frac{kK_{p1}K_{p2}Y_{ref}-f/s}{(1+kK_{p2})s+kK_{p1}K_{p2}}
 \end{aligned}$$
 
-这也是个一阶惯性环节，对于阶跃期望值 $Y_{ref} = \dfrac{r}{s}$ ，系统响应为 $\dfrac{kK_{p1}K_{p2}r-f}{\left[(1+kK_{p2})s+kK_{p1}K_{p2}\right]s}$ ，转化到时域为 $\dfrac{kK_{p1}K_{p2}r-f}{kK_{p1}K_{p2}}\left(1-e^{-\frac{kK_{p1}K_{p2}}{1+kK_{p2}}t}\right)$ ，稳态误差为 $\dfrac{kK_{p1}K_{p2}r-f}{kK_{p1}K_{p2}}$ ，必然没有超调。
+这也是个一阶惯性环节，对于阶跃期望值 $Y_{ref} = \frac{r}{s}$ ，系统响应为 $\frac{kK_{p1}K_{p2}r-f}{\left[(1+kK_{p2})s+kK_{p1}K_{p2}\right]s}$ ，转化到时域为 $\frac{kK_{p1}K_{p2}r-f}{kK_{p1}K_{p2}}\left(1-e^{-\frac{kK_{p1}K_{p2}}{1+kK_{p2}}t}\right)$ ，稳态误差为 $\frac{kK_{p1}K_{p2}r-f}{kK_{p1}K_{p2}}$ ，必然没有超调。
 
 控制效果与一阶系统直接比例控制基本等价。
 
@@ -141,7 +141,7 @@ Y &= \frac{(kK_{p1}K_{p2}s + kK_iK_{p1})Y_{ref}-f}{(1+kK_{p2})s^2+k(K_{p1}K_{p2}
 &= \frac{kK_{p1}K_{p2}}{1+kK_{p2}}\frac{(s+K_i/K_{p2})Y_{ref}-f/(kK_{p1}K_{p2})}{s^2+\frac{k(K_{p1}K_{p2}+K_i)}{1+kK_{p2}}s+\frac{kK_iK_{p1}}{1+kK_{p2}}}
 \end{aligned}$$
 
-对于阶跃期望值 $Y_{ref} = \dfrac{r}{s}$ ，系统响应为 $\frac{kK_{p1}K_{p2}}{1+kK_{p2}}\frac{(r-f/(kK_{p1}K_{p2}))s+rK_i/K_{p2}}{s(s^2+\frac{k(K_{p1}K_{p2}+K_i)}{1+kK_{p2}}s+\frac{kK_iK_{p1}}{1+kK_{p2}})}$ ，转化到时域的表达式有点复杂，此处略去。起始点是 0 ，稳态误差为 0 ，内环运行过程中的误差值减小，系统动态性能有所改善。
+对于阶跃期望值 $Y_{ref} = \frac{r}{s}$ ，系统响应为 $\frac{kK_{p1}K_{p2}}{1+kK_{p2}}\frac{(r-f/(kK_{p1}K_{p2}))s+rK_i/K_{p2}}{s(s^2+\frac{k(K_{p1}K_{p2}+K_i)}{1+kK_{p2}}s+\frac{kK_iK_{p1}}{1+kK_{p2}})}$ ，转化到时域的表达式有点复杂，此处略去。起始点是 0 ，稳态误差为 0 ，内环运行过程中的误差值减小，系统动态性能有所改善。
 
 ### 外环比例微分控制，内环比例积分控制 PD+PI
 
