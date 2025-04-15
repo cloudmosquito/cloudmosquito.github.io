@@ -33,7 +33,7 @@ theme:
 
   features:
     - navigation.instant
-    - navigation.instant.prefetch  # 修正拼写错误，应该是 prefetch
+    - navigation.instant.prefetch # 修正拼写错误，应该是 prefetch
     - navigation.instant.progress
     - navigation.tabs
     - navigation.expand
@@ -95,4 +95,4 @@ extra_css:
 
 extra_javascript:
   - javascripts/mathjax.js
-  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
+  - https://unpkg.com/mathjax@3/es5/tex-chtml-full.js
