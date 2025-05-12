@@ -20,7 +20,7 @@
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.12">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.13">
     
     
       
@@ -28,7 +28,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.2afb09e1.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.342714a4.min.css">
       
         
         <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
@@ -1857,6 +1857,21 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="3.1 指数映射（李代数到李群）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      关于指数映射的一些性质
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -2550,6 +2565,21 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="3.1 指数映射（李代数到李群）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      关于指数映射的一些性质
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -2701,10 +2731,56 @@
 <p>注意：当 <span class="arithmatex">\(\theta = 0\)</span> 时，<span class="arithmatex">\(\hat{\mathbf{a}}\)</span> 可以任意取值，这是指数映射的一个奇异点。</p>
 </blockquote>
 <hr />
+<h4 id="_2">关于指数映射的一些性质</h4>
+<div class="arithmatex">\[\begin{align}
+\hat{x}y = x\times y &amp;= -y\times x = -\hat{y}x \tag{8}\\
+-\frac{1}{2} \mathrm{tr}\left[\hat{x}\hat{y}\right] &amp;= x^\top y \tag{9}\\
+\mathrm{tr}\left[\hat{x}A\right] = \mathrm{tr}\left[A\hat{x}\right] &amp;= \frac{1}{2}\mathrm{tr}\left[\hat{x}\left(A-A^\top\right)\right]=-x^\top\left(A-A^\top\right)^{\vee}\tag{10}\\
+\hat{x}A+A^\top \hat{x} &amp;= \left[(\mathrm{tr}\left[A\right]I_{3\times3}-A)x\right]^{\wedge}\tag{11}\\
+R\hat{x}R^\top &amp;= (Rx)^\wedge\tag{12}
+\end{align}\]</div>
+<p>上式中，<span class="arithmatex">\(x,y\in \mathbb{R}^{3},A\in \mathbb{R}^{3\times3},R \in \mathbf{SO}(3)\)</span>。我们来证明一下。</p>
+<p>首先，(8) 式从几何上看是显然的，就不在代数上做证明了。
+(9) 式：</p>
+<div class="arithmatex">\[\begin{aligned}
+-\frac{1}{2} \mathrm{tr}\left[\hat{x}\hat{y}\right] &amp;= -\frac{1}{2}\mathrm{tr}\begin{bmatrix}0 &amp; -x_3 &amp; x_2\\ x_3 &amp; 0 &amp; -x_1\\ -x_2 &amp; x_1 &amp; 0\end{bmatrix}\begin{bmatrix}0 &amp; -y_3 &amp; y_2\\ y_3 &amp; 0 &amp; -y_1\\ -y_2 &amp; y_1 &amp; 0\end{bmatrix}\\
+&amp;= -\frac{1}{2}(-x_3y_3-x_2y_2-x_3y_3-x_1y_1-x_2y_2-x_1y_1)\\
+&amp;= x_1y_1+x_2y_2+x_3y_3\\
+&amp;= x^\top y\\
+\end{aligned}\]</div>
+<p>(10) 式：第一个等号是矩阵相乘的迹的性质，不在此处进行证明；第二个等号用到反对称矩阵的性质；第三个等号利用 (9) 式结论证明。</p>
+<div class="arithmatex">\[\begin{aligned}
+\frac{1}{2}\mathrm{tr}\left[\hat{x}\left(A-A^\top\right)\right]
+&amp;= \frac{1}{2}\mathrm{tr}\left[\hat{x}A\right]-\frac{1}{2}\mathrm{tr}\left[\hat{x}A^\top\right]\\
+&amp;= \frac{1}{2}\mathrm{tr}\left[\hat{x}A\right]-\frac{1}{2}\mathrm{tr}\left[\left(\hat{x}A^\top\right)^\top\right]\\
+&amp;= \frac{1}{2}\mathrm{tr}\left[\hat{x}A\right]+\frac{1}{2}\mathrm{tr}\left[A\hat{x}\right] \\
+&amp;= \mathrm{tr}\left[\hat{x}A\right]\\
+\frac{1}{2}\mathrm{tr}\left[\hat{x}\left(A-A^\top\right)\right] &amp;= -\left[-\frac{1}{2}\mathrm{tr}\left[\hat{x}\left(\left(A-A^\top\right)^{\vee}\right)^{\wedge}\right]\right]\\
+&amp;= -x^\top\left(A-A^\top\right)^{\vee}
+\end{aligned}\]</div>
+<p>(11) 式：注意到一个方阵减该方阵的转置，结果是一个反对称矩阵；再经过一些计算即可</p>
+<div class="arithmatex">\[\begin{aligned}
+\hat{\mathbf{x}}A+A^\top \hat{\mathbf{x}} &amp;= \hat{\mathbf{x}}A - (\hat{\mathbf{x}}A)^\top\\
+&amp;= \begin{bmatrix}-x_2a_{12}+x_1a_{22}-x_3a_{13}+x_1a_{33}\\
+-x_3a_{23}+x_2a_{33}+x_2a_{11}-x_1a_{21}\\
+x_3a_{11}-x_1a_{31}+x_3a_{22}-x_2a_{32}\end{bmatrix}^{\wedge}\\
+&amp;= \left(\begin{bmatrix}a_{22}+a_{33} &amp; -a_{12} &amp; -a_{13}\\
+-a_{21} &amp; a_{11}+a_{33} &amp; -a_{23}\\
+-a_{31} &amp; -a_{32} &amp; a_{11}+a_{22}\end{bmatrix}\mathbf{x}\right)^{\wedge}\\
+&amp;= \left(\left(\mathrm{tr}\left[A\right]I_{3\times 3} - A\right)\mathbf{x}\right)^{\wedge}
+\end{aligned}\]</div>
+<p>(11) 式：我们利用以下定理加以证明。<span class="arithmatex">\(\exist A,B\in \mathbb{R}^{3\times 3}, \ \forall y \in \mathbb{R}^{3}, Ay=By,\ \mathrm{iff}\ A=B\)</span>。这个定理可以通过构造一个满秩的三维矩阵加以证明。</p>
+<div class="arithmatex">\[\begin{aligned}R\hat{x}R^\top y
+&amp;= R\left(x \times \left(R^\top y\right)\right)\\
+&amp;= (Rx) \times \left(RR^\top y\right)\\
+&amp;= (Rx) \times y\\
+(Rx)^{\wedge}y &amp;= (Rx)\times y
+\end{aligned}\]</div>
+<hr />
 <h3 id="32">3.2 对数映射（李群到李代数）</h3>
 <p>我们同样可以定义从 <span class="arithmatex">\(\mathrm{SO}(3)\)</span> 到 <span class="arithmatex">\(\mathfrak{so}(3)\)</span> 的映射，这是指数映射的逆运算，被称为对数映射。</p>
-<div class="arithmatex">\[\phi = \ln(\mathbf{R})^{\vee} = \left(\sum_{n=0}^{\infty} \frac{(-1)^{n}}{n+1}(\mathbf{R} - \mathbf{I})^{n+1} \right)^{\vee}\tag{8} \]</div>
-<p>当然我们不会真的用 (8) 式计算 <span class="arithmatex">\(\phi\)</span>，这是个无穷级数，我们无法求解。我们可以利用 (7) 式对其进行求解。</p>
+<div class="arithmatex">\[\phi = \ln(\mathbf{R})^{\vee} = \left(\sum_{n=0}^{\infty} \frac{(-1)^{n}}{n+1}(\mathbf{R} - \mathbf{I})^{n+1} \right)^{\vee}\tag{13} \]</div>
+<p>当然我们不会真的用 (13) 式计算 <span class="arithmatex">\(\phi\)</span>，这是个无穷级数，我们无法求解。我们可以利用 (7) 式对其进行求解。</p>
 <p>首先，我们对 (7) 式左右两边求迹，得到</p>
 <div class="arithmatex">\[\begin{aligned}
 \text{tr}(\mathbf{R}) &amp;= \text{tr}(\mathbf{I}) + (1-\cos\theta)\text{tr}\left(\hat{\mathbf{a}}^2\right) + \text{tr}(\hat{\mathbf{a}} )\sin\theta\\
@@ -2712,22 +2788,22 @@
 &amp;= 1+2\cos\theta
 \end{aligned}\]</div>
 <p>所以</p>
-<div class="arithmatex">\[\theta = \arccos\dfrac{\text{tr}(\mathbf{R})-1}{2} \tag{9}\]</div>
+<div class="arithmatex">\[\theta = \arccos\dfrac{\text{tr}(\mathbf{R})-1}{2} \tag{14}\]</div>
 <p>接下来，我们需要求解旋转矩阵对应的的等轴角表示时的转轴，我们给出两种方法。</p>
 <p><strong>第一种方法</strong>：可以注意到，转轴是旋转过程中的一个不变量，因此有</p>
-<div class="arithmatex">\[\mathbf{R}\mathbf{a} = \mathbf{a} \tag{10}\]</div>
+<div class="arithmatex">\[\mathbf{R}\mathbf{a} = \mathbf{a} \tag{15}\]</div>
 <p>怎么理解上面这个式子？</p>
 <p><span class="arithmatex">\(\mathbf{a}\)</span> 是 <span class="arithmatex">\(\mathbf{R}\)</span> 的特征值 1 所对应的特征向量！</p>
 <p><strong>第二种方法</strong>：仍然利用 (7) 式，对 (7) 式左右两边取转置，我们得到</p>
 <div class="arithmatex">\[\begin{aligned}
 \mathbf{R}^T &amp;= \mathbf{I} + \hat{\mathbf{a}}^T \sin\theta + \left(\hat{\mathbf{a}}^T\right)^2(1-\cos\theta) \\
 &amp;= \mathbf{I} - \hat{\mathbf{a}}\sin\theta + \hat{\mathbf{a}}^2(1-\cos\theta)
-\end{aligned}\tag{11}\]</div>
-<p>用 (7) 式减去 (11) 式，我们得到</p>
+\end{aligned}\tag{16}\]</div>
+<p>用 (7) 式减去 (16) 式，我们得到</p>
 <div class="arithmatex">\[\begin{aligned}
 \mathbf{R} - \mathbf{R}^T &amp;= 2\hat{\mathbf{a}}\sin\theta\\
 \hat{\mathbf{a}} &amp;= \frac{\mathbf{R}-\mathbf{R}^T}{2\sin\theta}
-\end{aligned} \tag{12}\]</div>
+\end{aligned} \tag{17}\]</div>
 <p>综上，<span class="arithmatex">\(\Phi = \dfrac{\theta}{2\sin\theta}(\mathbf{R} - \mathbf{R}^T)\)</span>，<span class="arithmatex">\(\theta = \arccos\dfrac{\text{tr}(\mathbf{R})-1}{2}\)</span>，<span class="arithmatex">\(\phi = \check{\Phi}\)</span> 。</p>
 <hr />
 <h2 id="4">4 伴随表示</h2>
@@ -2795,10 +2871,10 @@
     
     
       
-      <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.instant", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.tabs", "navigation.expand", "navigation.path", "navigation.indexes", "navigation.top", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.f8cc74c7.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.instant", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.tabs", "navigation.expand", "navigation.path", "navigation.indexes", "navigation.top", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.c8b220af.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.13a4f30d.min.js"></script>
       
         <script src="../../../javascripts/katex.js"></script>
       
