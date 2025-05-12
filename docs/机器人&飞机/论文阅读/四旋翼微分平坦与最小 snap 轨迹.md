@@ -99,6 +99,9 @@ $$\mathbf{x} = \begin{bmatrix}x & y & z & \phi & \theta & \psi & \dot{x} & \dot{
 
 $$\sigma = \begin{bmatrix}x\\ y\\ z\\ \psi\end{bmatrix} = \begin{bmatrix}\mathbf{r}\\ \psi\end{bmatrix}$$
 
+> 为什么选取的输出量是四维的？
+> 因为四旋翼有且只有四个互相独立的操纵变量，所以四旋翼能控的维度就是四。因此，理论上用四个解耦的输出量足以表出四旋翼状态了。
+
 已知量包括四旋翼质量 $m$，惯性张量 $\mathcal{I}$，重力加速度 $g$ .
 
 我们需要说明，可以通过 $\sigma$ 及 $\sigma$ 的有限阶导数表示 $\mathbf{u}$ 和 $\mathbf{x}$ （共 16 个量）。
