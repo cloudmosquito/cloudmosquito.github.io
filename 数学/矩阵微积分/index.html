@@ -638,6 +638,8 @@
       
         
       
+        
+      
     
     
     
@@ -710,6 +712,29 @@
   
   <span class="md-ellipsis">
     一阶惯性滤波
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%8E%A7%E5%88%B6%E7%90%86%E8%AE%BA/%E6%BB%A4%E6%B3%A2%E5%99%A8/%E5%8D%A1%E5%B0%94%E6%9B%BC%E6%BB%A4%E6%B3%A2%E5%99%A8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    卡尔曼滤波器
     
   </span>
   
@@ -1163,19 +1188,19 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#11-nm" class="md-nav__link">
+  <a href="#11-n-m" class="md-nav__link">
     <span class="md-ellipsis">
-      1.1 一个n维的向量对一个m维的向量求导，计算结果矩阵的尺寸是什么样的？
+      1.1 n 维向量对 m 维向量求导，结果矩阵是何尺寸？
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="1.1 一个n维的向量对一个m维的向量求导，计算结果矩阵的尺寸是什么样的？">
+    <nav class="md-nav" aria-label="1.1 n 维向量对 m 维向量求导，结果矩阵是何尺寸？">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#111-numerator-layout-jacobian-foumulation" class="md-nav__link">
     <span class="md-ellipsis">
-      1.1.1 分子布局 (Numerator Layout)，有时也被称为 Jacobian Foumulation
+      1.1.1 分子布局 (Numerator Layout)，别名 Jacobian Foumulation
     </span>
   </a>
   
@@ -1184,7 +1209,7 @@
           <li class="md-nav__item">
   <a href="#112-denominator-layout-hessian-formulation" class="md-nav__link">
     <span class="md-ellipsis">
-      1.1.2 分母布局 (Denominator Layout)，有时也被称为 Hessian Formulation
+      1.1.2 分母布局 (Denominator Layout)，别名 Hessian Formulation
     </span>
   </a>
   
@@ -2496,19 +2521,19 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#11-nm" class="md-nav__link">
+  <a href="#11-n-m" class="md-nav__link">
     <span class="md-ellipsis">
-      1.1 一个n维的向量对一个m维的向量求导，计算结果矩阵的尺寸是什么样的？
+      1.1 n 维向量对 m 维向量求导，结果矩阵是何尺寸？
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="1.1 一个n维的向量对一个m维的向量求导，计算结果矩阵的尺寸是什么样的？">
+    <nav class="md-nav" aria-label="1.1 n 维向量对 m 维向量求导，结果矩阵是何尺寸？">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#111-numerator-layout-jacobian-foumulation" class="md-nav__link">
     <span class="md-ellipsis">
-      1.1.1 分子布局 (Numerator Layout)，有时也被称为 Jacobian Foumulation
+      1.1.1 分子布局 (Numerator Layout)，别名 Jacobian Foumulation
     </span>
   </a>
   
@@ -2517,7 +2542,7 @@
           <li class="md-nav__item">
   <a href="#112-denominator-layout-hessian-formulation" class="md-nav__link">
     <span class="md-ellipsis">
-      1.1.2 分母布局 (Denominator Layout)，有时也被称为 Hessian Formulation
+      1.1.2 分母布局 (Denominator Layout)，别名 Hessian Formulation
     </span>
   </a>
   
@@ -2633,44 +2658,44 @@
 </blockquote>
 <p>参考：<a href="https://en.wikipedia.org/wiki/Matrix_calculus">维基百科 Matrix Calculus</a></p>
 <h2 id="1">1 背景 / 一些约定</h2>
-<p>我们规定，所有的<code>n</code>维向量都以<span class="arithmatex">\(X_n = \begin{bmatrix}x_1 &amp; x_2 &amp; ... &amp; x_n\end{bmatrix}^T\)</span>的形式表示。</p>
-<h3 id="11-nm">1.1 一个<code>n</code>维的向量对一个<code>m</code>维的向量求导，计算结果矩阵的尺寸是什么样的？</h3>
+<p>我们规定，所有的 n 维向量都以 <span class="arithmatex">\(X_n = \begin{bmatrix}x_1 &amp; x_2 &amp; ... &amp; x_n\end{bmatrix}^\top\)</span> 的形式表示。</p>
+<h3 id="11-n-m">1.1 n 维向量对 m 维向量求导，结果矩阵是何尺寸？</h3>
 <p>根据回答的不同，矩阵求导的符号大致分为三个流派：</p>
-<h4 id="111-numerator-layout-jacobian-foumulation">1.1.1 分子布局 (Numerator Layout)，有时也被称为 <em>Jacobian Foumulation</em></h4>
-<div class="arithmatex">\[\frac{\partial Y_n}{\partial X_m} = A_{n\times m} = \begin{bmatrix}\frac{\partial y_1}{\partial x_1} &amp; \frac{\partial y_1}{\partial x_2} &amp; ... &amp; \frac{\partial y_1}{\partial x_m}\\ \frac{\partial y_2}{\partial x_1} &amp; \frac{\partial y_2}{\partial x_2} &amp; ... &amp; \frac{\partial y_2}{\partial x_m}\\ .. &amp; .. &amp; .. &amp; ..\\ \frac{\partial y_n}{\partial x_1} &amp; \frac{\partial y_n}{\partial x_2} &amp; ... &amp; \frac{\partial y_n}{\partial x_m}\end{bmatrix}\]</div>
-<h4 id="112-denominator-layout-hessian-formulation">1.1.2 分母布局 (Denominator Layout)，有时也被称为 <em>Hessian Formulation</em></h4>
-<div class="arithmatex">\[\frac{\partial Y_n}{\partial X_m} = B_{m\times n} = A_{n\times m}^T\]</div>
+<h4 id="111-numerator-layout-jacobian-foumulation">1.1.1 分子布局 (Numerator Layout)，别名 Jacobian Foumulation</h4>
+<div class="arithmatex">\[\frac{\partial Y_n}{\partial X_m} = A_{n\times m} = \begin{bmatrix}\dfrac{\partial y_1}{\partial x_1} &amp; \dfrac{\partial y_1}{\partial x_2} &amp; ... &amp; \dfrac{\partial y_1}{\partial x_m}\\ \dfrac{\partial y_2}{\partial x_1} &amp; \dfrac{\partial y_2}{\partial x_2} &amp; ... &amp; \dfrac{\partial y_2}{\partial x_m}\\ .. &amp; .. &amp; .. &amp; ..\\ \dfrac{\partial y_n}{\partial x_1} &amp; \dfrac{\partial y_n}{\partial x_2} &amp; ... &amp; \dfrac{\partial y_n}{\partial x_m}\end{bmatrix}\]</div>
+<h4 id="112-denominator-layout-hessian-formulation">1.1.2 分母布局 (Denominator Layout)，别名 Hessian Formulation</h4>
+<div class="arithmatex">\[\frac{\partial Y_n}{\partial X_m} = B_{m\times n} = A_{n\times m}^\top\]</div>
 <h4 id="113">1.1.3 分子布局 (符号特别版)</h4>
-<div class="arithmatex">\[\frac{\partial Y_n}{\partial X_m^T} = A_{n\times m}\]</div>
+<div class="arithmatex">\[\frac{\partial Y_n}{\partial X_m^\top} = A_{n\times m}\]</div>
 <p>规定了向量对向量的求导结果的布局之后，标量对向量，矩阵对向量等求导结果都可以按照该布局来定义。</p>
 <p>在本文中，我们采用 <strong>分子布局</strong> 。在其它笔记中，偶尔可能会出现第三种情况。</p>
 <h2 id="2">2 基于分子布局的详细定义</h2>
 <h3 id="21">2.1 标量对向量求导</h3>
-<p>对于一个定义在<code>n</code>维空间上的标量函数<span class="arithmatex">\(f(X)\)</span></p>
-<div class="arithmatex">\[\frac{\partial f}{\partial X} = \begin{bmatrix}\frac{\partial f}{\partial x_1} &amp; \frac{\partial f}{\partial x_2} &amp; ... &amp; \frac{\partial f}{\partial x_n}\end{bmatrix}\]</div>
+<p>对于一个定义在 n 维空间上的标量函数 <span class="arithmatex">\(f(X)\)</span></p>
+<div class="arithmatex">\[\frac{\partial f}{\partial X} = \begin{bmatrix}\dfrac{\partial f}{\partial x_1} &amp; \dfrac{\partial f}{\partial x_2} &amp; ... &amp; \dfrac{\partial f}{\partial x_n}\end{bmatrix}\]</div>
 <h3 id="22">2.2 向量对标量求导</h3>
-<div class="arithmatex">\[\frac{dY}{dx} = \begin{bmatrix}\frac{\partial y_1}{\partial x} &amp; \frac{\partial y_2}{\partial x} &amp; ... &amp; \frac{\partial y_n}{\partial x}\end{bmatrix}\]</div>
+<div class="arithmatex">\[\frac{\mathrm{d}Y}{\mathrm{d}x} = \begin{bmatrix}\dfrac{\partial y_1}{\partial x} &amp; \dfrac{\partial y_2}{\partial x} &amp; ... &amp; \dfrac{\partial y_n}{\partial x}\end{bmatrix}\]</div>
 <h3 id="23">2.3 向量对向量求导</h3>
-<p>有向量<span class="arithmatex">\(Y_n \in \mathbb{R}^n, X_m \in \mathbb{R}^m\)</span>，且<span class="arithmatex">\(Y_n = \begin{bmatrix}y_1 &amp; y_2 &amp; ... &amp; y_n\end{bmatrix}^T, X_m = \begin{bmatrix}x_1 &amp; x_2 &amp; ... &amp; x_m\end{bmatrix}\)</span>，则</p>
-<div class="arithmatex">\[\frac{\partial Y_n}{\partial X_m} = \begin{bmatrix}\frac{\partial y_1}{\partial x_1} &amp; \frac{\partial y_1}{\partial x_2} &amp; ... &amp; \frac{\partial y_1}{\partial x_m}\\ \frac{\partial y_2}{\partial x_1} &amp; \frac{\partial y_2}{\partial x_2} &amp; ... &amp; \frac{\partial y_2}{\partial x_m}\\ .. &amp; .. &amp; .. &amp; ..\\ \frac{\partial y_n}{\partial x_1} &amp; \frac{\partial y_n}{\partial x_2} &amp; ... &amp; \frac{\partial y_n}{\partial x_m}\end{bmatrix}\]</div>
+<p>有向量 <span class="arithmatex">\(Y_n \in \mathbb{R}^n, X_m \in \mathbb{R}^m\)</span> ，且 <span class="arithmatex">\(Y_n = \begin{bmatrix}y_1 &amp; y_2 &amp; ... &amp; y_n\end{bmatrix}^\top, X_m = \begin{bmatrix}x_1 &amp; x_2 &amp; ... &amp; x_m\end{bmatrix}^\top\)</span> ，则</p>
+<div class="arithmatex">\[\frac{\partial Y_n}{\partial X_m} = \begin{bmatrix}\dfrac{\partial y_1}{\partial x_1} &amp; \dfrac{\partial y_1}{\partial x_2} &amp; ... &amp; \dfrac{\partial y_1}{\partial x_m}\\ \dfrac{\partial y_2}{\partial x_1} &amp; \dfrac{\partial y_2}{\partial x_2} &amp; ... &amp; \dfrac{\partial y_2}{\partial x_m}\\ .. &amp; .. &amp; .. &amp; ..\\ \dfrac{\partial y_n}{\partial x_1} &amp; \dfrac{\partial y_n}{\partial x_2} &amp; ... &amp; \dfrac{\partial y_n}{\partial x_m}\end{bmatrix}\]</div>
 <p>在向量微积分中，常把一个向量函数关于另一个向量函数的导数称为 <strong>雅可比矩阵 (Jacobian Matrix)</strong>.</p>
 <h3 id="24">2.4 矩阵对标量求导</h3>
-<p>有矩阵<span class="arithmatex">\(A_{m\times n}\in \mathbb{R}^{m\times n}\)</span>，则</p>
-<div class="arithmatex">\[\frac{\partial Y_{m\times n}}{\partial x} = \begin{bmatrix}\frac{\partial a_{11}}{\partial x} &amp; \frac{\partial a_{12}}{\partial x} &amp; ... &amp; \frac{\partial a_{1n}}{\partial x}\\ \frac{\partial a_{21}}{\partial x} &amp; \frac{\partial a_{22}}{\partial x} &amp; ... &amp; \frac{\partial a_{2n}}{\partial x}\\ .. &amp; .. &amp; .. &amp; ..\\ \frac{\partial a_{m1}}{\partial x} &amp; \frac{\partial a_{m2}}{\partial x} &amp; ... &amp; \frac{\partial a_{mn}}{\partial x}\end{bmatrix}\]</div>
+<p>有矩阵 <span class="arithmatex">\(A_{m\times n}\in \mathbb{R}^{m\times n}\)</span> ，则</p>
+<div class="arithmatex">\[\frac{\partial Y_{m\times n}}{\partial x} = \begin{bmatrix}\dfrac{\partial a_{11}}{\partial x} &amp; \dfrac{\partial a_{12}}{\partial x} &amp; ... &amp; \dfrac{\partial a_{1n}}{\partial x}\\ \dfrac{\partial a_{21}}{\partial x} &amp; \dfrac{\partial a_{22}}{\partial x} &amp; ... &amp; \dfrac{\partial a_{2n}}{\partial x}\\ .. &amp; .. &amp; .. &amp; ..\\ \dfrac{\partial a_{m1}}{\partial x} &amp; \dfrac{\partial a_{m2}}{\partial x} &amp; ... &amp; \dfrac{\partial a_{mn}}{\partial x}\end{bmatrix}\]</div>
 <h3 id="25">2.5 标量对矩阵求导</h3>
-<p>对于一个定义在<span class="arithmatex">\(\mathbb{R}^{m\times n}\)</span>的标量函数<span class="arithmatex">\(f(X_{m\times n})\)</span>，有</p>
-<div class="arithmatex">\[\frac{\partial f}{\partial X_{m\times n}} = \begin{bmatrix}\frac{\partial f}{\partial x_{11}} &amp; \frac{\partial f}{\partial x_{21}} &amp; ... &amp; \frac{\partial f}{\partial x_{m1}}\\ \frac{\partial f}{\partial x_{12}} &amp; \frac{\partial f}{\partial x_{22}} &amp; ... &amp; \frac{\partial f}{\partial x_{m2}}\\ .. &amp; .. &amp; .. &amp; ..\\ \frac{\partial f}{\partial x_{1n}} &amp; \frac{\partial f}{\partial x_{2n}} &amp; ... &amp; \frac{\partial f}{\partial x_{mn}}\end{bmatrix}\]</div>
+<p>对于一个定义在 <span class="arithmatex">\(\mathbb{R}^{m\times n}\)</span> 的标量函数 <span class="arithmatex">\(f(X_{m\times n})\)</span> ，有</p>
+<div class="arithmatex">\[\frac{\partial f}{\partial X_{m\times n}} = \begin{bmatrix}\dfrac{\partial f}{\partial x_{11}} &amp; \dfrac{\partial f}{\partial x_{21}} &amp; ... &amp; \dfrac{\partial f}{\partial x_{m1}}\\ \dfrac{\partial f}{\partial x_{12}} &amp; \dfrac{\partial f}{\partial x_{22}} &amp; ... &amp; \dfrac{\partial f}{\partial x_{m2}}\\ .. &amp; .. &amp; .. &amp; ..\\ \dfrac{\partial f}{\partial x_{1n}} &amp; \dfrac{\partial f}{\partial x_{2n}} &amp; ... &amp; \dfrac{\partial f}{\partial x_{mn}}\end{bmatrix}\]</div>
 <h3 id="3-n-2-">3 n 维向量的2-范数的导数</h3>
-<p>考虑一个 n 维向量 <span class="arithmatex">\(\mathbf{a} = \begin{bmatrix}a_1 &amp; a_2 &amp; \cdots &amp; a_n\end{bmatrix}^T\)</span>，该向量的2-范数定义为：</p>
+<p>考虑一个 n 维向量 <span class="arithmatex">\(\mathbf{a} = \begin{bmatrix}a_1 &amp; a_2 &amp; \cdots &amp; a_n\end{bmatrix}^\top\)</span> ，该向量的2-范数定义为：</p>
 <div class="arithmatex">\[\left\| \mathbf{a} \right\|_2 = \sqrt{a_1^2 + a_2^2 + \cdots + a_n^2}\]</div>
 <p>有：</p>
-<div class="arithmatex">\[\dot{(\left\| \mathbf{a} \right\|)} = \frac{\mathbf{a}^T\dot{\mathbf{a}}}{\left\| \mathbf{a} \right\|}\]</div>
+<div class="arithmatex">\[\dot{(\left\| \mathbf{a} \right\|)} = \dfrac{\mathbf{a}^\top\dot{\mathbf{a}}}{\left\| \mathbf{a} \right\|}\]</div>
 <p>证明如下：</p>
 <div class="arithmatex">\[\begin{aligned}
-\dot{(\left\| \mathbf{a} \right\|)} &amp;= \frac{\partial \left\| \mathbf{a} \right\|}{\partial a_1} \dot{a_1} + \frac{\partial \left\| \mathbf{a} \right\|}{\partial a_2} \dot{a_2} + \cdots + \frac{\partial \left\| \mathbf{a} \right\|}{\partial a_n} \dot{a_n}\\
-&amp;= \frac{2a_1\dot{a_1}}{2\sqrt{a_1^2+a_2^2+\cdots+a_n^2}} + \frac{2a_2\dot{a_2}}{2\sqrt{a_1^2+a_2^2+\cdots+a_n^2}} + \cdots + \frac{2a_n\dot{a_n}}{2\sqrt{a_1^2+a_2^2+\cdots+a_n^2}}\\
-&amp;= \frac{\mathbf{a}^T \dot{\mathbf{a}}}{\sqrt{a_1^2+a_2^2+\cdots+a_n^2}}\\
-&amp;= \frac{\mathbf{a}^T \dot{\mathbf{a}}}{\left\| \mathbf{a} \right\|}
+\dot{(\left\| \mathbf{a} \right\|)} &amp;= \dfrac{\partial \left\| \mathbf{a} \right\|}{\partial a_1} \dot{a_1} + \dfrac{\partial \left\| \mathbf{a} \right\|}{\partial a_2} \dot{a_2} + \cdots + \dfrac{\partial \left\| \mathbf{a} \right\|}{\partial a_n} \dot{a_n}\\
+&amp;= \dfrac{2a_1\dot{a_1}}{2\sqrt{a_1^2+a_2^2+\cdots+a_n^2}} + \dfrac{2a_2\dot{a_2}}{2\sqrt{a_1^2+a_2^2+\cdots+a_n^2}} + \cdots + \dfrac{2a_n\dot{a_n}}{2\sqrt{a_1^2+a_2^2+\cdots+a_n^2}}\\
+&amp;= \dfrac{\mathbf{a}^\top \dot{\mathbf{a}}}{\sqrt{a_1^2+a_2^2+\cdots+a_n^2}}\\
+&amp;= \dfrac{\mathbf{a}^\top \dot{\mathbf{a}}}{\left\| \mathbf{a} \right\|}
 \end{aligned}\]</div>
 
 
