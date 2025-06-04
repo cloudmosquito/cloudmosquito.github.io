@@ -36,7 +36,7 @@ theme:
     - navigation.instant.prefetch # 修正拼写错误，应该是 prefetch
     - navigation.instant.progress
     - navigation.tabs
-    - navigation.expand
+    # - navigation.expand # 禁用导航栏的展开功能
     - navigation.path
     - navigation.indexes
     - navigation.top
@@ -85,7 +85,6 @@ markdown_extensions:
       custom_fences:
         - name: mermaid
           class: mermaid
-          format: !!python/name:pymdownx.superfences.fence_code_format
 
 plugins:
   - search
