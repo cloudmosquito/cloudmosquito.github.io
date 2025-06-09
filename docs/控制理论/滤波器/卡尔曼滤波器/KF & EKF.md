@@ -1,4 +1,4 @@
-# 卡尔曼滤波器
+# KF & EKF
 
 ## 1 任务定义
 
@@ -12,8 +12,7 @@ $$\begin{aligned}
 这里的 $\mathbf{w}_{k-1}$ 和 $\mathbf{v}_k$ 都是噪声，服从如下正态分布
 
 $$
-\mathbf{w}_k \sim \mathcal{N}(\mathbf{0}, Q_k) \ \ \ \ \ \ \ \ \ \ 
-\mathbf{v}_k \sim \mathcal{N}(\mathbf{0},R_k)
+\mathbf{w}_k \sim \mathcal{N}(\mathbf{0}, Q_k) \ \ \ \ \ \ \ \ \ \ \mathbf{v}_k \sim \mathcal{N}(\mathbf{0},R_k)
 $$
 
 其中，我们已知的是系统结构 $A,B,H$ ，测量结果 $\mathbf{z}_k$ ，控制输入 $\mathbf{u}_k$ 以及协方差矩阵 $Q_k$ 和  $R_k$ 。目的是求得系统状态 $\mathbf{x}_k$ 的最优估计。（这里的 $A,H$ 都是方阵， $B$ 可以不是方阵。）
@@ -75,11 +74,13 @@ $$
 \hat{\mathbf{x}}_k = \hat{\mathbf{x}}_k^{-} + (K_kH)\left(\hat{\mathbf{x}}_{k,meas}-\hat{\mathbf{x}}_k^{-}\right)
 $$
 
-这里的 $K_kH$ 是个对角方阵，对角线上每个元素取值都在 $[0,1]$ ，表示对测量值的信任程度。之所以要将这个系数矩阵设为 $K_kH$ ，是为了抵消推导过程中引入的不一定存在的 $H^{-}$ 矩阵。从而有
+这里的 $K_kH$ 是个对角方阵，对角线上每个元素取值都在 $[0,1]$ ，表示对测量值的信任程度。从而有
 
 $$
 \hat{\mathbf{x}}_k = \hat{\mathbf{x}}_k^{-}+K_k\left(\mathbf{z}_k-H\hat{\mathbf{x}}_k^{-}\right) \tag{3}
 $$
+
+> 之所以采用 $K_kH$ 作为系数矩阵，是为了消去 $\hat{\mathbf{x}}_{k,meas}$ 中多数情况下不成立的 $H^{-1}$ 一项。
 
 从而有后验估计的误差值：
 
@@ -93,7 +94,7 @@ $$
 
 我们想要求得 $\mathbf{x}_k$ 的最优估计，也就是想要寻找一个最优的卡尔曼系数 $K_k$ ，使得误差 $\mathbf{e}_k$ 最小。
 
-注意到误差 $\mathbf{e}_k \sim \mathcal{N}(0,P_k)$ ，其中 $P_k$ 是协方差矩阵。
+注意到误差满足正态分布，期望为 0 。设 $\mathbf{e}_k \sim \mathcal{N}(0,P_k)$ ，其中 $P_k$ 是协方差矩阵。
 
 我们想使误差最小，其实是想使误差分布尽可能集中在 0 附近，即方差尽可能小，即 $\mathrm{tr}(P)$ 尽可能小。
 
@@ -127,9 +128,15 @@ $$
 
 进而可以推得：
 
+$$
+\begin{aligned}P_k &= (I-K_kH)\mathbb{E}\left(\mathbf{e}_k^{-}\mathbf{e}_k^{-\top}\right)(I-K_kH)^{\top} + K_k\mathbb{E}\left(\mathbf{v}_k\mathbf{v}_k^\top\right)K_k^\top\\
+&= (I-K_kH)P_k^{-}(I-K_kH)^{\top} + K_kR_kK_k^\top\end{aligned}\tag{Joseph}
+$$
+
+上式被称为 Joseph 形式。我们继续化简：
+
 $$\begin{aligned}
-P_k &= (I-K_kH)\mathbb{E}\left(\mathbf{e}_k^{-}\mathbf{e}_k^{-\top}\right)(I-K_kH)^{\top} + K_k\mathbb{E}\left(\mathbf{v}_k\mathbf{v}_k^\top\right)K_k^\top\\
-&= (I-K_kH)P_k^{-}(I-K_kH)^{\top} + K_kR_kK_k^\top\\
+P_k &= (I-K_kH)P_k^{-}(I-K_kH)^{\top} + K_kR_kK_k^\top\\
 &= (I-K_kH)P_k^{-}\left(I-H^\top K_k^\top\right) + K_kR_kK_k^\top\\
 &= (P_k^{-}-K_kHP_k^{-})\left(I-H^\top K_k^\top\right) + K_kR_kK_k^\top\\
 &= P_k^{-}-P_k^{-}H^\top K_k^{\top}-K_kHP_k^{-}+K_kHP_k^{-}H^\top K_k^{\top} + K_kR_kK_k^\top
@@ -144,6 +151,7 @@ $$\begin{aligned}
 接下来，我们要找到卡尔曼系数 $K_k$ 的最优值，让误差分布的协方差矩阵的迹最小。
 
 ---
+
 【引理】 $\frac{\partial \mathrm{tr}\left(AB\right)}{\partial A} = \frac{\partial \mathrm{tr}\left(B^\top A^\top\right)}{\partial A}=B^\top$ ，其中 $A\in \mathbb{R}^{m\times n}, B \in \mathbb{R}^{n\times m}$ 。
 
 【证明】设
@@ -183,13 +191,13 @@ $$
 注意到协方差矩阵 $P_k^{-}$ 和 $R_k$ 都是对称矩阵，因而有
 
 $$
-\frac{\partial \mathrm{tr}(P_k)}{\partial K_k} = -2P_k^{-\top} H^\top + 2K_kHP_k^{-}H^\top + 2K_kR_k = 0
+\frac{\partial \mathrm{tr}(P_k)}{\partial K_k} = -2P_k^{-} H^\top + 2K_kHP_k^{-}H^\top + 2K_kR_k = 0
 $$
 
 从而可以推导得到极小值点为
 
 $$
-K_k = P_k^{-\top} H^\top \left(HP_k^{-}H^\top + R_k\right)^{-1}
+K_k = P_k^{-} H^\top \left(HP_k^{-}H^\top + R_k\right)^{-1}
 $$
 
 这就是最优的卡尔曼增益（Kalman Gain）。
@@ -224,7 +232,7 @@ $$\begin{aligned}
 
 $$\begin{aligned}
 P_k^{-} &= A\mathbb{E}\left[\mathbf{e}_{k-1}\mathbf{e}_{k-1}^\top\right]A^\top + \mathbb{E}\left[\mathbf{w}_{k-1}\mathbf{w}_{k-1}^\top\right]\\
-&= AP_kA^\top + Q_{k-1}
+&= AP_{k-1}A^\top + Q_{k-1}
 \end{aligned}$$
 
 ## 4 Kalman Filter 公式
@@ -233,11 +241,11 @@ P_k^{-} &= A\mathbb{E}\left[\mathbf{e}_{k-1}\mathbf{e}_{k-1}^\top\right]A^\top +
 
 先验估计： $\hat{\mathbf{x}}_k^{-} = A\hat{\mathbf{x}}_{k-1} + B\mathbf{u}_{k-1}$
 
-先验误差协方差： $P_k^{-} = AP_kA^\top + Q_{k-1}$
+先验误差协方差： $P_k^{-} = AP_{k-1}A^\top + Q_{k-1}$
 
 ### 4.2 校正过程
 
-卡尔曼增益： $K_k = P_k^{-\top} H^\top \left(HP_k^{-}H^\top + R_k\right)^{-1}$
+卡尔曼增益： $K_k = P_k^{-} H^\top \left(HP_k^{-}H^\top + R_k\right)^{-1}$
 
 后验估计： $\hat{\mathbf{x}}_k = \hat{\mathbf{x}}_k^{-}+K_k\left(\mathbf{z}_k-H\hat{\mathbf{x}}_k^{-}\right)$ （最终的估计结果）
 
@@ -246,12 +254,22 @@ P_k^{-} &= A\mathbb{E}\left[\mathbf{e}_{k-1}\mathbf{e}_{k-1}^\top\right]A^\top +
 $$\begin{aligned}
 P_k &= P_k^{-}-P_k^{-}H^\top K_k^{\top}-K_kHP_k^{-}+K_kHP_k^{-}H^\top K_k^{\top} + K_kR_kK_k^\top\\
 &= P_k^{-}-P_k^{-}H^\top K_k^{\top}-K_kHP_k^{-}+ K_k\left(HP_k^{-}H^\top + R_k\right)K_k^\top\\
-&= P_k^{-}-P_k^{-}H^\top K_k^{\top}-K_kHP_k^{-}+ P_k^{-\top} H^\top \left(HP_k^{-}H^\top + R_k\right)^{-1}\left(HP_k^{-}H^\top + R_k\right)K_k^\top\\
+&= P_k^{-}-P_k^{-}H^\top K_k^{\top}-K_kHP_k^{-}\\ &\ \ \ \ + P_k^{-} H^\top \left(HP_k^{-}H^\top + R_k\right)^{-1}\left(HP_k^{-}H^\top + R_k\right)K_k^\top\\
 &= P_k^{-}-K_kHP_k^{-}\\
 &= \left(I-K_kH\right)P_k^{-}
 \end{aligned}$$
 
+以及 Joseph 形式：
+
+$$
+P_k = (I-K_kH)P_k^{-}(I-K_kH)^{\top} + K_kR_kK_k^\top
+$$
+
+在工程实际中，Joseph 形式是更受推荐的形式，因其显式保证了计算结果的对称正定性，避免了浮点舍入误差或强非线性对计算结果正定对称性的干扰。
+
 ## 5 初值问题
+
+TODO
 
 ## 6 EKF 扩展卡尔曼滤波器
 
@@ -268,27 +286,26 @@ $$\begin{aligned}
 
 首先考虑模型动力学部分：
 
-$$
-\mathbf{x}_k = f(\hat{\mathbf{x}}_{k-1},\mathbf{u}_{k-1},\hat{\mathbf{w}}_{k-1}) + \frac{\partial f}{\partial \mathbf{x}}(\mathbf{x}_{k-1} - \hat{\mathbf{x}}_{k-1}) + \frac{\partial f}{\partial \mathbf{w}}(\mathbf{w}_{k-1} - \hat{\mathbf{w}}_{k-1})
-$$
+$$\begin{aligned}
+\mathbf{x}_k = f(\hat{\mathbf{x}}_{k-1},\mathbf{u}_{k-1},\hat{\mathbf{w}}_{k-1}) &+ \frac{\partial f}{\partial \mathbf{x}}|_{\hat{\mathbf{x}}_{k-1}, \mathbf{u}_{k-1}, \hat{\mathbf{w}}_{k-1}}(\mathbf{x}_{k-1} - \hat{\mathbf{x}}_{k-1})\\ &+ \frac{\partial f}{\partial \mathbf{w}}|_{\hat{\mathbf{x}}_{k-1}, \mathbf{u}_{k-1}, \hat{\mathbf{w}}_{k-1}}(\mathbf{w}_{k-1} - \hat{\mathbf{w}}_{k-1})
+\end{aligned}$$
 
 > Q：为什么不对控制输入 $\mathbf{u}_{k-1}$ 求偏导？
->
-> A：因为在实际控制系统中， $\mathbf{u}_{k-1}$ 一般是 $\mathbf{x}_{k-1}$ ，或者说 $\hat{\mathbf{x}}_{k-1}$ 的函数。
+> A：因为求完之后 $\mathbf{u}_{k-1} - \mathbf{u}_{k-1} = 0$ ，即我们所知的控制输入必是真实工作点的控制输入。
 
 由于我们对噪声信息基本没什么了解，所以直接将估计值设为 0 ，即 $\hat{\mathbf{w}}_{k-1} = \mathbf{0}$ . 进而有：
 
 $$
-\mathbf{x}_k = f(\hat{\mathbf{x}}_{k-1}, \mathbf{u}_{k-1}, \mathbf{0}) + \frac{\partial f}{\partial \mathbf{x}}(\mathbf{x}_{k-1} - \hat{\mathbf{x}}_{k-1}) + \frac{\partial f}{\partial \mathbf{w}}\mathbf{w}_{k-1}
+\mathbf{x}_k = f(\hat{\mathbf{x}}_{k-1}, \mathbf{u}_{k-1}, \mathbf{0}) + \frac{\partial f}{\partial \mathbf{x}}|_{\hat{\mathbf{x}}_{k-1}, \mathbf{u}_{k-1}, \mathbf{0}}(\mathbf{x}_{k-1} - \hat{\mathbf{x}}_{k-1}) + \frac{\partial f}{\partial \mathbf{w}}|_{\hat{\mathbf{x}}_{k-1}, \mathbf{u}_{k-1}, \mathbf{0}}\mathbf{w}_{k-1}
 $$
 
 令 $\tilde{\mathbf{x}}_k = f(\hat{\mathbf{x}}_{k-1}, \mathbf{u}_{k-1}, \mathbf{0})$ ，在此处对测量模型进行线性化，同理有
 
 $$
-\mathbf{z}_k = h(\tilde{\mathbf{x}}_k, \mathbf{0}) + \frac{\partial h}{\partial\mathbf{x}}(\mathbf{x}_k - \tilde{\mathbf{x}}_k) + \frac{\partial h}{\partial \mathbf{v}}\mathbf{v}_k
+\mathbf{z}_k = h(\tilde{\mathbf{x}}_k, \mathbf{0}) + \frac{\partial h}{\partial\mathbf{x}}|_{\tilde{\mathbf{x}}_k, \mathbf{0}}(\mathbf{x}_k - \tilde{\mathbf{x}}_k) + \frac{\partial h}{\partial \mathbf{v}}|_{\tilde{\mathbf{x}}_k, \mathbf{0}}\mathbf{v}_k
 $$
 
-我们令 $\tilde{\mathbf{z}}_k = h(\tilde{\mathbf{x}}_k, 0), A = \dfrac{\partial f}{\partial \mathbf{x}}, W = \dfrac{\partial f}{\partial \mathbf{w}},H = \dfrac{\partial h}{\partial \mathbf{x}}, V = \dfrac{\partial h}{\partial \mathbf{v}}$ ，则有线性化后的模型：
+我们令 $\tilde{\mathbf{z}}_k = h(\tilde{\mathbf{x}}_k, 0)$ ， $A = \dfrac{\partial f}{\partial \mathbf{x}}|_{\hat{\mathbf{x}}_{k-1},\mathbf{u}_{k-1}, \mathbf{0}}$ ， $W = \dfrac{\partial f}{\partial \mathbf{w}}|_{\hat{\mathbf{x}}_{k-1},\mathbf{u}_{k-1}, \mathbf{0}}$ ， $H = \dfrac{\partial h}{\partial\mathbf{x}}|_{\tilde{\mathbf{x}}_k, \mathbf{0}}$ ， $V = \dfrac{\partial h}{\partial \mathbf{v}}|_{\tilde{\mathbf{x}}_k, \mathbf{0}}$ ，则有线性化后的模型：
 
 $$\begin{aligned}
 \mathbf{x}_k &= \tilde{\mathbf{x}}_k + A(\mathbf{x}_{k-1} - \hat{\mathbf{x}}_{k-1}) + W\mathbf{w}_{k-1}\\
@@ -297,16 +314,71 @@ $$\begin{aligned}
 
 其中，过程噪声和测量噪声的协方差矩阵分别为 $WQ_{k-1}W^\top$ 和 $VR_{k}V^\top$ 。
 
-**预测部分：**
+### 6.1 EKF 公式
+
+**预测过程：**
 
 先验估计：  $\hat{\mathbf{x}}_k^{-} = f(\hat{\mathbf{x}}_{k-1},\mathbf{u}_{k-1},\mathbf{0})$
 
-先验误差协方差矩阵： $P_k^{-} = AP_kA^\top + WQ_{k-1}W^\top$
+先验误差协方差矩阵： $P_k^{-} = AP_{k-1}A^\top + WQ_{k-1}W^\top$
 
-**校正部分：**
+**校正过程：**
 
-卡尔曼增益： $K_k = P_k^{-\top} H^\top \left(HP_k^{-}H^\top + VR_{k}V^\top\right)^{-1}$
+卡尔曼增益： $K_k = P_k^{-} H^\top \left(HP_k^{-}H^\top + VR_{k}V^\top\right)^{-1}$
 
 后验估计： $\hat{\mathbf{x}}_k = \hat{\mathbf{x}}_k^{-}+K_k\left(\mathbf{z}_k-h\left(\hat{\mathbf{x}}_k^{-},\mathbf{0}\right)\right)$
 
-更新后验误差协方差矩阵： $P_k = (I - K_k H)P_k^{-}$
+更新后验误差协方差矩阵：
+
+$$\begin{aligned}
+P_k &= (I-K_kH)P_k^{-}(I-K_kH)^{\top} + K_kVR_kV^\top K_k^\top\\
+&= (I - K_k H)P_k^{-}
+\end{aligned}$$
+
+**需要的初值条件：** $\hat{\mathbf{x}}_0, P_0$ ，即初始状态的后验估计、初始后验估计误差的协方差矩阵。
+
+### 6.2 更常见的情况
+
+一般情况下，我们对噪声对状态转移和测量的影响了解很少；最常见的假设是高斯分布的加性噪声：
+
+$$
+\begin{aligned}
+\mathbf{x}_k &= f(\mathbf{x}_{k-1},\mathbf{u}_{k-1}) +\mathbf{w}_{k-1}\\
+\mathbf{z}_k &= h(\mathbf{x}_k) + \mathbf{v}_k
+\end{aligned}
+$$
+
+**预测过程：**
+
+先验估计：  $\hat{\mathbf{x}}_k^{-} = f(\hat{\mathbf{x}}_{k-1},\mathbf{u}_{k-1})$
+
+先验误差协方差矩阵： $P_k^{-} = AP_{k-1}A^\top + Q_{k-1}$
+
+**校正过程：**
+
+卡尔曼增益： $K_k = P_k^{-} H^\top \left(HP_k^{-}H^\top + R_{k}\right)^{-1}$
+
+后验估计： $\hat{\mathbf{x}}_k = \hat{\mathbf{x}}_k^{-}+K_k\left(\mathbf{z}_k-h\left(\hat{\mathbf{x}}_k^{-}\right)\right)$
+
+更新后验误差协方差矩阵：
+
+$$\begin{aligned}
+P_k &= (I-K_kH) P_k^{-}(I-K_kH)^{\top} + K_kR_k K_k^\top\\
+&= (I - K_k H) P_k^{-}
+\end{aligned}$$
+
+### 6.3 多条观测量的 EKF 融合滤波
+
+$$
+\begin{aligned}
+\mathbf{x}_k &= f(\mathbf{x}_{k-1},\mathbf{u}_{k-1}) +\mathbf{w}_{k-1}\\
+\mathbf{z}_k^{(1)} &= h_1(\mathbf{x}_k) + \mathbf{v}_k^{(1)}\\
+\mathbf{z}_k^{(2)} &= h_2(\mathbf{x}_k) + \mathbf{v}_k^{(2)}\\
+&\cdots\\
+\mathbf{z}_k^{(j)} &= h_j(\mathbf{x}_k) + \mathbf{v}_k^{(j)}\\
+\end{aligned}
+$$
+
+其中， $\mathbf{v}^{(i)}_k\sim \mathcal{N}(\mathbf{0},R_k^{(i)})$ .
+
+思路是逐个融合，将上一个融合的结果作为下一次融合的先验。
