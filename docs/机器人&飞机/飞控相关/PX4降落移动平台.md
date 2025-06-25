@@ -55,9 +55,9 @@ void targetCallback(const geometry_msgs::PoseStamped::ConstPtr& msg)
 	}
 	
 	auto& land_wp = current_wps.waypoints.back();
-	land_wp.x_lat = msg->pose.position.x();
-	land_wp.y_long = msg->pose.position.y();
-	land_wp.z_alt = msg->pose.position.z();
+	land_wp.x_lat = msg->pose.position.x;
+	land_wp.y_long = msg->pose.position.y;
+	land_wp.z_alt = msg->pose.position.z;
 	
 	mavros_msgs::WaypointPush push_srv;
 	push_srv.request.waypoints = current_wps.waypoints;
@@ -77,7 +77,7 @@ void wpListCallback(const mavros_msgs::WaypointList::Constptr& msg)
 int main(int argc, char** argv)
 {
 	ros::init(argc, argv, "dynamic_landing_node");
-	ros::NodeHandler nh;
+	ros::NodeHandle nh;
 	
 	wp_push_client = nh.serviceClient<mavros_msgs::WaypointPush>("mavros/mission/push");
 	
