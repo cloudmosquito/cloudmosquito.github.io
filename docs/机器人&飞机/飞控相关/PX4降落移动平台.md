@@ -16,17 +16,17 @@
 
 仿真采用PX4自带的 iris 四旋翼无人机模型，用 QGC 地面站预先规划航迹：起飞（黄色T点）——途经（2号点）——降落（绿色L点）。我们假设L点为移动平台初始位置，并假设平台以经纬度均为0.000005 度/秒的速度移动（约0.6-0.8 m/s），实际运行效果如下所示：
 
-![](./PX4降落移动平台.assets/QGC效果.png){width=100%}
+![](./PX4降落移动平台.assets/QGC效果.png){.img-center width=100%}
 
 下图分别是：降落时经度期望值与反馈值（单位：度）；纬度期望值与反馈值（单位：度）；高度期望值与反馈值（单位：米）。
 
-![](./PX4降落移动平台.assets/降落时的经纬度和高度.png){width=100%}
+![](./PX4降落移动平台.assets/降落时的经纬度和高度.png){.img-center width=100%}
 
 其中，x, y 方向降落过程中的误差值均为 0.5 m 左右。
 
 下图分别是 x,y,z 三个方向降落时的速度（单位：米/秒）
 
-![](./PX4降落移动平台.assets/降落时的速度.png){width=100%}
+![](./PX4降落移动平台.assets/降落时的速度.png){.img-center width=100%}
 
 跟随降落过程中，四旋翼水平方向移动速度约为 0.63 m/s 。
 
@@ -34,7 +34,7 @@
 
 主要利用了 mavros 的如下内容：
 
-![](./PX4降落移动平台.assets/mavros截图.png){width=100%}
+![](./PX4降落移动平台.assets/mavros截图.png){.img-center width=100%}
 
 订阅 mavros/mission/waypoints 话题，以获得 mavros_msgs:: WaypointList 类型消息，该消息按顺序存储了当前任务的航点数据。
 

@@ -90,6 +90,7 @@ plugins:
   - search
   - glightbox
 extra_css:
+  - https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&display=swap
   - stylesheets/extra.css
   - https://unpkg.com/katex@0/dist/katex.min.css
 

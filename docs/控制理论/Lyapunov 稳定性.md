@@ -24,27 +24,27 @@ $$ \dot{\mathbf{x}}_n(t) = \mathbf{f}(\mathbf{x}_n(t)) $$
 
 那么，我们就称该系统为**自治系统**。这意味着系统不受任何外部输入的影响而变化。
 
-> Note：
->
-> 这里的 $\mathbf{f}(\cdot)$ 是一个定义在`n`维空间的向量函数，它可以表示为
->
-> $$\mathbf{f} = \begin{bmatrix}f_1 & f_2 & ... & f_n\end{bmatrix}^T$$
->
-> 其中，$f_1, f_2, ... ,f_n$ 都是定义在`n`维空间的标量函数。
->
-> 举个例子， $\mathbf{f}(\mathbf{x}_2) = \begin{bmatrix}\sin(x_2) & x_1^2\end{bmatrix}^T$ , 那么 $f_1(\mathbf{x}_2) = \sin(x_2)$ ， $f_2(\mathbf{x}_2)=x_1^2$ .
+!!! note
+
+    这里的 $\mathbf{f}(\cdot)$ 是一个定义在`n`维空间的向量函数，它可以表示为
+
+    $$\mathbf{f} = \begin{bmatrix}f_1 & f_2 & ... & f_n\end{bmatrix}^T$$
+
+    其中，$f_1, f_2, ... ,f_n$ 都是定义在`n`维空间的标量函数。
+
+    举个例子， $\mathbf{f}(\mathbf{x}_2) = \begin{bmatrix}\sin(x_2) & x_1^2\end{bmatrix}^T$ , 那么 $f_1(\mathbf{x}_2) = \sin(x_2)$ ， $f_2(\mathbf{x}_2)=x_1^2$ .
 
 ### 1.2 平衡状态/平衡点
 
 如果存在一个状态 $\mathbf{x} = \mathbf{x}_e$，满足 $\mathbf{f}(\mathbf{x_e}) = 0$，则称该状态为 **平衡状态/平衡点**。
 
-> Comment :
->
-> 这个定义很好理解，就是该状态下，系统所有状态关于时间的变化率都为0.
->
-> 换言之，如果系统初始状态在平衡点，那么系统将始终保持在平衡点。
->
-> 但是称其为“稳定点”是不妥当的，“稳定点”应当考虑抗扰性能。譬如 $\dot{\mathbf{x}} = \mathbf{x}$ 和 $\dot{\mathbf{x}}=-\mathbf{x}$ 这两个系统，$\mathbf{x}_e = 0$ 都是平衡点，但是前者稍加扰动就会失稳，而后者具有抵抗一定扰动的能力。我们可以将后者称为稳定点，而前者则不合适。可以说，平衡点是稳定点的必要不充分条件。
+!!! comment
+
+    这个定义很好理解，就是该状态下，系统所有状态关于时间的变化率都为0.
+
+    换言之，如果系统初始状态在平衡点，那么系统将始终保持在平衡点。
+
+    但是称其为“稳定点”是不妥当的，“稳定点”应当考虑抗扰性能。譬如 $\dot{\mathbf{x}} = \mathbf{x}$ 和 $\dot{\mathbf{x}}=-\mathbf{x}$ 这两个系统，$\mathbf{x}_e = 0$ 都是平衡点，但是前者稍加扰动就会失稳，而后者具有抵抗一定扰动的能力。我们可以将后者称为稳定点，而前者则不合适。可以说，平衡点是稳定点的必要不充分条件。
 
 #### 1.2.1 线性定常系统的平衡点
 
@@ -68,19 +68,19 @@ $$ S(\mathbf{x}_e, H) = \{\mathbf{x} | \mathbf{x}\in \mathbb{R}^n, \|\mathbf{x}-
 
 $$ \forall \varepsilon > 0, \exists \delta > 0, \forall \mathbf{x}(0) \in S(\mathbf{x}_e,\delta), \forall t\in[0,\infty),  \mathbf{x}(t)\in S(\mathbf{x}_e, \varepsilon)$$
 
-![](./Lyapunov%20稳定性.assets/Lyapunov稳定性定义.png){width=50%}
+![](./Lyapunov%20稳定性.assets/Lyapunov稳定性定义.png){.img-center width=50%}
 
 说人话就是，在系统的`n`维状态空间里，以平衡点为球心画个任意大小的球，我都能在其中找到一个更小的球体范围。无论系统状态从新球体中哪一点开始演变，我都能保证系统状态不会超出老球体的范围。
 
-> Note :
->
-> 该定义与 $\forall \delta > 0, \exists \varepsilon > 0, \forall \mathbf{x}(0) \in S(\mathbf{x}_e,\delta), \forall t\in [0,\infty),  \mathbf{x}(t)\in S(\mathbf{x}_e, \varepsilon)$ 是不等价的。
->
-> 事实上，Lyapunov 稳定性的定义只规定了**系统状态初值在离平衡点无限近的一个邻域内时，系统状态无限趋近于稳定**。而这个新定义则要求系统状态初值在平衡点的任意大邻域内时，系统状态都不发散到无穷。
+!!! note
+
+    该定义与 $\forall \delta > 0, \exists \varepsilon > 0, \forall \mathbf{x}(0) \in S(\mathbf{x}_e,\delta), \forall t\in [0,\infty),  \mathbf{x}(t)\in S(\mathbf{x}_e, \varepsilon)$ 是不等价的。
+
+    事实上，Lyapunov 稳定性的定义只规定了**系统状态初值在离平衡点无限近的一个邻域内时，系统状态无限趋近于稳定**。而这个新定义则要求系统状态初值在平衡点的任意大邻域内时，系统状态都不发散到无穷。
 
 ### 2.1 渐近稳定性
 
-![](./Lyapunov%20稳定性.assets/Lyapunov稳定性分类.png){width=100%}
+![](./Lyapunov%20稳定性.assets/Lyapunov稳定性分类.png){.img-center width=100%}
 
 考虑一个 Lyapunov 稳定的平衡点 $x_e$，如果系统状态从邻域 $S(x_e, \delta)$ 内任意一点开始演变，最后都能收敛到 $x_e$，那么称 $x_e$ 是**渐近稳定的**。把邻域 $S(x_e, \delta)$ 称为 $x_e$ 的**吸引域**。
 
@@ -98,15 +98,23 @@ $$\exists \varepsilon > 0,\forall \delta>0, \exists x(0) \in S(x_e, \delta), \ex
 
 对于单变量线性定常系统 $\dot{x} = Ax, x(0)=x_0, t\ge 0$，有以下定理
 
-**该系统所有的平衡状态都 Lyapunov 稳定的充要条件是 `A`的所有特征值都具有非正实部。**
+!!! quote
+
+    **该系统所有的平衡状态都 Lyapunov 稳定的充要条件是 `A`的所有特征值都具有非正实部。**
 
 对于多变量线性定常系统 $\dot{\mathbf{x}} = A\mathbf{x}, \ \mathbf{x}(0) = \mathbf{x}_0, \ t\ge 0$，有以下定理：
 
-**系统的每一平衡状态在 Lyapunov 意义下稳定的充要条件是，$A$ 的所有特征值实部都 $\le 0$，且实部为 0 的特征值为 $A$ 的最小多项式的单根。**
+!!! quote
 
-> 方阵的最小多项式：给定一个方阵 A，设其特征方程为 $(\lambda-\lambda_1)^{a_1}(\lambda-\lambda_2)^{a_2}(\cdots)(\lambda-\lambda_s)^{a_s} = 0$ ，那么 A 的一个零化多项式就是 $(A-\lambda_1 I)^{a_1}(A - \lambda_2 I)^{a_2}(\cdots)(A-\lambda_s I)^{a_s}$，A 的最小多项式就是包含因式 $(A-\lambda_1 I)(A-\lambda_2 I)(\cdots)(A-\lambda_s I)$ 的次数最小的零化多项式。
->
-> 举个例子，$A = \begin{bmatrix}1 & 0 & 0 & 1 & 0\\ 0 & 2 & 0 & 0 & 0\\ 0 & 0 & 3 & 2 & 0\\ 0 & 0 & 0 & 3 & 0\\ 0 & 0 & 0 & 0 & 2\end{bmatrix}$，其特征值分别为 1，2，3， $(A-I)(A-2I)(A-3I) = \begin{bmatrix}0&0&0&0&0\\0&0&0&0&0\\0 & 0 & 0& 4 & 0\\0&0&0&0&0\\0&0&0&0&0\end{bmatrix} \neq \mathbf{0}$，同时 $(A-I)^2(A-2I)(A-3I)\neq \mathbf{0},(A-I)(A-2I)^2(A-3I)\neq \mathbf{0}$，而 $(A-I)(A-2I)(A-3I)^2 = \mathbf{0}$ ，所以 $A$ 的最小多项式就是 $(A-I)(A-2I)(A-3I)^2$
+    **系统的每一平衡状态在 Lyapunov 意义下稳定的充要条件是，$A$ 的所有特征值实部都 $\le 0$，且实部为 0 的特征值为 $A$ 的最小多项式的单根。**
+
+!!! quote "方阵的最小多项式"
+
+    方阵的最小多项式：给定一个方阵 A，设其特征方程为 $(\lambda-\lambda_1)^{a_1}(\lambda-\lambda_2)^{a_2}(\cdots)(\lambda-\lambda_s)^{a_s} = 0$ ，那么 A 的一个零化多项式就是 $(A-\lambda_1 I)^{a_1}(A - \lambda_2 I)^{a_2}(\cdots)(A-\lambda_s I)^{a_s}$，A 的最小多项式就是包含因式 $(A-\lambda_1 I)(A-\lambda_2 I)(\cdots)(A-\lambda_s I)$ 的次数最小的零化多项式。
+
+    !!! example
+    
+        举个例子，$A = \begin{bmatrix}1 & 0 & 0 & 1 & 0\\ 0 & 2 & 0 & 0 & 0\\ 0 & 0 & 3 & 2 & 0\\ 0 & 0 & 0 & 3 & 0\\ 0 & 0 & 0 & 0 & 2\end{bmatrix}$，其特征值分别为 1，2，3， $(A-I)(A-2I)(A-3I) = \begin{bmatrix}0&0&0&0&0\\0&0&0&0&0\\0 & 0 & 0& 4 & 0\\0&0&0&0&0\\0&0&0&0&0\end{bmatrix} \neq \mathbf{0}$，同时 $(A-I)^2(A-2I)(A-3I)\neq \mathbf{0},(A-I)(A-2I)^2(A-3I)\neq \mathbf{0}$，而 $(A-I)(A-2I)(A-3I)^2 = \mathbf{0}$ ，所以 $A$ 的最小多项式就是 $(A-I)(A-2I)(A-3I)^2$
 
 ---
 
@@ -122,11 +130,11 @@ $$\dot{\mathbf{x}} = \mathbf{f}(\mathbf{x})$$
 
 $$\dot{\mathbf{x}} = \frac{\partial \mathbf{f}}{\partial \mathbf{x}^T}(\mathbf{x}-\mathbf{x}_e)+O(\mathbf{x})$$
 
-> Comment :
->
-> Q：为什么这里求偏导的时候，是对`x`的转置求偏导而不是对`x`本身求偏导？
->
-> A：参见[矩阵微积分](../数学/矩阵微积分.md)中关于“分子布局(符号特别版)”的介绍。
+!!! question
+
+    Q：为什么这里求偏导的时候，是对`x`的转置求偏导而不是对`x`本身求偏导？
+
+    A：参见[矩阵微积分](../数学/矩阵微积分.md)中关于“分子布局(符号特别版)”的介绍。
 
 这里的 $\frac{\partial \mathbf{f}}{\partial \mathbf{x}^T}$ 本质上是一个 $n\times 1$ 的向量关于一个 $n\times 1$ 的向量求导，结果是
 
@@ -166,13 +174,15 @@ Lyapunov 构造了一个虚拟的“能量函数” $V(x)$ ，称之为 Lyapunov
 
 **进一步地，倘若 $\left\| \mathbf{x} \right\| \to \infty$ 时， $V(\mathbf{x},t) \to \infty$ ，则原点处的平衡点是大范围渐近稳定的。**
 
-> 【思考】这里构造一个正定的 $V(\mathbf{x},t)$ ，其实是定义了一种系统的能量；要求其一阶偏导数负定，要求系统的能量随着时间流逝一直减小，这其实是一个**相当严苛**的要求。
->
-> 我感到惊奇的一点是，只需要找到一种能量满足以上条件，就足以说明系统在平衡点处的稳定性。
->
-> 仍然举“大坑”的例子，我们假设大坑坡面上有神奇的阻力，能保证小球落到大坑底部时，速度恰好减小至 0 ，并且我们取重力势能的零势能面为大坑底部，这样小球系统的重力势能就是一个正定的标量函数，其导数是负定的。
->
-> $\left\| \mathbf{x} \right\| \to \infty$ 时， $V(\mathbf{x},t) \to \infty$ 怎么理解呢？其实就是说这个大坑是无穷大的，“大坑上四周的平地”是不存在的。于是，不管小球初始点在哪里，它都在大坑之中，最终都会滚落到大坑底部。所以大坑底部这个平衡点是大范围渐近稳定的。
+!!! thinking
+
+    这里构造一个正定的 $V(\mathbf{x},t)$ ，其实是定义了一种系统的能量；要求其一阶偏导数负定，要求系统的能量随着时间流逝一直减小，这其实是一个**相当严苛**的要求。
+
+    我感到惊奇的一点是，只需要找到一种能量满足以上条件，就足以说明系统在平衡点处的稳定性。
+
+    仍然举“大坑”的例子，我们假设大坑坡面上有神奇的阻力，能保证小球落到大坑底部时，速度恰好减小至 0 ，并且我们取重力势能的零势能面为大坑底部，这样小球系统的重力势能就是一个正定的标量函数，其导数是负定的。
+
+    $\left\| \mathbf{x} \right\| \to \infty$ 时， $V(\mathbf{x},t) \to \infty$ 怎么理解呢？其实就是说这个大坑是无穷大的，“大坑上四周的平地”是不存在的。于是，不管小球初始点在哪里，它都在大坑之中，最终都会滚落到大坑底部。所以大坑底部这个平衡点是大范围渐近稳定的。
 
 说明：
 
@@ -188,7 +198,9 @@ Lyapunov 构造了一个虚拟的“能量函数” $V(x)$ ，称之为 Lyapunov
 
 其中的 $\Phi(t;x_0,t_0)$ 表示一条从 $(x_0, t_0)$ 出发的特定轨迹。
 
-> 【思考】这个定理其实挺直观的。它放宽了对于 $\frac{\mathrm{d}V}{\mathrm{d}t}(\mathbf{x},t)$ 的限制，只要求半负定即可，相当于大坑的坡面上有一些位置可以供小球歇脚。但显然小球不能一直歇下去，所以该定理又打了个补丁，要求任意时刻，从坡面上的任意一点出发，小球都不能一直停在坡面某个位置上不往下落。有了这个补丁，大范围渐近稳定的结论还是挺 trival 的。
+!!! thinking
+
+    这个定理其实挺直观的。它放宽了对于 $\frac{\mathrm{d}V}{\mathrm{d}t}(\mathbf{x},t)$ 的限制，只要求半负定即可，相当于大坑的坡面上有一些位置可以供小球歇脚。但显然小球不能一直歇下去，所以该定理又打了个补丁，要求任意时刻，从坡面上的任意一点出发，小球都不能一直停在坡面某个位置上不往下落。有了这个补丁，大范围渐近稳定的结论还是挺 trival 的。
 
 ---
 
@@ -196,7 +208,9 @@ Lyapunov 构造了一个虚拟的“能量函数” $V(x)$ ，称之为 Lyapunov
 
 **定理：（李雅普诺夫）考虑一个非线性系统 $\dot{\mathbf{x}}(t) = \mathbf{f}(\mathbf{x}(t))$ ，设其平衡状态在原点，即 $\mathbf{f}(\mathbf{0}) = \mathbf{0}$ ，对所有 $t \ge t_0$ ，如果存在一个具有连续一阶偏导数的标量函数 $V(\mathbf{x},t)$ ，满足 $V(\mathbf{x}, t)$ 正定，$\dfrac{\mathrm{d}V}{\mathrm{d}t}(\mathbf{x}, t)$ 半负定； $\dfrac{\mathrm{d}V}{\mathrm{d}t}(\Phi(t;x_0,t_0),t)$ 对于任意 $t_0$ 和任意 $x_0 \neq 0$ ，在 $t \ge t_0$ 时，恒等于 0 ，则系统在原点处的平衡状态是 Lyapunov 意义下稳定的。**
 
-> 【思考】：这个定理和 Lyapunov 稳定性本身一样很难形象地理解，可能是我目前的数学直觉还没到这个层次。
+!!! thinking
+
+    这个定理和 Lyapunov 稳定性本身一样很难形象地理解，可能是我目前的数学直觉还没到这个层次。
 
 ---
 

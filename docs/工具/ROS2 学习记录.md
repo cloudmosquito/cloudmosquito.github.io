@@ -56,7 +56,9 @@ ros2 pkg xml <package-name>
 
 Colcon 是一个功能包构建工具，可以用来编译工作空间。（ROS2 默认居然是没有安装 Colcon 的！
 
-【**项目路径里不要出现中文，不然Cmake可能出现截断错误！！！**】
+!!! warning
+
+    项目路径里不要出现中文，不然Cmake可能出现截断错误！！！
 
 ```shell
 # 只编译一个包
@@ -90,10 +92,7 @@ Colcon 编译生成的可执行文件、库文件、配置文件等输出到 bui
 
 RCL 是 ROS 的一种 API (Application Programming Interface，应用程序编程接口)。
 
-<figure markdown>
-![](./ROS2 学习记录.assets/rcl_layer.png){width=100%}
-<!-- <figcaption>RCL Layers</figcaption> -->
-</figure>
+![](./ROS2 学习记录.assets/rcl_layer.png){.img-center width=75%}
 
 这张图里，最底层是第三方的 DDS（Data Distribution Service 数据分发服务），rmw（ros2 middleware 中间件接口）是对各家 DDS 的统一抽象，基于 rmw 实现了 rclc（给 C 语言用的 API 库）。由于 C 语言是绝大部分语言的鼻祖，因此大部分语言的 API 库都可以基于 rclc 开发，于是就有了 rclcpp，rclpy，rcljava……
 

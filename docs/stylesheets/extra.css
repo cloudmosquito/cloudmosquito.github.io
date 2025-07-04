@@ -1,4 +1,102 @@
 .md-grid {
-  max-width: 1300px;
+  max-width: 1520px;
   /* 页面内容宽度*/
+}
+
+body, .md-typeset {
+  font-family: 'Noto Sans SC', 'Microsoft YaHei', 'PingFang SC', 'Hiragino Sans GB', 'WenQuanYi Micro Hei', sans-serif;
+}
+
+.md-typeset p,
+.md-typeset li,
+.md-typeset span {
+  font-feature-settings: "pwid" 0, "fwid" 1;
+}
+
+.img-center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* 自定义 Admonition 样式 */
+.md-typeset .admonition,
+.md-typeset details {
+  border-width: 0;
+  border-left-width: 4px;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+
+/* 思考类型 */
+.md-typeset .admonition.thinking,
+.md-typeset details.thinking {
+  border-color: #9c27b0;
+  background-color: rgba(156, 39, 176, 0.05);
+}
+
+.md-typeset .admonition.thinking > .admonition-title,
+.md-typeset details.thinking > summary {
+  background-color: rgba(156, 39, 176, 0.1);
+  padding-left: 2.15rem !important;
+}
+
+.md-typeset .admonition.thinking > .admonition-title::before,
+.md-typeset details.thinking > summary::before {
+  color: #9c27b0;
+  content: "🤔";
+  background: none !important;
+  border-radius: 0 !important;
+  width: auto !important;
+  height: auto !important;
+  font-size: 1.2em;
+  margin-right: 0.5em;
+  position: absolute !important;
+  left: 0.75rem !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  mask: none !important;
+  -webkit-mask: none !important;
+}
+
+.md-typeset .admonition.thinking > .admonition-title::after,
+.md-typeset details.thinking > summary::after {
+  display: none !important;
+}
+
+/* 评论类型 */
+.md-typeset .admonition.comment,
+.md-typeset details.comment {
+  border-color: #ff9800;
+  background-color: rgba(255, 152, 0, 0.05);
+}
+
+.md-typeset .admonition.comment > .admonition-title,
+.md-typeset details.comment > summary {
+  background-color: rgba(255, 152, 0, 0.1);
+  padding-left: 2.15rem !important;
+}
+
+.md-typeset .admonition.comment > .admonition-title::before,
+.md-typeset details.comment > summary::before {
+  color: #ff9800;
+  content: "💬";
+  background: none !important;
+  border-radius: 0 !important;
+  width: auto !important;
+  height: auto !important;
+  font-size: 1.2em;
+  margin-right: 0.5em;
+  position: absolute !important;
+  left: 0.75rem !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  mask: none !important;
+  -webkit-mask: none !important;
+}
+
+.md-typeset .admonition.comment > .admonition-title::after,
+.md-typeset details.comment > summary::after {
+  display: none !important;
 }
