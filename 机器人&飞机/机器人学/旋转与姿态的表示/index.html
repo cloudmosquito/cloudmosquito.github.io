@@ -291,7 +291,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../%E6%95%B0%E5%AD%A6/%E7%9F%A9%E9%98%B5%E5%BE%AE%E7%A7%AF%E5%88%86/" class="md-tabs__link">
+        <a href="../../../%E6%95%B0%E5%AD%A6/%E6%A2%AF%E5%BA%A6/" class="md-tabs__link">
           
   
   
@@ -1756,6 +1756,8 @@
       
         
       
+        
+      
     
     
     
@@ -1789,6 +1791,29 @@
             数学
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E6%95%B0%E5%AD%A6/%E6%A2%AF%E5%BA%A6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    梯度
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
             
               
                 
@@ -1843,10 +1868,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" >
         
           
-          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
             
   
   
@@ -1859,8 +1884,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_2">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3">
             <span class="md-nav__icon md-icon"></span>
             高等代数
           </label>
@@ -3680,9 +3705,17 @@ r_{31} &amp; r_{32} &amp; r_{33}
 <h2 id="3">3 齐次变换</h2>
 <p>齐次变换利用 SE(3) 中的矩阵来描述刚性运动：平移和旋转。</p>
 <div class="arithmatex">\[
-T = \begin{bmatrix} \mathbf{R}_{3\times 3} &amp; \mathbf{t}_{3\times 1}\\ \mathbf{0}^{\top} &amp; 1 \end{bmatrix}
+T = \begin{bmatrix} \mathbf{R}_{3\times 3} &amp; \mathbf{t}_{3\times 1}\\ \mathbf{0}_{1\times 3} &amp; 1 \end{bmatrix}
 \]</div>
 <p>其中，<span class="arithmatex">\(\mathbf{R} \in \mathrm{SO}(3)\)</span> 是一个旋转矩阵，<span class="arithmatex">\(\mathbf{t} \in \mathbb{R}^3\)</span> 是一个平移向量。</p>
+<p>齐次变换矩阵可直接用于描述一个刚体相对于另一个刚体的位置与姿态。</p>
+<p>齐次变换矩阵之所以要写成 4*4 的形式，是为了实现一个合理的乘法运算，继承旋转矩阵的链式性质。</p>
+<div class="arithmatex">\[\begin{aligned}
+{}^{C}T_{A} &amp;= {}^{C}T_{B} {}^{B}T_{A}\\
+&amp;= \begin{bmatrix}{}^{C}\mathbf{R}_{B} &amp; {}^{C}\mathbf{t}_B\\ \mathbf{0} &amp; 1\end{bmatrix}
+\begin{bmatrix}{}^{B}\mathbf{R}_{A} &amp; {}^{B}\mathbf{t}_A\\ \mathbf{0} &amp; 1\end{bmatrix}\\
+&amp;= \begin{bmatrix}{}^{C}\mathbf{R}_{B}{}^{B}\mathbf{R}_{A} &amp; {}^{C}\mathbf{R}_{B}{}^{B}\mathbf{t}_{A}+{}^{C}\mathbf{t}_{B}\\ \mathbf{0} &amp; 1\end{bmatrix}
+\end{aligned}\]</div>
 
 
 
