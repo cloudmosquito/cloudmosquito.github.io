@@ -13,25 +13,25 @@
       
       
       
-        <link rel="prev" href="../%E5%B9%B3%E8%A1%A1%E7%82%B9%E7%9A%84%E7%A8%B3%E5%AE%9A%E6%80%A7/">
+        <link rel="prev" href="../4%20DQN%20%E7%AE%97%E6%B3%95/">
       
       
-        <link rel="next" href="../../%E6%BB%A4%E6%B3%A2%E5%99%A8/IIR%20%E4%B8%8E%20FIR%20%E6%BB%A4%E6%B3%A2%E5%99%A8/">
+        <link rel="next" href="../../../%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%AD%A6/%E6%97%8B%E8%BD%AC%E4%B8%8E%E5%A7%BF%E6%80%81%E7%9A%84%E8%A1%A8%E7%A4%BA/">
       
       
-      <link rel="icon" href="../../../assets/images/favicon.png">
+      <link rel="icon" href="../../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.15">
     
     
       
-        <title>特殊型非线性系统 - Cloudmosquito Site</title>
+        <title>5 策略梯度算法 - Cloudmosquito Site</title>
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.342714a4.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.342714a4.min.css">
       
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -52,18 +52,18 @@
     
       <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&display=swap">
     
-      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+      <link rel="stylesheet" href="../../../../stylesheets/extra.css">
     
       <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
     
-    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
     
     
     
-   <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+   <link href="../../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
     html.glightbox-open { overflow: initial; height: 100%; }
     .gslide-title { margin-top: 0px; user-select: text; }
     .gslide-desc { color: #666; user-select: text; }
@@ -72,7 +72,7 @@
     .gdesc-inner { font-size: 0.75rem; }
     body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
     body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
-    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -105,7 +105,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="页眉">
-    <a href="../../.." title="Cloudmosquito Site" class="md-header__button md-logo" aria-label="Cloudmosquito Site" data-md-component="logo">
+    <a href="../../../.." title="Cloudmosquito Site" class="md-header__button md-logo" aria-label="Cloudmosquito Site" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -125,7 +125,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              特殊型非线性系统
+              5 策略梯度算法
             
           </span>
         </div>
@@ -226,7 +226,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../.." class="md-tabs__link">
+      <a href="../../../.." class="md-tabs__link">
         
   
   
@@ -247,7 +247,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../%E5%B7%A5%E5%85%B7/ROS2%20%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" class="md-tabs__link">
+        <a href="../../../../%E5%B7%A5%E5%85%B7/ROS2%20%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" class="md-tabs__link">
           
   
   
@@ -265,13 +265,11 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../../" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../../../%E6%8E%A7%E5%88%B6%E7%90%86%E8%AE%BA/" class="md-tabs__link">
           
   
   
@@ -293,7 +291,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../%E6%95%B0%E5%AD%A6/%E6%A2%AF%E5%BA%A6/" class="md-tabs__link">
+        <a href="../../../../%E6%95%B0%E5%AD%A6/%E6%A2%AF%E5%BA%A6/" class="md-tabs__link">
           
   
   
@@ -315,7 +313,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../%E6%96%87%E5%AD%A6/" class="md-tabs__link">
+        <a href="../../../../%E6%96%87%E5%AD%A6/" class="md-tabs__link">
           
   
   
@@ -333,11 +331,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../../%E6%9C%BA%E5%99%A8%E4%BA%BA%26%E9%A3%9E%E6%9C%BA/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../../" class="md-tabs__link">
           
   
   
@@ -359,7 +359,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../%E6%9D%82%E5%AD%A6%E6%97%81%E6%94%B6/%E5%A4%A9%E7%A9%BA%E4%B8%BA%E4%BB%80%E4%B9%88%E6%98%AF%E8%93%9D%E8%89%B2%E7%9A%84/" class="md-tabs__link">
+        <a href="../../../../%E6%9D%82%E5%AD%A6%E6%97%81%E6%94%B6/%E5%A4%A9%E7%A9%BA%E4%B8%BA%E4%BB%80%E4%B9%88%E6%98%AF%E8%93%9D%E8%89%B2%E7%9A%84/" class="md-tabs__link">
           
   
   
@@ -395,7 +395,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../.." title="Cloudmosquito Site" class="md-nav__button md-logo" aria-label="Cloudmosquito Site" data-md-component="logo">
+    <a href="../../../.." title="Cloudmosquito Site" class="md-nav__button md-logo" aria-label="Cloudmosquito Site" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -413,7 +413,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../.." class="md-nav__link">
+      <a href="../../../.." class="md-nav__link">
         
   
   
@@ -490,7 +490,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../%E5%B7%A5%E5%85%B7/ROS2%20%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" class="md-nav__link">
+      <a href="../../../../%E5%B7%A5%E5%85%B7/ROS2%20%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" class="md-nav__link">
         
   
   
@@ -513,7 +513,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../%E5%B7%A5%E5%85%B7/git%20%E7%94%A8%E6%B3%95/" class="md-nav__link">
+      <a href="../../../../%E5%B7%A5%E5%85%B7/git%20%E7%94%A8%E6%B3%95/" class="md-nav__link">
         
   
   
@@ -536,7 +536,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../%E5%B7%A5%E5%85%B7/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99%E6%90%AD%E5%BB%BA%E6%8C%87%E5%8D%97/" class="md-nav__link">
+      <a href="../../../../%E5%B7%A5%E5%85%B7/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99%E6%90%AD%E5%BB%BA%E6%8C%87%E5%8D%97/" class="md-nav__link">
         
   
   
@@ -620,7 +620,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../%E5%B7%A5%E5%85%B7/Linux%20%28Ubuntu%29%20%E4%BD%BF%E7%94%A8%20Tips/terminator%20%E5%BF%AB%E6%8D%B7%E9%94%AE/" class="md-nav__link">
+      <a href="../../../../%E5%B7%A5%E5%85%B7/Linux%20%28Ubuntu%29%20%E4%BD%BF%E7%94%A8%20Tips/terminator%20%E5%BF%AB%E6%8D%B7%E9%94%AE/" class="md-nav__link">
         
   
   
@@ -643,7 +643,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../%E5%B7%A5%E5%85%B7/Linux%20%28Ubuntu%29%20%E4%BD%BF%E7%94%A8%20Tips/%E5%AE%89%E8%A3%85%E4%B8%8E%E5%8D%B8%E8%BD%BD%E8%BD%AF%E4%BB%B6/" class="md-nav__link">
+      <a href="../../../../%E5%B7%A5%E5%85%B7/Linux%20%28Ubuntu%29%20%E4%BD%BF%E7%94%A8%20Tips/%E5%AE%89%E8%A3%85%E4%B8%8E%E5%8D%B8%E8%BD%BD%E8%BD%AF%E4%BB%B6/" class="md-nav__link">
         
   
   
@@ -666,7 +666,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../%E5%B7%A5%E5%85%B7/Linux%20%28Ubuntu%29%20%E4%BD%BF%E7%94%A8%20Tips/%E6%80%8E%E4%B9%88%E5%92%8C%20windows%20%E5%8F%8C%E7%B3%BB%E7%BB%9F%E6%97%B6%E9%97%B4%E4%B8%80%E8%87%B4/" class="md-nav__link">
+      <a href="../../../../%E5%B7%A5%E5%85%B7/Linux%20%28Ubuntu%29%20%E4%BD%BF%E7%94%A8%20Tips/%E6%80%8E%E4%B9%88%E5%92%8C%20windows%20%E5%8F%8C%E7%B3%BB%E7%BB%9F%E6%97%B6%E9%97%B4%E4%B8%80%E8%87%B4/" class="md-nav__link">
         
   
   
@@ -689,7 +689,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../%E5%B7%A5%E5%85%B7/Linux%20%28Ubuntu%29%20%E4%BD%BF%E7%94%A8%20Tips/%E6%80%8E%E4%B9%88%E6%8D%A2%E6%BA%90%20pip%20install/" class="md-nav__link">
+      <a href="../../../../%E5%B7%A5%E5%85%B7/Linux%20%28Ubuntu%29%20%E4%BD%BF%E7%94%A8%20Tips/%E6%80%8E%E4%B9%88%E6%8D%A2%E6%BA%90%20pip%20install/" class="md-nav__link">
         
   
   
@@ -712,7 +712,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../%E5%B7%A5%E5%85%B7/Linux%20%28Ubuntu%29%20%E4%BD%BF%E7%94%A8%20Tips/%E6%80%8E%E4%B9%88%E6%96%B0%E5%BB%BA%E6%88%96%E5%88%A0%E9%99%A4%E6%96%87%E4%BB%B6%EF%BC%88%E5%A4%B9%EF%BC%89/" class="md-nav__link">
+      <a href="../../../../%E5%B7%A5%E5%85%B7/Linux%20%28Ubuntu%29%20%E4%BD%BF%E7%94%A8%20Tips/%E6%80%8E%E4%B9%88%E6%96%B0%E5%BB%BA%E6%88%96%E5%88%A0%E9%99%A4%E6%96%87%E4%BB%B6%EF%BC%88%E5%A4%B9%EF%BC%89/" class="md-nav__link">
         
   
   
@@ -735,7 +735,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../%E5%B7%A5%E5%85%B7/Linux%20%28Ubuntu%29%20%E4%BD%BF%E7%94%A8%20Tips/%E6%80%8E%E4%B9%88%E7%9C%8B%E7%A1%AC%E7%9B%98%E5%89%A9%E4%BD%99%E7%A9%BA%E9%97%B4/" class="md-nav__link">
+      <a href="../../../../%E5%B7%A5%E5%85%B7/Linux%20%28Ubuntu%29%20%E4%BD%BF%E7%94%A8%20Tips/%E6%80%8E%E4%B9%88%E7%9C%8B%E7%A1%AC%E7%9B%98%E5%89%A9%E4%BD%99%E7%A9%BA%E9%97%B4/" class="md-nav__link">
         
   
   
@@ -758,7 +758,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../%E5%B7%A5%E5%85%B7/Linux%20%28Ubuntu%29%20%E4%BD%BF%E7%94%A8%20Tips/%E6%80%8E%E4%B9%88%E8%A7%A3%E5%86%B3%E5%85%B3%E6%9C%BA%E4%B8%BB%E6%9D%BF%E4%B8%8D%E6%96%AD%E7%94%B5%E7%9A%84%E9%97%AE%E9%A2%98/" class="md-nav__link">
+      <a href="../../../../%E5%B7%A5%E5%85%B7/Linux%20%28Ubuntu%29%20%E4%BD%BF%E7%94%A8%20Tips/%E6%80%8E%E4%B9%88%E8%A7%A3%E5%86%B3%E5%85%B3%E6%9C%BA%E4%B8%BB%E6%9D%BF%E4%B8%8D%E6%96%AD%E7%94%B5%E7%9A%84%E9%97%AE%E9%A2%98/" class="md-nav__link">
         
   
   
@@ -781,7 +781,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../%E5%B7%A5%E5%85%B7/Linux%20%28Ubuntu%29%20%E4%BD%BF%E7%94%A8%20Tips/%E6%80%8E%E4%B9%88%E8%AE%BE%E7%BD%AE%20sudo%20%E4%B8%8D%E7%94%A8%E5%AF%86%E7%A0%81/" class="md-nav__link">
+      <a href="../../../../%E5%B7%A5%E5%85%B7/Linux%20%28Ubuntu%29%20%E4%BD%BF%E7%94%A8%20Tips/%E6%80%8E%E4%B9%88%E8%AE%BE%E7%BD%AE%20sudo%20%E4%B8%8D%E7%94%A8%E5%AF%86%E7%A0%81/" class="md-nav__link">
         
   
   
@@ -804,7 +804,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../%E5%B7%A5%E5%85%B7/Linux%20%28Ubuntu%29%20%E4%BD%BF%E7%94%A8%20Tips/%E6%80%8E%E4%B9%88%E9%A6%96%E9%80%89%E5%90%AF%E7%94%A8%20Nvidia%20%E6%98%BE%E5%8D%A1/" class="md-nav__link">
+      <a href="../../../../%E5%B7%A5%E5%85%B7/Linux%20%28Ubuntu%29%20%E4%BD%BF%E7%94%A8%20Tips/%E6%80%8E%E4%B9%88%E9%A6%96%E9%80%89%E5%90%AF%E7%94%A8%20Nvidia%20%E6%98%BE%E5%8D%A1/" class="md-nav__link">
         
   
   
@@ -880,7 +880,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../%E5%B7%A5%E5%85%B7/Python%20%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/%E5%87%BD%E6%95%B0%E7%AD%BE%E5%90%8D_%E7%B1%BB%E4%B8%8E%E5%AE%9E%E4%BE%8B%E5%B1%9E%E6%80%A7_%E7%B1%BB%E4%B8%8E%E5%AE%9E%E4%BE%8B%E6%96%B9%E6%B3%95_%E5%85%83%E7%BB%84/" class="md-nav__link">
+      <a href="../../../../%E5%B7%A5%E5%85%B7/Python%20%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/%E5%87%BD%E6%95%B0%E7%AD%BE%E5%90%8D_%E7%B1%BB%E4%B8%8E%E5%AE%9E%E4%BE%8B%E5%B1%9E%E6%80%A7_%E7%B1%BB%E4%B8%8E%E5%AE%9E%E4%BE%8B%E6%96%B9%E6%B3%95_%E5%85%83%E7%BB%84/" class="md-nav__link">
         
   
   
@@ -960,7 +960,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../%E5%B7%A5%E5%85%B7/ROS%E5%AD%A6%E4%B9%A0/%E5%AE%9E%E4%BE%8B%E2%80%94PX4%E9%99%8D%E8%90%BD%E7%A7%BB%E5%8A%A8%E5%B9%B3%E5%8F%B0/" class="md-nav__link">
+      <a href="../../../../%E5%B7%A5%E5%85%B7/ROS%E5%AD%A6%E4%B9%A0/%E5%AE%9E%E4%BE%8B%E2%80%94PX4%E9%99%8D%E8%90%BD%E7%A7%BB%E5%8A%A8%E5%B9%B3%E5%8F%B0/" class="md-nav__link">
         
   
   
@@ -983,7 +983,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../%E5%B7%A5%E5%85%B7/ROS%E5%AD%A6%E4%B9%A0/%E6%97%A5%E5%BF%97%E5%AE%8F/" class="md-nav__link">
+      <a href="../../../../%E5%B7%A5%E5%85%B7/ROS%E5%AD%A6%E4%B9%A0/%E6%97%A5%E5%BF%97%E5%AE%8F/" class="md-nav__link">
         
   
   
@@ -1006,7 +1006,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../%E5%B7%A5%E5%85%B7/ROS%E5%AD%A6%E4%B9%A0/%E6%9C%8D%E5%8A%A1%EF%BC%88Service%EF%BC%89/" class="md-nav__link">
+      <a href="../../../../%E5%B7%A5%E5%85%B7/ROS%E5%AD%A6%E4%B9%A0/%E6%9C%8D%E5%8A%A1%EF%BC%88Service%EF%BC%89/" class="md-nav__link">
         
   
   
@@ -1041,8 +1041,6 @@
       
   
   
-    
-  
   
   
     
@@ -1066,21 +1064,18 @@
     
     
       
-        
-        
-      
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../" class="md-nav__link ">
+            <a href="../../../../%E6%8E%A7%E5%88%B6%E7%90%86%E8%AE%BA/" class="md-nav__link ">
               
   
   
@@ -1093,13 +1088,13 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="">
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             控制理论
@@ -1115,7 +1110,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Lyapunov%20%E7%A8%B3%E5%AE%9A%E6%80%A7/" class="md-nav__link">
+      <a href="../../../../%E6%8E%A7%E5%88%B6%E7%90%86%E8%AE%BA/Lyapunov%20%E7%A8%B3%E5%AE%9A%E6%80%A7/" class="md-nav__link">
         
   
   
@@ -1135,10 +1130,8 @@
                 
   
   
-    
   
   
-  
     
     
       
@@ -1155,11 +1148,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
         
           
           <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
@@ -1175,7 +1168,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3_3">
             <span class="md-nav__icon md-icon"></span>
             《非线性控制》笔记
@@ -1189,7 +1182,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../1%20%E5%BC%95%E8%AE%BA/" class="md-nav__link">
+      <a href="../../../../%E6%8E%A7%E5%88%B6%E7%90%86%E8%AE%BA/%E3%80%8A%E9%9D%9E%E7%BA%BF%E6%80%A7%E6%8E%A7%E5%88%B6%E3%80%8B%E7%AC%94%E8%AE%B0/1%20%E5%BC%95%E8%AE%BA/" class="md-nav__link">
         
   
   
@@ -1212,7 +1205,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../%E5%B9%B3%E8%A1%A1%E7%82%B9%E7%9A%84%E7%A8%B3%E5%AE%9A%E6%80%A7/" class="md-nav__link">
+      <a href="../../../../%E6%8E%A7%E5%88%B6%E7%90%86%E8%AE%BA/%E3%80%8A%E9%9D%9E%E7%BA%BF%E6%80%A7%E6%8E%A7%E5%88%B6%E3%80%8B%E7%AC%94%E8%AE%B0/%E5%B9%B3%E8%A1%A1%E7%82%B9%E7%9A%84%E7%A8%B3%E5%AE%9A%E6%80%A7/" class="md-nav__link">
         
   
   
@@ -1232,32 +1225,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    特殊型非线性系统
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../../../%E6%8E%A7%E5%88%B6%E7%90%86%E8%AE%BA/%E3%80%8A%E9%9D%9E%E7%BA%BF%E6%80%A7%E6%8E%A7%E5%88%B6%E3%80%8B%E7%AC%94%E8%AE%B0/%E7%89%B9%E6%AE%8A%E5%9E%8B%E9%9D%9E%E7%BA%BF%E6%80%A7%E7%B3%BB%E7%BB%9F/" class="md-nav__link">
         
   
   
@@ -1268,35 +1239,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#1" class="md-nav__link">
-    <span class="md-ellipsis">
-      1 控制器型
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1368,7 +1310,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%E6%BB%A4%E6%B3%A2%E5%99%A8/IIR%20%E4%B8%8E%20FIR%20%E6%BB%A4%E6%B3%A2%E5%99%A8/" class="md-nav__link">
+      <a href="../../../../%E6%8E%A7%E5%88%B6%E7%90%86%E8%AE%BA/%E6%BB%A4%E6%B3%A2%E5%99%A8/IIR%20%E4%B8%8E%20FIR%20%E6%BB%A4%E6%B3%A2%E5%99%A8/" class="md-nav__link">
         
   
   
@@ -1391,7 +1333,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%E6%BB%A4%E6%B3%A2%E5%99%A8/%E4%B8%80%E9%98%B6%E6%83%AF%E6%80%A7%E6%BB%A4%E6%B3%A2/" class="md-nav__link">
+      <a href="../../../../%E6%8E%A7%E5%88%B6%E7%90%86%E8%AE%BA/%E6%BB%A4%E6%B3%A2%E5%99%A8/%E4%B8%80%E9%98%B6%E6%83%AF%E6%80%A7%E6%BB%A4%E6%B3%A2/" class="md-nav__link">
         
   
   
@@ -1414,7 +1356,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%E6%BB%A4%E6%B3%A2%E5%99%A8/%E9%99%B7%E6%B3%A2%E5%99%A8%E8%AF%B4%E6%98%8E/" class="md-nav__link">
+      <a href="../../../../%E6%8E%A7%E5%88%B6%E7%90%86%E8%AE%BA/%E6%BB%A4%E6%B3%A2%E5%99%A8/%E9%99%B7%E6%B3%A2%E5%99%A8%E8%AF%B4%E6%98%8E/" class="md-nav__link">
         
   
   
@@ -1482,7 +1424,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%E6%BB%A4%E6%B3%A2%E5%99%A8/%E5%8D%A1%E5%B0%94%E6%9B%BC%E6%BB%A4%E6%B3%A2%E5%99%A8/KF%20%26%20EKF/" class="md-nav__link">
+      <a href="../../../../%E6%8E%A7%E5%88%B6%E7%90%86%E8%AE%BA/%E6%BB%A4%E6%B3%A2%E5%99%A8/%E5%8D%A1%E5%B0%94%E6%9B%BC%E6%BB%A4%E6%B3%A2%E5%99%A8/KF%20%26%20EKF/" class="md-nav__link">
         
   
   
@@ -1570,7 +1512,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%E8%87%AA%E5%8A%A8%E6%8E%A7%E5%88%B6%E5%8E%9F%E7%90%86/%E6%8B%89%E6%B0%8F%E5%8F%98%E6%8D%A2%E5%88%9D%E7%BB%88%E5%80%BC%E5%AE%9A%E7%90%86/" class="md-nav__link">
+      <a href="../../../../%E6%8E%A7%E5%88%B6%E7%90%86%E8%AE%BA/%E8%87%AA%E5%8A%A8%E6%8E%A7%E5%88%B6%E5%8E%9F%E7%90%86/%E6%8B%89%E6%B0%8F%E5%8F%98%E6%8D%A2%E5%88%9D%E7%BB%88%E5%80%BC%E5%AE%9A%E7%90%86/" class="md-nav__link">
         
   
   
@@ -1593,7 +1535,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%E8%87%AA%E5%8A%A8%E6%8E%A7%E5%88%B6%E5%8E%9F%E7%90%86/%E8%83%BD%E6%8E%A7%E6%80%A7%E5%92%8C%E8%83%BD%E8%A7%82%E6%80%A7/" class="md-nav__link">
+      <a href="../../../../%E6%8E%A7%E5%88%B6%E7%90%86%E8%AE%BA/%E8%87%AA%E5%8A%A8%E6%8E%A7%E5%88%B6%E5%8E%9F%E7%90%86/%E8%83%BD%E6%8E%A7%E6%80%A7%E5%92%8C%E8%83%BD%E8%A7%82%E6%80%A7/" class="md-nav__link">
         
   
   
@@ -1663,7 +1605,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%E8%87%AA%E5%8A%A8%E6%8E%A7%E5%88%B6%E5%8E%9F%E7%90%86/PID%20%E7%9B%B8%E5%85%B3/%E4%BA%91%E5%8F%B0%20PID%20%E7%90%86%E8%AE%BA%E5%88%86%E6%9E%90/" class="md-nav__link">
+      <a href="../../../../%E6%8E%A7%E5%88%B6%E7%90%86%E8%AE%BA/%E8%87%AA%E5%8A%A8%E6%8E%A7%E5%88%B6%E5%8E%9F%E7%90%86/PID%20%E7%9B%B8%E5%85%B3/%E4%BA%91%E5%8F%B0%20PID%20%E7%90%86%E8%AE%BA%E5%88%86%E6%9E%90/" class="md-nav__link">
         
   
   
@@ -1686,7 +1628,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%E8%87%AA%E5%8A%A8%E6%8E%A7%E5%88%B6%E5%8E%9F%E7%90%86/PID%20%E7%9B%B8%E5%85%B3/%E7%B3%BB%E7%BB%9F%E9%98%B6%E6%95%B0%E4%B8%8E%20PID/" class="md-nav__link">
+      <a href="../../../../%E6%8E%A7%E5%88%B6%E7%90%86%E8%AE%BA/%E8%87%AA%E5%8A%A8%E6%8E%A7%E5%88%B6%E5%8E%9F%E7%90%86/PID%20%E7%9B%B8%E5%85%B3/%E7%B3%BB%E7%BB%9F%E9%98%B6%E6%95%B0%E4%B8%8E%20PID/" class="md-nav__link">
         
   
   
@@ -1770,7 +1712,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%E8%A7%82%E6%B5%8B%E5%99%A8/%E5%BC%95%E8%A8%80%EF%BC%88%E7%B3%BB%E7%BB%9F%E8%83%BD%E8%A7%82%E6%80%A7%EF%BC%89/" class="md-nav__link">
+      <a href="../../../../%E6%8E%A7%E5%88%B6%E7%90%86%E8%AE%BA/%E8%A7%82%E6%B5%8B%E5%99%A8/%E5%BC%95%E8%A8%80%EF%BC%88%E7%B3%BB%E7%BB%9F%E8%83%BD%E8%A7%82%E6%80%A7%EF%BC%89/" class="md-nav__link">
         
   
   
@@ -1857,7 +1799,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../%E6%95%B0%E5%AD%A6/%E6%A2%AF%E5%BA%A6/" class="md-nav__link">
+      <a href="../../../../%E6%95%B0%E5%AD%A6/%E6%A2%AF%E5%BA%A6/" class="md-nav__link">
         
   
   
@@ -1880,7 +1822,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../%E6%95%B0%E5%AD%A6/%E7%9F%A9%E9%98%B5%E5%BE%AE%E7%A7%AF%E5%88%86/" class="md-nav__link">
+      <a href="../../../../%E6%95%B0%E5%AD%A6/%E7%9F%A9%E9%98%B5%E5%BE%AE%E7%A7%AF%E5%88%86/" class="md-nav__link">
         
   
   
@@ -1956,7 +1898,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../%E6%95%B0%E5%AD%A6/%E9%AB%98%E7%AD%89%E4%BB%A3%E6%95%B0/Hamilton-Cayley%20%E5%AE%9A%E7%90%86/" class="md-nav__link">
+      <a href="../../../../%E6%95%B0%E5%AD%A6/%E9%AB%98%E7%AD%89%E4%BB%A3%E6%95%B0/Hamilton-Cayley%20%E5%AE%9A%E7%90%86/" class="md-nav__link">
         
   
   
@@ -1979,7 +1921,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../%E6%95%B0%E5%AD%A6/%E9%AB%98%E7%AD%89%E4%BB%A3%E6%95%B0/Jordan%20%E6%A0%87%E5%87%86%E5%9E%8B/" class="md-nav__link">
+      <a href="../../../../%E6%95%B0%E5%AD%A6/%E9%AB%98%E7%AD%89%E4%BB%A3%E6%95%B0/Jordan%20%E6%A0%87%E5%87%86%E5%9E%8B/" class="md-nav__link">
         
   
   
@@ -2002,7 +1944,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../%E6%95%B0%E5%AD%A6/%E9%AB%98%E7%AD%89%E4%BB%A3%E6%95%B0/%E4%BA%8C%E6%AC%A1%E5%9E%8B%E4%B8%8E%28%E5%8D%8A%29%E6%AD%A3%E8%B4%9F%E5%AE%9A%E6%80%A7/" class="md-nav__link">
+      <a href="../../../../%E6%95%B0%E5%AD%A6/%E9%AB%98%E7%AD%89%E4%BB%A3%E6%95%B0/%E4%BA%8C%E6%AC%A1%E5%9E%8B%E4%B8%8E%28%E5%8D%8A%29%E6%AD%A3%E8%B4%9F%E5%AE%9A%E6%80%A7/" class="md-nav__link">
         
   
   
@@ -2025,7 +1967,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../%E6%95%B0%E5%AD%A6/%E9%AB%98%E7%AD%89%E4%BB%A3%E6%95%B0/%E5%90%91%E9%87%8F%E8%8C%83%E6%95%B0%E4%B8%8E%E7%9F%A9%E9%98%B5%E8%8C%83%E6%95%B0/" class="md-nav__link">
+      <a href="../../../../%E6%95%B0%E5%AD%A6/%E9%AB%98%E7%AD%89%E4%BB%A3%E6%95%B0/%E5%90%91%E9%87%8F%E8%8C%83%E6%95%B0%E4%B8%8E%E7%9F%A9%E9%98%B5%E8%8C%83%E6%95%B0/" class="md-nav__link">
         
   
   
@@ -2048,7 +1990,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../%E6%95%B0%E5%AD%A6/%E9%AB%98%E7%AD%89%E4%BB%A3%E6%95%B0/%E7%9F%A9%E9%98%B5%E5%AF%B9%E8%A7%92%E5%8C%96%E4%B8%8E%E5%88%86%E8%A7%A3/" class="md-nav__link">
+      <a href="../../../../%E6%95%B0%E5%AD%A6/%E9%AB%98%E7%AD%89%E4%BB%A3%E6%95%B0/%E7%9F%A9%E9%98%B5%E5%AF%B9%E8%A7%92%E5%8C%96%E4%B8%8E%E5%88%86%E8%A7%A3/" class="md-nav__link">
         
   
   
@@ -2111,7 +2053,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../%E6%96%87%E5%AD%A6/" class="md-nav__link ">
+            <a href="../../../../%E6%96%87%E5%AD%A6/" class="md-nav__link ">
               
   
   
@@ -2191,7 +2133,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../%E6%96%87%E5%AD%A6/%E5%B0%8F%E8%AF%B4%E5%88%9B%E4%BD%9C/%E5%92%AB%E5%B0%BA%E5%A4%A9%E6%B6%AF/" class="md-nav__link">
+      <a href="../../../../%E6%96%87%E5%AD%A6/%E5%B0%8F%E8%AF%B4%E5%88%9B%E4%BD%9C/%E5%92%AB%E5%B0%BA%E5%A4%A9%E6%B6%AF/" class="md-nav__link">
         
   
   
@@ -2312,7 +2254,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../%E6%96%87%E5%AD%A6/%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/%E3%80%8A%E4%B8%AD%E5%9B%BD%E5%8F%99%E4%BA%8B%E5%AD%A6%E3%80%8B/%E3%80%8A%E4%B8%AD%E5%9B%BD%E5%8F%99%E4%BA%8B%E5%AD%A6%E3%80%8B%E7%AC%94%E8%AE%B0/" class="md-nav__link">
+      <a href="../../../../%E6%96%87%E5%AD%A6/%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/%E3%80%8A%E4%B8%AD%E5%9B%BD%E5%8F%99%E4%BA%8B%E5%AD%A6%E3%80%8B/%E3%80%8A%E4%B8%AD%E5%9B%BD%E5%8F%99%E4%BA%8B%E5%AD%A6%E3%80%8B%E7%AC%94%E8%AE%B0/" class="md-nav__link">
         
   
   
@@ -2355,6 +2297,8 @@
       
   
   
+    
+  
   
   
     
@@ -2376,18 +2320,21 @@
     
     
       
+        
+        
+      
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../%E6%9C%BA%E5%99%A8%E4%BA%BA%26%E9%A3%9E%E6%9C%BA/" class="md-nav__link ">
+            <a href="../../../" class="md-nav__link ">
               
   
   
@@ -2400,13 +2347,13 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_6" id="__nav_6_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_6" id="__nav_6_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
             机器人&飞机
@@ -2419,8 +2366,10 @@
                 
   
   
+    
   
   
+  
     
     
       
@@ -2433,11 +2382,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2" checked>
         
           
           <label class="md-nav__link" for="__nav_6_2" id="__nav_6_2_label" tabindex="0">
@@ -2453,7 +2402,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_6_2">
             <span class="md-nav__icon md-icon"></span>
             强化学习
@@ -2464,8 +2413,10 @@
                 
   
   
+    
   
   
+  
     
     
       
@@ -2486,11 +2437,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2_1" checked>
         
           
           <label class="md-nav__link" for="__nav_6_2_1" id="__nav_6_2_1_label" tabindex="0">
@@ -2506,7 +2457,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_6_2_1_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_6_2_1_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_6_2_1">
             <span class="md-nav__icon md-icon"></span>
             《动手学强化学习》笔记
@@ -2520,7 +2471,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../%E6%9C%BA%E5%99%A8%E4%BA%BA%26%E9%A3%9E%E6%9C%BA/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/%E3%80%8A%E5%8A%A8%E6%89%8B%E5%AD%A6%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E3%80%8B%E7%AC%94%E8%AE%B0/1%20%E9%A9%AC%E5%B0%94%E5%8F%AF%E5%A4%AB%E5%86%B3%E7%AD%96%E8%BF%87%E7%A8%8B/" class="md-nav__link">
+      <a href="../1%20%E9%A9%AC%E5%B0%94%E5%8F%AF%E5%A4%AB%E5%86%B3%E7%AD%96%E8%BF%87%E7%A8%8B/" class="md-nav__link">
         
   
   
@@ -2543,7 +2494,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../%E6%9C%BA%E5%99%A8%E4%BA%BA%26%E9%A3%9E%E6%9C%BA/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/%E3%80%8A%E5%8A%A8%E6%89%8B%E5%AD%A6%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E3%80%8B%E7%AC%94%E8%AE%B0/2%20%E5%9F%BA%E4%BA%8E%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E7%9A%84%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E7%AE%97%E6%B3%95/" class="md-nav__link">
+      <a href="../2%20%E5%9F%BA%E4%BA%8E%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E7%9A%84%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E7%AE%97%E6%B3%95/" class="md-nav__link">
         
   
   
@@ -2566,7 +2517,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../%E6%9C%BA%E5%99%A8%E4%BA%BA%26%E9%A3%9E%E6%9C%BA/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/%E3%80%8A%E5%8A%A8%E6%89%8B%E5%AD%A6%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E3%80%8B%E7%AC%94%E8%AE%B0/3%20%E6%97%B6%E5%BA%8F%E5%B7%AE%E5%88%86%E7%AE%97%E6%B3%95/" class="md-nav__link">
+      <a href="../3%20%E6%97%B6%E5%BA%8F%E5%B7%AE%E5%88%86%E7%AE%97%E6%B3%95/" class="md-nav__link">
         
   
   
@@ -2589,7 +2540,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../%E6%9C%BA%E5%99%A8%E4%BA%BA%26%E9%A3%9E%E6%9C%BA/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/%E3%80%8A%E5%8A%A8%E6%89%8B%E5%AD%A6%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E3%80%8B%E7%AC%94%E8%AE%B0/4%20DQN%20%E7%AE%97%E6%B3%95/" class="md-nav__link">
+      <a href="../4%20DQN%20%E7%AE%97%E6%B3%95/" class="md-nav__link">
         
   
   
@@ -2609,10 +2560,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../../%E6%9C%BA%E5%99%A8%E4%BA%BA%26%E9%A3%9E%E6%9C%BA/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/%E3%80%8A%E5%8A%A8%E6%89%8B%E5%AD%A6%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E3%80%8B%E7%AC%94%E8%AE%B0/5%20%E7%AD%96%E7%95%A5%E6%A2%AF%E5%BA%A6%E7%AE%97%E6%B3%95/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    5 策略梯度算法
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -2623,6 +2594,99 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      策略梯度
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="策略梯度">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      如何评价策略
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      如何优化策略
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      一些优化技巧
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="一些优化技巧">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#baseline" class="md-nav__link">
+    <span class="md-ellipsis">
+      添加基线 baseline
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      给每个动作分配合适权重
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reinforce" class="md-nav__link">
+    <span class="md-ellipsis">
+      REINFORCE 算法
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -2698,7 +2762,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../%E6%9C%BA%E5%99%A8%E4%BA%BA%26%E9%A3%9E%E6%9C%BA/%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%AD%A6/%E6%97%8B%E8%BD%AC%E4%B8%8E%E5%A7%BF%E6%80%81%E7%9A%84%E8%A1%A8%E7%A4%BA/" class="md-nav__link">
+      <a href="../../../%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%AD%A6/%E6%97%8B%E8%BD%AC%E4%B8%8E%E5%A7%BF%E6%80%81%E7%9A%84%E8%A1%A8%E7%A4%BA/" class="md-nav__link">
         
   
   
@@ -2721,7 +2785,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../%E6%9C%BA%E5%99%A8%E4%BA%BA%26%E9%A3%9E%E6%9C%BA/%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%AD%A6/%E6%9D%8E%E7%BE%A4%E4%B8%8E%E6%9D%8E%E4%BB%A3%E6%95%B0/" class="md-nav__link">
+      <a href="../../../%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%AD%A6/%E6%9D%8E%E7%BE%A4%E4%B8%8E%E6%9D%8E%E4%BB%A3%E6%95%B0/" class="md-nav__link">
         
   
   
@@ -2799,7 +2863,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../%E6%9C%BA%E5%99%A8%E4%BA%BA%26%E9%A3%9E%E6%9C%BA/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/%E5%9B%9B%E6%97%8B%E7%BF%BC%20SO%283%29%20%E5%A7%BF%E6%80%81%E6%8E%A7%E5%88%B6/" class="md-nav__link">
+      <a href="../../../%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/%E5%9B%9B%E6%97%8B%E7%BF%BC%20SO%283%29%20%E5%A7%BF%E6%80%81%E6%8E%A7%E5%88%B6/" class="md-nav__link">
         
   
   
@@ -2822,7 +2886,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../%E6%9C%BA%E5%99%A8%E4%BA%BA%26%E9%A3%9E%E6%9C%BA/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/%E5%9B%9B%E6%97%8B%E7%BF%BC%E5%BE%AE%E5%88%86%E5%B9%B3%E5%9D%A6%E4%B8%8E%E6%9C%80%E5%B0%8F%20snap%20%E8%BD%A8%E8%BF%B9/" class="md-nav__link">
+      <a href="../../../%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/%E5%9B%9B%E6%97%8B%E7%BF%BC%E5%BE%AE%E5%88%86%E5%B9%B3%E5%9D%A6%E4%B8%8E%E6%9C%80%E5%B0%8F%20snap%20%E8%BD%A8%E8%BF%B9/" class="md-nav__link">
         
   
   
@@ -2898,7 +2962,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../%E6%9C%BA%E5%99%A8%E4%BA%BA%26%E9%A3%9E%E6%9C%BA/%E9%A3%9E%E6%8E%A7%E7%9B%B8%E5%85%B3/PX4%E9%99%8D%E8%90%BD%E7%A7%BB%E5%8A%A8%E5%B9%B3%E5%8F%B0/" class="md-nav__link">
+      <a href="../../../%E9%A3%9E%E6%8E%A7%E7%9B%B8%E5%85%B3/PX4%E9%99%8D%E8%90%BD%E7%A7%BB%E5%8A%A8%E5%B9%B3%E5%8F%B0/" class="md-nav__link">
         
   
   
@@ -2981,7 +3045,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../%E6%9D%82%E5%AD%A6%E6%97%81%E6%94%B6/%E5%A4%A9%E7%A9%BA%E4%B8%BA%E4%BB%80%E4%B9%88%E6%98%AF%E8%93%9D%E8%89%B2%E7%9A%84/" class="md-nav__link">
+      <a href="../../../../%E6%9D%82%E5%AD%A6%E6%97%81%E6%94%B6/%E5%A4%A9%E7%A9%BA%E4%B8%BA%E4%BB%80%E4%B9%88%E6%98%AF%E8%93%9D%E8%89%B2%E7%9A%84/" class="md-nav__link">
         
   
   
@@ -3021,8 +3085,6 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -3031,11 +3093,77 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
-      1 控制器型
+      策略梯度
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="策略梯度">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      如何评价策略
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      如何优化策略
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      一些优化技巧
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="一些优化技巧">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#baseline" class="md-nav__link">
+    <span class="md-ellipsis">
+      添加基线 baseline
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      给每个动作分配合适权重
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reinforce" class="md-nav__link">
+    <span class="md-ellipsis">
+      REINFORCE 算法
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -3055,15 +3183,144 @@
 
 
 
-<h1 id="_1">特殊型非线性系统</h1>
-<h2 id="1">1 控制器型</h2>
-<p>考虑一个非线性系统，其状态变量 <span class="arithmatex">\(\mathbf{x}\)</span> 与控制输入 <span class="arithmatex">\(\mathbf{u}\)</span> 具有以下关系：</p>
-<div class="arithmatex">\[\dot{\mathbf{x}} = A\mathbf{x} + B\left[\psi(\mathbf{x}) + \gamma(\mathbf{x})\mathbf{u}\right] \tag{1-1}\]</div>
-<p>倘若 <span class="arithmatex">\((A,B)\)</span> 可控，并且对我们所关心的所有状态变量 <span class="arithmatex">\(\mathbf{x}\)</span> ，都有 <span class="arithmatex">\(\gamma(\mathbf{x})\)</span> 可逆，则我们可以选取状态反馈控制：</p>
-<div class="arithmatex">\[\mathbf{u} = \gamma^{-1}(\mathbf{x})\left[\mathbf{v}-\psi(\mathbf{x})\right]\tag{1-2}\]</div>
-<p>使得原非线性系统转变为如下可控线性系统：</p>
-<div class="arithmatex">\[\dot{\mathbf{x}} = A\mathbf{x} + B\mathbf{v}\tag{1-3}\]</div>
-<p>我们称 (1-1) 式所描述的系统为控制器型非线性系统。</p>
+  <h1>5 策略梯度算法</h1>
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>《动手学强化学习》一书对于该算法的数学理论讲得不是很清楚，不好理解。本节主要参考《Easy RL：强化学习教程》。</p>
+</div>
+<p>Q-learning 以及 DQN 算法等都是<strong>基于价值</strong>（value-based）的算法。</p>
+<p>先与环境交互获得大量数据，用这些数据拟合一个价值函数，再根据此价值函数导出一个策略（一般是贪心的策略）。</p>
+<p>还有一支经典算法，<strong>基于策略</strong>（policy-based）的算法，直接显式学习一个策略。</p>
+<hr />
+<h2 id="_1">策略梯度</h2>
+<p>首先我们建模策略函数：输入某个状态，输出动作的概率分布。在强化学习里一般用神经网络来建模。</p>
+<p>我们假设目标策略 <span class="arithmatex">\(\pi_{\theta}\)</span> 是一个随机性策略，并且处处可微。 <span class="arithmatex">\(\theta\)</span> 是策略函数中的参数。我们强化学习的目标是寻找一个最优策略。</p>
+<h3 id="_2">如何评价策略</h3>
+<p>现在我们遇到的问题是如何评价一个策略 <span class="arithmatex">\(\pi_{\theta}\)</span> 的优秀程度。思路其实很简单，就是用期望回报。在这里我们还需要考虑第一个初始状态的随机性。</p>
+<p>我们用形式化的语言加以阐述。首先，考虑环境初始状态 <span class="arithmatex">\(s_0\)</span> ，智能体遵循策略 <span class="arithmatex">\(\pi_\theta\)</span> 选择了动作 <span class="arithmatex">\(a_0\)</span> ，与环境交互后，获得奖励 <span class="arithmatex">\(r_0\)</span> ，并且使环境状态改变为 <span class="arithmatex">\(s_1\)</span> ，智能体又遵循策略 <span class="arithmatex">\(\pi_\theta\)</span> 选择了动作 <span class="arithmatex">\(a_1\)</span> ，如此往复，直到环境终止。我们把这一整个采样过程所获得的数据称为一条轨迹，用 <span class="arithmatex">\(\tau\)</span> 表示：</p>
+<div class="arithmatex">\[\tau = \{s_0,a_0,r_0,s_1,a_1,r_1,\cdots,s_{T-1},a_{T-1},r_{T-1},s_T,r_T\}\]</div>
+<p>这条轨迹的总回报值为 <span class="arithmatex">\(R(\tau) = \sum_{t=0}^Tr_t\)</span> . 那么，策略 <span class="arithmatex">\(\pi_\theta\)</span> 的期望回报就是在参数 <span class="arithmatex">\(\theta\)</span> 下采样到轨迹 <span class="arithmatex">\(\tau\)</span> 的概率乘以该轨迹的总回报值，并对所有轨迹求和（或积分）：</p>
+<div class="arithmatex">\[\begin{aligned}
+\bar{R}_\theta &amp;= \sum_{\tau}R(\tau)p(\tau|\theta) = \mathbb{E}_{\tau \sim p(\tau|\theta)}[R(\tau)]\\
+&amp;\approx \frac{1}{N}\sum_{n=1}^{N}R\left(\tau^{\{n\}}\right)
+\end{aligned}\]</div>
+<p>上式中的 <span class="arithmatex">\(n\)</span> 代表被采样轨迹的编号。</p>
+<hr />
+<h3 id="_3">如何优化策略</h3>
+<p>现在我们有办法判断一个策略 <span class="arithmatex">\(\pi_\theta\)</span> 有多好，方法就是大量采样数据计算其期望回报 <span class="arithmatex">\(\bar R_\theta\)</span> . 那么接下来的问题是，我们怎么优化参数 <span class="arithmatex">\(\theta\)</span> 使其变得更好？</p>
+<p>一个比较明显的做法是梯度上升，即沿着回报值上升最快的方向更新参数 <span class="arithmatex">\(\theta\)</span> ，形式化表示为：</p>
+<div class="arithmatex">\[\theta \leftarrow \theta + \eta \nabla_{\theta} \bar R_{\theta}\]</div>
+<p>这里的 <span class="arithmatex">\(\eta\)</span> 被称为学习率（Learning Rate）。</p>
+<hr />
+<p>我们现在来看一下，怎么求期望回报相对于 <span class="arithmatex">\(\theta\)</span> 的梯度。</p>
+<div class="arithmatex">\[\begin{aligned}
+\nabla_{\theta}\bar{R}_{\theta} 
+&amp;= \nabla_{\theta}\left(\sum_{\tau}R(\tau)p(\tau|\theta)\right)\\
+&amp;= \sum_{\tau}R(\tau)\nabla_{\theta}p(\tau|\theta)\\
+\end{aligned}\]</div>
+<p>接下来的问题是如何计算策略 <span class="arithmatex">\(\pi_\theta\)</span> 在参数 <span class="arithmatex">\(\theta\)</span> 下采样到轨迹 <span class="arithmatex">\(\tau\)</span> 的概率 <span class="arithmatex">\(p(\tau|\theta)\)</span> 。</p>
+<p>理论上，如果我们有足够多的时间，我们可以采样足够多的轨迹 <span class="arithmatex">\(\tau_i\)</span> ，统计每种轨迹的出现次数，直接计算该轨迹的出现概率 <span class="arithmatex">\(p(\tau_i|\theta)\)</span> 。但实际上，想采样到两条完全一样的轨迹，几乎是不可能的。用此种方式，每条轨迹的 <span class="arithmatex">\(p(\tau_i|\theta)\)</span> 几乎都等于 0 ，没有意义。我们需要其它的计算方式。</p>
+<p>我们想到了马尔可夫决策过程（MDP）。基于此思路，概率 <span class="arithmatex">\(p(\tau|\theta)\)</span> 可以如下计算：</p>
+<div class="arithmatex">\[\begin{aligned}
+p(\tau|\theta) &amp;= p(s_0)\pi_\theta(a_0|s_0)p(s_1|s_0,a_0)\pi_\theta(a_1|s_1)p(s_2|s_1,a_1)\cdots\\
+&amp;= p(s_0)\prod_{t=0}^{T}\pi_\theta(a_t|s_t)p(s_{t+1}|s_t,a_t)
+\end{aligned}\]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ol>
+<li><span class="arithmatex">\(\pi_\theta(a|s)\)</span> 表示策略 <span class="arithmatex">\(\pi\)</span> 在 <span class="arithmatex">\(\theta\)</span> 参数下，在状态 <span class="arithmatex">\(s\)</span> 选择动作 <span class="arithmatex">\(a\)</span> 的概率。</li>
+<li>初始状态 <span class="arithmatex">\(s_0\)</span> 出现的概率 <span class="arithmatex">\(p(s_0)\)</span> 以及状态转移概率 <span class="arithmatex">\(p(s'|s,a)\)</span> 都与参数 <span class="arithmatex">\(\theta\)</span> 无关，完全由环境决定。</li>
+</ol>
+</div>
+<p>我们这就避免了极大量的轨迹采样。因为不同的轨迹数据，其 <span class="arithmatex">\(p(s_0)\)</span> 、<span class="arithmatex">\(\pi_\theta(a|s)\)</span> 和 <span class="arithmatex">\(p(s'|s,a)\)</span> 都是可以通用的。只需要一定数量的轨迹数据，我们就能计算出每条轨迹被采样到的概率。</p>
+<hr />
+<p>这里 <span class="arithmatex">\(p(\tau|\theta)\)</span> 是一个连乘的形式，很难求梯度。</p>
+<p>数学上经常采用对数来处理连乘符号，使其变为求和符号，便于利用某些操作（比如求梯度）的线性性质。</p>
+<div class="arithmatex">\[\begin{aligned}
+\log p(\tau|\theta) 
+&amp;= \log \left[p(s_0)\prod_{t=0}^{T}\pi_\theta(a_t|s_t)p(s_{t+1}|s_t,a_t)\right]\\
+&amp;= \log p(s_0) + \sum_{t=0}^{T}\log \pi_\theta(a_t|s_t) + \sum_{t=0}^{T}\log p(s_{t+1}|s_t,a_t)
+\end{aligned}\]</div>
+<p>那么现在的问题是，如何将 <span class="arithmatex">\(\nabla p(\tau|\theta)\)</span> 和 <span class="arithmatex">\(\log p(\tau|\theta)\)</span> 联系在一起？</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<div class="arithmatex">\[\begin{aligned}\nabla \log f(x) &amp;= \dfrac{1}{f(x)}\nabla f(x)\\ \nabla f(x) &amp;= f(x)\nabla \log f(x)\end{aligned}\]</div>
+</div>
+<p>根据以上补充式，我们有 <span class="arithmatex">\(\nabla p(\tau|\theta) = p(\tau|\theta) \nabla \log p(\tau|\theta)\)</span> . 从而有</p>
+<div class="arithmatex">\[\begin{aligned}
+\nabla_{\theta}\bar{R}_{\theta} 
+&amp;= \sum_{\tau}R(\tau)\nabla_{\theta}p(\tau|\theta)\\
+&amp;= \sum_{\tau}R(\tau)p(\tau|\theta)\nabla_{\theta}\log p(\tau|\theta)
+\end{aligned}\]</div>
+<hr />
+<p>我们注意到上式是一个期望的表达式：</p>
+<div class="arithmatex">\[\begin{aligned}
+\nabla_{\theta}\bar{R}_{\theta} 
+&amp;= \sum_{\tau}R(\tau)p(\tau|\theta)\nabla_{\theta}\log p(\tau|\theta)\\
+&amp;= \mathbb{E}_{\tau \sim p(\tau|\theta)} \left[R(\tau)\nabla_\theta\log p(\tau|\theta)\right]\\
+&amp;\approx \frac{1}{N}\sum_{n=1}^{N}R\left(\tau^{\{n\}}\right)\nabla_\theta \log p\left(\tau^{\{n\}}|\theta\right)
+\end{aligned}\]</div>
+<blockquote>
+<p>这里的 <span class="arithmatex">\(\tau^{\{n\}}\)</span> 代表第 <span class="arithmatex">\(n\)</span> 条轨迹。</p>
+</blockquote>
+<p>其中，<span class="arithmatex">\(\nabla_{\theta} \log p(\tau|\theta)\)</span> 可以如下计算：</p>
+<div class="arithmatex">\[\begin{aligned}
+\nabla_\theta\log p(\tau|\theta)
+&amp;= \nabla_{\theta}\left\{\log \left[p(s_0)\prod_{t=0}^{T}\pi_\theta(a_t|s_t)p(s_{t+1}|s_t,a_t)\right]\right\}\\
+&amp;= \nabla_{\theta}\log p(s_0) + \nabla_{\theta}\left[\sum_{t=0}^{T}\log \pi_\theta(a_t|s_t)\right] + \nabla_{\theta}\left[\sum_{t=0}^{T}\log p(s_{t+1}|s_t,a_t)\right]\\
+&amp;= 0 + \sum_{t=0}^{T}\nabla_{\theta}\log \pi_{\theta}(a_t|s_t) + 0\\
+&amp;= \sum_{t=0}^{T}\nabla_{\theta}\log \pi_{\theta}(a_t|s_t)
+\end{aligned}\]</div>
+<p>所以，期望回报相对于 <span class="arithmatex">\(\theta\)</span> 的梯度是</p>
+<div class="arithmatex">\[\nabla_{\theta}\bar{R}_{\theta} = \frac{1}{N}\sum_{n=1}^{N}R\left(\tau^{\{n\}}\right) \sum_{t=0}^T \nabla_\theta \log \pi_\theta\left(a^{\{n\}}_t|s^{\{n\}}_t\right)\]</div>
+<p>综上，策略提升的方式为：</p>
+<div class="arithmatex">\[\theta \leftarrow \theta + \frac{\eta}{N}\sum_{n=1}^{N}R\left(\tau^{\{n\}}\right) \sum_{t=0}^T \nabla_\theta \log \pi_\theta\left(a^{\{n\}}_t|s^{\{n\}}_t\right)\]</div>
+<h3 id="_4">一些优化技巧</h3>
+<p>我们先来看看怎么理解这个策略提升方式</p>
+<div class="arithmatex">\[\theta \leftarrow \theta + \frac{\eta}{N}\sum_{n=1}^{N}R\left(\tau^{\{n\}}\right) \sum_{t=0}^T \nabla_\theta \log \pi_\theta\left(a^{\{n\}}_t|s^{\{n\}}_t\right)\]</div>
+<p><span class="arithmatex">\(\nabla_{\theta} \log \pi_{\theta}(a_t|s_t)\)</span> 代表在状态 <span class="arithmatex">\(s_t\)</span> 选动作 <span class="arithmatex">\(a_t\)</span> 的概率提升最大的方向， <span class="arithmatex">\(R\left(\tau^{\{n\}}\right)\)</span> 代表轨迹 <span class="arithmatex">\(n\)</span> 中所有动作概率 <span class="arithmatex">\(\pi_{\theta}(a|s)\)</span> 提升的权重。</p>
+<p>具体而言，所谓策略提升，是在修改 <span class="arithmatex">\(\pi_{\theta}(a|s)\)</span> . 考虑一条轨迹</p>
+<div class="arithmatex">\[\tau = \{s_0,a_0,r_0,s_1,a_1,r_1,\cdots,s_{T-1},a_{T-1},r_{T-1},s_T,r_T\}\]</div>
+<p>我们用最后的总回报 <span class="arithmatex">\(R(\tau)\)</span> 作为提升该轨迹内每个 <span class="arithmatex">\(\pi_{\theta}(a_t|s_t)\)</span> 概率的步长，让 <span class="arithmatex">\(\theta\)</span> 朝着每个 <span class="arithmatex">\(\pi_{\theta}(a_t|s_t)\)</span> 提升的方向走 <span class="arithmatex">\(R(\tau)\)</span> 距离。</p>
+<h4 id="baseline">添加基线 baseline</h4>
+<p>如果奖励 <span class="arithmatex">\(R(\tau)\)</span> 总是正的，理想情况下，所有动作概率 <span class="arithmatex">\(\pi_{\theta}(a|s)\)</span> 都会提升，只不过根据所在轨迹的总回报不同，有的动作概率提升得多，有的动作概率提升得少。提升之后，所有动作概率总和大于 1 。这时候我们再做归一化，就完成了一次策略提升。</p>
+<p>但以上都是理想情况。如果我们采样的轨迹不够多，恰好遗漏了一个奖励很大的动作 <span class="arithmatex">\(a_m\)</span> ，那么在概率提升时，其它动作概率都或多或少提升了，而该动作概率保持不变。归一化之后，该动作的概率反而下降了！</p>
+<p>想解决这个问题也很简单，只要让奖励 <span class="arithmatex">\(R(\tau)\)</span> 有正有负即可：</p>
+<div class="arithmatex">\[\theta \leftarrow \theta + \frac{\eta}{N}\sum_{n=1}^{N}\left[\left(R\left(\tau^{\{n\}}\right) - b\right) \sum_{t=0}^T \nabla_\theta \log \pi_\theta\left(a^{\{n\}}_t|s^{\{n\}}_t\right)\right]\]</div>
+<p>这里的 <span class="arithmatex">\(b\)</span> 就是所谓的 baseline 。用上 baseline 技巧之后，好的动作概率得到提升，坏的动作概率下降，就不会出现上述情况。</p>
+<p>现在还有一个问题，baseline 怎么给？显然，baseline 数值上应该等于 <span class="arithmatex">\(\mathbb{E}[R(\tau)]\)</span> . 在编写代码时，我们随着一条条轨迹的读取过程，逐步迭代 baseline</p>
+<div class="arithmatex">\[b = \frac{1}{N}\sum_{n=1}^{N}R\left(\tau^{\{n\}}\right)\]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>回顾一下 <a href="../4%20DQN%20%E7%AE%97%E6%B3%95/#dueling-dqn" target="_blank">Dueling DQN</a> . 这里的 baseline 其实是对于状态价值函数 <span class="arithmatex">\(V(s_0)\)</span> 的估计，而 <span class="arithmatex">\(R(\tau_n) - b\)</span> 就是 Dueling DQN 里提到的优势函数 <span class="arithmatex">\(A(s,a)\)</span> .</p>
+</div>
+<p>更通常的情况下，baseline 是由一个网络估计出来的。</p>
+<h4 id="_5">给每个动作分配合适权重</h4>
+<p>回顾一下</p>
+<blockquote>
+<p>"我们用（一条轨迹）最后的总回报 <span class="arithmatex">\(R(\tau)\)</span> 作为提升该轨迹内每个 <span class="arithmatex">\(\pi_{\theta}(a_t|s_t)\)</span> 概率的步长"</p>
+</blockquote>
+<p>这个做法明显不合理。一条轨迹总回报可能很高，但不能表明该轨迹内每个动作都是收益很高的动作；反之，就算一条轨迹的总回报很低，轨迹内也可能包含一些高收益的动作。</p>
+<p>优化方式是计算某个状态-动作对的奖励时，不使用整条轨迹的总回报，而只计算执行该动作之后得到的奖励。</p>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>Q：为什么不直接用 <span class="arithmatex">\((s_t, a_t)\)</span> 对应的回报 <span class="arithmatex">\(r_t\)</span> ？
+A：因为此时的奖励是在估计 <span class="arithmatex">\(A^{\pi}(s,a) = Q^{\pi}(s,a)-V^{\pi}(s)\)</span> 中的 <span class="arithmatex">\(Q^{\pi}(s,a)\)</span>. 具体而言，状态-动作对的奖励不仅要考虑即时奖励，还要考虑未来状态的奖励。</p>
+</div>
+<div class="arithmatex">\[\theta \leftarrow \theta + \frac{\eta}{N}\sum_{n=1}^{N} \sum_{t=0}^T\left[\left(\sum_{t'=t}^T \gamma^{t'-t} r^{\{n\}}_{t'} - b\right) \nabla_\theta \log \pi_\theta\left(a^{\{n\}}_t|s^{\{n\}}_t\right)\right]\]</div>
+<p>其中 <span class="arithmatex">\(\sum_{t'=t}^T \gamma^{t'-t} r^{\{n\}}_{t'} - b\)</span> 就是对优势函数 <span class="arithmatex">\(A^{\pi}(s,a)\)</span> 的估计。</p>
+<h3 id="reinforce">REINFORCE 算法</h3>
+<p>REINFORCE 算法采取回合更新的方式，即得到一条完整轨迹后更新一次，更新公式中不包含 baseline 优化。</p>
+<p>首先，根据当前策略 <span class="arithmatex">\(\pi_\theta\)</span> 与环境交互生成一条轨迹 </p>
+<div class="arithmatex">\[\tau = \{s_0,a_0,r_0,s_1,a_1,r_1,\cdots,s_{T-1},a_{T-1},r_{T-1},s_T,r_T\}\]</div>
+<p>利用该轨迹数据优化策略 <span class="arithmatex">\(\pi_\theta\)</span> . 从后往前，<span class="arithmatex">\(t=T-1,T-2,\cdots,1,0\)</span> . 先计算当前状态-动作对的未来总奖励 <span class="arithmatex">\(G_t\)</span> ，其初始值为 <span class="arithmatex">\(r_T\)</span> ，<span class="arithmatex">\(G_{t'} = \gamma G_t + r_{t'}\)</span> . 利用计算所得 <span class="arithmatex">\(G_t\)</span> ，更新一次策略 <span class="arithmatex">\(\pi_\theta\)</span> ， <span class="arithmatex">\(\theta \leftarrow \theta + \alpha G_{t}\nabla_{\theta}\log \pi_{\theta}(a_t|s_t)\)</span> .</p>
+<p>当该轨迹使用完之后，再用新策略与环境交互，重复以上过程。</p>
+<p>举个例子，<span class="arithmatex">\(G_T = r_T\)</span> ，<span class="arithmatex">\(G_{T-1} = \gamma G_T + r_{T-1} = \gamma r_T + r_{T-1}\)</span> . 更新策略 <span class="arithmatex">\(\theta \leftarrow \theta + \alpha G_{T-1} \nabla_{\theta}\log\pi_{\theta}(a_{T-1}|s_{T-1})\)</span> . 接下来 <span class="arithmatex">\(G_{T-2} = \gamma G_{T-1} + r_{T-2}\)</span> ，重复以上过程……</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>这里的 <span class="arithmatex">\(\alpha\)</span> 是学习率，也即上文理论推导过程中的 <span class="arithmatex">\(\dfrac{\eta}{N}\)</span> . 实际编程中， <span class="arithmatex">\(N\)</span> 的准确性没有那么重要。</p>
+</div>
 
 
 
@@ -3124,12 +3381,12 @@
     
     
       
-      <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.instant", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.tabs", "navigation.path", "navigation.indexes", "navigation.top", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.instant", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.tabs", "navigation.path", "navigation.indexes", "navigation.top", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.56ea9cef.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.56ea9cef.min.js"></script>
       
-        <script src="../../../javascripts/katex.js"></script>
+        <script src="../../../../javascripts/katex.js"></script>
       
         <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
       
