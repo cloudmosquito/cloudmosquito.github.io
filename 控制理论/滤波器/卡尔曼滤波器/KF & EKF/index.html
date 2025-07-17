@@ -3328,6 +3328,7 @@
 
 
 <h1 id="kf-ekf">KF &amp; EKF</h1>
+<p>参考资料：<a href="https://space.bilibili.com/230105574" target="_blank">B 站 Dr.Can 的视频</a>。</p>
 <h2 id="1">1 任务定义</h2>
 <p>考虑线性离散系统状态空间方程</p>
 <div class="arithmatex">\[\begin{aligned}
@@ -3348,18 +3349,19 @@
 <div class="arithmatex">\[
 \hat{\mathbf{x}}_{k,meas} = H^{-1}\mathbf{z}_k \tag{2}
 \]</div>
-<blockquote>
-<p>【注意】实际系统中，<span class="arithmatex">\(H\)</span> 很可能是不可逆的，即无法通过测量值得知状态量。此处假设 <span class="arithmatex">\(H\)</span> 是可逆的，仅为了方便理解下文数据融合的思路。</p>
-</blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>实际系统中，<span class="arithmatex">\(H\)</span> 很可能是不可逆的，即无法通过测量值得知状态量。此处假设 <span class="arithmatex">\(H\)</span> 是可逆的，仅为了方便理解下文数据融合的思路。</p>
+</div>
 <h2 id="2-kalman-gain">2 数据融合与 Kalman Gain</h2>
 <h3 id="21">2.1 宕开一笔——数据融合</h3>
-<p>考虑这样两个满足正态分布的测量结果，一个均值 <span class="arithmatex">\(z_1 = 6.5\)</span> ，标准差 <span class="arithmatex">\(\sigma_1 = 0.2\)</span> ；另一个均值 <span class="arithmatex">\(z_2 = 7.3\)</span> ，标准差 <span class="arithmatex">\(\sigma_2 = 0.4\)</span> 。请问如何根据这两个测量结果，得到一个最优的测量估计值？</p>
+<p>考虑两个满足正态分布的测量结果，一个均值 <span class="arithmatex">\(z_1 = 6.5\)</span> ，标准差 <span class="arithmatex">\(\sigma_1 = 0.2\)</span> ；另一个均值 <span class="arithmatex">\(z_2 = 7.3\)</span> ，标准差 <span class="arithmatex">\(\sigma_2 = 0.4\)</span> 。请问如何根据这两个测量结果，得到一个最优的测量估计值？</p>
 <p>首先一个最基本的思路是将这两个数据加权求和，即</p>
 <div class="arithmatex">\[
 \hat{z} = z_1+k(z_2-z_1)
 \]</div>
 <p>这里的 <span class="arithmatex">\(k \in [0,1]\)</span> ，表示对 <span class="arithmatex">\(z_2\)</span> 的信任程度 / 对 <span class="arithmatex">\(z_1\)</span> 的不信任程度。接下来的问题是， <span class="arithmatex">\(k\)</span> 取何值时，估计是最优的？</p>
-<p>我们如何定义"最优性"？让我们回顾一下测量结果中"标准差"的含义。以测量结果 1 为例，由于满足正态分布，标准差代表真值有 68.27% 的概率落在 [6.3, 6.7] 之间，有 95.45% 的概率落在 [6.1, 6.9] 之间，有 99.73% 的概率落在 [5.9, 7.1] 之间。</p>
+<p>我们如何定义"最优性"？让我们回顾一下测量结果中"标准差"的含义。以测量结果 1 为例，由于满足正态分布，均值 <code>6.5</code> ，标准差 <code>0.2</code> 代表真值有 68.27% 的概率落在 [6.3, 6.7] 之间，有 95.45% 的概率落在 [6.1, 6.9] 之间，有 99.73% 的概率落在 [5.9, 7.1] 之间。</p>
 <p>我们的 <span class="arithmatex">\(\hat{z}\)</span> 可以理解为测量估计的均值，也就是这些区间的中间值；若测量估计的标准差/方差越小，则测量估计与真值越接近，则估计越好。</p>
 <p>也就是说，我们需要找到一个 <span class="arithmatex">\(k\)</span> 使得 <span class="arithmatex">\(\hat{z}\)</span> 的方差最小。</p>
 <div class="arithmatex">\[\begin{aligned}
@@ -3373,7 +3375,7 @@
 \hat{z} = \frac{\sigma_2^2}{\sigma_1^2+\sigma_2^2}z_1 + \frac{\sigma_1^2}{\sigma_1^2+\sigma_2^2}z_2
 \]</div>
 <h3 id="22-kalman-gain">2.2 回归正题——引出 Kalman Gain</h3>
-<p>这里的 (1) (2) 两式都没有考虑噪声。我们采用如下的常见方式融合这两个数据，得到系统状态的后验估计：</p>
+<p>上文的 (1) (2) 两式都没有考虑噪声。我们采用如下的常见方式融合这两个数据，得到系统状态的后验估计：</p>
 <div class="arithmatex">\[
 \hat{\mathbf{x}}_k = \hat{\mathbf{x}}_k^{-} + (K_kH)\left(\hat{\mathbf{x}}_{k,meas}-\hat{\mathbf{x}}_k^{-}\right)
 \]</div>
@@ -3394,11 +3396,11 @@
 \end{aligned}\]</div>
 <p>我们想要求得 <span class="arithmatex">\(\mathbf{x}_k\)</span> 的最优估计，也就是想要寻找一个最优的卡尔曼系数 <span class="arithmatex">\(K_k\)</span> ，使得误差 <span class="arithmatex">\(\mathbf{e}_k\)</span> 最小。</p>
 <p>注意到误差满足正态分布，期望为 0 。设 <span class="arithmatex">\(\mathbf{e}_k \sim \mathcal{N}(0,P_k)\)</span> ，其中 <span class="arithmatex">\(P_k\)</span> 是协方差矩阵。</p>
-<p>我们想使误差最小，其实是想使误差分布尽可能集中在 0 附近，即方差尽可能小，即 <span class="arithmatex">\(\mathrm{tr}(P)\)</span> 尽可能小。</p>
+<p>我们想使误差最小，其实是想使误差分布尽可能集中在 0 附近，即方差尽可能小，即 <span class="arithmatex">\(\mathrm{tr}(P_k)\)</span> 尽可能小。我们接下来的任务就是寻找一个最优的卡尔曼系数 <span class="arithmatex">\(K_k\)</span> ，使得 <span class="arithmatex">\(\mathrm{tr}(P_k)\)</span> 最小。</p>
 <blockquote>
 <p>怎么计算协方差矩阵？<span class="arithmatex">\(\mathrm{VAR}(\mathbf{x}) = \mathbb{E}\left(\mathbf{x}\mathbf{x}^{\top}\right) -\mathbb{E}^2(\mathbf{x})\)</span> .</p>
 </blockquote>
-<p>现在，我们计算后验估计误差分布的协方差矩阵。注意到 <span class="arithmatex">\(\mathbb{E}(\mathbf{e}_k) = 0\)</span> ，从而有：</p>
+<p>首先，我们计算后验估计误差分布的协方差矩阵 <span class="arithmatex">\(P_k\)</span> 。注意到 <span class="arithmatex">\(\mathbb{E}(\mathbf{e}_k) = 0\)</span> ，从而有：</p>
 <div class="arithmatex">\[\begin{aligned}
 P_k &amp;= \mathbb{E}\left(\mathbf{e}_k\mathbf{e}_k^\top\right)\\
 &amp;= \mathbb{E}\left\{\left[(I-K_kH)\mathbf{e}_k^{-}-K_k\mathbf{v}_k\right]\left[(I-K_kH)\mathbf{e}_k^{-}-K_k\mathbf{v}_k\right]^\top\right\}\\
@@ -3406,13 +3408,16 @@ P_k &amp;= \mathbb{E}\left(\mathbf{e}_k\mathbf{e}_k^\top\right)\\
 &amp;= \mathbb{E}[(I-K_kH)\mathbf{e}_k^{-}\mathbf{e}_k^{-\top}(I-K_kH)^{\top}-(I-K_kH)\mathbf{e}_k^{-}\mathbf{v}_k^\top K_k^\top-\\
 &amp;\ \ \ \ \ \ K_k\mathbf{v}_k\mathbf{e}_k^{-\top}(I-K_kH)^{\top} + K_k\mathbf{v}_k\mathbf{v}_k^{\top}K_k^{\top}]\\
 &amp;= \mathbb{E}\left[(I-K_kH)\mathbf{e}_k^{-}\mathbf{e}_k^{-\top}(I-K_kH)^{\top}\right] - \mathbb{E}\left[(I-K_kH)\mathbf{e}_k^{-}\mathbf{v}_k^\top K_k^\top\right] - \\
-&amp;\ \ \ \ \ \ \mathbb{E}\left[K_k\mathbf{v}_k\mathbf{e}_k^{-\top}(I-K_kH)^{\top}\right] + \mathbb{E}\left[K_k\mathbf{v}_k\mathbf{v}_k^\top K_k^\top\right]
+&amp;\ \ \ \ \ \ \mathbb{E}\left[K_k\mathbf{v}_k\mathbf{e}_k^{-\top}(I-K_kH)^{\top}\right] + \mathbb{E}\left[K_k\mathbf{v}_k\mathbf{v}_k^\top K_k^\top\right]\\
+&amp;= (I-K_kH)\mathbb{E}\left[\mathbf{e}_k^{-}\mathbf{e}_{k}^{-\top}\right](I-K_kH)^{\top}-(I-K_kH)\mathbb{E}\left[\mathbf{e}_k^{-}\mathbf{v}_{k}^{\top}\right]K_k^{\top} -\\
+&amp;\ \ \ \ \ \ K_k\mathbb{E}\left[\mathbf{v}_k\mathbf{e}_k^{-\top}\right](I-K_kH)^{\top} + K_k\mathbb{E}\left[\mathbf{v}_k\mathbf{v}_k^{\top}\right]K_k^{\top}
 \end{aligned}\]</div>
 <p>其中，注意到先验误差 <span class="arithmatex">\(\mathbf{e}_k^{-}\)</span> 和测量误差 <span class="arithmatex">\(\mathbf{v}_k\)</span> 是相互独立的，因此有</p>
 <div class="arithmatex">\[\begin{aligned}
-\mathbb{E}\left[(I-K_kH)\mathbf{e}_k^{-}\mathbf{v}_k^\top K_k^\top\right] &amp;= (I-K_kH)\mathbb{E}\left(\mathbf{e}_k^{-}\mathbf{v}_k^\top\right) K_k^\top\\
+(I-K_kH)\mathbb{E}\left(\mathbf{e}_k^{-}\mathbf{v}_k^\top\right) K_k^\top
 &amp;= (I-K_kH)\mathbb{E}\left(\mathbf{e}_k^{-}\right)\mathbb{E}\left(\mathbf{v}_k^\top\right) K_k^\top\\
-&amp;= \mathbf{0}
+&amp;= \mathbf{0}\\
+K_k\mathbb{E}\left[\mathbf{v}_k\mathbf{e}_k^{-\top}\right](I-K_kH)^{\top} &amp;= \mathbf{0}
 \end{aligned}\]</div>
 <p>此外，因为 <span class="arithmatex">\(\mathbf{e}_k^{-}\)</span> 和 <span class="arithmatex">\(\mathbf{v}_k\)</span> 的期望都为 <span class="arithmatex">\(\mathbf{0}\)</span> ，则有</p>
 <div class="arithmatex">\[
@@ -3420,8 +3425,7 @@ P_k &amp;= \mathbb{E}\left(\mathbf{e}_k\mathbf{e}_k^\top\right)\\
 \]</div>
 <p>进而可以推得：</p>
 <div class="arithmatex">\[
-\begin{aligned}P_k &amp;= (I-K_kH)\mathbb{E}\left(\mathbf{e}_k^{-}\mathbf{e}_k^{-\top}\right)(I-K_kH)^{\top} + K_k\mathbb{E}\left(\mathbf{v}_k\mathbf{v}_k^\top\right)K_k^\top\\
-&amp;= (I-K_kH)P_k^{-}(I-K_kH)^{\top} + K_kR_kK_k^\top\end{aligned}\tag{Joseph}
+\begin{aligned}P_k &amp;= (I-K_kH)P_k^{-}(I-K_kH)^{\top} + K_kR_kK_k^\top\end{aligned}\tag{Joseph}
 \]</div>
 <p>上式被称为 Joseph 形式。我们继续化简：</p>
 <div class="arithmatex">\[\begin{aligned}
@@ -3430,30 +3434,31 @@ P_k &amp;= (I-K_kH)P_k^{-}(I-K_kH)^{\top} + K_kR_kK_k^\top\\
 &amp;= (P_k^{-}-K_kHP_k^{-})\left(I-H^\top K_k^\top\right) + K_kR_kK_k^\top\\
 &amp;= P_k^{-}-P_k^{-}H^\top K_k^{\top}-K_kHP_k^{-}+K_kHP_k^{-}H^\top K_k^{\top} + K_kR_kK_k^\top
 \end{aligned}\]</div>
-<p>注意到 <span class="arithmatex">\(P_k^{-}H^\top K_k^\top = (K_kHP_k^{-})^{\top}\)</span> ，所以两者的逆相等。从而可以计算协方差矩阵的迹：</p>
+<p>注意到 <span class="arithmatex">\(P_k^{-}H^\top K_k^\top = (K_kHP_k^{-})^{\top}\)</span> ，所以两者的迹相等。从而可以计算协方差矩阵的迹：</p>
 <div class="arithmatex">\[\begin{aligned}
 \mathrm{tr}(P_k) &amp;= \mathrm{tr}\left(P_k^{-}\right)-2\mathrm{tr}\left(K_kHP_k^{-}\right) + \mathrm{tr}\left(K_kHP_k^{-}H^\top K_k^\top\right) + \mathrm{tr}\left(K_kR_kK_k^\top\right)
 \end{aligned}\]</div>
 <p>接下来，我们要找到卡尔曼系数 <span class="arithmatex">\(K_k\)</span> 的最优值，让误差分布的协方差矩阵的迹最小。</p>
-<hr />
-<p>【引理】 <span class="arithmatex">\(\frac{\partial \mathrm{tr}\left(AB\right)}{\partial A} = \frac{\partial \mathrm{tr}\left(B^\top A^\top\right)}{\partial A}=B^\top\)</span> ，其中 <span class="arithmatex">\(A\in \mathbb{R}^{m\times n}, B \in \mathbb{R}^{n\times m}\)</span> 。</p>
+<div class="admonition theorem">
+<p class="admonition-title">Theorem</p>
+<p>【定理】 <span class="arithmatex">\(\dfrac{\partial \mathrm{tr}\left(AB\right)}{\partial A} = \dfrac{\partial \mathrm{tr}\left(B^\top A^\top\right)}{\partial A}=B^\top\)</span> ，其中 <span class="arithmatex">\(A\in \mathbb{R}^{m\times n}, B \in \mathbb{R}^{n\times m}\)</span> 。</p>
 <p>【证明】设</p>
 <div class="arithmatex">\[\begin{aligned}
 A_{m\times n} = \begin{bmatrix}\mathbf{a}_{1,1\times n}\\ \mathbf{a}_2\\ \vdots\\ \mathbf{a}_m\end{bmatrix} = \begin{bmatrix}a_{11} &amp; a_{12} &amp; \cdots &amp; a_{1n}\\ \vdots &amp; \vdots &amp; &amp; \vdots\\ a_{m1} &amp; a_{m2} &amp; \cdots &amp; a_{mn}\end{bmatrix}\\
 B_{n\times m} = \begin{bmatrix}\mathbf{b}_{1,n\times1} &amp; \mathbf{b}_2 &amp; \cdots &amp; \mathbf{b}_m\end{bmatrix} =  \begin{bmatrix}b_{11} &amp; b_{12} &amp; \cdots &amp; b_{1m}\\ \vdots &amp; \vdots &amp; &amp; \vdots\\ b_{n1} &amp; b_{n2} &amp; \cdots &amp; b_{nm}\end{bmatrix}
 \end{aligned}\]</div>
-<p>则有 <span class="arithmatex">\(\mathrm{tr}(AB) = \mathbf{a}_1\mathbf{b}_1 + \cdots + \mathbf{a}_m\mathbf{b}_m\)</span> 。而 <span class="arithmatex">\(\frac{\partial \mathrm{tr}(AB)}{\partial a_{ij}} = \frac{\partial \mathbf{a}_i\mathbf{b}_i}{\partial a_{ij}} = b_{ji}\)</span> ，所以</p>
+<p>则有 <span class="arithmatex">\(\mathrm{tr}(AB) = \mathbf{a}_1\mathbf{b}_1 + \cdots + \mathbf{a}_m\mathbf{b}_m\)</span> 。而 <span class="arithmatex">\(\dfrac{\partial \mathrm{tr}(AB)}{\partial a_{ij}} = \dfrac{\partial \mathbf{a}_i\mathbf{b}_i}{\partial a_{ij}} = b_{ji}\)</span> ，所以</p>
 <div class="arithmatex">\[\begin{aligned}
 \frac{\partial \mathrm{tr}\left(AB\right)}{\partial A} &amp;= \begin{bmatrix}\frac{\partial\mathrm{tr}\left(AB\right)}{\partial a_{11}} &amp; \cdots &amp; \frac{\partial\mathrm{tr}\left(AB\right)}{\partial a_{1m}}\\ \vdots &amp; &amp;\vdots\\ \frac{\partial\mathrm{tr}\left(AB\right)}{\partial a_{n1}} &amp; \cdots &amp; \frac{\partial\mathrm{tr}\left(AB\right)}{\partial a_{nm}}\end{bmatrix} = \begin{bmatrix}b_{11} &amp; \cdots &amp; b_{n1}\\ \vdots &amp; &amp; \vdots\\ b_{1m} &amp; \cdots &amp; b_{nm}\end{bmatrix}\\
 &amp;= B^\top\end{aligned}\]</div>
-<p>【引理】 <span class="arithmatex">\(\frac{\partial \mathrm{tr}\left(ABA^\top\right)}{\partial A}=A\left(B^\top+B\right)\)</span>  ，其中 <span class="arithmatex">\(A,B \in \mathbb{R}^{n\times n}\)</span> 。</p>
+<p>【定理】 <span class="arithmatex">\(\dfrac{\partial \mathrm{tr}\left(ABA^\top\right)}{\partial A}=A\left(B^\top+B\right)\)</span>  ，其中 <span class="arithmatex">\(A,B \in \mathbb{R}^{n\times n}\)</span> 。</p>
 <p>【证明】</p>
 <div class="arithmatex">\[\begin{aligned}
 \frac{\partial \mathrm{tr}\left(ABA^\top\right)}{\partial A} &amp;= \frac{\mathrm{tr}\left[\mathrm{d}A\left(BA^\top\right)\right]}{\partial A} + \frac{\mathrm{tr}\left[(AB)\mathrm{d}A^\top\right]}{\partial A}\\
 &amp;= \left(BA^\top\right)^\top + (AB)\\
 &amp;= A\left(B^\top+B\right)
 \end{aligned}\]</div>
-<hr />
+</div>
 <p>我们通过对误差分布的协方差矩阵的迹求导，求其极值点：</p>
 <div class="arithmatex">\[
 \begin{aligned}
@@ -3481,15 +3486,16 @@ K_k = P_k^{-} H^\top \left(HP_k^{-}H^\top + R_k\right)^{-1}
 <p>将上式代入协方差矩阵定义，有</p>
 <div class="arithmatex">\[\begin{aligned}
 P_k^{-} &amp;= \mathbb{E}\left[(A\mathbf{e}_{k-1} + \mathbf{w}_{k-1})\left(\mathbf{e}_{k-1}^{\top}A^{\top}+\mathbf{w}_{k-1}^{\top}\right)\right]\\
-&amp;= \mathbb{E}\left[A\mathbf{e}_{k-1}\mathbf{e}_{k-1}^{\top}A^{\top}\right] + \mathbb{E}\left[A\mathbf{e}_{k-1}\mathbf{w}_{k-1}^{\top}\right] + \mathbb{E}\left[\mathbf{w}_{k-1}\mathbf{e}_{k-1}^\top A^\top\right] + \mathbb{E}\left[\mathbf{w}_{k-1}\mathbf{w}_{k-1}^\top\right]
+&amp;= \mathbb{E}\left[A\mathbf{e}_{k-1}\mathbf{e}_{k-1}^{\top}A^{\top}\right] + \mathbb{E}\left[A\mathbf{e}_{k-1}\mathbf{w}_{k-1}^{\top}\right] + \mathbb{E}\left[\mathbf{w}_{k-1}\mathbf{e}_{k-1}^\top A^\top\right] + \mathbb{E}\left[\mathbf{w}_{k-1}\mathbf{w}_{k-1}^\top\right]\\
+&amp;= A\mathbb{E}\left[\mathbf{e}_{k-1}\mathbf{e}_{k-1}^{\top}\right]A^{\top} + A\mathbb{E}\left[\mathbf{e}_{k-1}\mathbf{w}_{k-1}^{\top}\right] + \mathbb{E}\left[\mathbf{w}_{k-1}\mathbf{e}_{k-1}^\top\right]A^{\top} + \mathbb{E}\left[\mathbf{w}_{k-1}\mathbf{w}_{k-1}^\top\right]
 \end{aligned}\]</div>
 <p>注意到 <span class="arithmatex">\(\mathbf{e}_{k-1}\)</span> 描述第 k-1 次的状态估计误差，而 <span class="arithmatex">\(\mathbf{w}_{k-1}\)</span> 是第 k 次的过程噪声，两者相互独立，因而有：</p>
 <div class="arithmatex">\[\begin{aligned}
-\mathbb{E}\left[A\mathbf{e}_{k-1}\mathbf{w}_{k-1}^\top\right] &amp;= A\mathbb{E}[\mathbf{e}_{k-1}]\mathbb{E}\left[\mathbf{w}_{k-1}^\top\right]\\
+A\mathbb{E}\left[\mathbf{e}_{k-1}\mathbf{w}_{k-1}^\top\right]
 &amp;= A\mathbf{0}_{n\times 1}\mathbf{0}_{1\times n}\\
 &amp;= \mathbf{0}_{n\times n}
 \end{aligned}\]</div>
-<p>同理， <span class="arithmatex">\(\mathbb{E}\left[\mathbf{w}_{k-1}\mathbf{e}_{k-1}^\top A^\top\right] = \mathbf{0}_{n\times n}\)</span> 。因此，协方差矩阵可表示为：</p>
+<p>同理， <span class="arithmatex">\(\mathbb{E}\left[\mathbf{w}_{k-1}\mathbf{e}_{k-1}^\top\right]A^{\top} = \mathbf{0}_{n\times n}\)</span> 。因此，协方差矩阵可表示为：</p>
 <div class="arithmatex">\[\begin{aligned}
 P_k^{-} &amp;= A\mathbb{E}\left[\mathbf{e}_{k-1}\mathbf{e}_{k-1}^\top\right]A^\top + \mathbb{E}\left[\mathbf{w}_{k-1}\mathbf{w}_{k-1}^\top\right]\\
 &amp;= AP_{k-1}A^\top + Q_{k-1}
@@ -3528,10 +3534,11 @@ P_k = (I-K_kH)P_k^{-}(I-K_kH)^{\top} + K_kR_kK_k^\top
 <div class="arithmatex">\[\begin{aligned}
 \mathbf{x}_k = f(\hat{\mathbf{x}}_{k-1},\mathbf{u}_{k-1},\hat{\mathbf{w}}_{k-1}) &amp;+ \frac{\partial f}{\partial \mathbf{x}}|_{\hat{\mathbf{x}}_{k-1}, \mathbf{u}_{k-1}, \hat{\mathbf{w}}_{k-1}}(\mathbf{x}_{k-1} - \hat{\mathbf{x}}_{k-1})\\ &amp;+ \frac{\partial f}{\partial \mathbf{w}}|_{\hat{\mathbf{x}}_{k-1}, \mathbf{u}_{k-1}, \hat{\mathbf{w}}_{k-1}}(\mathbf{w}_{k-1} - \hat{\mathbf{w}}_{k-1})
 \end{aligned}\]</div>
-<blockquote>
-<p>Q：为什么不对控制输入 <span class="arithmatex">\(\mathbf{u}_{k-1}\)</span> 求偏导？
-A：因为求完之后 <span class="arithmatex">\(\mathbf{u}_{k-1} - \mathbf{u}_{k-1} = 0\)</span> ，即我们所知的控制输入必是真实工作点的控制输入。</p>
-</blockquote>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>Q：为什么不对控制输入 <span class="arithmatex">\(\mathbf{u}_{k-1}\)</span> 求偏导？</p>
+<p>A：因为 <span class="arithmatex">\(\mathbf{u}_{k-1}\)</span> 的偏导项为 0 。再细了说，因为 <span class="arithmatex">\(\mathbf{u}_{k-1} - \hat{\mathbf{u}}_{k-1} = 0\)</span> ，即我们所知的控制输入必是真实工作点的控制输入。</p>
+</div>
 <p>由于我们对噪声信息基本没什么了解，所以直接将估计值设为 0 ，即 <span class="arithmatex">\(\hat{\mathbf{w}}_{k-1} = \mathbf{0}\)</span> . 进而有：</p>
 <div class="arithmatex">\[
 \mathbf{x}_k = f(\hat{\mathbf{x}}_{k-1}, \mathbf{u}_{k-1}, \mathbf{0}) + \frac{\partial f}{\partial \mathbf{x}}|_{\hat{\mathbf{x}}_{k-1}, \mathbf{u}_{k-1}, \mathbf{0}}(\mathbf{x}_{k-1} - \hat{\mathbf{x}}_{k-1}) + \frac{\partial f}{\partial \mathbf{w}}|_{\hat{\mathbf{x}}_{k-1}, \mathbf{u}_{k-1}, \mathbf{0}}\mathbf{w}_{k-1}

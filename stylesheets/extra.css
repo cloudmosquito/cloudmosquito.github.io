@@ -100,3 +100,39 @@ body, .md-typeset {
 .md-typeset details.comment > summary::after {
   display: none !important;
 }
+
+/* 定理类型 */
+.md-typeset .admonition.theorem,
+.md-typeset details.theorem {
+  border-color: #009688;
+  background-color: rgba(0, 150, 136, 0.05);
+}
+
+.md-typeset .admonition.theorem > .admonition-title,
+.md-typeset details.theorem > summary {
+  background-color: rgba(0, 150, 136, 0.1);
+  padding-left: 2.15rem !important;
+}
+
+.md-typeset .admonition.theorem > .admonition-title::before,
+.md-typeset details.theorem > summary::before {
+  color: #009688;
+  content: "📐";
+  background: none !important;
+  border-radius: 0 !important;
+  width: auto !important;
+  height: auto !important;
+  font-size: 1.2em;
+  margin-right: 0.5em;
+  position: absolute !important;
+  left: 0.75rem !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  mask: none !important;
+  -webkit-mask: none !important;
+}
+
+.md-typeset .admonition.theorem > .admonition-title::after,
+.md-typeset details.theorem > summary::after {
+  display: none !important;
+}

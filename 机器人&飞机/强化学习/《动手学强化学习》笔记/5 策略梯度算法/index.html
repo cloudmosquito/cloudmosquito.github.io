@@ -2678,6 +2678,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      编程细节
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -3162,6 +3171,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      编程细节
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -3243,8 +3261,8 @@ p(\tau|\theta) &amp;= p(s_0)\pi_\theta(a_0|s_0)p(s_1|s_0,a_0)\pi_\theta(a_1|s_1)
 &amp;= \log p(s_0) + \sum_{t=0}^{T}\log \pi_\theta(a_t|s_t) + \sum_{t=0}^{T}\log p(s_{t+1}|s_t,a_t)
 \end{aligned}\]</div>
 <p>那么现在的问题是，如何将 <span class="arithmatex">\(\nabla p(\tau|\theta)\)</span> 和 <span class="arithmatex">\(\log p(\tau|\theta)\)</span> 联系在一起？</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
+<div class="admonition theorem">
+<p class="admonition-title">Theorem</p>
 <div class="arithmatex">\[\begin{aligned}\nabla \log f(x) &amp;= \dfrac{1}{f(x)}\nabla f(x)\\ \nabla f(x) &amp;= f(x)\nabla \log f(x)\end{aligned}\]</div>
 </div>
 <p>根据以上补充式，我们有 <span class="arithmatex">\(\nabla p(\tau|\theta) = p(\tau|\theta) \nabla \log p(\tau|\theta)\)</span> . 从而有</p>
@@ -3253,8 +3271,9 @@ p(\tau|\theta) &amp;= p(s_0)\pi_\theta(a_0|s_0)p(s_1|s_0,a_0)\pi_\theta(a_1|s_1)
 &amp;= \sum_{\tau}R(\tau)\nabla_{\theta}p(\tau|\theta)\\
 &amp;= \sum_{\tau}R(\tau)p(\tau|\theta)\nabla_{\theta}\log p(\tau|\theta)
 \end{aligned}\]</div>
-<hr />
 <p>我们注意到上式是一个期望的表达式：</p>
+<div class="arithmatex">\[\nabla_{\theta}\bar{R}_{\theta} = \mathbb{E}_{\tau \sim p(\tau|\theta)} \left[R(\tau)\nabla_\theta\log p(\tau|\theta)\right]\]</div>
+<hr />
 <div class="arithmatex">\[\begin{aligned}
 \nabla_{\theta}\bar{R}_{\theta} 
 &amp;= \sum_{\tau}R(\tau)p(\tau|\theta)\nabla_{\theta}\log p(\tau|\theta)\\
@@ -3305,8 +3324,8 @@ p(\tau|\theta) &amp;= p(s_0)\pi_\theta(a_0|s_0)p(s_1|s_0,a_0)\pi_\theta(a_1|s_1)
 <p>优化方式是计算某个状态-动作对的奖励时，不使用整条轨迹的总回报，而只计算执行该动作之后得到的奖励。</p>
 <div class="admonition question">
 <p class="admonition-title">Question</p>
-<p>Q：为什么不直接用 <span class="arithmatex">\((s_t, a_t)\)</span> 对应的回报 <span class="arithmatex">\(r_t\)</span> ？
-A：因为此时的奖励是在估计 <span class="arithmatex">\(A^{\pi}(s,a) = Q^{\pi}(s,a)-V^{\pi}(s)\)</span> 中的 <span class="arithmatex">\(Q^{\pi}(s,a)\)</span>. 具体而言，状态-动作对的奖励不仅要考虑即时奖励，还要考虑未来状态的奖励。</p>
+<p>Q：为什么不直接用 <span class="arithmatex">\((s_t, a_t)\)</span> 对应的回报 <span class="arithmatex">\(r_t\)</span> ？</p>
+<p>A：因为此时的奖励是在估计 <span class="arithmatex">\(A^{\pi}(s,a) = Q^{\pi}(s,a)-V^{\pi}(s)\)</span> 中的 <span class="arithmatex">\(Q^{\pi}(s,a)\)</span>. 具体而言，状态-动作对的奖励不仅要考虑即时奖励，还要考虑未来状态的奖励。</p>
 </div>
 <div class="arithmatex">\[\theta \leftarrow \theta + \frac{\eta}{N}\sum_{n=1}^{N} \sum_{t=0}^T\left[\left(\sum_{t'=t}^T \gamma^{t'-t} r^{\{n\}}_{t'} - b\right) \nabla_\theta \log \pi_\theta\left(a^{\{n\}}_t|s^{\{n\}}_t\right)\right]\]</div>
 <p>其中 <span class="arithmatex">\(\sum_{t'=t}^T \gamma^{t'-t} r^{\{n\}}_{t'} - b\)</span> 就是对优势函数 <span class="arithmatex">\(A^{\pi}(s,a)\)</span> 的估计。</p>
@@ -3321,6 +3340,17 @@ A：因为此时的奖励是在估计 <span class="arithmatex">\(A^{\pi}(s,a) = 
 <p class="admonition-title">Note</p>
 <p>这里的 <span class="arithmatex">\(\alpha\)</span> 是学习率，也即上文理论推导过程中的 <span class="arithmatex">\(\dfrac{\eta}{N}\)</span> . 实际编程中， <span class="arithmatex">\(N\)</span> 的准确性没有那么重要。</p>
 </div>
+<h3 id="_6">编程细节</h3>
+<p>策略梯度算法的参数更新为</p>
+<div class="arithmatex">\[\theta \leftarrow \theta + \frac{\eta}{N}\sum_{n=1}^{N} \sum_{t=0}^T\left[\left(\sum_{t'=t}^T \gamma^{t'-t} r^{\{n\}}_{t'} - b\right) \nabla_\theta \log \pi_\theta\left(a^{\{n\}}_t|s^{\{n\}}_t\right)\right]\]</div>
+<p>实际上，每次更新只更新其中的一小步，即</p>
+<div class="arithmatex">\[\theta \leftarrow \theta +\alpha \cdot \left(\sum_{t'=t}^T \gamma^{t'-t} r^{\{n\}}_{t'} - b\right) \nabla_\theta \log \pi_\theta\left(a^{\{n\}}_t|s^{\{n\}}_t\right)\]</div>
+<p>那么，上式如何编程实现呢？</p>
+<p>编程实现时，我们用一个神经网络表示策略 <span class="arithmatex">\(\pi_\theta\)</span> ，<span class="arithmatex">\(\theta\)</span> 表示的是神经网络中的所有参数。这些参数的更新方式是大名鼎鼎的<strong>反向传播</strong>。</p>
+<p>定义神经网络输出的损失函数 Loss Function 和学习率 <span class="arithmatex">\(\alpha\)</span>，神经网络通过反向传播更新参数的过程可以表示为</p>
+<div class="arithmatex">\[\theta \leftarrow \theta - \alpha \cdot \nabla_{\theta}Loss\]</div>
+<p>因此，在编程时，我们只需要如下定义神经网络的损失函数，再利用 Pytorch 等提供的反向传播方法更新神经网络即可。</p>
+<div class="arithmatex">\[Loss = -\left(\sum_{t'=t}^{T}\gamma^{t'-t}r_{t'}^{\{n\}}-b\right)\log\pi_{\theta}\left(a_t^{\{n\}}|s_t^{\{n\}}\right)\]</div>
 
 
 
