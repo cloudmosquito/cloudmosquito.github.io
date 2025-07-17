@@ -1,5 +1,7 @@
 # KF & EKF
 
+参考资料：[B 站 Dr.Can 的视频](https://space.bilibili.com/230105574){target="_blank"}。
+
 ## 1 任务定义
 
 考虑线性离散系统状态空间方程
@@ -31,13 +33,15 @@ $$
 \hat{\mathbf{x}}_{k,meas} = H^{-1}\mathbf{z}_k \tag{2}
 $$
 
-> 【注意】实际系统中，$H$ 很可能是不可逆的，即无法通过测量值得知状态量。此处假设 $H$ 是可逆的，仅为了方便理解下文数据融合的思路。
+!!! Note
+
+    实际系统中，$H$ 很可能是不可逆的，即无法通过测量值得知状态量。此处假设 $H$ 是可逆的，仅为了方便理解下文数据融合的思路。
 
 ## 2 数据融合与 Kalman Gain
 
 ### 2.1 宕开一笔——数据融合
 
-考虑这样两个满足正态分布的测量结果，一个均值 $z_1 = 6.5$ ，标准差 $\sigma_1 = 0.2$ ；另一个均值 $z_2 = 7.3$ ，标准差 $\sigma_2 = 0.4$ 。请问如何根据这两个测量结果，得到一个最优的测量估计值？
+考虑两个满足正态分布的测量结果，一个均值 $z_1 = 6.5$ ，标准差 $\sigma_1 = 0.2$ ；另一个均值 $z_2 = 7.3$ ，标准差 $\sigma_2 = 0.4$ 。请问如何根据这两个测量结果，得到一个最优的测量估计值？
 
 首先一个最基本的思路是将这两个数据加权求和，即
 
@@ -47,7 +51,7 @@ $$
 
 这里的 $k \in [0,1]$ ，表示对 $z_2$ 的信任程度 / 对 $z_1$ 的不信任程度。接下来的问题是， $k$ 取何值时，估计是最优的？
 
-我们如何定义"最优性"？让我们回顾一下测量结果中"标准差"的含义。以测量结果 1 为例，由于满足正态分布，标准差代表真值有 68.27% 的概率落在 \[6.3, 6.7\] 之间，有 95.45% 的概率落在 \[6.1, 6.9\] 之间，有 99.73% 的概率落在 \[5.9, 7.1\] 之间。
+我们如何定义"最优性"？让我们回顾一下测量结果中"标准差"的含义。以测量结果 1 为例，由于满足正态分布，均值 `6.5` ，标准差 `0.2` 代表真值有 68.27% 的概率落在 \[6.3, 6.7\] 之间，有 95.45% 的概率落在 \[6.1, 6.9\] 之间，有 99.73% 的概率落在 \[5.9, 7.1\] 之间。
 
 我们的 $\hat{z}$ 可以理解为测量估计的均值，也就是这些区间的中间值；若测量估计的标准差/方差越小，则测量估计与真值越接近，则估计越好。
 
@@ -68,7 +72,7 @@ $$
 
 ### 2.2 回归正题——引出 Kalman Gain
 
-这里的 (1) (2) 两式都没有考虑噪声。我们采用如下的常见方式融合这两个数据，得到系统状态的后验估计：
+上文的 (1) (2) 两式都没有考虑噪声。我们采用如下的常见方式融合这两个数据，得到系统状态的后验估计：
 
 $$
 \hat{\mathbf{x}}_k = \hat{\mathbf{x}}_k^{-} + (K_kH)\left(\hat{\mathbf{x}}_{k,meas}-\hat{\mathbf{x}}_k^{-}\right)
@@ -96,11 +100,12 @@ $$
 
 注意到误差满足正态分布，期望为 0 。设 $\mathbf{e}_k \sim \mathcal{N}(0,P_k)$ ，其中 $P_k$ 是协方差矩阵。
 
-我们想使误差最小，其实是想使误差分布尽可能集中在 0 附近，即方差尽可能小，即 $\mathrm{tr}(P)$ 尽可能小。
+我们想使误差最小，其实是想使误差分布尽可能集中在 0 附近，即方差尽可能小，即 $\mathrm{tr}(P_k)$ 尽可能小。我们接下来的任务就是寻找一个最优的卡尔曼系数 $K_k$ ，使得 $\mathrm{tr}(P_k)$ 最小。
+
 
 > 怎么计算协方差矩阵？$\mathrm{VAR}(\mathbf{x}) = \mathbb{E}\left(\mathbf{x}\mathbf{x}^{\top}\right) -\mathbb{E}^2(\mathbf{x})$ .
 
-现在，我们计算后验估计误差分布的协方差矩阵。注意到 $\mathbb{E}(\mathbf{e}_k) = 0$ ，从而有：
+首先，我们计算后验估计误差分布的协方差矩阵 $P_k$ 。注意到 $\mathbb{E}(\mathbf{e}_k) = 0$ ，从而有：
 
 $$\begin{aligned}
 P_k &= \mathbb{E}\left(\mathbf{e}_k\mathbf{e}_k^\top\right)\\
@@ -109,15 +114,18 @@ P_k &= \mathbb{E}\left(\mathbf{e}_k\mathbf{e}_k^\top\right)\\
 &= \mathbb{E}[(I-K_kH)\mathbf{e}_k^{-}\mathbf{e}_k^{-\top}(I-K_kH)^{\top}-(I-K_kH)\mathbf{e}_k^{-}\mathbf{v}_k^\top K_k^\top-\\
 &\ \ \ \ \ \ K_k\mathbf{v}_k\mathbf{e}_k^{-\top}(I-K_kH)^{\top} + K_k\mathbf{v}_k\mathbf{v}_k^{\top}K_k^{\top}]\\
 &= \mathbb{E}\left[(I-K_kH)\mathbf{e}_k^{-}\mathbf{e}_k^{-\top}(I-K_kH)^{\top}\right] - \mathbb{E}\left[(I-K_kH)\mathbf{e}_k^{-}\mathbf{v}_k^\top K_k^\top\right] - \\
-&\ \ \ \ \ \ \mathbb{E}\left[K_k\mathbf{v}_k\mathbf{e}_k^{-\top}(I-K_kH)^{\top}\right] + \mathbb{E}\left[K_k\mathbf{v}_k\mathbf{v}_k^\top K_k^\top\right]
+&\ \ \ \ \ \ \mathbb{E}\left[K_k\mathbf{v}_k\mathbf{e}_k^{-\top}(I-K_kH)^{\top}\right] + \mathbb{E}\left[K_k\mathbf{v}_k\mathbf{v}_k^\top K_k^\top\right]\\
+&= (I-K_kH)\mathbb{E}\left[\mathbf{e}_k^{-}\mathbf{e}_{k}^{-\top}\right](I-K_kH)^{\top}-(I-K_kH)\mathbb{E}\left[\mathbf{e}_k^{-}\mathbf{v}_{k}^{\top}\right]K_k^{\top} -\\
+&\ \ \ \ \ \ K_k\mathbb{E}\left[\mathbf{v}_k\mathbf{e}_k^{-\top}\right](I-K_kH)^{\top} + K_k\mathbb{E}\left[\mathbf{v}_k\mathbf{v}_k^{\top}\right]K_k^{\top}
 \end{aligned}$$
 
 其中，注意到先验误差 $\mathbf{e}_k^{-}$ 和测量误差 $\mathbf{v}_k$ 是相互独立的，因此有
 
 $$\begin{aligned}
-\mathbb{E}\left[(I-K_kH)\mathbf{e}_k^{-}\mathbf{v}_k^\top K_k^\top\right] &= (I-K_kH)\mathbb{E}\left(\mathbf{e}_k^{-}\mathbf{v}_k^\top\right) K_k^\top\\
+(I-K_kH)\mathbb{E}\left(\mathbf{e}_k^{-}\mathbf{v}_k^\top\right) K_k^\top
 &= (I-K_kH)\mathbb{E}\left(\mathbf{e}_k^{-}\right)\mathbb{E}\left(\mathbf{v}_k^\top\right) K_k^\top\\
-&= \mathbf{0}
+&= \mathbf{0}\\
+K_k\mathbb{E}\left[\mathbf{v}_k\mathbf{e}_k^{-\top}\right](I-K_kH)^{\top} &= \mathbf{0}
 \end{aligned}$$
 
 此外，因为 $\mathbf{e}_k^{-}$ 和 $\mathbf{v}_k$ 的期望都为 $\mathbf{0}$ ，则有
@@ -129,8 +137,7 @@ $$
 进而可以推得：
 
 $$
-\begin{aligned}P_k &= (I-K_kH)\mathbb{E}\left(\mathbf{e}_k^{-}\mathbf{e}_k^{-\top}\right)(I-K_kH)^{\top} + K_k\mathbb{E}\left(\mathbf{v}_k\mathbf{v}_k^\top\right)K_k^\top\\
-&= (I-K_kH)P_k^{-}(I-K_kH)^{\top} + K_kR_kK_k^\top\end{aligned}\tag{Joseph}
+\begin{aligned}P_k &= (I-K_kH)P_k^{-}(I-K_kH)^{\top} + K_kR_kK_k^\top\end{aligned}\tag{Joseph}
 $$
 
 上式被称为 Joseph 形式。我们继续化简：
@@ -142,7 +149,7 @@ P_k &= (I-K_kH)P_k^{-}(I-K_kH)^{\top} + K_kR_kK_k^\top\\
 &= P_k^{-}-P_k^{-}H^\top K_k^{\top}-K_kHP_k^{-}+K_kHP_k^{-}H^\top K_k^{\top} + K_kR_kK_k^\top
 \end{aligned}$$
 
-注意到 $P_k^{-}H^\top K_k^\top = (K_kHP_k^{-})^{\top}$ ，所以两者的逆相等。从而可以计算协方差矩阵的迹：
+注意到 $P_k^{-}H^\top K_k^\top = (K_kHP_k^{-})^{\top}$ ，所以两者的迹相等。从而可以计算协方差矩阵的迹：
 
 $$\begin{aligned}
 \mathrm{tr}(P_k) &= \mathrm{tr}\left(P_k^{-}\right)-2\mathrm{tr}\left(K_kHP_k^{-}\right) + \mathrm{tr}\left(K_kHP_k^{-}H^\top K_k^\top\right) + \mathrm{tr}\left(K_kR_kK_k^\top\right)
@@ -150,34 +157,32 @@ $$\begin{aligned}
 
 接下来，我们要找到卡尔曼系数 $K_k$ 的最优值，让误差分布的协方差矩阵的迹最小。
 
----
+!!! Theorem
 
-【引理】 $\frac{\partial \mathrm{tr}\left(AB\right)}{\partial A} = \frac{\partial \mathrm{tr}\left(B^\top A^\top\right)}{\partial A}=B^\top$ ，其中 $A\in \mathbb{R}^{m\times n}, B \in \mathbb{R}^{n\times m}$ 。
+    【定理】 $\dfrac{\partial \mathrm{tr}\left(AB\right)}{\partial A} = \dfrac{\partial \mathrm{tr}\left(B^\top A^\top\right)}{\partial A}=B^\top$ ，其中 $A\in \mathbb{R}^{m\times n}, B \in \mathbb{R}^{n\times m}$ 。
 
-【证明】设
+    【证明】设
 
-$$\begin{aligned}
-A_{m\times n} = \begin{bmatrix}\mathbf{a}_{1,1\times n}\\ \mathbf{a}_2\\ \vdots\\ \mathbf{a}_m\end{bmatrix} = \begin{bmatrix}a_{11} & a_{12} & \cdots & a_{1n}\\ \vdots & \vdots & & \vdots\\ a_{m1} & a_{m2} & \cdots & a_{mn}\end{bmatrix}\\
-B_{n\times m} = \begin{bmatrix}\mathbf{b}_{1,n\times1} & \mathbf{b}_2 & \cdots & \mathbf{b}_m\end{bmatrix} =  \begin{bmatrix}b_{11} & b_{12} & \cdots & b_{1m}\\ \vdots & \vdots & & \vdots\\ b_{n1} & b_{n2} & \cdots & b_{nm}\end{bmatrix}
-\end{aligned}$$
+    $$\begin{aligned}
+    A_{m\times n} = \begin{bmatrix}\mathbf{a}_{1,1\times n}\\ \mathbf{a}_2\\ \vdots\\ \mathbf{a}_m\end{bmatrix} = \begin{bmatrix}a_{11} & a_{12} & \cdots & a_{1n}\\ \vdots & \vdots & & \vdots\\ a_{m1} & a_{m2} & \cdots & a_{mn}\end{bmatrix}\\
+    B_{n\times m} = \begin{bmatrix}\mathbf{b}_{1,n\times1} & \mathbf{b}_2 & \cdots & \mathbf{b}_m\end{bmatrix} =  \begin{bmatrix}b_{11} & b_{12} & \cdots & b_{1m}\\ \vdots & \vdots & & \vdots\\ b_{n1} & b_{n2} & \cdots & b_{nm}\end{bmatrix}
+    \end{aligned}$$
 
-则有 $\mathrm{tr}(AB) = \mathbf{a}_1\mathbf{b}_1 + \cdots + \mathbf{a}_m\mathbf{b}_m$ 。而 $\frac{\partial \mathrm{tr}(AB)}{\partial a_{ij}} = \frac{\partial \mathbf{a}_i\mathbf{b}_i}{\partial a_{ij}} = b_{ji}$ ，所以
+    则有 $\mathrm{tr}(AB) = \mathbf{a}_1\mathbf{b}_1 + \cdots + \mathbf{a}_m\mathbf{b}_m$ 。而 $\dfrac{\partial \mathrm{tr}(AB)}{\partial a_{ij}} = \dfrac{\partial \mathbf{a}_i\mathbf{b}_i}{\partial a_{ij}} = b_{ji}$ ，所以
 
-$$\begin{aligned}
-\frac{\partial \mathrm{tr}\left(AB\right)}{\partial A} &= \begin{bmatrix}\frac{\partial\mathrm{tr}\left(AB\right)}{\partial a_{11}} & \cdots & \frac{\partial\mathrm{tr}\left(AB\right)}{\partial a_{1m}}\\ \vdots & &\vdots\\ \frac{\partial\mathrm{tr}\left(AB\right)}{\partial a_{n1}} & \cdots & \frac{\partial\mathrm{tr}\left(AB\right)}{\partial a_{nm}}\end{bmatrix} = \begin{bmatrix}b_{11} & \cdots & b_{n1}\\ \vdots & & \vdots\\ b_{1m} & \cdots & b_{nm}\end{bmatrix}\\
-&= B^\top\end{aligned}$$
+    $$\begin{aligned}
+    \frac{\partial \mathrm{tr}\left(AB\right)}{\partial A} &= \begin{bmatrix}\frac{\partial\mathrm{tr}\left(AB\right)}{\partial a_{11}} & \cdots & \frac{\partial\mathrm{tr}\left(AB\right)}{\partial a_{1m}}\\ \vdots & &\vdots\\ \frac{\partial\mathrm{tr}\left(AB\right)}{\partial a_{n1}} & \cdots & \frac{\partial\mathrm{tr}\left(AB\right)}{\partial a_{nm}}\end{bmatrix} = \begin{bmatrix}b_{11} & \cdots & b_{n1}\\ \vdots & & \vdots\\ b_{1m} & \cdots & b_{nm}\end{bmatrix}\\
+    &= B^\top\end{aligned}$$
 
-【引理】 $\frac{\partial \mathrm{tr}\left(ABA^\top\right)}{\partial A}=A\left(B^\top+B\right)$  ，其中 $A,B \in \mathbb{R}^{n\times n}$ 。
+    【定理】 $\dfrac{\partial \mathrm{tr}\left(ABA^\top\right)}{\partial A}=A\left(B^\top+B\right)$  ，其中 $A,B \in \mathbb{R}^{n\times n}$ 。
 
-【证明】
+    【证明】
 
-$$\begin{aligned}
-\frac{\partial \mathrm{tr}\left(ABA^\top\right)}{\partial A} &= \frac{\mathrm{tr}\left[\mathrm{d}A\left(BA^\top\right)\right]}{\partial A} + \frac{\mathrm{tr}\left[(AB)\mathrm{d}A^\top\right]}{\partial A}\\
-&= \left(BA^\top\right)^\top + (AB)\\
-&= A\left(B^\top+B\right)
-\end{aligned}$$
-
----
+    $$\begin{aligned}
+    \frac{\partial \mathrm{tr}\left(ABA^\top\right)}{\partial A} &= \frac{\mathrm{tr}\left[\mathrm{d}A\left(BA^\top\right)\right]}{\partial A} + \frac{\mathrm{tr}\left[(AB)\mathrm{d}A^\top\right]}{\partial A}\\
+    &= \left(BA^\top\right)^\top + (AB)\\
+    &= A\left(B^\top+B\right)
+    \end{aligned}$$
 
 我们通过对误差分布的协方差矩阵的迹求导，求其极值点：
 
@@ -217,18 +222,19 @@ $$\begin{aligned}
 
 $$\begin{aligned}
 P_k^{-} &= \mathbb{E}\left[(A\mathbf{e}_{k-1} + \mathbf{w}_{k-1})\left(\mathbf{e}_{k-1}^{\top}A^{\top}+\mathbf{w}_{k-1}^{\top}\right)\right]\\
-&= \mathbb{E}\left[A\mathbf{e}_{k-1}\mathbf{e}_{k-1}^{\top}A^{\top}\right] + \mathbb{E}\left[A\mathbf{e}_{k-1}\mathbf{w}_{k-1}^{\top}\right] + \mathbb{E}\left[\mathbf{w}_{k-1}\mathbf{e}_{k-1}^\top A^\top\right] + \mathbb{E}\left[\mathbf{w}_{k-1}\mathbf{w}_{k-1}^\top\right]
+&= \mathbb{E}\left[A\mathbf{e}_{k-1}\mathbf{e}_{k-1}^{\top}A^{\top}\right] + \mathbb{E}\left[A\mathbf{e}_{k-1}\mathbf{w}_{k-1}^{\top}\right] + \mathbb{E}\left[\mathbf{w}_{k-1}\mathbf{e}_{k-1}^\top A^\top\right] + \mathbb{E}\left[\mathbf{w}_{k-1}\mathbf{w}_{k-1}^\top\right]\\
+&= A\mathbb{E}\left[\mathbf{e}_{k-1}\mathbf{e}_{k-1}^{\top}\right]A^{\top} + A\mathbb{E}\left[\mathbf{e}_{k-1}\mathbf{w}_{k-1}^{\top}\right] + \mathbb{E}\left[\mathbf{w}_{k-1}\mathbf{e}_{k-1}^\top\right]A^{\top} + \mathbb{E}\left[\mathbf{w}_{k-1}\mathbf{w}_{k-1}^\top\right]
 \end{aligned}$$
 
 注意到 $\mathbf{e}_{k-1}$ 描述第 k-1 次的状态估计误差，而 $\mathbf{w}_{k-1}$ 是第 k 次的过程噪声，两者相互独立，因而有：
 
 $$\begin{aligned}
-\mathbb{E}\left[A\mathbf{e}_{k-1}\mathbf{w}_{k-1}^\top\right] &= A\mathbb{E}[\mathbf{e}_{k-1}]\mathbb{E}\left[\mathbf{w}_{k-1}^\top\right]\\
+A\mathbb{E}\left[\mathbf{e}_{k-1}\mathbf{w}_{k-1}^\top\right]
 &= A\mathbf{0}_{n\times 1}\mathbf{0}_{1\times n}\\
 &= \mathbf{0}_{n\times n}
 \end{aligned}$$
 
-同理， $\mathbb{E}\left[\mathbf{w}_{k-1}\mathbf{e}_{k-1}^\top A^\top\right] = \mathbf{0}_{n\times n}$ 。因此，协方差矩阵可表示为：
+同理， $\mathbb{E}\left[\mathbf{w}_{k-1}\mathbf{e}_{k-1}^\top\right]A^{\top} = \mathbf{0}_{n\times n}$ 。因此，协方差矩阵可表示为：
 
 $$\begin{aligned}
 P_k^{-} &= A\mathbb{E}\left[\mathbf{e}_{k-1}\mathbf{e}_{k-1}^\top\right]A^\top + \mathbb{E}\left[\mathbf{w}_{k-1}\mathbf{w}_{k-1}^\top\right]\\
@@ -290,8 +296,11 @@ $$\begin{aligned}
 \mathbf{x}_k = f(\hat{\mathbf{x}}_{k-1},\mathbf{u}_{k-1},\hat{\mathbf{w}}_{k-1}) &+ \frac{\partial f}{\partial \mathbf{x}}|_{\hat{\mathbf{x}}_{k-1}, \mathbf{u}_{k-1}, \hat{\mathbf{w}}_{k-1}}(\mathbf{x}_{k-1} - \hat{\mathbf{x}}_{k-1})\\ &+ \frac{\partial f}{\partial \mathbf{w}}|_{\hat{\mathbf{x}}_{k-1}, \mathbf{u}_{k-1}, \hat{\mathbf{w}}_{k-1}}(\mathbf{w}_{k-1} - \hat{\mathbf{w}}_{k-1})
 \end{aligned}$$
 
-> Q：为什么不对控制输入 $\mathbf{u}_{k-1}$ 求偏导？
-> A：因为求完之后 $\mathbf{u}_{k-1} - \mathbf{u}_{k-1} = 0$ ，即我们所知的控制输入必是真实工作点的控制输入。
+!!! Question
+
+    Q：为什么不对控制输入 $\mathbf{u}_{k-1}$ 求偏导？
+    
+    A：因为 $\mathbf{u}_{k-1}$ 的偏导项为 0 。再细了说，因为 $\mathbf{u}_{k-1} - \hat{\mathbf{u}}_{k-1} = 0$ ，即我们所知的控制输入必是真实工作点的控制输入。
 
 由于我们对噪声信息基本没什么了解，所以直接将估计值设为 0 ，即 $\hat{\mathbf{w}}_{k-1} = \mathbf{0}$ . 进而有：
 
