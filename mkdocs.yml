@@ -33,7 +33,7 @@ theme:
 
   features:
     - navigation.instant
-    - navigation.instant.prefetch # 修正拼写错误，应该是 prefetch
+    - navigation.instant.prefetch
     - navigation.instant.progress
     - navigation.tabs
     # - navigation.expand # 禁用导航栏的展开功能
