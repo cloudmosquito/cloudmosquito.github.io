@@ -88,3 +88,71 @@ int main(int argc, char** argv)
 	return 0;
 }
 ```
+
+## 多线程（2025.07.23 更新）
+
+### 问题描述
+
+由于有对平台位置进行预测/外推的需求，因此代码中新增订阅了 `/mavros/global_position/global` 话题，其回调函数类似：
+
+```cpp
+void gpsCallback(const sensor_msgs::NavSatFix::ConstPtr& msg)
+{
+	// 一些逻辑
+	a[0] = msg->latitude;
+	a[1] = msg->longitude;
+}
+```
+
+但在 CT 飞机的仿真联调测试时发现，数组 a 里的两个数据呈现明显的“阶梯状”，即有较长一段时间，数据保持不变——这显然是不合理的。
+
+最终定位问题为 `targetCallback()` 回调函数里的 `wp_push_client.call(push_srv)` 服务调用导致主线程堵塞。由于我们的代码默认只有一个线程，因此 `gpsCallback()` 回调函数也被堵塞了。
+
+实测在 `targetCallback()` 中发布的话题频率最高只能到 3 Hz，而 `targetCallback()` 订阅的话题频率是 80 Hz！
+
+### 解决方法 1
+
+我们的解决方法是：
+
+```c++
+#include <thread>
+
+std::mutex srv_mutex_;
+
+void targetCallback(const geometry_msgs::PoseStamped::ConstPtr& msg)
+{
+	// 一些逻辑
+    auto waypoints_copy = current_wps_.waypoints;
+    std::thread(&DynamicLandingNode::callServiceInThread, this, waypoints_copy).detach(); // 这里用 this 是因为这两个函数都被我们放到了同一个类里
+}
+
+void callServiceInThread(const std::vector<mavros_msgs::Waypoint>& waypoints)
+    {
+        std::lock_guard<std::mutex> lock(srv_mutex_);  // 加锁，保证同一时刻只有一个线程调用服务
+        mavros_msgs::WaypointPush push_srv_;
+        push_srv_.request.waypoints = current_wps_.waypoints;
+        if (wp_push_client_.call(push_srv_)) {
+            ROS_INFO("Successfully updated waypoints");
+        } else {
+            ROS_WARN("Failte to update waypoints.");
+        }
+    }
+```
+
+### 解决方法 2
+
+将 `main` 函数中的
+
+```c++
+ros::spin();
+```
+
+改成多线程的 
+
+```c++
+ros::AsyncSpinner spinner(4) // 开四个线程，由ROS管理
+spinner.start();
+ros::waitForShutdown();
+```
+
+也能解决 `targetCallback()` 堵塞影响 `gpsCallback()` 的问题。但是无法解决 `targetCallback()` 中发布话题频率过低的问题。
