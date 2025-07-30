@@ -3565,6 +3565,30 @@
 &amp;= \begin{bmatrix}2b_1 &amp; 2b_2 &amp; \cdots &amp; 2b_n\end{bmatrix}\\
 &amp;= 2\mathbf{b}^\top
 \end{aligned}\]</div>
+<p>我们再考虑 <span class="arithmatex">\(\mathbf{a}^{\top}W\mathbf{b}\)</span> 分别对 <span class="arithmatex">\(\mathbf{a}\)</span> 和 <span class="arithmatex">\(\mathbf{b}\)</span> 的偏导。</p>
+<div class="arithmatex">\[\begin{aligned}
+\frac{\partial\mathbf{a}^{\top}W\mathbf{b}}{\partial \mathbf{a}} &amp;=
+\begin{bmatrix}w_{11}b_1+w_{12}b_2+\cdots+w_{1n}b_n\\
+w_{21}b_1+w_{22}b_2+\cdots+w_{2n}b_n\\ \vdots\\
+w_{n1}b_1+w_{n2}b_2+\cdots+w_{nn}b_n
+\end{bmatrix}^{\top}\\
+&amp;= \mathbf{b}^{\top}W^{\top}\\
+\frac{\partial \mathbf{a}^{\top}W\mathbf{b}}{\partial \mathbf{b}} &amp;=
+\begin{bmatrix}w_{11}a_1 + w_{21}a_2 + \cdots + w_{n1}a_n\\
+w_{12}a_1 + w_{22}a_2 + \cdots + w_{n2}a_n\\ \vdots\\
+w_{1n}a_1 + w_{2n}a_2 + \cdots + w_{nn}a_n\\
+\end{bmatrix}^{\top}\\
+&amp;= \mathbf{a}^{\top}W
+\end{aligned}\]</div>
+<p>同样地，考虑 <span class="arithmatex">\(\mathbf{a}=\mathbf{b}\)</span> 的情形：</p>
+<div class="arithmatex">\[\begin{aligned}
+\frac{\partial \mathbf{a}^{\top}W\mathbf{a}}{\partial \mathbf{a}} &amp;=
+\begin{bmatrix}2w_{11}a_1+(w_{21}+w_{12})a_2+\cdots+(w_{n1}+w_{1n})a_n\\
+(w_{12}+w_{21})a_1+2w_{22}a_2+\cdots+(w_{n2}+w_{2n})a_n\\ \vdots\\
+(w_{1n}+w_{n1})a_1+(w_{2n}+w_{n2})a_2+\cdots+2w_{nn}a_n\\
+\end{bmatrix}^{\top}\\
+&amp;= \mathbf{a}^{\top}\left(W+W^{\top}\right)
+\end{aligned}\]</div>
 <hr />
 <h3 id="22">2.2 向量对标量求导</h3>
 <div class="arithmatex">\[\frac{\mathrm{d}Y}{\mathrm{d}x} = \begin{bmatrix}\dfrac{\partial y_1}{\partial x} &amp; \dfrac{\partial y_2}{\partial x} &amp; \cdots &amp; \dfrac{\partial y_n}{\partial x}\end{bmatrix}^{\top}\]</div>
