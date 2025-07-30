@@ -13,25 +13,25 @@
       
       
       
-        <link rel="prev" href="../../../%E5%B0%8F%E8%AF%B4%E5%88%9B%E4%BD%9C/%E5%92%AB%E5%B0%BA%E5%A4%A9%E6%B6%AF/">
+        <link rel="prev" href="../../%E3%80%8A%E9%9D%9E%E7%BA%BF%E6%80%A7%E6%8E%A7%E5%88%B6%E3%80%8B%E7%AC%94%E8%AE%B0/%E7%89%B9%E6%AE%8A%E5%9E%8B%E9%9D%9E%E7%BA%BF%E6%80%A7%E7%B3%BB%E7%BB%9F/">
       
       
-        <link rel="next" href="../../../../%E6%9C%BA%E5%99%A8%E4%BA%BA%26%E9%A3%9E%E6%9C%BA/">
+        <link rel="next" href="../../%E6%BB%A4%E6%B3%A2%E5%99%A8/IIR%20%E4%B8%8E%20FIR%20%E6%BB%A4%E6%B3%A2%E5%99%A8/">
       
       
-      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.16">
     
     
       
-        <title>绪论笔记 - Cloudmosquito Site</title>
+        <title>基础 MPC - Cloudmosquito Site</title>
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.7e37652d.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.7e37652d.min.css">
       
         
-        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -52,18 +52,18 @@
     
       <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&display=swap">
     
-      <link rel="stylesheet" href="../../../../stylesheets/extra.css">
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
     
       <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
     
-    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
     
     
     
-   <link href="../../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+   <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
     html.glightbox-open { overflow: initial; height: 100%; }
     .gslide-title { margin-top: 0px; user-select: text; }
     .gslide-desc { color: #666; user-select: text; }
@@ -72,7 +72,7 @@
     .gdesc-inner { font-size: 0.75rem; }
     body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
     body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
-    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../../../assets/javascripts/glightbox.min.js"></script></head>
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -91,7 +91,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
+        <a href="#mpc" class="md-skip">
           跳转至
         </a>
       
@@ -105,7 +105,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="页眉">
-    <a href="../../../.." title="Cloudmosquito Site" class="md-header__button md-logo" aria-label="Cloudmosquito Site" data-md-component="logo">
+    <a href="../../.." title="Cloudmosquito Site" class="md-header__button md-logo" aria-label="Cloudmosquito Site" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -125,7 +125,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              绪论笔记
+              基础 MPC
             
           </span>
         </div>
@@ -226,7 +226,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../.." class="md-tabs__link">
+      <a href="../../.." class="md-tabs__link">
         
   
   
@@ -247,7 +247,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../../%E5%B7%A5%E5%85%B7/ROS2%20%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" class="md-tabs__link">
+        <a href="../../../%E5%B7%A5%E5%85%B7/ROS2%20%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" class="md-tabs__link">
           
   
   
@@ -265,11 +265,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../../../%E6%8E%A7%E5%88%B6%E7%90%86%E8%AE%BA/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../" class="md-tabs__link">
           
   
   
@@ -291,7 +293,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../../%E6%95%B0%E5%AD%A6/MatrixCookbook/" class="md-tabs__link">
+        <a href="../../../%E6%95%B0%E5%AD%A6/MatrixCookbook/" class="md-tabs__link">
           
   
   
@@ -309,13 +311,11 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../../../" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../../%E6%96%87%E5%AD%A6/" class="md-tabs__link">
           
   
   
@@ -337,7 +337,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../../%E6%9C%BA%E5%99%A8%E4%BA%BA%26%E9%A3%9E%E6%9C%BA/" class="md-tabs__link">
+        <a href="../../../%E6%9C%BA%E5%99%A8%E4%BA%BA%26%E9%A3%9E%E6%9C%BA/" class="md-tabs__link">
           
   
   
@@ -359,7 +359,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../../%E6%9D%82%E5%AD%A6%E6%97%81%E6%94%B6/%E5%A4%A9%E7%A9%BA%E4%B8%BA%E4%BB%80%E4%B9%88%E6%98%AF%E8%93%9D%E8%89%B2%E7%9A%84/" class="md-tabs__link">
+        <a href="../../../%E6%9D%82%E5%AD%A6%E6%97%81%E6%94%B6/%E5%A4%A9%E7%A9%BA%E4%B8%BA%E4%BB%80%E4%B9%88%E6%98%AF%E8%93%9D%E8%89%B2%E7%9A%84/" class="md-tabs__link">
           
   
   
@@ -395,7 +395,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../../.." title="Cloudmosquito Site" class="md-nav__button md-logo" aria-label="Cloudmosquito Site" data-md-component="logo">
+    <a href="../../.." title="Cloudmosquito Site" class="md-nav__button md-logo" aria-label="Cloudmosquito Site" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -413,7 +413,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../.." class="md-nav__link">
+      <a href="../../.." class="md-nav__link">
         
   
   
@@ -490,7 +490,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../%E5%B7%A5%E5%85%B7/ROS2%20%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" class="md-nav__link">
+      <a href="../../../%E5%B7%A5%E5%85%B7/ROS2%20%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" class="md-nav__link">
         
   
   
@@ -513,7 +513,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../%E5%B7%A5%E5%85%B7/git%20%E7%94%A8%E6%B3%95/" class="md-nav__link">
+      <a href="../../../%E5%B7%A5%E5%85%B7/git%20%E7%94%A8%E6%B3%95/" class="md-nav__link">
         
   
   
@@ -536,7 +536,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../%E5%B7%A5%E5%85%B7/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99%E6%90%AD%E5%BB%BA%E6%8C%87%E5%8D%97/" class="md-nav__link">
+      <a href="../../../%E5%B7%A5%E5%85%B7/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99%E6%90%AD%E5%BB%BA%E6%8C%87%E5%8D%97/" class="md-nav__link">
         
   
   
@@ -620,7 +620,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../%E5%B7%A5%E5%85%B7/Linux%20%28Ubuntu%29%20%E4%BD%BF%E7%94%A8%20Tips/terminator%20%E5%BF%AB%E6%8D%B7%E9%94%AE/" class="md-nav__link">
+      <a href="../../../%E5%B7%A5%E5%85%B7/Linux%20%28Ubuntu%29%20%E4%BD%BF%E7%94%A8%20Tips/terminator%20%E5%BF%AB%E6%8D%B7%E9%94%AE/" class="md-nav__link">
         
   
   
@@ -643,7 +643,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../%E5%B7%A5%E5%85%B7/Linux%20%28Ubuntu%29%20%E4%BD%BF%E7%94%A8%20Tips/%E5%AE%89%E8%A3%85%E4%B8%8E%E5%8D%B8%E8%BD%BD%E8%BD%AF%E4%BB%B6/" class="md-nav__link">
+      <a href="../../../%E5%B7%A5%E5%85%B7/Linux%20%28Ubuntu%29%20%E4%BD%BF%E7%94%A8%20Tips/%E5%AE%89%E8%A3%85%E4%B8%8E%E5%8D%B8%E8%BD%BD%E8%BD%AF%E4%BB%B6/" class="md-nav__link">
         
   
   
@@ -666,7 +666,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../%E5%B7%A5%E5%85%B7/Linux%20%28Ubuntu%29%20%E4%BD%BF%E7%94%A8%20Tips/%E6%80%8E%E4%B9%88%E5%92%8C%20windows%20%E5%8F%8C%E7%B3%BB%E7%BB%9F%E6%97%B6%E9%97%B4%E4%B8%80%E8%87%B4/" class="md-nav__link">
+      <a href="../../../%E5%B7%A5%E5%85%B7/Linux%20%28Ubuntu%29%20%E4%BD%BF%E7%94%A8%20Tips/%E6%80%8E%E4%B9%88%E5%92%8C%20windows%20%E5%8F%8C%E7%B3%BB%E7%BB%9F%E6%97%B6%E9%97%B4%E4%B8%80%E8%87%B4/" class="md-nav__link">
         
   
   
@@ -689,7 +689,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../%E5%B7%A5%E5%85%B7/Linux%20%28Ubuntu%29%20%E4%BD%BF%E7%94%A8%20Tips/%E6%80%8E%E4%B9%88%E6%8D%A2%E6%BA%90%20pip%20install/" class="md-nav__link">
+      <a href="../../../%E5%B7%A5%E5%85%B7/Linux%20%28Ubuntu%29%20%E4%BD%BF%E7%94%A8%20Tips/%E6%80%8E%E4%B9%88%E6%8D%A2%E6%BA%90%20pip%20install/" class="md-nav__link">
         
   
   
@@ -712,7 +712,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../%E5%B7%A5%E5%85%B7/Linux%20%28Ubuntu%29%20%E4%BD%BF%E7%94%A8%20Tips/%E6%80%8E%E4%B9%88%E6%96%B0%E5%BB%BA%E6%88%96%E5%88%A0%E9%99%A4%E6%96%87%E4%BB%B6%EF%BC%88%E5%A4%B9%EF%BC%89/" class="md-nav__link">
+      <a href="../../../%E5%B7%A5%E5%85%B7/Linux%20%28Ubuntu%29%20%E4%BD%BF%E7%94%A8%20Tips/%E6%80%8E%E4%B9%88%E6%96%B0%E5%BB%BA%E6%88%96%E5%88%A0%E9%99%A4%E6%96%87%E4%BB%B6%EF%BC%88%E5%A4%B9%EF%BC%89/" class="md-nav__link">
         
   
   
@@ -735,7 +735,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../%E5%B7%A5%E5%85%B7/Linux%20%28Ubuntu%29%20%E4%BD%BF%E7%94%A8%20Tips/%E6%80%8E%E4%B9%88%E7%9C%8B%E7%A1%AC%E7%9B%98%E5%89%A9%E4%BD%99%E7%A9%BA%E9%97%B4/" class="md-nav__link">
+      <a href="../../../%E5%B7%A5%E5%85%B7/Linux%20%28Ubuntu%29%20%E4%BD%BF%E7%94%A8%20Tips/%E6%80%8E%E4%B9%88%E7%9C%8B%E7%A1%AC%E7%9B%98%E5%89%A9%E4%BD%99%E7%A9%BA%E9%97%B4/" class="md-nav__link">
         
   
   
@@ -758,7 +758,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../%E5%B7%A5%E5%85%B7/Linux%20%28Ubuntu%29%20%E4%BD%BF%E7%94%A8%20Tips/%E6%80%8E%E4%B9%88%E8%A7%A3%E5%86%B3%E5%85%B3%E6%9C%BA%E4%B8%BB%E6%9D%BF%E4%B8%8D%E6%96%AD%E7%94%B5%E7%9A%84%E9%97%AE%E9%A2%98/" class="md-nav__link">
+      <a href="../../../%E5%B7%A5%E5%85%B7/Linux%20%28Ubuntu%29%20%E4%BD%BF%E7%94%A8%20Tips/%E6%80%8E%E4%B9%88%E8%A7%A3%E5%86%B3%E5%85%B3%E6%9C%BA%E4%B8%BB%E6%9D%BF%E4%B8%8D%E6%96%AD%E7%94%B5%E7%9A%84%E9%97%AE%E9%A2%98/" class="md-nav__link">
         
   
   
@@ -781,7 +781,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../%E5%B7%A5%E5%85%B7/Linux%20%28Ubuntu%29%20%E4%BD%BF%E7%94%A8%20Tips/%E6%80%8E%E4%B9%88%E8%AE%BE%E7%BD%AE%20sudo%20%E4%B8%8D%E7%94%A8%E5%AF%86%E7%A0%81/" class="md-nav__link">
+      <a href="../../../%E5%B7%A5%E5%85%B7/Linux%20%28Ubuntu%29%20%E4%BD%BF%E7%94%A8%20Tips/%E6%80%8E%E4%B9%88%E8%AE%BE%E7%BD%AE%20sudo%20%E4%B8%8D%E7%94%A8%E5%AF%86%E7%A0%81/" class="md-nav__link">
         
   
   
@@ -804,7 +804,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../%E5%B7%A5%E5%85%B7/Linux%20%28Ubuntu%29%20%E4%BD%BF%E7%94%A8%20Tips/%E6%80%8E%E4%B9%88%E9%A6%96%E9%80%89%E5%90%AF%E7%94%A8%20Nvidia%20%E6%98%BE%E5%8D%A1/" class="md-nav__link">
+      <a href="../../../%E5%B7%A5%E5%85%B7/Linux%20%28Ubuntu%29%20%E4%BD%BF%E7%94%A8%20Tips/%E6%80%8E%E4%B9%88%E9%A6%96%E9%80%89%E5%90%AF%E7%94%A8%20Nvidia%20%E6%98%BE%E5%8D%A1/" class="md-nav__link">
         
   
   
@@ -880,7 +880,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../%E5%B7%A5%E5%85%B7/Python%20%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/%E5%87%BD%E6%95%B0%E7%AD%BE%E5%90%8D_%E7%B1%BB%E4%B8%8E%E5%AE%9E%E4%BE%8B%E5%B1%9E%E6%80%A7_%E7%B1%BB%E4%B8%8E%E5%AE%9E%E4%BE%8B%E6%96%B9%E6%B3%95_%E5%85%83%E7%BB%84/" class="md-nav__link">
+      <a href="../../../%E5%B7%A5%E5%85%B7/Python%20%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/%E5%87%BD%E6%95%B0%E7%AD%BE%E5%90%8D_%E7%B1%BB%E4%B8%8E%E5%AE%9E%E4%BE%8B%E5%B1%9E%E6%80%A7_%E7%B1%BB%E4%B8%8E%E5%AE%9E%E4%BE%8B%E6%96%B9%E6%B3%95_%E5%85%83%E7%BB%84/" class="md-nav__link">
         
   
   
@@ -960,7 +960,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../%E5%B7%A5%E5%85%B7/ROS%E5%AD%A6%E4%B9%A0/%E5%AE%9E%E4%BE%8B%E2%80%94PX4%E9%99%8D%E8%90%BD%E7%A7%BB%E5%8A%A8%E5%B9%B3%E5%8F%B0/" class="md-nav__link">
+      <a href="../../../%E5%B7%A5%E5%85%B7/ROS%E5%AD%A6%E4%B9%A0/%E5%AE%9E%E4%BE%8B%E2%80%94PX4%E9%99%8D%E8%90%BD%E7%A7%BB%E5%8A%A8%E5%B9%B3%E5%8F%B0/" class="md-nav__link">
         
   
   
@@ -983,7 +983,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../%E5%B7%A5%E5%85%B7/ROS%E5%AD%A6%E4%B9%A0/%E6%97%A5%E5%BF%97%E5%AE%8F/" class="md-nav__link">
+      <a href="../../../%E5%B7%A5%E5%85%B7/ROS%E5%AD%A6%E4%B9%A0/%E6%97%A5%E5%BF%97%E5%AE%8F/" class="md-nav__link">
         
   
   
@@ -1006,7 +1006,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../%E5%B7%A5%E5%85%B7/ROS%E5%AD%A6%E4%B9%A0/%E6%9C%8D%E5%8A%A1%EF%BC%88Service%EF%BC%89/" class="md-nav__link">
+      <a href="../../../%E5%B7%A5%E5%85%B7/ROS%E5%AD%A6%E4%B9%A0/%E6%9C%8D%E5%8A%A1%EF%BC%88Service%EF%BC%89/" class="md-nav__link">
         
   
   
@@ -1041,6 +1041,8 @@
       
   
   
+    
+  
   
   
     
@@ -1066,18 +1068,21 @@
     
     
       
+        
+        
+      
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../%E6%8E%A7%E5%88%B6%E7%90%86%E8%AE%BA/" class="md-nav__link ">
+            <a href="../../" class="md-nav__link ">
               
   
   
@@ -1090,13 +1095,13 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             控制理论
@@ -1112,7 +1117,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../%E6%8E%A7%E5%88%B6%E7%90%86%E8%AE%BA/Lyapunov%20%E7%A8%B3%E5%AE%9A%E6%80%A7/" class="md-nav__link">
+      <a href="../../Lyapunov%20%E7%A8%B3%E5%AE%9A%E6%80%A7/" class="md-nav__link">
         
   
   
@@ -1184,7 +1189,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../%E6%8E%A7%E5%88%B6%E7%90%86%E8%AE%BA/%E3%80%8A%E9%9D%9E%E7%BA%BF%E6%80%A7%E6%8E%A7%E5%88%B6%E3%80%8B%E7%AC%94%E8%AE%B0/1%20%E5%BC%95%E8%AE%BA/" class="md-nav__link">
+      <a href="../../%E3%80%8A%E9%9D%9E%E7%BA%BF%E6%80%A7%E6%8E%A7%E5%88%B6%E3%80%8B%E7%AC%94%E8%AE%B0/1%20%E5%BC%95%E8%AE%BA/" class="md-nav__link">
         
   
   
@@ -1207,7 +1212,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../%E6%8E%A7%E5%88%B6%E7%90%86%E8%AE%BA/%E3%80%8A%E9%9D%9E%E7%BA%BF%E6%80%A7%E6%8E%A7%E5%88%B6%E3%80%8B%E7%AC%94%E8%AE%B0/%E5%B9%B3%E8%A1%A1%E7%82%B9%E7%9A%84%E7%A8%B3%E5%AE%9A%E6%80%A7/" class="md-nav__link">
+      <a href="../../%E3%80%8A%E9%9D%9E%E7%BA%BF%E6%80%A7%E6%8E%A7%E5%88%B6%E3%80%8B%E7%AC%94%E8%AE%B0/%E5%B9%B3%E8%A1%A1%E7%82%B9%E7%9A%84%E7%A8%B3%E5%AE%9A%E6%80%A7/" class="md-nav__link">
         
   
   
@@ -1230,7 +1235,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../%E6%8E%A7%E5%88%B6%E7%90%86%E8%AE%BA/%E3%80%8A%E9%9D%9E%E7%BA%BF%E6%80%A7%E6%8E%A7%E5%88%B6%E3%80%8B%E7%AC%94%E8%AE%B0/%E7%89%B9%E6%AE%8A%E5%9E%8B%E9%9D%9E%E7%BA%BF%E6%80%A7%E7%B3%BB%E7%BB%9F/" class="md-nav__link">
+      <a href="../../%E3%80%8A%E9%9D%9E%E7%BA%BF%E6%80%A7%E6%8E%A7%E5%88%B6%E3%80%8B%E7%AC%94%E8%AE%B0/%E7%89%B9%E6%AE%8A%E5%9E%8B%E9%9D%9E%E7%BA%BF%E6%80%A7%E7%B3%BB%E7%BB%9F/" class="md-nav__link">
         
   
   
@@ -1258,8 +1263,10 @@
                 
   
   
+    
   
   
+  
     
     
       
@@ -1272,11 +1279,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" checked>
         
           
           <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
@@ -1292,7 +1299,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3_4">
             <span class="md-nav__icon md-icon"></span>
             最优控制
@@ -1303,10 +1310,32 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../../../%E6%8E%A7%E5%88%B6%E7%90%86%E8%AE%BA/%E6%9C%80%E4%BC%98%E6%8E%A7%E5%88%B6/%E5%9F%BA%E7%A1%80%20MPC/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    基础 MPC
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1317,6 +1346,44 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      系统输出的表达式
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      优化目标
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1388,7 +1455,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../%E6%8E%A7%E5%88%B6%E7%90%86%E8%AE%BA/%E6%BB%A4%E6%B3%A2%E5%99%A8/IIR%20%E4%B8%8E%20FIR%20%E6%BB%A4%E6%B3%A2%E5%99%A8/" class="md-nav__link">
+      <a href="../../%E6%BB%A4%E6%B3%A2%E5%99%A8/IIR%20%E4%B8%8E%20FIR%20%E6%BB%A4%E6%B3%A2%E5%99%A8/" class="md-nav__link">
         
   
   
@@ -1411,7 +1478,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../%E6%8E%A7%E5%88%B6%E7%90%86%E8%AE%BA/%E6%BB%A4%E6%B3%A2%E5%99%A8/%E4%B8%80%E9%98%B6%E6%83%AF%E6%80%A7%E6%BB%A4%E6%B3%A2/" class="md-nav__link">
+      <a href="../../%E6%BB%A4%E6%B3%A2%E5%99%A8/%E4%B8%80%E9%98%B6%E6%83%AF%E6%80%A7%E6%BB%A4%E6%B3%A2/" class="md-nav__link">
         
   
   
@@ -1434,7 +1501,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../%E6%8E%A7%E5%88%B6%E7%90%86%E8%AE%BA/%E6%BB%A4%E6%B3%A2%E5%99%A8/%E9%99%B7%E6%B3%A2%E5%99%A8%E8%AF%B4%E6%98%8E/" class="md-nav__link">
+      <a href="../../%E6%BB%A4%E6%B3%A2%E5%99%A8/%E9%99%B7%E6%B3%A2%E5%99%A8%E8%AF%B4%E6%98%8E/" class="md-nav__link">
         
   
   
@@ -1502,7 +1569,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../%E6%8E%A7%E5%88%B6%E7%90%86%E8%AE%BA/%E6%BB%A4%E6%B3%A2%E5%99%A8/%E5%8D%A1%E5%B0%94%E6%9B%BC%E6%BB%A4%E6%B3%A2%E5%99%A8/KF%20%26%20EKF/" class="md-nav__link">
+      <a href="../../%E6%BB%A4%E6%B3%A2%E5%99%A8/%E5%8D%A1%E5%B0%94%E6%9B%BC%E6%BB%A4%E6%B3%A2%E5%99%A8/KF%20%26%20EKF/" class="md-nav__link">
         
   
   
@@ -1590,7 +1657,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../%E6%8E%A7%E5%88%B6%E7%90%86%E8%AE%BA/%E8%87%AA%E5%8A%A8%E6%8E%A7%E5%88%B6%E5%8E%9F%E7%90%86/%E6%8B%89%E6%B0%8F%E5%8F%98%E6%8D%A2%E5%88%9D%E7%BB%88%E5%80%BC%E5%AE%9A%E7%90%86/" class="md-nav__link">
+      <a href="../../%E8%87%AA%E5%8A%A8%E6%8E%A7%E5%88%B6%E5%8E%9F%E7%90%86/%E6%8B%89%E6%B0%8F%E5%8F%98%E6%8D%A2%E5%88%9D%E7%BB%88%E5%80%BC%E5%AE%9A%E7%90%86/" class="md-nav__link">
         
   
   
@@ -1613,7 +1680,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../%E6%8E%A7%E5%88%B6%E7%90%86%E8%AE%BA/%E8%87%AA%E5%8A%A8%E6%8E%A7%E5%88%B6%E5%8E%9F%E7%90%86/%E8%83%BD%E6%8E%A7%E6%80%A7%E5%92%8C%E8%83%BD%E8%A7%82%E6%80%A7/" class="md-nav__link">
+      <a href="../../%E8%87%AA%E5%8A%A8%E6%8E%A7%E5%88%B6%E5%8E%9F%E7%90%86/%E8%83%BD%E6%8E%A7%E6%80%A7%E5%92%8C%E8%83%BD%E8%A7%82%E6%80%A7/" class="md-nav__link">
         
   
   
@@ -1683,7 +1750,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../%E6%8E%A7%E5%88%B6%E7%90%86%E8%AE%BA/%E8%87%AA%E5%8A%A8%E6%8E%A7%E5%88%B6%E5%8E%9F%E7%90%86/PID%20%E7%9B%B8%E5%85%B3/%E4%BA%91%E5%8F%B0%20PID%20%E7%90%86%E8%AE%BA%E5%88%86%E6%9E%90/" class="md-nav__link">
+      <a href="../../%E8%87%AA%E5%8A%A8%E6%8E%A7%E5%88%B6%E5%8E%9F%E7%90%86/PID%20%E7%9B%B8%E5%85%B3/%E4%BA%91%E5%8F%B0%20PID%20%E7%90%86%E8%AE%BA%E5%88%86%E6%9E%90/" class="md-nav__link">
         
   
   
@@ -1706,7 +1773,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../%E6%8E%A7%E5%88%B6%E7%90%86%E8%AE%BA/%E8%87%AA%E5%8A%A8%E6%8E%A7%E5%88%B6%E5%8E%9F%E7%90%86/PID%20%E7%9B%B8%E5%85%B3/%E7%B3%BB%E7%BB%9F%E9%98%B6%E6%95%B0%E4%B8%8E%20PID/" class="md-nav__link">
+      <a href="../../%E8%87%AA%E5%8A%A8%E6%8E%A7%E5%88%B6%E5%8E%9F%E7%90%86/PID%20%E7%9B%B8%E5%85%B3/%E7%B3%BB%E7%BB%9F%E9%98%B6%E6%95%B0%E4%B8%8E%20PID/" class="md-nav__link">
         
   
   
@@ -1790,7 +1857,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../%E6%8E%A7%E5%88%B6%E7%90%86%E8%AE%BA/%E8%A7%82%E6%B5%8B%E5%99%A8/%E5%BC%95%E8%A8%80%EF%BC%88%E7%B3%BB%E7%BB%9F%E8%83%BD%E8%A7%82%E6%80%A7%EF%BC%89/" class="md-nav__link">
+      <a href="../../%E8%A7%82%E6%B5%8B%E5%99%A8/%E5%BC%95%E8%A8%80%EF%BC%88%E7%B3%BB%E7%BB%9F%E8%83%BD%E8%A7%82%E6%80%A7%EF%BC%89/" class="md-nav__link">
         
   
   
@@ -1881,7 +1948,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../%E6%95%B0%E5%AD%A6/MatrixCookbook/" class="md-nav__link">
+      <a href="../../../%E6%95%B0%E5%AD%A6/MatrixCookbook/" class="md-nav__link">
         
   
   
@@ -1904,7 +1971,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../%E6%95%B0%E5%AD%A6/%E6%A2%AF%E5%BA%A6/" class="md-nav__link">
+      <a href="../../../%E6%95%B0%E5%AD%A6/%E6%A2%AF%E5%BA%A6/" class="md-nav__link">
         
   
   
@@ -1927,7 +1994,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../%E6%95%B0%E5%AD%A6/%E7%9F%A9%E9%98%B5%E5%BE%AE%E7%A7%AF%E5%88%86/" class="md-nav__link">
+      <a href="../../../%E6%95%B0%E5%AD%A6/%E7%9F%A9%E9%98%B5%E5%BE%AE%E7%A7%AF%E5%88%86/" class="md-nav__link">
         
   
   
@@ -1997,7 +2064,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../%E6%95%B0%E5%AD%A6/AI%20%E7%9B%B8%E5%85%B3/KL%20%E6%95%A3%E5%BA%A6%EF%BC%88%E7%9B%B8%E5%AF%B9%E7%86%B5%EF%BC%89/" class="md-nav__link">
+      <a href="../../../%E6%95%B0%E5%AD%A6/AI%20%E7%9B%B8%E5%85%B3/KL%20%E6%95%A3%E5%BA%A6%EF%BC%88%E7%9B%B8%E5%AF%B9%E7%86%B5%EF%BC%89/" class="md-nav__link">
         
   
   
@@ -2020,7 +2087,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../%E6%95%B0%E5%AD%A6/AI%20%E7%9B%B8%E5%85%B3/Softmax%E4%B8%8Etanh/" class="md-nav__link">
+      <a href="../../../%E6%95%B0%E5%AD%A6/AI%20%E7%9B%B8%E5%85%B3/Softmax%E4%B8%8Etanh/" class="md-nav__link">
         
   
   
@@ -2104,7 +2171,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../%E6%95%B0%E5%AD%A6/%E9%AB%98%E7%AD%89%E4%BB%A3%E6%95%B0/Hamilton-Cayley%20%E5%AE%9A%E7%90%86/" class="md-nav__link">
+      <a href="../../../%E6%95%B0%E5%AD%A6/%E9%AB%98%E7%AD%89%E4%BB%A3%E6%95%B0/Hamilton-Cayley%20%E5%AE%9A%E7%90%86/" class="md-nav__link">
         
   
   
@@ -2127,7 +2194,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../%E6%95%B0%E5%AD%A6/%E9%AB%98%E7%AD%89%E4%BB%A3%E6%95%B0/Jordan%20%E6%A0%87%E5%87%86%E5%9E%8B/" class="md-nav__link">
+      <a href="../../../%E6%95%B0%E5%AD%A6/%E9%AB%98%E7%AD%89%E4%BB%A3%E6%95%B0/Jordan%20%E6%A0%87%E5%87%86%E5%9E%8B/" class="md-nav__link">
         
   
   
@@ -2150,7 +2217,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../%E6%95%B0%E5%AD%A6/%E9%AB%98%E7%AD%89%E4%BB%A3%E6%95%B0/%E4%BA%8C%E6%AC%A1%E5%9E%8B%E4%B8%8E%28%E5%8D%8A%29%E6%AD%A3%E8%B4%9F%E5%AE%9A%E6%80%A7/" class="md-nav__link">
+      <a href="../../../%E6%95%B0%E5%AD%A6/%E9%AB%98%E7%AD%89%E4%BB%A3%E6%95%B0/%E4%BA%8C%E6%AC%A1%E5%9E%8B%E4%B8%8E%28%E5%8D%8A%29%E6%AD%A3%E8%B4%9F%E5%AE%9A%E6%80%A7/" class="md-nav__link">
         
   
   
@@ -2173,7 +2240,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../%E6%95%B0%E5%AD%A6/%E9%AB%98%E7%AD%89%E4%BB%A3%E6%95%B0/%E5%90%91%E9%87%8F%E8%8C%83%E6%95%B0%E4%B8%8E%E7%9F%A9%E9%98%B5%E8%8C%83%E6%95%B0/" class="md-nav__link">
+      <a href="../../../%E6%95%B0%E5%AD%A6/%E9%AB%98%E7%AD%89%E4%BB%A3%E6%95%B0/%E5%90%91%E9%87%8F%E8%8C%83%E6%95%B0%E4%B8%8E%E7%9F%A9%E9%98%B5%E8%8C%83%E6%95%B0/" class="md-nav__link">
         
   
   
@@ -2196,7 +2263,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../%E6%95%B0%E5%AD%A6/%E9%AB%98%E7%AD%89%E4%BB%A3%E6%95%B0/%E7%9F%A9%E9%98%B5%E5%AF%B9%E8%A7%92%E5%8C%96%E4%B8%8E%E5%88%86%E8%A7%A3/" class="md-nav__link">
+      <a href="../../../%E6%95%B0%E5%AD%A6/%E9%AB%98%E7%AD%89%E4%BB%A3%E6%95%B0/%E7%9F%A9%E9%98%B5%E5%AF%B9%E8%A7%92%E5%8C%96%E4%B8%8E%E5%88%86%E8%A7%A3/" class="md-nav__link">
         
   
   
@@ -2231,8 +2298,6 @@
       
   
   
-    
-  
   
   
     
@@ -2250,21 +2315,18 @@
     
     
       
-        
-        
-      
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../" class="md-nav__link ">
+            <a href="../../../%E6%96%87%E5%AD%A6/" class="md-nav__link ">
               
   
   
@@ -2277,13 +2339,13 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="">
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             文学
@@ -2344,7 +2406,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../%E5%B0%8F%E8%AF%B4%E5%88%9B%E4%BD%9C/%E5%92%AB%E5%B0%BA%E5%A4%A9%E6%B6%AF/" class="md-nav__link">
+      <a href="../../../%E6%96%87%E5%AD%A6/%E5%B0%8F%E8%AF%B4%E5%88%9B%E4%BD%9C/%E5%92%AB%E5%B0%BA%E5%A4%A9%E6%B6%AF/" class="md-nav__link">
         
   
   
@@ -2372,8 +2434,6 @@
                 
   
   
-    
-  
   
   
     
@@ -2388,11 +2448,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" >
         
           
           <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
@@ -2408,7 +2468,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5_3">
             <span class="md-nav__icon md-icon"></span>
             阅读笔记
@@ -2419,8 +2479,6 @@
                 
   
   
-    
-  
   
   
     
@@ -2435,11 +2493,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3_1" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3_1" >
         
           
           <label class="md-nav__link" for="__nav_5_3_1" id="__nav_5_3_1_label" tabindex="0">
@@ -2455,7 +2513,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_3_1_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_3_1_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5_3_1">
             <span class="md-nav__icon md-icon"></span>
             《中国叙事学》
@@ -2466,32 +2524,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    绪论笔记
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../../%E6%96%87%E5%AD%A6/%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/%E3%80%8A%E4%B8%AD%E5%9B%BD%E5%8F%99%E4%BA%8B%E5%AD%A6%E3%80%8B/%E3%80%8A%E4%B8%AD%E5%9B%BD%E5%8F%99%E4%BA%8B%E5%AD%A6%E3%80%8B%E7%AC%94%E8%AE%B0/" class="md-nav__link">
         
   
   
@@ -2502,110 +2538,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#1" class="md-nav__link">
-    <span class="md-ellipsis">
-      1. 背景
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2" class="md-nav__link">
-    <span class="md-ellipsis">
-      2. 叙事
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="2. 叙事">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#21" class="md-nav__link">
-    <span class="md-ellipsis">
-      2.1 什么是 叙事？
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#22" class="md-nav__link">
-    <span class="md-ellipsis">
-      2.2 什么是 叙事文？
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#23" class="md-nav__link">
-    <span class="md-ellipsis">
-      2.3 西方的叙事文学传统
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#24" class="md-nav__link">
-    <span class="md-ellipsis">
-      2.4 中国的文学传统
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3" class="md-nav__link">
-    <span class="md-ellipsis">
-      3 口吻
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="3 口吻">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#31" class="md-nav__link">
-    <span class="md-ellipsis">
-      3.1 正史中的叙述人口吻
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -2670,7 +2602,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../%E6%9C%BA%E5%99%A8%E4%BA%BA%26%E9%A3%9E%E6%9C%BA/" class="md-nav__link ">
+            <a href="../../../%E6%9C%BA%E5%99%A8%E4%BA%BA%26%E9%A3%9E%E6%9C%BA/" class="md-nav__link ">
               
   
   
@@ -2807,7 +2739,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../%E6%9C%BA%E5%99%A8%E4%BA%BA%26%E9%A3%9E%E6%9C%BA/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/%E3%80%8A%E5%8A%A8%E6%89%8B%E5%AD%A6%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E3%80%8B%E7%AC%94%E8%AE%B0/1%20%E9%A9%AC%E5%B0%94%E5%8F%AF%E5%A4%AB%E5%86%B3%E7%AD%96%E8%BF%87%E7%A8%8B/" class="md-nav__link">
+      <a href="../../../%E6%9C%BA%E5%99%A8%E4%BA%BA%26%E9%A3%9E%E6%9C%BA/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/%E3%80%8A%E5%8A%A8%E6%89%8B%E5%AD%A6%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E3%80%8B%E7%AC%94%E8%AE%B0/1%20%E9%A9%AC%E5%B0%94%E5%8F%AF%E5%A4%AB%E5%86%B3%E7%AD%96%E8%BF%87%E7%A8%8B/" class="md-nav__link">
         
   
   
@@ -2830,7 +2762,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../%E6%9C%BA%E5%99%A8%E4%BA%BA%26%E9%A3%9E%E6%9C%BA/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/%E3%80%8A%E5%8A%A8%E6%89%8B%E5%AD%A6%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E3%80%8B%E7%AC%94%E8%AE%B0/2%20%E5%9F%BA%E4%BA%8E%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E7%9A%84%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E7%AE%97%E6%B3%95/" class="md-nav__link">
+      <a href="../../../%E6%9C%BA%E5%99%A8%E4%BA%BA%26%E9%A3%9E%E6%9C%BA/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/%E3%80%8A%E5%8A%A8%E6%89%8B%E5%AD%A6%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E3%80%8B%E7%AC%94%E8%AE%B0/2%20%E5%9F%BA%E4%BA%8E%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E7%9A%84%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E7%AE%97%E6%B3%95/" class="md-nav__link">
         
   
   
@@ -2853,7 +2785,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../%E6%9C%BA%E5%99%A8%E4%BA%BA%26%E9%A3%9E%E6%9C%BA/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/%E3%80%8A%E5%8A%A8%E6%89%8B%E5%AD%A6%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E3%80%8B%E7%AC%94%E8%AE%B0/3%20%E6%97%B6%E5%BA%8F%E5%B7%AE%E5%88%86%E7%AE%97%E6%B3%95/" class="md-nav__link">
+      <a href="../../../%E6%9C%BA%E5%99%A8%E4%BA%BA%26%E9%A3%9E%E6%9C%BA/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/%E3%80%8A%E5%8A%A8%E6%89%8B%E5%AD%A6%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E3%80%8B%E7%AC%94%E8%AE%B0/3%20%E6%97%B6%E5%BA%8F%E5%B7%AE%E5%88%86%E7%AE%97%E6%B3%95/" class="md-nav__link">
         
   
   
@@ -2876,7 +2808,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../%E6%9C%BA%E5%99%A8%E4%BA%BA%26%E9%A3%9E%E6%9C%BA/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/%E3%80%8A%E5%8A%A8%E6%89%8B%E5%AD%A6%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E3%80%8B%E7%AC%94%E8%AE%B0/4%20DQN%20%E7%AE%97%E6%B3%95/" class="md-nav__link">
+      <a href="../../../%E6%9C%BA%E5%99%A8%E4%BA%BA%26%E9%A3%9E%E6%9C%BA/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/%E3%80%8A%E5%8A%A8%E6%89%8B%E5%AD%A6%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E3%80%8B%E7%AC%94%E8%AE%B0/4%20DQN%20%E7%AE%97%E6%B3%95/" class="md-nav__link">
         
   
   
@@ -2899,7 +2831,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../%E6%9C%BA%E5%99%A8%E4%BA%BA%26%E9%A3%9E%E6%9C%BA/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/%E3%80%8A%E5%8A%A8%E6%89%8B%E5%AD%A6%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E3%80%8B%E7%AC%94%E8%AE%B0/5%20%E7%AD%96%E7%95%A5%E6%A2%AF%E5%BA%A6%E7%AE%97%E6%B3%95/" class="md-nav__link">
+      <a href="../../../%E6%9C%BA%E5%99%A8%E4%BA%BA%26%E9%A3%9E%E6%9C%BA/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/%E3%80%8A%E5%8A%A8%E6%89%8B%E5%AD%A6%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E3%80%8B%E7%AC%94%E8%AE%B0/5%20%E7%AD%96%E7%95%A5%E6%A2%AF%E5%BA%A6%E7%AE%97%E6%B3%95/" class="md-nav__link">
         
   
   
@@ -2922,7 +2854,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../%E6%9C%BA%E5%99%A8%E4%BA%BA%26%E9%A3%9E%E6%9C%BA/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/%E3%80%8A%E5%8A%A8%E6%89%8B%E5%AD%A6%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E3%80%8B%E7%AC%94%E8%AE%B0/6%20Actor-Critic%E7%AE%97%E6%B3%95/" class="md-nav__link">
+      <a href="../../../%E6%9C%BA%E5%99%A8%E4%BA%BA%26%E9%A3%9E%E6%9C%BA/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/%E3%80%8A%E5%8A%A8%E6%89%8B%E5%AD%A6%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E3%80%8B%E7%AC%94%E8%AE%B0/6%20Actor-Critic%E7%AE%97%E6%B3%95/" class="md-nav__link">
         
   
   
@@ -2945,7 +2877,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../%E6%9C%BA%E5%99%A8%E4%BA%BA%26%E9%A3%9E%E6%9C%BA/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/%E3%80%8A%E5%8A%A8%E6%89%8B%E5%AD%A6%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E3%80%8B%E7%AC%94%E8%AE%B0/7%20%E8%BF%91%E7%AB%AF%E7%AD%96%E7%95%A5%E4%BC%98%E5%8C%96/" class="md-nav__link">
+      <a href="../../../%E6%9C%BA%E5%99%A8%E4%BA%BA%26%E9%A3%9E%E6%9C%BA/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/%E3%80%8A%E5%8A%A8%E6%89%8B%E5%AD%A6%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E3%80%8B%E7%AC%94%E8%AE%B0/7%20%E8%BF%91%E7%AB%AF%E7%AD%96%E7%95%A5%E4%BC%98%E5%8C%96/" class="md-nav__link">
         
   
   
@@ -3031,7 +2963,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../%E6%9C%BA%E5%99%A8%E4%BA%BA%26%E9%A3%9E%E6%9C%BA/%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%AD%A6/%E6%97%8B%E8%BD%AC%E4%B8%8E%E5%A7%BF%E6%80%81%E7%9A%84%E8%A1%A8%E7%A4%BA/" class="md-nav__link">
+      <a href="../../../%E6%9C%BA%E5%99%A8%E4%BA%BA%26%E9%A3%9E%E6%9C%BA/%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%AD%A6/%E6%97%8B%E8%BD%AC%E4%B8%8E%E5%A7%BF%E6%80%81%E7%9A%84%E8%A1%A8%E7%A4%BA/" class="md-nav__link">
         
   
   
@@ -3054,7 +2986,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../%E6%9C%BA%E5%99%A8%E4%BA%BA%26%E9%A3%9E%E6%9C%BA/%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%AD%A6/%E6%9D%8E%E7%BE%A4%E4%B8%8E%E6%9D%8E%E4%BB%A3%E6%95%B0/" class="md-nav__link">
+      <a href="../../../%E6%9C%BA%E5%99%A8%E4%BA%BA%26%E9%A3%9E%E6%9C%BA/%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%AD%A6/%E6%9D%8E%E7%BE%A4%E4%B8%8E%E6%9D%8E%E4%BB%A3%E6%95%B0/" class="md-nav__link">
         
   
   
@@ -3132,7 +3064,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../%E6%9C%BA%E5%99%A8%E4%BA%BA%26%E9%A3%9E%E6%9C%BA/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/%E5%9B%9B%E6%97%8B%E7%BF%BC%20SO%283%29%20%E5%A7%BF%E6%80%81%E6%8E%A7%E5%88%B6/" class="md-nav__link">
+      <a href="../../../%E6%9C%BA%E5%99%A8%E4%BA%BA%26%E9%A3%9E%E6%9C%BA/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/%E5%9B%9B%E6%97%8B%E7%BF%BC%20SO%283%29%20%E5%A7%BF%E6%80%81%E6%8E%A7%E5%88%B6/" class="md-nav__link">
         
   
   
@@ -3155,7 +3087,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../%E6%9C%BA%E5%99%A8%E4%BA%BA%26%E9%A3%9E%E6%9C%BA/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/%E5%9B%9B%E6%97%8B%E7%BF%BC%E5%BE%AE%E5%88%86%E5%B9%B3%E5%9D%A6%E4%B8%8E%E6%9C%80%E5%B0%8F%20snap%20%E8%BD%A8%E8%BF%B9/" class="md-nav__link">
+      <a href="../../../%E6%9C%BA%E5%99%A8%E4%BA%BA%26%E9%A3%9E%E6%9C%BA/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/%E5%9B%9B%E6%97%8B%E7%BF%BC%E5%BE%AE%E5%88%86%E5%B9%B3%E5%9D%A6%E4%B8%8E%E6%9C%80%E5%B0%8F%20snap%20%E8%BD%A8%E8%BF%B9/" class="md-nav__link">
         
   
   
@@ -3231,7 +3163,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../%E6%9C%BA%E5%99%A8%E4%BA%BA%26%E9%A3%9E%E6%9C%BA/%E9%A3%9E%E6%8E%A7%E7%9B%B8%E5%85%B3/PX4%E9%99%8D%E8%90%BD%E7%A7%BB%E5%8A%A8%E5%B9%B3%E5%8F%B0/" class="md-nav__link">
+      <a href="../../../%E6%9C%BA%E5%99%A8%E4%BA%BA%26%E9%A3%9E%E6%9C%BA/%E9%A3%9E%E6%8E%A7%E7%9B%B8%E5%85%B3/PX4%E9%99%8D%E8%90%BD%E7%A7%BB%E5%8A%A8%E5%B9%B3%E5%8F%B0/" class="md-nav__link">
         
   
   
@@ -3314,7 +3246,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../%E6%9D%82%E5%AD%A6%E6%97%81%E6%94%B6/%E5%A4%A9%E7%A9%BA%E4%B8%BA%E4%BB%80%E4%B9%88%E6%98%AF%E8%93%9D%E8%89%B2%E7%9A%84/" class="md-nav__link">
+      <a href="../../../%E6%9D%82%E5%AD%A6%E6%97%81%E6%94%B6/%E5%A4%A9%E7%A9%BA%E4%B8%BA%E4%BB%80%E4%B9%88%E6%98%AF%E8%93%9D%E8%89%B2%E7%9A%84/" class="md-nav__link">
         
   
   
@@ -3364,86 +3296,20 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
-      1. 背景
+      系统输出的表达式
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#2" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
-      2. 叙事
+      优化目标
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="2. 叙事">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#21" class="md-nav__link">
-    <span class="md-ellipsis">
-      2.1 什么是 叙事？
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#22" class="md-nav__link">
-    <span class="md-ellipsis">
-      2.2 什么是 叙事文？
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#23" class="md-nav__link">
-    <span class="md-ellipsis">
-      2.3 西方的叙事文学传统
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#24" class="md-nav__link">
-    <span class="md-ellipsis">
-      2.4 中国的文学传统
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3" class="md-nav__link">
-    <span class="md-ellipsis">
-      3 口吻
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="3 口吻">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#31" class="md-nav__link">
-    <span class="md-ellipsis">
-      3.1 正史中的叙述人口吻
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -3463,62 +3329,95 @@
 
 
 
-<h1 id="_1">绪论笔记</h1>
-<h2 id="1">1. 背景</h2>
-<p>作者浦安迪，哈佛大学教授，1989年在北大讲了几个月的中国古典文学与叙事文学理论，这本书就是讲课记录。当然，浦安迪教授本人补充了大篇幅的新内容。</p>
-<h2 id="2">2. 叙事</h2>
-<h3 id="21">2.1 什么是 <strong>叙事</strong>？</h3>
-<p>作者认为：“作者通过<strong>讲故事</strong>的方式把<strong>人生经验的本质和意义</strong>传示给他人。”</p>
-<h3 id="22">2.2 什么是 <strong>叙事文</strong>？</h3>
-<p>如果按照作者的西方观点来看，文学有 lyric, drama, narrative 三大 mode，其中 narrative 为何独立于 lyric 和 drama 呢？按照“叙事”的定义，lyric 和 drama 也有讲故事，也传示人生经验的本质和意义。</p>
-<p>作者认为“时间流”是 narrative 的关键。Lyric 展现的是静态的人生本质，drama 关注爆发性的短时间人生矛盾中的人生本质，而叙事文则展示延绵不断的经验流 (flow of experience) 中的人生本质。</p>
-<p>再根据“事”的大小多寡，可以认为叙事文的构成单元最大，抒情诗最小，戏剧居中。</p>
-<p><em>“叙事文是一种能以较大的单元容量传达时间流中人生经验的文学体式或类型。”</em></p>
+<h1 id="mpc">基础 MPC</h1>
+<p>考虑离散线性系统</p>
+<div class="arithmatex">\[\begin{aligned}\mathbf{x}_{k+1} &amp;= A\mathbf{x}_k + B\mathbf{u}_k\\
+\mathbf{z}_k &amp;= C\mathbf{x}_k\end{aligned}\]</div>
+<p>我们假设：</p>
+<ol>
+<li>系统结构完全已知，即矩阵 <span class="arithmatex">\(A,B,C\)</span> 已知；</li>
+<li>系统状态完全可知，即系统状态 <span class="arithmatex">\(\mathbf{x}_k\)</span> 已知。</li>
+</ol>
+<p>需要注意，<span class="arithmatex">\(\mathbf{z}_k\)</span> 是系统实际输出，而非输出的测量结果。</p>
+<p>接下来有两个重要的参数，预测窗口长度 <span class="arithmatex">\(f\)</span> 和控制窗口长度 <span class="arithmatex">\(v\)</span> ，满足 <span class="arithmatex">\(v\le f\)</span> .</p>
+<p>MPC 的目标是，在 <span class="arithmatex">\(k\)</span> 时刻，计算后续一段时间的控制输入 <span class="arithmatex">\(\mathbf{u}_{k+i|k},\ i=0,1,2,\cdots,v-1\)</span> ，使得预测窗口内的系统输出 <span class="arithmatex">\(\mathbf{z}_{k+i|k},\ i=1,2,3,\cdots, f\)</span> 与期望轨迹的差异最小。</p>
+<p>我们假设，在控制窗口外的 <span class="arithmatex">\(k+v\)</span> 时刻及后续时刻，控制输入保持不变，即</p>
+<div class="arithmatex">\[\mathbf{u}_{k+v-1|k} = \mathbf{u}_{k+v|k} = \mathbf{u}_{k+v+1|k} =\cdots = \mathbf{u}_{k+f|k}\]</div>
+<p>MPC 不会采纳控制窗口里的所有计算结果，只会采纳第一个 <span class="arithmatex">\(u_{k|k}\)</span> 作为 <span class="arithmatex">\(k\)</span> 时刻的控制输入。在 <span class="arithmatex">\(k+1\)</span> 时刻，MPC 重新计算。</p>
+<h2 id="_1">系统输出的表达式</h2>
+<p>本小节，我们计算 <span class="arithmatex">\(\mathbf{z}_{k+i|k}, \ i=1,2,3,\cdots,f\)</span> 的表达式。</p>
+<p>由于矩阵 <span class="arithmatex">\(C\)</span> 是定的，我们先计算 <span class="arithmatex">\(\mathbf{x}_{k+i|k}\)</span> ：</p>
+<div class="arithmatex">\[\begin{aligned}
+\mathbf{x}_{k+1|k} &amp;= A\mathbf{x}_k+B\mathbf{u}_{k|k}\\
+\mathbf{x}_{k+2|k} &amp;= A\mathbf{x}_{k+1|k} + B\mathbf{u}_{k+1|k}\\
+&amp;= A^2\mathbf{x}_k + AB\mathbf{u}_{k|k} + B\mathbf{u}_{k+1|k}\\
+\mathbf{x}_{k+3|k} &amp;= A\mathbf{x}_{k+2|k} + B\mathbf{u}_{k+2|k}\\
+&amp;= A^3\mathbf{x}_k + A^{2}B\mathbf{u}_{k|k}+AB\mathbf{u}_{k+1|k}+B\mathbf{u}_{k+2|k}\\
+\cdots\\
+\mathbf{x}_{k+v|k} &amp;= A^{v}\mathbf{x}_k+\begin{bmatrix}A^{v-1}B &amp; A^{v-2}B &amp; \cdots &amp; AB &amp; B\end{bmatrix}\begin{bmatrix}\mathbf{u}_{k|k}\\ \mathbf{u}_{k+1|k}\\ \vdots \\ \mathbf{u}_{k+v-1|k}\end{bmatrix}\\
+\mathbf{x}_{k+v+1|k} &amp;= A\mathbf{x}_{k+v|k} + B\mathbf{u}_{k+v|k}\\
+&amp;= A\mathbf{x}_{k+v|k} + B\mathbf{u}_{k+v-1|k}\\
+&amp;= A^{v+1}\mathbf{x}_k + \begin{bmatrix}A^{v}B &amp; A^{v-1}B &amp; \cdots &amp; A^2B &amp; AB+B\end{bmatrix}\begin{bmatrix}\mathbf{u}_{k|k}\\ \mathbf{u}_{k+1|k}\\ \vdots \\ \mathbf{u}_{k+v-1|k}\end{bmatrix}\\
+\mathbf{x}_{k+v+2|k} &amp;= A\mathbf{x}_{k+v+1|k}+B\mathbf{u}_{k+v+1|k}\\
+&amp;= A^{v+2}\mathbf{x}_k + \begin{bmatrix}A^{v+1}B &amp; A^{v}B &amp; \cdots &amp; A^3B &amp; (A^2+A+I)B\end{bmatrix}\begin{bmatrix}\mathbf{u}_{k|k}\\\mathbf{u}_{k+1|k}\\\vdots\\ \mathbf{u}_{k+v-1|k}\end{bmatrix}\\
+\cdots\\
+\mathbf{x}_{k+f|k} &amp;= A^{f}\mathbf{x}_k+\begin{bmatrix}A^{f-1}B &amp; A^{f-2}B&amp; \cdots &amp; A^{f-v+1}B &amp; (A^{f-v}+A^{f-v-1}+\cdots+A+I)B\end{bmatrix}\begin{bmatrix}\mathbf{u}_{k|k}\\\mathbf{u}_{k+1|k}\\\vdots\\ \mathbf{u}_{k+v-1|k}\end{bmatrix}
+\end{aligned}\]</div>
+<p>我们引入符号 <span class="arithmatex">\(\bar{A}_{f,v} = A^{f-v} + A^{f-v-1} + \cdots + A + I\)</span> 简化以上表达式。将以上所有表达式合并，我们得到：</p>
+<div class="arithmatex">\[\begin{bmatrix}\mathbf{x}_{k+1|k}\\ \mathbf{x}_{k+2|k}\\ \vdots\\ \mathbf{x}_{k+v|k}\\ \mathbf{x}_{k+v-1|k}\\ \vdots\\ \mathbf{x}_{k+f|k}\end{bmatrix} = \begin{bmatrix}A\\A^2\\\vdots\\A^v\\A^{v+1}\\\vdots\\A^{f}\end{bmatrix}\mathbf{x}_k + \begin{bmatrix}B\\ AB &amp; B\\ \vdots &amp; \vdots\\ A^{v-1}B &amp; A^{v-2}B &amp; \cdots &amp; AB &amp; B\\A^{v}B &amp; A^{v-1}B &amp; \cdots &amp; A^{2}B &amp; \bar{A}_{v+1,v}B\\\vdots &amp; \vdots &amp; \cdots &amp; \vdots&amp; \vdots\\A^{f-1}B &amp; A^{f-2}B &amp; \cdots &amp; A^{f-v+1}B &amp; \bar{A}_{f,v}B\end{bmatrix}\begin{bmatrix}\mathbf{u}_{k|k}\\ \mathbf{u}_{k+1|k}\\\vdots\\\mathbf{u}_{k+v-1|k}\end{bmatrix}\]</div>
+<p>进而，考虑 <span class="arithmatex">\(\mathbf{z}_k = C\mathbf{x}_k\)</span> ，我们得到</p>
+<div class="arithmatex">\[\begin{bmatrix}\mathbf{z}_{k+1|k}\\ \mathbf{z}_{k+2|k}\\ \vdots\\ \mathbf{z}_{k+v|k}\\ \mathbf{z}_{k+v-1|k}\\ \vdots\\ \mathbf{z}_{k+f|k}\end{bmatrix} = \begin{bmatrix}CA\\ CA^2\\\vdots\\ CA^v\\ CA^{v+1}\\\vdots\\ CA^{f}\end{bmatrix}\mathbf{x}_k + \begin{bmatrix}CB\\ CAB &amp; CB\\ \vdots &amp; \vdots\\ CA^{v-1}B &amp; CA^{v-2}B &amp; \cdots &amp; CAB &amp; CB\\ CA^{v}B &amp; CA^{v-1}B &amp; \cdots &amp; CA^{2}B &amp; C\bar{A}_{v+1,v}B\\\vdots &amp; \vdots &amp; \cdots &amp; \vdots&amp; \vdots\\ CA^{f-1}B &amp; CA^{f-2}B &amp; \cdots &amp; CA^{f-v+1}B &amp; C\bar{A}_{f,v}B\end{bmatrix}\begin{bmatrix}\mathbf{u}_{k|k}\\ \mathbf{u}_{k+1|k}\\\vdots\\\mathbf{u}_{k+v-1|k}\end{bmatrix}\]</div>
+<p>简洁起见，我们将上式定义为</p>
+<div class="arithmatex">\[\mathbf{z} = O\mathbf{x}_k + M\mathbf{u}\]</div>
+<h2 id="_2">优化目标</h2>
+<p>我们期望的输出参考轨迹用向量的形式表示为</p>
+<div class="arithmatex">\[\mathbf{z}^d = \begin{bmatrix}\mathbf{z}^d_{k+1} &amp; \mathbf{z}^{d}_{k+2} &amp; \cdots &amp; \mathbf{z}_{k+f}^{d}\end{bmatrix}^{\top}\]</div>
+<p>最直接的优化目标就是</p>
+<div class="arithmatex">\[\min\left\|\mathbf{z}-\mathbf{z}^{d}\right\|_2 = \min \left(\mathbf{z}-\mathbf{z}^d\right)^{\top}\left(\mathbf{z}-\mathbf{z}^{d}\right)\]</div>
+<p>这一优化目标没有对控制输入 <span class="arithmatex">\(\mathbf{u}\)</span> 加以惩罚限制，可能导致 <span class="arithmatex">\(\mathbf{u}\)</span> 使执行器饱和，甚至无法实施。</p>
+<p>此外，不同时刻的轨迹误差应当具有不同的权重。直观来看，我们希望靠近现在的轨迹误差更小，以后的轨迹误差适当放宽。因为当前 MPC 输出的最终控制指令仅为 <span class="arithmatex">\(\mathbf{u}_{k|k}\)</span> ，以后的轨迹误差可以交由以后的 MPC 计算、优化。</p>
+<p>我们将控制输入的惩罚项表示为</p>
+<div class="arithmatex">\[\begin{aligned}
+J_{\mathbf{u}} &amp;= \mathbf{u}_{k|k}^{\top}Q_0\mathbf{u}_{k|k} + (\mathbf{u}_{k+1|k}-\mathbf{u}_{k|k})^\top Q_1 (\mathbf{u}_{k+1|k}-\mathbf{u}_{k|k})\\
+&amp;\ \ \ \ \ + \cdots + (\mathbf{u}_{k+v-1|k}-\mathbf{u}_{k+v-2|k})^\top Q_{v-1} (\mathbf{u}_{k+v-1|k}-\mathbf{u}_{k+v-2|k})\\
+&amp;= \left(\begin{bmatrix}I\\ -I &amp; I\\ \vdots &amp; \vdots &amp;\cdots\\0 &amp; 0 &amp; \cdots &amp; -I &amp; I\end{bmatrix}\mathbf{u}\right)^\top \begin{bmatrix}Q_0\\ &amp;Q_1\\ &amp; &amp; \cdots\\ &amp;&amp;&amp;&amp;Q_{v-1}\end{bmatrix} \left(\begin{bmatrix}I\\ -I &amp; I\\ \vdots &amp; \vdots &amp;\cdots\\0 &amp; 0 &amp; \cdots &amp; -I &amp; I\end{bmatrix}\mathbf{u}\right)\\
+&amp;= (W_1\mathbf{u})^\top W_2 W_1\mathbf{u}\\
+&amp;= \mathbf{u}^\top W_1^{\top}W_2W_1 \mathbf{u}\\
+&amp;= \mathbf{u}^\top W_3 \mathbf{u}
+\end{aligned}\]</div>
 <blockquote>
-<p>Comment：其实很多东西都不能简单地分类，很多事物的发展都是分化——融合——再分化的螺旋式前进过程，互相之间并不泾渭分明。为了讨论和研究的需要，我们必须对其下定义，作区分。定义和区分点很大程度上展现了我们对事物的认识、把握。</p>
+<p>这里的 <span class="arithmatex">\(W_2,W_3\)</span> 是一个对称矩阵。</p>
 </blockquote>
-<h3 id="23">2.3 西方的叙事文学传统</h3>
-<p>一、古代地中海传统的早期叙事文学（《荷马史诗》，epic ）</p>
-<p>二、中近世（即“中世纪”）的"罗曼史" (Romance)</p>
-<p>三、18-19世纪乃至当下的小说 (Novel)</p>
+<p>该惩罚项的设计思路是限制控制输入的变化率。</p>
+<div class="arithmatex">\[\begin{aligned}
+J_{\mathbf{z}} &amp;= \left(\mathbf{z}-\mathbf{z}^d\right)^{\top} \begin{bmatrix}P_1\\ &amp;P_2\\&amp;&amp;\cdots\\&amp;&amp;&amp;P_f\end{bmatrix} \left(\mathbf{z}-\mathbf{z}^d\right)\\
+&amp;= \left(O\mathbf{x}_k+M\mathbf{u}-\mathbf{z}^{d}\right)^{\top}W_4 \left(O\mathbf{x}_k+M\mathbf{u}-\mathbf{z}^{d}\right)\\
+&amp;= (M\mathbf{u}-\mathbf{s})^\top W_4 (M\mathbf{u}-\mathbf{s})
+\end{aligned}\]</div>
 <blockquote>
-<p>Note：作者原文中，第三部分是“18世纪和19世纪的<strong>长篇</strong>小说 (novel)”。没有涉及当今，并且特别提及了“长篇”这一概念。</p>
+<p>这里的 <span class="arithmatex">\(W_4\)</span> 是一个对称矩阵。</p>
 </blockquote>
-<p>有意思的是，18-19世纪的西方长篇小说，英语novel，法语和德语都是roman，意大利语是novela。</p>
-<p>作者想以此说明，三者是一脉相承的，中世纪和文艺复兴之后，传统的史诗文化逐渐式微；文艺复兴时期开始，novel登上历史舞台，虽然是新时代的特殊文化媒介，但也是西方古典史诗文化的“复活”，是与古典史诗遥相呼应的。</p>
-<p>但也正因 novel 具有承接历史，维系传统的特殊地位，西方文学理论家在批评 novel 时会像分析史诗那样，不期而然地运用亚里士多德式的古典标准（结构完整性、时间秩序感等）。</p>
-<blockquote>
-<p>Comment：作者在这里一方面说 novel 是古典史诗文化借尸还魂，另一方面批评文学理论家采用古典标准分析 novel，看上去似乎有点矛盾。</p>
-<p>作者的意思应该是，novel 的诞生，承接了西方的古典叙事文学传统，但随着 novel 的发展，它已经自证大道，不能再刻舟求剑，拿古典标准生搬硬套了。</p>
-</blockquote>
-<h3 id="24">2.4 <strong>中国的文学传统</strong></h3>
-<p>《诗三百》，《离骚》为代表的骚体诗，赋，乐府，律诗，词曲，小说。</p>
-<p>在中国的文学传统中，更重抒情而非叙事。</p>
-<blockquote>
-<p><strong>赋</strong>：中国古代的一种文体，它讲究文采、韵律，兼具诗歌和散文的性质。其特点是“铺采摛文，体物写志”，侧重于写景，借景抒情。赋的发展经历了几个阶段：最早出现于诸子散文中，叫“短赋”；以屈原为代表的“骚体”是诗向赋的过渡，叫“骚赋”；汉代正式确立了赋的体例，称为“辞赋”；魏晋以后，日益向骈对方向发展，叫作“骈赋”；唐代又由骈体转入律体叫“律赋”；宋代以散文形式写赋，称为“文赋”。著名的赋有：杜牧的《阿房宫赋》、曹植的《洛神赋》、欧阳修的《秋声赋》、苏轼的《前赤壁赋》、庾信的《哀江南赋》等。</p>
-</blockquote>
-<p>中国的叙事文学可以追溯到《尚书》，是少可以说大盛于《左传》。</p>
-<p>如果光考虑虚构性叙事文体 (fiction)，那么最古的小说大概是六朝志怪，然后经历变文与唐人传奇，在宋元之际开始分岔，一支文言小说，以清代《阅微草堂笔记》和《聊斋志异》为高峰；一支白话小说，以明代四大奇书和清代的《儒林外史》《红楼梦》为代表。</p>
-<blockquote>
-<p><strong>"六朝志怪"</strong>：插叙一点历史。东汉末年分三国，魏蜀吴争霸，263年魏灭蜀吴。265年司马炎夺权魏国，建立西晋。西晋统一没多久就寄了，皇族司马睿跑到南京建立了东晋，北方混战，史称十六国。之后历史就到了南北朝时期，南方先后历经宋、齐、梁、陈四个朝代。由于三国吴、东晋、南朝宋、南朝齐、南朝梁、南朝陈六个朝代国家都定都南京，所以把他们统称为“六朝”。</p>
-<p>这一时期也被视为中国小说的萌芽时期，有三种类型的小说出现，第一类是记叙神、仙、鬼、怪的志怪书，如《列异传》、《搜神记》等，第二类记叙历史人物事件但掺杂了较多怪诞无稽的内容，如《燕丹子》、《汉武故事》等等，第三类是记叙当时名士的卓然不群的举止言行的志人书，如《世说新语》等等。这一时期的小说篇幅短小，文笔简约，惜字如金。</p>
-<p>“六朝志怪”指第一类。</p>
-<p><strong>“变文”</strong>：唐代兴起的一种说唱文学，原本是讲述佛经故事，后来范围扩大，包括历史故事、民间传说等。</p>
-<p><strong>“唐人传奇”</strong>：唐代的文言短篇小说，除部分记述神灵鬼怪外，大量记载人间的各种世态，人物有上层的，也有下层的，反映面较过去远为广阔，生活气息也较为浓厚。唐传奇是中国古代短篇小说走向成熟的标志。</p>
-</blockquote>
-<p>关于文言小说，古人倾向于认为，正如词为诗余，曲为词余一样，文言小说是“史余”。</p>
-<p>关于明清长篇章回体白话小说，明人李卓吾、清人金圣叹、毛宗岗、张竹坡等人认为它们源于《史记》和上古的诗文经典；今人胡适、鲁迅、郑振铎则认为它们是从宋元明清的说书艺人处脱胎而来。无论如何，它们的演化过程与西方 novel 都有很大的不同。</p>
-<h2 id="3">3 口吻</h2>
-<h3 id="31">3.1 正史中的叙述人口吻</h3>
-<p>古代中国正史的重要篇目之后，往往有“史臣曰”，继承了司马迁的“太史公曰”，这是叙述人有意地显露自己。从正史中可以看到，中国叙事中的叙述者不是某一个作者，而是集体史臣。</p>
-<p><em>“中国史书虽然力图给我们造成一种客观记载的感觉，但实际上不外乎一种美学上的幻觉，是用各种人为的方法和手段造成的“拟客观”效果。”</em></p>
-<blockquote>
-<p>Comment：“客观记载”是史学应当遵从的原则，但是《史记》明显悖逆这一原则，有很多文学幻想的内容。后世史家逐渐扭转了这一风气。
-但是由于古代史官的特殊身份（见下引用），他难免有表达自己个性的欲望和潜意识。但是囿于历史记载的客观性要求，史官下笔时要运用各种技巧来克制自己的表达欲。因此读史，就有一种“假客观，真主观”的感觉。
-这是史学无可避免的问题。</p>
-</blockquote>
-<p><em>“由于中国历代长期形成的对史近乎宗教的狂热崇拜，也由于在清亡以前史料永远只对史官开放的历史事实，中国正史叙事者似乎总是摆出一副“全知全能者”的姿态。”</em></p>
-<p>为什么说“似乎”？因为史官的笔触伸不进皇家后院，也碰不到市井草民。</p>
+<p>其中， <span class="arithmatex">\(\mathbf{s} = \mathbf{z}^d - O\mathbf{x}_k\)</span> .</p>
+<p>最终，我们的优化目标是 <span class="arithmatex">\(\min J_{\mathbf{u}}+J_{\mathbf{z}}\)</span> .</p>
+<div class="arithmatex">\[\begin{aligned}
+\min\ &amp; J_{\mathbf{u}}+J\mathbf{z}\\
+=\min\ &amp; \mathbf{u}^\top W_3\mathbf{u}+(M\mathbf{u}-\mathbf{s})^\top W_4(M\mathbf{u}-s)\\
+=\min\ &amp;\mathbf{u}^\top W_3\mathbf{u}+ \mathbf{u}^{\top}M^{\top}W_4M\mathbf{u}- \mathbf{u}^{\top}M^{\top}W_4 \mathbf{s}-\mathbf{s}^{\top}W_4M\mathbf{u}+\mathbf{s}^\top W_4\mathbf{s}
+\end{aligned}\]</div>
+<p>接下来，将 <span class="arithmatex">\(J_{\mathbf{u}}+J_{\mathbf{z}}\)</span> 关于 <span class="arithmatex">\(\mathbf{u}\)</span> 求偏导，求得最佳 <span class="arithmatex">\(\mathbf{u}\)</span> </p>
+<div class="arithmatex">\[\begin{aligned}
+\frac{\partial J_{\mathbf{u}}+J_{\mathbf{z}}}{\mathbf{u}} &amp;= \mathbf{u}^{\top}\left(W_3+W_3^{\top}\right) + \mathbf{u}^{\top}\left(M^{\top}W_4M+M^{\top}W_4^{\top}M\right)- \mathbf{s}^{\top}W_4^{\top}M\\
+&amp;\ \ \ \ \ \ -\mathbf{s}^{\top}W_4M\\
+&amp;= 2\mathbf{u}^{\top}\left(W_3+M^{\top}W_4M\right)-2\mathbf{s}^{\top}W_4M
+\end{aligned}\]</div>
+<p>求 <span class="arithmatex">\(\dfrac{\partial J_{\mathbf{u}}+J_{\mathbf{z}}}{\partial\mathbf{u}} = 0\)</span> 时的最佳输入 <span class="arithmatex">\(\mathbf{u}\)</span> ： </p>
+<div class="arithmatex">\[\begin{aligned}
+\frac{\partial J_{\mathbf{u}}+J_{\mathbf{z}}}{\partial\mathbf{u}} &amp;= 0\\
+2\mathbf{u}^{\top}\left(W_3+M^{\top}W_4M\right)-2\mathbf{s}^{\top}W_4M &amp;= 0\\
+\mathbf{u}^{\top}\left(W_3+M^{\top}W_4M\right)&amp;=\mathbf{s}^{\top}W_4M\\
+\left(W_3+M^{\top}W_4M\right)\mathbf{u} &amp;= M^{\top}W_4\mathbf{s}\\
+\mathbf{u} &amp;= \left(W_3+M^{\top}W_4M\right)^{-1}M^{\top}W_4\mathbf{s}
+\end{aligned}\]</div>
 
 
 
@@ -3579,12 +3478,12 @@
     
     
       
-      <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.instant", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.tabs", "navigation.path", "navigation.indexes", "navigation.top", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.instant", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.tabs", "navigation.path", "navigation.indexes", "navigation.top", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.50899def.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.50899def.min.js"></script>
       
-        <script src="../../../../javascripts/katex.js"></script>
+        <script src="../../../javascripts/katex.js"></script>
       
         <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
       
