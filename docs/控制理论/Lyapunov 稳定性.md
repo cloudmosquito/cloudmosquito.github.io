@@ -128,17 +128,11 @@ $$\dot{\mathbf{x}} = \mathbf{f}(\mathbf{x})$$
 
 在 $\mathbf{x} = \mathbf{x}_e$ 位置有一个平衡点，那么我们可以在平衡点位置对其做泰勒展开，得到
 
-$$\dot{\mathbf{x}} = \frac{\partial \mathbf{f}}{\partial \mathbf{x}^T}(\mathbf{x}-\mathbf{x}_e)+O(\mathbf{x})$$
+$$\dot{\mathbf{x}} = \frac{\partial \mathbf{f}}{\partial \mathbf{x}}(\mathbf{x}-\mathbf{x}_e)+O(\mathbf{x})$$
 
-!!! question
+这里的 $\frac{\partial \mathbf{f}}{\partial \mathbf{x}}$ 本质上是一个 $n\times 1$ 的向量关于一个 $n\times 1$ 的向量求导，结果是
 
-    Q：为什么这里求偏导的时候，是对`x`的转置求偏导而不是对`x`本身求偏导？
-
-    A：参见[矩阵微积分](../数学/矩阵微积分.md)中关于“分子布局(符号特别版)”的介绍。
-
-这里的 $\frac{\partial \mathbf{f}}{\partial \mathbf{x}^T}$ 本质上是一个 $n\times 1$ 的向量关于一个 $n\times 1$ 的向量求导，结果是
-
-$$\frac{\partial \mathbf{f}}{\partial \mathbf{x}^T} = \begin{bmatrix}\frac{\partial f_1}{\partial x_1} & \frac{\partial f_1}{\partial x_2} & ... & \frac{\partial f_1}{\partial x_n}\\ \frac{\partial f_2}{\partial x_1} & \frac{\partial f_2}{\partial x_2} & ... & \frac{\partial f_2}{\partial x_n}\\ .. & .. &.. & ..\\ \frac{\partial f_n}{\partial x_1} & \frac{\partial f_n}{\partial x_2} & .. & \frac{\partial f_n}{\partial x_n}\end{bmatrix} \overset{\bigtriangleup}{=} A_n$$
+$$\frac{\partial \mathbf{f}}{\partial \mathbf{x}} = \begin{bmatrix}\frac{\partial f_1}{\partial x_1} & \frac{\partial f_1}{\partial x_2} & ... & \frac{\partial f_1}{\partial x_n}\\ \frac{\partial f_2}{\partial x_1} & \frac{\partial f_2}{\partial x_2} & ... & \frac{\partial f_2}{\partial x_n}\\ .. & .. &.. & ..\\ \frac{\partial f_n}{\partial x_1} & \frac{\partial f_n}{\partial x_2} & .. & \frac{\partial f_n}{\partial x_n}\end{bmatrix} \overset{\bigtriangleup}{=} A_n$$
 
 我们忽略掉高阶项 $O(\mathbf{x})$，再做变量代换 $\mathbf{z} = \mathbf{x} - \mathbf{x}_e$，即把原来的非线性系统，在平衡点附近化为了如下的线性系统形式
 

@@ -2,13 +2,13 @@
 
 ## 定义
 
-任何一个 $n$ 阶的复数矩阵 $A$ 都与一个 Jordan 标准型近似。
+!!! theorem
 
-考虑 $|\lambda I - A| = (\lambda - \lambda_1)^{e_1}(\lambda - \lambda_2)^{e_2}(...)(\lambda - \lambda_k)^{e_k}$，满足 $\sum_{i = 1}^{k} e_i = n$
+    任何一个 $n$ 阶的复数矩阵 $A$ 都与一个 Jordan 标准型相似，即存在 $P$ 使得 $P^{-1}AP = J = diag\begin{bmatrix}J_1& J_2& \cdots & J_k\end{bmatrix}$ .
 
-那么，我们就可以写出 $A$ 对应的 Jordan 标准型为：
+考虑 $|\lambda I - A| = (\lambda - \lambda_1)^{e_1}(\lambda - \lambda_2)^{e_2}(...)(\lambda - \lambda_k)^{e_k}$，满足 $\sum_{i = 1}^{k} e_i = n$ . 那么，我们就可以写出 $A$ 对应的 Jordan 标准型为：
 
-$$J = diag\{J_1, J_2, ..., J_k\}$$
+$$J = diag\begin{bmatrix}J_1& J_2& \cdots & J_k\end{bmatrix}$$
 
 其中，$J_j$ 是一个 Jordan 标准块，它的形式是：
 
