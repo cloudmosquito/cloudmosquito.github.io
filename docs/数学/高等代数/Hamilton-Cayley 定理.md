@@ -28,12 +28,12 @@ $$\begin{aligned}B(\lambda)(\lambda I - A) &= \left(\lambda^{n-1}B_0 + \lambda^{
 &= \lambda^nB_0 + \lambda^{n-1}(B_1-B_0A) + \cdots + \lambda(B_{n-1}-B_{n-2}A)-B_{n-1}A
 \end{aligned} \tag{2-1}$$
 
-设 $\lambda I -A = \lambda^n + a_1\lambda^{n-1} + a_2\lambda^{n-2} + \cdots + a_{n-1}\lambda + a_n$ ，则有 
+设 $\lambda I -A = \lambda^n + a_1\lambda^{n-1} + a_2\lambda^{n-2} + \cdots + a_{n-1}\lambda + a_n$ ，则有
 
 $$\begin{aligned}
 B(\lambda)(\lambda I-A)&=(\lambda I-A)^{*}(\lambda I-A) \\
 &= |\lambda I-A|I \\
-&= \lambda^n I + a_1\lambda^{n-1} I + \cdots + a_{n-1}\lambda I + a_n I 
+&= \lambda^n I + a_1\lambda^{n-1} I + \cdots + a_{n-1}\lambda I + a_n
 \end{aligned}\tag{2-2}$$
 
 比较一下（2-1）式和（2-2）式，我们有
@@ -62,7 +62,7 @@ B_{n-1}A-B_{n-2}A^2 &= a_{n-1}A\\
 
 !!! theorem
 
-    矩阵 $A^{k}, k \ge n$ 总可以用矩阵 $A^{j}, j=1,2,\cdots,n-1$ 的线性组合表示。
+    矩阵 $A^{k}, k \ge n$ 总可以用矩阵 $A^{j}, j=0,1,2,\cdots,n-1$ 的线性组合表示。
 
 在控制领域，我们经常遇到矩阵 $e^{At}$ ，此时可如下使用该推论：
 
