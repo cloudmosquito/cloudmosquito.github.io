@@ -1642,18 +1642,27 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
-      1 定义
+      定义
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#2" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
-      2 能控性
+      能控性
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      能观性
     </span>
   </a>
   
@@ -1829,12 +1838,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%E8%A7%82%E6%B5%8B%E5%99%A8/%E5%BC%95%E8%A8%80%EF%BC%88%E7%B3%BB%E7%BB%9F%E8%83%BD%E8%A7%82%E6%80%A7%EF%BC%89/" class="md-nav__link">
+      <a href="../../%E8%A7%82%E6%B5%8B%E5%99%A8/%E7%B3%BB%E7%BB%9F%E8%83%BD%E8%A7%82%E6%80%A7/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    引言（系统能观性）
+    系统能观性
     
   </span>
   
@@ -3394,18 +3403,27 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
-      1 定义
+      定义
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#2" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
-      2 能控性
+      能控性
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      能观性
     </span>
   </a>
   
@@ -3429,7 +3447,7 @@
 
 <h1 id="_1">能控性与能观性</h1>
 <p>有些著作会说“可控性”“可观性”，表达的是同一个意思。英文对应 “Controllability” "Observability"。笔者本科阶段修读《现代控制理论》时，老师采用的说法是“能控性”“能观性”，本篇因而沿用这一表述。</p>
-<h2 id="1">1 定义</h2>
+<h2 id="_2">定义</h2>
 <p>下文称“系统”，指的是如下线性定常 MIMO 系统：</p>
 <div class="arithmatex">\[\begin{aligned}
 \dot{\mathbf{x}} &amp;= A\mathbf{x} + B\mathbf{u}\\
@@ -3441,8 +3459,37 @@
 <p>能控性的定义，不要求系统具体用多少时间达到期望状态，也不要求系统状态沿怎样一个路径变化。</p>
 </blockquote>
 <p><strong>能观性</strong> 指的是已知一个时间段内系统输出 <span class="arithmatex">\(\mathbf{y}(t)\)</span> 和控制输入 <span class="arithmatex">\(\mathbf{u}(t)\)</span> ，我们即可确定系统状态初值 <span class="arithmatex">\(\mathbf{x}_0\)</span> ，继而可以确定系统在该时间段内任意时刻对应的状态。</p>
-<h2 id="2">2 能控性</h2>
-<p>能控性的定义里丝毫没有提及系统输出。因此，考察一个系统的能控性，只需要考察其系统矩阵 <span class="arithmatex">\(A\)</span> 和控制矩阵 <span class="arithmatex">\(B\)</span> 。为了简化表述，在考察系统能控性时，我们会采用 <span class="arithmatex">\((A,B)\)</span> 来表示该系统。</p>
+<h2 id="_3">能控性</h2>
+<blockquote>
+<p>仅考虑离散系统。连续系统的推导思路类似。</p>
+</blockquote>
+<p>考虑初始状态 <span class="arithmatex">\(\mathbf{x}_0\)</span> ，N 时刻的最终状态 <span class="arithmatex">\(\mathbf{x}_{N}\)</span> ，有</p>
+<div class="arithmatex">\[\begin{aligned}
+\mathbf{x}_N &amp;= A\mathbf{x}_{N-1}+B\mathbf{u}_{N-1}\\
+&amp;= A(A\mathbf{x}_{N-2}+B\mathbf{u}_{N-2})+B\mathbf{u}_{N-1}\\
+&amp;= \cdots\\
+&amp;= A^{N}\mathbf{x}_0+A^{N-1}B\mathbf{u}_0 + A^{N-2}B\mathbf{u}_{1} + \cdots+B\mathbf{u}_{N-1}\\
+&amp;= \begin{bmatrix}B &amp; AB &amp; A^2B &amp; \cdots &amp; A^{N-1}B\end{bmatrix}\begin{bmatrix}\mathbf{u}_{N-1}\\\mathbf{u}_{N-2}\\ \vdots\\\mathbf{u}_0\end{bmatrix}+A^{N}\mathbf{x}_0\\
+\implies &amp;\begin{bmatrix}B &amp; AB &amp; A^2B &amp; \cdots &amp; A^{N-1}B\end{bmatrix}\begin{bmatrix}\mathbf{u}_{N-1}\\\mathbf{u}_{N-2}\\ \vdots\\\mathbf{u}_0\end{bmatrix} = \mathbf{x}_N - A^{N}\mathbf{x}_0
+\end{aligned}\]</div>
+<p>令矩阵 <span class="arithmatex">\(G = \begin{bmatrix}B &amp; AB &amp; A^2B &amp; \dots &amp; A^{N-1}B\end{bmatrix}\)</span> ，则可知 <span class="arithmatex">\(G\)</span> 的尺寸为 <span class="arithmatex">\(n\times mN\)</span> ，一般情况下 <span class="arithmatex">\(mN&gt;n\)</span> ，这是一个欠定的线性方程组。</p>
+<div class="admonition theorem">
+<p class="admonition-title">线性方程组解的定理</p>
+<p>设 <span class="arithmatex">\(G\)</span> 和 <span class="arithmatex">\(\bar{G}\)</span> 分别为线性方程组的系数矩阵和增广矩阵，则</p>
+<p>线性方程组有解等价于 <span class="arithmatex">\(\mathrm{rank}(G) = \mathrm{rank}(\bar{G})\)</span> ；</p>
+<p>线性方程组无解等价于 <span class="arithmatex">\(\mathrm{rank}(G) &lt; \mathrm{rank}(\bar{G})\)</span> .</p>
+<p>当线性方程组有解时，若 <span class="arithmatex">\(\mathrm{rank}(G)\)</span> 等于未知量个数，则有唯一解；</p>
+<p>若 <span class="arithmatex">\(\mathrm{rank}(G)\)</span> 小于未知量个数，则有无穷多解。</p>
+</div>
+<p>系统 <span class="arithmatex">\((A,B)\)</span> 能控 <span class="arithmatex">\(\Longleftrightarrow\)</span> 对于任意 <span class="arithmatex">\(\mathbf{x}_N\)</span> ，该线性方程组有解。</p>
+<p>因为 <span class="arithmatex">\(\mathbf{x}_N\)</span> 可以任意取，所以增广矩阵 <span class="arithmatex">\(\bar{G}\)</span> 必定存在行满秩的情况，要使此时的线性方程组也有解，则系数矩阵 <span class="arithmatex">\(G\)</span> 必须是行满秩的。所以，系统 <span class="arithmatex">\((A,B)\)</span> 能控 <span class="arithmatex">\(\Longleftrightarrow \mathrm{rank}(G) = n\)</span> .</p>
+<p>更进一步，根据 <a href="../../../%E6%95%B0%E5%AD%A6/%E9%AB%98%E7%AD%89%E4%BB%A3%E6%95%B0/Hamilton-Cayley%20%E5%AE%9A%E7%90%86/">Hamilton-Caley</a> 定理的推论，<span class="arithmatex">\(A^k,k\ge n\)</span> 可以表示为 <span class="arithmatex">\(A^i, i&lt;n\)</span> 的线性组合。所以，<span class="arithmatex">\(\mathrm{rank}(G) = n \Longleftrightarrow \mathrm{rank}\begin{bmatrix}B &amp; AB &amp; A^2B &amp; \cdots &amp; A^{n-1}B\end{bmatrix} = n\)</span> .</p>
+<blockquote>
+<p>对于 LTV 线性时变系统，无法做此简化，只能把 N 项的 <span class="arithmatex">\((A_j,B_j)\)</span> 都算出来，然后判断矩阵 <span class="arithmatex">\(G\)</span> 是否行满秩。</p>
+</blockquote>
+<p>我们称矩阵 <span class="arithmatex">\(Q_c =\begin{bmatrix}B &amp; AB &amp; A^2B &amp; \cdots &amp; A^{n-1}B\end{bmatrix}\)</span> 为 <strong>能控性矩阵</strong> 。系统 <span class="arithmatex">\((A,B)\)</span> 能控 <span class="arithmatex">\(\Longleftrightarrow\)</span> 能控性矩阵行满秩。</p>
+<h2 id="_4">能观性</h2>
+<p>见 “观测器” 中的 <a href="../../%E8%A7%82%E6%B5%8B%E5%99%A8/%E7%B3%BB%E7%BB%9F%E8%83%BD%E8%A7%82%E6%80%A7/">系统能观性</a> 一文。</p>
 
 
 

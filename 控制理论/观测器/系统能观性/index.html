@@ -21,7 +21,7 @@
     
     
       
-        <title>引言（系统能观性） - Cloudmosquito Site</title>
+        <title>系统能观性 - Cloudmosquito Site</title>
       
     
     
@@ -123,7 +123,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              引言（系统能观性）
+              系统能观性
             
           </span>
         </div>
@@ -1783,7 +1783,7 @@
   
   
   <span class="md-ellipsis">
-    引言（系统能观性）
+    系统能观性
     
   </span>
   
@@ -1796,7 +1796,7 @@
   
   
   <span class="md-ellipsis">
-    引言（系统能观性）
+    系统能观性
     
   </span>
   
@@ -3541,7 +3541,7 @@
 
 
 
-<h1 id="_1">引言（系统能观性）</h1>
+<h1 id="_1">系统能观性</h1>
 <h2 id="_2">为什么需要观测器</h2>
 <p>我们先考虑简单的线性定常连续系统：</p>
 <div class="arithmatex">\[\begin{aligned}\dot{\mathbf{x}} &amp;= A\mathbf{x}+B\mathbf u\\
@@ -3559,12 +3559,16 @@
 <p>观察（1-1）式，其中 <span class="arithmatex">\(B\mathbf{u}\)</span> 和 <span class="arithmatex">\(D\mathbf{u}\)</span> 都是已知信息，倘若 <span class="arithmatex">\(\mathbf{u} = \mathbf{0}\)</span> 时系统完全能观，那么当 <span class="arithmatex">\(\mathbf{u} \neq \mathbf{0}\)</span> 时系统也是完全能观的。换言之，<strong>系统是否能观，仅与矩阵 <span class="arithmatex">\(A,C\)</span> 相关</strong>。因此，下文在讨论能观性时，均假设零输入条件，用 <span class="arithmatex">\((A,C)\)</span> 指代系统。</p>
 <h3 id="_4">更加深刻的观察</h3>
 <p>考虑能观性定义的否命题：若系统存在两个不同的初始状态 <span class="arithmatex">\(\mathbf{x}_1(0)\)</span> 和 <span class="arithmatex">\(\mathbf{x}_2(0)\)</span> ，在时间段 <span class="arithmatex">\(t\in[t_0, t_f]\)</span> 里，对于同样的控制输入 <span class="arithmatex">\(\mathbf{u}(t)\)</span> ，具有同样的输出 <span class="arithmatex">\(\mathbf{y}(t)\)</span> ，则系统不能观。</p>
-<p>针对<strong>线性系统</strong>，“不能观”的定义与下面的表述是等价的：系统存在一个初始状态 <span class="arithmatex">\(\mathbf{x}_3(0) = \mathbf{x}_1(0)-\mathbf{x}_2(0) \neq 0\)</span> ，在时间段 <span class="arithmatex">\(t\in[t_0, t_f]\)</span> 里，输出 <span class="arithmatex">\(\mathbf{y}(t) = Ce^{At}\mathbf{x}(0) \equiv 0\)</span> 。</p>
+<p>针对<strong>线性系统</strong>，“不能观”的定义与下面的表述是等价的：系统存在一个初始状态 <span class="arithmatex">\(\mathbf{x}_3(0) = \mathbf{x}_1(0)-\mathbf{x}_2(0) \neq 0\)</span> ，在时间段 <span class="arithmatex">\(t\in[t_0, t_f]\)</span> 里，输出 <span class="arithmatex">\(\mathbf{y}(t) = Ce^{At}\mathbf{x}_3(0) \equiv 0\)</span> 。</p>
 <p>对输出求任意阶导数，可以得到</p>
 <div class="arithmatex">\[\mathbf{y}^{(k)}(t) = CA^{k}e^{At}\mathbf{x}(0) \equiv 0 \ \ \ k = 1,2,\cdots\]</div>
 <p>换言之，存在不为 0 的向量 <span class="arithmatex">\(\mathbf{x}\)</span> 使得 <span class="arithmatex">\(CA^k\mathbf{x} = 0\)</span> ，这其实就是下面的能观性矩阵判据。</p>
 <h2 id="_5">能观性矩阵判据</h2>
-<p><strong>系统 <span class="arithmatex">\((A,C)\)</span> 能观的充要条件是矩阵 <span class="arithmatex">\(\begin{bmatrix}C\\ CA \\ \vdots\\ CA^{n-1}\end{bmatrix}\)</span>  列满秩</strong>。</p>
+<div class="admonition theorem">
+<p class="admonition-title">Theorem</p>
+<p>系统 <span class="arithmatex">\((A,C)\)</span> 能观的充要条件是矩阵 <span class="arithmatex">\(\begin{bmatrix}C\\ CA \\ \vdots\\ CA^{n-1}\end{bmatrix}\)</span>  列满秩。</p>
+</div>
+<p>我们理解一下该定理。考虑如下系统：</p>
 <div class="arithmatex">\[\dot{\mathbf{x}} = A\mathbf{x}\ \ \ \ \ \ \ \mathbf{y} = C\mathbf{x} \tag{1-2}\]</div>
 <p>该系统的输出为 <span class="arithmatex">\(\mathbf{y}(t) = Ce^{At}\mathbf{x}(0)\)</span> 。 <span class="arithmatex">\(e^{At}\)</span> 需要展开计算，即</p>
 <div class="arithmatex">\[\begin{aligned}
