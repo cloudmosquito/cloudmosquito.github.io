@@ -17,7 +17,7 @@
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.19">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.20">
     
     
       
@@ -25,7 +25,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.7e37652d.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.e53b48f4.min.css">
       
         
         <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
@@ -3282,6 +3282,30 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="3 齐次变换">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      齐次变换矩阵的逆
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      点的位姿变换
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -3841,6 +3865,30 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="3 齐次变换">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      齐次变换矩阵的逆
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      点的位姿变换
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -3878,7 +3926,17 @@
 </ol>
 <p>对于一个隶属于坐标系 1 的向量 <span class="arithmatex">\(^1 A = \begin{bmatrix} ^1x_{a} \\ ^1y_{a} \\ ^1z_{a} \end{bmatrix}\)</span> ，可以用 <span class="arithmatex">\(_1^0 R \cdot (^1A)\)</span> 的方式计算该向量在坐标系 0 下的表示方式 <span class="arithmatex">\(^0A\)</span> 。</p>
 <p><strong>理解</strong>： <span class="arithmatex">\(_1^0 R\)</span> 将坐标系 1 的基在坐标系 0 下重新表示了一遍。</p>
-<p><strong>性质</strong>： <span class="arithmatex">\((_1^0 R)^{\top} = (_1^0 R)^{-1} = (_0^1 R)\)</span> 。</p>
+<div class="admonition theorem">
+<p class="admonition-title">性质</p>
+<div class="arithmatex">\[{}_1^0 R^{\top} = {}_1^0 R^{-1} = {}_0^1 R\]</div>
+<p>第一个等号只需要计算 <span class="arithmatex">\(RR^{\top} = I\)</span> 即可证明。</p>
+<p>第二个等号推导过程如下。考虑三个坐标系，基坐标系和 A, B ，三坐标系原点重合，其中 A 和 B 坐标系的三个轴对应的单位向量在基坐标系下可以分别表示为 <span class="arithmatex">\(\begin{bmatrix}\overset{\rightarrow}{\mathbf{x}_{A}} &amp; \overset{\rightarrow}{\mathbf{y}_{A}} &amp; \overset{\rightarrow}{\mathbf{z}_{A}}\end{bmatrix}\)</span> 和 <span class="arithmatex">\(\begin{bmatrix}\overset{\rightarrow}{\mathbf{x}_{B}} &amp; \overset{\rightarrow}{\mathbf{y}_{B}} &amp; \overset{\rightarrow}{\mathbf{z}_{B}}\end{bmatrix}\)</span> . 则有如下式子成立，</p>
+<div class="arithmatex">\[\begin{aligned}
+\begin{bmatrix}\overset{\rightarrow}{\mathbf{x}_{A}} &amp; \overset{\rightarrow}{\mathbf{y}_{A}} &amp; \overset{\rightarrow}{\mathbf{z}_{A}}\end{bmatrix} &amp;= \begin{bmatrix}\overset{\rightarrow}{\mathbf{x}_{B}} &amp; \overset{\rightarrow}{\mathbf{y}_{B}} &amp; \overset{\rightarrow}{\mathbf{z}_{B}}\end{bmatrix}{}^{A}_{B}R\\
+\begin{bmatrix}\overset{\rightarrow}{\mathbf{x}_{B}} &amp; \overset{\rightarrow}{\mathbf{y}_{B}} &amp; \overset{\rightarrow}{\mathbf{z}_{B}}\end{bmatrix} &amp;= \begin{bmatrix}\overset{\rightarrow}{\mathbf{x}_{A}} &amp; \overset{\rightarrow}{\mathbf{y}_{A}} &amp; \overset{\rightarrow}{\mathbf{z}_{A}}\end{bmatrix}{}^{B}_{A}R
+\end{aligned}\]</div>
+<p>稍加计算即得 <span class="arithmatex">\({}^{A}_{B}R = {}^{B}_{A}R^{-1}\)</span> .</p>
+</div>
 <h3 id="11">1.1 基本旋转矩阵</h3>
 <div class="arithmatex">\[\begin{align}
 R_{z, \psi} &amp;= \begin{bmatrix}
@@ -4130,6 +4188,33 @@ T = \begin{bmatrix} \mathbf{R}_{3\times 3} &amp; \mathbf{t}_{3\times 1}\\ \mathb
 \begin{bmatrix}{}^{B}\mathbf{R}_{A} &amp; {}^{B}\mathbf{t}_A\\ \mathbf{0} &amp; 1\end{bmatrix}\\
 &amp;= \begin{bmatrix}{}^{C}\mathbf{R}_{B}{}^{B}\mathbf{R}_{A} &amp; {}^{C}\mathbf{R}_{B}{}^{B}\mathbf{t}_{A}+{}^{C}\mathbf{t}_{B}\\ \mathbf{0} &amp; 1\end{bmatrix}
 \end{aligned}\]</div>
+<h3 id="_11">齐次变换矩阵的逆</h3>
+<p>考虑两个原点不重合的坐标系 A, B ，用齐次变换矩阵 <span class="arithmatex">\({}^{A}_{B}T\)</span> 表示 B 坐标系相对于 A 坐标系的位姿（Pose）：</p>
+<div class="arithmatex">\[{}^{A}_{B}T = \begin{bmatrix}{}^{A}_{B}R &amp; {}^{A}O_{B}\\ \mathbf{0} &amp; 1\end{bmatrix}\]</div>
+<p>我们考虑如何求齐次变换矩阵 <span class="arithmatex">\({}^{B}_{A}T\)</span> 表示 A 坐标系相对于 B 坐标系的位姿.</p>
+<p>我们已知 <span class="arithmatex">\({}^{B}_{A}R = {}^{A}_{B}R^{\top}\)</span> ，还需知道如何用 <span class="arithmatex">\({}^{A}O_{B}\)</span> 表示 <span class="arithmatex">\({}^{B}O_{A}\)</span> .
+这件事情还挺简单的，本质上 <span class="arithmatex">\({}^{A}O_{B} = {}^{A}\overset{\longrightarrow}{O_{A}O_{B}}, {}^{B}O_{A} = {}^{B}\overset{\longrightarrow}{O_{B}O_{A}}\)</span> ，显然可得：</p>
+<div class="arithmatex">\[\begin{aligned}
+{}^{B}\overset{\longrightarrow}{O_{B}O_{A}} &amp;= -{}^{B}_{A}R \cdot {}^{A}\overset{\longrightarrow}{O_{A}O_{B}}\\
+\implies {}^{B}O_{A} &amp;= -{}^{B}_{A}R \cdot {}^{A}O_{B}
+\end{aligned}\]</div>
+<p>由此，我们可以推导得到：</p>
+<div class="arithmatex">\[\begin{aligned}
+{}^{B}_{A}T &amp;= {}^{A}_{B}T^{-1}\\
+&amp;= \begin{bmatrix}{}^{A}_{B}R &amp; {}^{A}O_{B}\\ \mathbf{0} &amp; 1\end{bmatrix}^{-1}\\
+&amp;= \begin{bmatrix}{}^{A}_{B}R^{\top} &amp; -{}^{A}_{B}R^{\top} \cdot {}^{A}O_{B}\\ \mathbf{0} &amp; 1\end{bmatrix}
+\end{aligned}\]</div>
+<h3 id="_12">点的位姿变换</h3>
+<p>考虑两个坐标系 A, B 和一个点 P ，已知齐次变换阵 <span class="arithmatex">\({}^{A}_{B}T\)</span> 和 <span class="arithmatex">\({}^{B}P\)</span> ，求 <span class="arithmatex">\({}^{A}P\)</span> .</p>
+<p>本质上 <span class="arithmatex">\({}^{B}P = {}^{B}\overset{\longrightarrow}{O_{B}P} , {}^{A}P = {}^{A}\overset{\longrightarrow}{O_{A}P}\)</span> ，
+从而有</p>
+<div class="arithmatex">\[\begin{aligned}
+{}^{A}\overset{\longrightarrow}{O_{A}P} &amp;= {}^{A}\overset{\longrightarrow}{O_{A}O_{B}} + {}^{B}\overset{\longrightarrow}{O_{B}P}\\
+\implies {}^{A}P &amp;= {}^{A}O_{B} + {}^{A}_{B}R \cdot {}^{B}\overset{\longrightarrow}{O_{B}P}\\
+\implies {}^{A}P &amp;= {}^{A}O_{B} + {}^{A}_{B}R \cdot {}^{B}P\\
+\end{aligned}\]</div>
+<p>写成齐次变换形式，则有</p>
+<div class="arithmatex">\[\begin{bmatrix}{}^{A}P\\ 1\end{bmatrix} = {}^{A}_{B}T\begin{bmatrix}{}^{B}P\\ 1\end{bmatrix}\]</div>
 
 
 
@@ -4193,7 +4278,7 @@ T = \begin{bmatrix} \mathbf{R}_{3\times 3} &amp; \mathbf{t}_{3\times 1}\\ \mathb
       <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.instant", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.tabs", "navigation.path", "navigation.indexes", "navigation.top", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.92b07e13.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.f55a23d4.min.js"></script>
       
         <script src="../../../javascripts/katex.js"></script>
       
