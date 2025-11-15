@@ -29,6 +29,7 @@ pip install 包名 -i https://pypi.tuna.tsinghua.edu.cn/simple
 ### 步骤 1：创建或修改配置文件
 
 - 对于当前用户：
+
   ```bash
   mkdir -p ~/.pip  # 如果目录不存在则创建
   nano ~/.pip/pip.conf
@@ -42,6 +43,7 @@ pip install 包名 -i https://pypi.tuna.tsinghua.edu.cn/simple
   ```
 
 - 对于系统全局配置（需管理员权限）：
+
   ```bash
   sudo nano /etc/pip.conf
   ```
@@ -97,6 +99,7 @@ pip install numpy
 1. **虚拟环境**：如果在虚拟环境（如 `venv` 或 `conda`）中使用，需在虚拟环境中单独配置。
 2. **pip 版本**：确保使用 `pip3` 对应 Python 3（如系统默认是 Python 2）。
 3. **清除缓存**：若之前下载过包，可能需要清除缓存：
+
    ```bash
    pip cache purge
    ```

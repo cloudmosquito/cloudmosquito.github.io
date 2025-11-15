@@ -22,4 +22,4 @@ sudo hwclock --localtime --systohc
 timedatectl set-local-rtc 1 --adjust-system-clock
 ```
 
-这个命令会修改 Ubuntu 的时间处理方式，使其假定硬件时钟是以本地时间运行的。这样两系统的时间均显示正确，且不会出现其他问题
+这个命令会修改 Ubuntu 的时间处理方式，使其假定硬件时钟是以本地时间运行的。这样两系统的时间均显示正确，且不会出现其他问题。

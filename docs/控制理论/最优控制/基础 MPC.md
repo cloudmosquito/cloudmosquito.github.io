@@ -112,7 +112,7 @@ $$\begin{aligned}
 &= 2\mathbf{u}^{\top}\left(W_3+M^{\top}W_4M\right)-2\mathbf{s}^{\top}W_4M
 \end{aligned}$$
 
-求 $\dfrac{\partial J_{\mathbf{u}}+J_{\mathbf{z}}}{\partial\mathbf{u}} = 0$ 时的最佳输入 $\mathbf{u}$ ： 
+求 $\dfrac{\partial J_{\mathbf{u}}+J_{\mathbf{z}}}{\partial\mathbf{u}} = 0$ 时的最佳输入 $\mathbf{u}$ ：
 
 $$\begin{aligned}
 \frac{\partial J_{\mathbf{u}}+J_{\mathbf{z}}}{\partial\mathbf{u}} &= 0\\
@@ -121,3 +121,13 @@ $$\begin{aligned}
 \left(W_3+M^{\top}W_4M\right)\mathbf{u} &= M^{\top}W_4\mathbf{s}\\
 \mathbf{u} &= \left(W_3+M^{\top}W_4M\right)^{-1}M^{\top}W_4\mathbf{s}
 \end{aligned}$$
+
+## 基于 LQR 视角理解 MPC
+
+我们知道，LQR 控制器无法处理带约束的情况，即使约束是凸的。但在现实中，各类约束不可避免。
+
+Convex MPC 的思路是引入一个“预测时域” $H$ ，在每个采样时刻用当前状态做初值，在线求解预测时域内的带约束最优控制问题，解得控制量序列后，只实施第一个控制量，然后滚动前移。
+
+该算法的假设是，约束都是极限情况，系统在正常工作时不会碰到约束。我们只要在预测时域内求解考虑了约束，那么离开预测时域后，就可以认为系统已经工作在正常工况下，碰不到约束，因此后续可以用 LQR 控制。也就是说，我们可以用 Riccati 递归法，求得 $H$ 时刻的状态代价。从而，预测时域内要求解的最优控制问题是（不含约束项）：
+
+$$\min_{\mathbf{x}_{1:H},\mathbf{u}_{1:H-1}}\sum_{k=1}^{H-1}\left(\frac{1}{2}\mathbf{x}_k^{\top}Q\mathbf{x}_k+\frac{1}{2}\mathbf{u}_k^{\top}R\mathbf{u}_k\right) + \mathbf{x}_{H}^{\top}P_H\mathbf{x}_H$$
