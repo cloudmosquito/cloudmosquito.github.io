@@ -50,7 +50,7 @@
       
     
     
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&amp;display=swap">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;display=swap">
     
       <link rel="stylesheet" href="../../../stylesheets/extra.css">
     
@@ -2247,6 +2247,8 @@
       
         
       
+        
+      
     
     
     
@@ -2289,6 +2291,34 @@
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E6%8E%A7%E5%88%B6%E7%90%86%E8%AE%BA/%E6%9C%80%E4%BC%98%E6%8E%A7%E5%88%B6/KKT%E6%9D%A1%E4%BB%B6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    KKT 条件
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
             
               
                 
@@ -4487,7 +4517,7 @@ ad_{X}(Y) &amp;= \left[X, Y\right] = XY-YX
 <h2 id="2-so3">2 SO(3) 中的四旋翼姿态控制</h2>
 <p>我们假设能高频连续地测量四旋翼姿态和角速度。实际上，可以通过机载 IMU 以及对应的 IMU 姿态解算算法来实时获得这两个量。</p>
 <h3 id="21">2.1 建模与动力学模型</h3>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../%E5%9B%9B%E6%97%8B%E7%BF%BC%20SO%283%29%20%E5%A7%BF%E6%80%81%E6%8E%A7%E5%88%B6.assets/%E5%9D%90%E6%A0%87%E7%B3%BB.png" data-desc-position="bottom"><img alt="坐标系" src="../%E5%9B%9B%E6%97%8B%E7%BF%BC%20SO%283%29%20%E5%A7%BF%E6%80%81%E6%8E%A7%E5%88%B6.assets/%E5%9D%90%E6%A0%87%E7%B3%BB.png" width="80%"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../%E5%9B%9B%E6%97%8B%E7%BF%BC%20SO%283%29%20%E5%A7%BF%E6%80%81%E6%8E%A7%E5%88%B6.assets/%E5%9D%90%E6%A0%87%E7%B3%BB.png" data-desc-position="bottom"><img alt="坐标系" class="img-center" src="../%E5%9B%9B%E6%97%8B%E7%BF%BC%20SO%283%29%20%E5%A7%BF%E6%80%81%E6%8E%A7%E5%88%B6.assets/%E5%9D%90%E6%A0%87%E7%B3%BB.png" width="50%"></a></p>
 <p>不考虑四旋翼的平移，以 “北东地” 坐标系为惯性坐标系，以 "roll-pitch-yaw" 坐标系为联体坐标系，两个坐标系原点一致。<span class="arithmatex">\(roll\)</span> 轴角平分 1 号旋臂和 4 号旋臂；yaw 轴垂直机身平面指向下方。</p>
 <p>定义以下符号：</p>
 <p><span class="arithmatex">\(R \in \mathrm{SO}(3)\)</span> 描述联体坐标系相对惯性坐标系的姿态；<span class="arithmatex">\(J \in \mathbb{R}^{3\times 3}\)</span> 是四旋翼在联体坐标系下的惯性张量；<span class="arithmatex">\(\omega^b \in \mathbb{R}^3\)</span> 是四旋翼在机体坐标系下的角速度向量；<span class="arithmatex">\(\tau \in \mathbb{R}^3\)</span> 是四旋翼执行器产生的三轴力矩。</p>
@@ -4515,7 +4545,7 @@ J\dot\omega^b &amp;= -\omega^b \ \times \ J\omega^b + \tau\end{cases} \tag{2-3}\
 <div class="arithmatex">\[\tau = \omega^b \times J\omega^b - K_p \ln(R)^{\vee} - K_d \omega^b \tag{2-5}\]</div>
 <p>其中，第二项根据角度误差做反馈控制，第三项根据角速度误差做反馈控制，整体上就是一个 PD 控制。论文指出可以用串级控制方案代替 (2-5) 式方案，利用" <span class="arithmatex">\(\ln(R)\)</span> 是 <span class="arithmatex">\(\hat{\omega}^b\)</span> 的期望值"这一信息，优化控制效果。</p>
 <p>论文给了一张非常详细的控制框图，但是存在两个问题：1. 信号流组合的时候加减符号反了（当然，如果控制器中的增益都是负数就没关系）；2. Dynamics Feedforward 的式子不对，等号右边第一项应该是 <span class="arithmatex">\(J\dot{\omega}\)</span>。</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../%E5%9B%9B%E6%97%8B%E7%BF%BC%20SO%283%29%20%E5%A7%BF%E6%80%81%E6%8E%A7%E5%88%B6.assets/%E6%8E%A7%E5%88%B6%E6%A1%86%E5%9B%BE.png" data-desc-position="bottom"><img alt="控制框图" src="../%E5%9B%9B%E6%97%8B%E7%BF%BC%20SO%283%29%20%E5%A7%BF%E6%80%81%E6%8E%A7%E5%88%B6.assets/%E6%8E%A7%E5%88%B6%E6%A1%86%E5%9B%BE.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../%E5%9B%9B%E6%97%8B%E7%BF%BC%20SO%283%29%20%E5%A7%BF%E6%80%81%E6%8E%A7%E5%88%B6.assets/%E6%8E%A7%E5%88%B6%E6%A1%86%E5%9B%BE.png" data-desc-position="bottom"><img alt="控制框图" class="img-center" src="../%E5%9B%9B%E6%97%8B%E7%BF%BC%20SO%283%29%20%E5%A7%BF%E6%80%81%E6%8E%A7%E5%88%B6.assets/%E6%8E%A7%E5%88%B6%E6%A1%86%E5%9B%BE.png" width="80%"></a></p>
 <p>首先，有期望姿态 <span class="arithmatex">\(R_{target}\)</span> 和当前反馈的实际姿态 <span class="arithmatex">\(R_{current}\)</span> ，两者间的旋转误差用 <span class="arithmatex">\(R_e = R_{target} R_{current}^T\)</span> 表示，该误差对应的角速度为 <span class="arithmatex">\(\omega_{desired}^b = \ln(R_e)^{\vee}\)</span> 。</p>
 <p>要注意这一步，这相当精巧重要，是整篇论文的核心之处。我们用角度环的误差，直接计算得到了角速度的期望。为什么可以这样计算？因为 <span class="arithmatex">\(\mathfrak{so}(3)\)</span> 是 <span class="arithmatex">\(\mathrm{SO}(3)\)</span> 的切空间。这一性质保证了我们生成的角度轨迹在 <span class="arithmatex">\(\mathrm{SO}(3)\)</span> 空间上连续。</p>
 <p>在此基础上，我们先做角速度环 PD ：</p>
@@ -4552,15 +4582,15 @@ J\dot\omega^b &amp;= -\omega^b \ \times \ J\omega^b + \tau\end{cases} \tag{2-3}\
 <blockquote>
 <p>必须是闭环控制系统，才能使用 Smith 预估器。</p>
 </blockquote>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../%E5%9B%9B%E6%97%8B%E7%BF%BC%20SO%283%29%20%E5%A7%BF%E6%80%81%E6%8E%A7%E5%88%B6.assets/%E5%8E%9F%E5%A7%8B%E7%B3%BB%E7%BB%9F.png" data-desc-position="bottom"><img alt="原始系统" src="../%E5%9B%9B%E6%97%8B%E7%BF%BC%20SO%283%29%20%E5%A7%BF%E6%80%81%E6%8E%A7%E5%88%B6.assets/%E5%8E%9F%E5%A7%8B%E7%B3%BB%E7%BB%9F.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../%E5%9B%9B%E6%97%8B%E7%BF%BC%20SO%283%29%20%E5%A7%BF%E6%80%81%E6%8E%A7%E5%88%B6.assets/%E5%8E%9F%E5%A7%8B%E7%B3%BB%E7%BB%9F.png" data-desc-position="bottom"><img alt="原始系统" class="img-center" src="../%E5%9B%9B%E6%97%8B%E7%BF%BC%20SO%283%29%20%E5%A7%BF%E6%80%81%E6%8E%A7%E5%88%B6.assets/%E5%8E%9F%E5%A7%8B%E7%B3%BB%E7%BB%9F.png" width="50%"></a></p>
 <p>Simith 预估器的思想就是尽量消除反馈信号的延时，从而提升控制效果。也就是说，Smith 预估器想要达到的最佳效果如下：</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../%E5%9B%9B%E6%97%8B%E7%BF%BC%20SO%283%29%20%E5%A7%BF%E6%80%81%E6%8E%A7%E5%88%B6.assets/%E7%90%86%E6%83%B3%E7%B3%BB%E7%BB%9F.png" data-desc-position="bottom"><img alt="理想系统" src="../%E5%9B%9B%E6%97%8B%E7%BF%BC%20SO%283%29%20%E5%A7%BF%E6%80%81%E6%8E%A7%E5%88%B6.assets/%E7%90%86%E6%83%B3%E7%B3%BB%E7%BB%9F.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../%E5%9B%9B%E6%97%8B%E7%BF%BC%20SO%283%29%20%E5%A7%BF%E6%80%81%E6%8E%A7%E5%88%B6.assets/%E7%90%86%E6%83%B3%E7%B3%BB%E7%BB%9F.png" data-desc-position="bottom"><img alt="理想系统" class="img-center" src="../%E5%9B%9B%E6%97%8B%E7%BF%BC%20SO%283%29%20%E5%A7%BF%E6%80%81%E6%8E%A7%E5%88%B6.assets/%E7%90%86%E6%83%B3%E7%B3%BB%E7%BB%9F.png" width="50%"></a></p>
 <p>原始系统的闭环传递函数为：</p>
 <div class="arithmatex">\[\frac{Y(s)}{U(s)} = \frac{CG(s)e^{-\tau s}}{CGO(s)e^{-\tau s}+1}\]</div>
 <p>理想系统的闭环传递函数为</p>
 <div class="arithmatex">\[\frac{Y(s)}{U(s)} = \frac{CG(s)e^{-\tau s}}{1+CGO(s)}\]</div>
 <p>我们不加证明地给出，使用以下 Smith 预估器，就能使系统成为上述理想系统：</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../%E5%9B%9B%E6%97%8B%E7%BF%BC%20SO%283%29%20%E5%A7%BF%E6%80%81%E6%8E%A7%E5%88%B6.assets/Smith%E9%A2%84%E4%BC%B0%E5%99%A8%E7%B3%BB%E7%BB%9F.png" data-desc-position="bottom"><img alt="Smith预估器系统" src="../%E5%9B%9B%E6%97%8B%E7%BF%BC%20SO%283%29%20%E5%A7%BF%E6%80%81%E6%8E%A7%E5%88%B6.assets/Smith%E9%A2%84%E4%BC%B0%E5%99%A8%E7%B3%BB%E7%BB%9F.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../%E5%9B%9B%E6%97%8B%E7%BF%BC%20SO%283%29%20%E5%A7%BF%E6%80%81%E6%8E%A7%E5%88%B6.assets/Smith%E9%A2%84%E4%BC%B0%E5%99%A8%E7%B3%BB%E7%BB%9F.png" data-desc-position="bottom"><img alt="Smith预估器系统" class="img-center" src="../%E5%9B%9B%E6%97%8B%E7%BF%BC%20SO%283%29%20%E5%A7%BF%E6%80%81%E6%8E%A7%E5%88%B6.assets/Smith%E9%A2%84%E4%BC%B0%E5%99%A8%E7%B3%BB%E7%BB%9F.png" width="50%"></a></p>
 <p>Smith 预估器设计的难点和关键点，正是如何获取准确的对象模型 <span class="arithmatex">\(G(s)\)</span> 和观测器模型 <span class="arithmatex">\(O(s)\)</span> 。</p>
 <p>转换到时域上，加上 Smith 预估器之后，误差值就从 <span class="arithmatex">\(r(t) - y(t-\tau)\)</span> 转化为了 <span class="arithmatex">\(r(t) - y(t-\tau) - y_m(t)+y_m(t-\tau)\)</span> . 此处 <span class="arithmatex">\(y_m(t-\tau)\)</span> 代表建模广义对象的输出值， <span class="arithmatex">\(y_m(t)\)</span> 代表建模广义对象无滞后的输出值。</p>
 <p>在工程细节上，由于需要建模广义对象的纯滞后并计算输出值，因此控制程序必须存储先前的 <span class="arithmatex">\(\tau / T_s\)</span> （ <span class="arithmatex">\(T_s\)</span> 是采样时间）个控制输入。对于单片机，这是不小的一笔内存开销。</p>
