@@ -1,63 +1,76 @@
 # git 相关操作
 
----
-
 ## 配置
 
 在 Ubuntu 中配置 Git 主要涉及以下常见操作，包括设置用户信息、配置 SSH 密钥、设置代理等。以下是详细步骤：
 
 ### **1. 安装 Git**
+
 ```bash
 sudo apt update
 sudo apt install git
 ```
 
 ### **2. 配置全局用户信息**
+
 设置提交代码时的用户名和邮箱（全局生效）：
+
 ```bash
 git config --global user.name "你的用户名"
 git config --global user.email "你的邮箱"
 ```
 
 ### **3. 配置 SSH 密钥（推荐）**
+
 通过 SSH 密钥可以免密操作远程仓库（如 GitHub、Gitee）。
 
 #### **步骤 1：生成 SSH 密钥**
+
 ```bash
 ssh-keygen -t ed25519 -C "你的邮箱"
 ```
+
 - 按回车使用默认路径（`~/.ssh/id_ed25519`）。
 - 可选：设置密钥密码（直接回车留空则无密码）。
 
 #### **步骤 2：将公钥添加到远程仓库**
+
 - 查看公钥内容：
+  
   ```bash
   cat ~/.ssh/id_ed25519.pub
   ```
+
 - 复制公钥内容（以 `ssh-ed25519` 开头），添加到：
   - **GitHub**：`Settings -> SSH and GPG keys -> New SSH key`
   - **Gitee**：`设置 -> SSH 公钥`
 
 #### **步骤 3：测试 SSH 连接**
+
 ```bash
 ssh -T git@github.com  # 测试 GitHub
 ssh -T git@gitee.com   # 测试 Gitee
 ```
+
 成功时会显示类似：`Hi username! You've successfully authenticated.`
 
-
 ### **4. 配置 Git 代理**
+
 如果访问 GitHub 等仓库较慢，可以设置代理（需提前安装代理工具如 Clash）。
 
 #### **设置 HTTP/HTTPS 代理**
+
 ```bash
 git config --global http.proxy http://127.0.0.1:7890
 git config --global https.proxy https://127.0.0.1:7890
 ```
+
 - `7890` 是代理端口号，根据实际工具调整（如 Clash 默认为 `7890`）。
 
 #### **设置 SSH 代理**
+
 编辑 `~/.ssh/config` 文件（没有则新建）：
+
 ```bash
 Host github.com
   HostName github.com
@@ -66,13 +79,16 @@ Host github.com
 ```
 
 #### **取消代理**
+
 ```bash
 git config --global --unset http.proxy
 git config --global --unset https.proxy
 ```
 
 ### **5. 配置 Git 默认编辑器**
+
 设置提交代码时的默认编辑器（如 Vim、Nano）：
+
 ```bash
 git config --global core.editor "vim"
 # 或vscode:
@@ -80,18 +96,22 @@ git config --global core.editor "code"
 ```
 
 ### **6. 配置换行符处理**
+
 避免跨平台（Windows/Linux/macOS）换行符问题：
+
 ```bash
 git config --global core.autocrlf input  # Linux/macOS 推荐
 git config --global core.autocrlf true   # Windows 推荐
 ```
 
 ### **验证所有配置**
+
 ```bash
 git config --global --list
 ```
 
 ### **配置文件路径**
+
 - 全局配置：`~/.gitconfig`
 - 单个仓库配置：仓库目录下的 `.git/config`
 
@@ -102,6 +122,33 @@ git config --global --list
 ## 1 基础操作
 
 提交、新建分支、更改当前分支所在位置等（略）。
+
+```shell
+git switch <branch> # 切换到已有分支，git checkout <branch>
+git switch -c <new> # 新建并切换到新分支，也可以 git checkout -b <new>
+git switch --detach <commit> # 切到某个提交（detached HEAD），也可以 git checkout <commit> 
+git switch --track feature  # 从远端分支创建并跟踪（常见用法），也可以 git checkout --track origin/feature
+```
+
+---
+
+第一次推送到远程仓库：
+
+```shell
+git push -u origin <new_branch_name>
+```
+
+其中，`-u` 是 `--set-upstream` 的简写，它的作用是把本地分支和远端分支建立“上游/跟踪”关系（upstream），以后切到该分支，直接执行 `git push` 或 `git pull` 就会默认把改动推/拉到 `origin/new_branch_name`（不需要再写 `origin <new_branch_name>`）。
+
+在此基础上，`git status` 会显示 `ahead` `behind` 相对 `origin/new_branch_name` 的状态。`git branch -vv` 可以看到哪个本地分支在跟踪哪个远端分支。
+
+如果本地分支名和远程分支名不同，可以用变体命令：
+
+```shell
+git push -u origin local-name:remote-name
+```
+
+---
 
 ## 2 子模块
 
@@ -125,6 +172,8 @@ git reset --hard 12xasd # 提交编号
 git push --force # 这里没有显式指明远程分支，推送到默认远程分支上。推荐还是显式指定一下，比如：
 git push origin --force
 ```
+
+这里的 `--force` 是无条件用本地分支覆盖远程分支历史；在团队协作中，如果别人在你更新前推了一版上去，那么他的更新会被覆盖，这不好。因此，团队协作更推荐使用 `--force-with-lease`，它会先检查远程分支是否等于你本地最后一次获知的值，若否，则放弃覆盖。
 
 ## 4 删除分支
 
@@ -158,13 +207,28 @@ git rebase -i <commit>~
 # ~ 表示包括<commit>本身
 ```
 
-会跳出一个文本界面，跟着提示做就好了，关闭文本界面就代表完成一次编辑
+会跳出一个文本界面，跟着提示做就好了，关闭文本界面就代表完成一次编辑。
+
+接下来，建议 `git status` 看一下是否处于 detached HEAD 。若是，则需要先
+
+```shell
+git branch -f <branch_name> HEAD # 把某个分支强制指向当前HEAD
+git switch <branch_name> # 或者旧版 git 用 git checkout <branch_name> 切到该分支
+git push origin --force-with-lease
+```
+
+或者
+
+```shell
+git switch -c <new_branch_name> # 在当前 HEAD 创建新分支并切到该分支
+git push -u origin <new_branch_name> # 推送到远程
+```
+
+此外，如果更改过程中出现问题，以下是一些可能会用到的指令：
 
 ```shell
 git rebase abort # 退出当前正在进行的 git rebase
-```
 
-```shell
 git checkout -- . # 【注意】有个点。放弃当前文件夹下所有更改，但似乎对新建文件夹无效
 git clean -fd # 清除所有没暂存的文件
 ```

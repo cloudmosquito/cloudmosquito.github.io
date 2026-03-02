@@ -1,138 +1,133 @@
+/* ---------- 布局 ---------- */
 .md-grid {
   max-width: 1520px;
-  /* 页面内容宽度*/
+  /* 页面内容宽度 */
 }
 
-body, .md-typeset {
-  font-family: 'Noto Sans SC', 'Microsoft YaHei', 'PingFang SC', 'Hiragino Sans GB', 'WenQuanYi Micro Hei', sans-serif;
+/* ---------- 字体（接近 ChatGPT 风格） ---------- */
+/* 优先使用 Inter（英文/界面），以系统中文字体为后备 */
+body,
+.md-typeset {
+  font-family:
+    "Inter",
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    "Helvetica Neue",
+    "PingFang SC",
+    "Hiragino Sans GB",
+    "Microsoft YaHei",
+    "Noto Sans SC",
+    sans-serif;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  /* 确保东亚文字使用比例宽度，避免把拉丁字符全角化 */
+  font-feature-settings: normal;
+  font-variant-east-asian: proportional-width;
 }
 
-.md-typeset p,
-.md-typeset li,
-.md-typeset span {
-  font-feature-settings: "pwid" 0, "fwid" 1;
+/* 代码字体（等宽） */
+code,
+pre,
+.md-typeset code,
+.md-typeset pre {
+  font-family:
+    "JetBrains Mono",
+    "Roboto Mono",
+    ui-monospace,
+    SFMono-Regular,
+    Menlo,
+    Monaco,
+    Consolas,
+    monospace;
+  font-size: 0.95em;
 }
 
+/* 中间对齐图片 */
 .img-center {
   display: block;
   margin-left: auto;
   margin-right: auto;
 }
 
-/* 自定义 Admonition 样式 */
+/* ---------- Admonition（保留样式，去掉不必要的 !important） ---------- */
 .md-typeset .admonition,
 .md-typeset details {
   border-width: 0;
   border-left-width: 4px;
   border-radius: 4px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06);
+  padding: 0.6rem 1rem;
 }
 
+/* 公共标题内边距（确保图标不覆盖文字） */
+.md-typeset .admonition>.admonition-title,
+.md-typeset details>summary {
+  padding-left: 2.15rem;
+  position: relative;
+}
 
-/* 思考类型 */
+/* 思考类型（purple） */
 .md-typeset .admonition.thinking,
 .md-typeset details.thinking {
   border-color: #9c27b0;
-  background-color: rgba(156, 39, 176, 0.05);
+  background-color: rgba(156, 39, 176, 0.04);
 }
 
-.md-typeset .admonition.thinking > .admonition-title,
-.md-typeset details.thinking > summary {
-  background-color: rgba(156, 39, 176, 0.1);
-  padding-left: 2.15rem !important;
-}
-
-.md-typeset .admonition.thinking > .admonition-title::before,
-.md-typeset details.thinking > summary::before {
-  color: #9c27b0;
+.md-typeset .admonition.thinking>.admonition-title::before,
+.md-typeset details.thinking>summary::before {
   content: "🤔";
-  background: none !important;
-  border-radius: 0 !important;
-  width: auto !important;
-  height: auto !important;
-  font-size: 1.2em;
-  margin-right: 0.5em;
-  position: absolute !important;
-  left: 0.75rem !important;
-  top: 50% !important;
-  transform: translateY(-50%) !important;
-  mask: none !important;
-  -webkit-mask: none !important;
+  position: absolute;
+  left: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.1em;
 }
 
-.md-typeset .admonition.thinking > .admonition-title::after,
-.md-typeset details.thinking > summary::after {
-  display: none !important;
-}
-
-/* 评论类型 */
+/* 评论类型（orange） */
 .md-typeset .admonition.comment,
 .md-typeset details.comment {
   border-color: #ff9800;
-  background-color: rgba(255, 152, 0, 0.05);
+  background-color: rgba(255, 152, 0, 0.04);
 }
 
-.md-typeset .admonition.comment > .admonition-title,
-.md-typeset details.comment > summary {
-  background-color: rgba(255, 152, 0, 0.1);
-  padding-left: 2.15rem !important;
-}
-
-.md-typeset .admonition.comment > .admonition-title::before,
-.md-typeset details.comment > summary::before {
-  color: #ff9800;
+.md-typeset .admonition.comment>.admonition-title::before,
+.md-typeset details.comment>summary::before {
   content: "💬";
-  background: none !important;
-  border-radius: 0 !important;
-  width: auto !important;
-  height: auto !important;
-  font-size: 1.2em;
-  margin-right: 0.5em;
-  position: absolute !important;
-  left: 0.75rem !important;
-  top: 50% !important;
-  transform: translateY(-50%) !important;
-  mask: none !important;
-  -webkit-mask: none !important;
+  position: absolute;
+  left: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.1em;
 }
 
-.md-typeset .admonition.comment > .admonition-title::after,
-.md-typeset details.comment > summary::after {
-  display: none !important;
-}
-
-/* 定理类型 */
+/* 定理类型（teal） */
 .md-typeset .admonition.theorem,
 .md-typeset details.theorem {
   border-color: #009688;
-  background-color: rgba(0, 150, 136, 0.05);
+  background-color: rgba(0, 150, 136, 0.04);
 }
 
-.md-typeset .admonition.theorem > .admonition-title,
-.md-typeset details.theorem > summary {
-  background-color: rgba(0, 150, 136, 0.1);
-  padding-left: 2.15rem !important;
-}
-
-.md-typeset .admonition.theorem > .admonition-title::before,
-.md-typeset details.theorem > summary::before {
-  color: #009688;
+.md-typeset .admonition.theorem>.admonition-title::before,
+.md-typeset details.theorem>summary::before {
   content: "📐";
-  background: none !important;
-  border-radius: 0 !important;
-  width: auto !important;
-  height: auto !important;
-  font-size: 1.2em;
-  margin-right: 0.5em;
-  position: absolute !important;
-  left: 0.75rem !important;
-  top: 50% !important;
-  transform: translateY(-50%) !important;
-  mask: none !important;
-  -webkit-mask: none !important;
+  position: absolute;
+  left: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.1em;
 }
 
-.md-typeset .admonition.theorem > .admonition-title::after,
-.md-typeset details.theorem > summary::after {
-  display: none !important;
+/* 隐藏默认伪元素后续装饰（如果主题存在这样的元素） */
+.md-typeset .admonition>.admonition-title::after,
+.md-typeset details>summary::after {
+  display: none;
+}
+
+/* 小的可读性优化（可选） */
+.md-typeset {
+  line-height: 1.7;
+  letter-spacing: 0.01em;
 }
