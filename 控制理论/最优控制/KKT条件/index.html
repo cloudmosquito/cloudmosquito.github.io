@@ -2227,6 +2227,45 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#kkt_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        六、为什么直接用 KKT 条件求极值点？
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="六、为什么直接用 KKT 条件求极值点？">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        凸优化问题
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        非凸优化问题
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -4206,6 +4245,45 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#kkt_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        六、为什么直接用 KKT 条件求极值点？
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="六、为什么直接用 KKT 条件求极值点？">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        凸优化问题
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        非凸优化问题
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -4351,11 +4429,18 @@ F(x^*) &amp;= T_{h1}\bigcap T_{h_2}\bigcap\cdots\bigcap T_{h_q}\bigcap\left(N_{g
 u\cdot\nabla g_i(x^*) &amp;\le 0,i =1,2,\cdots,p 且 g_i(x^*) = 0\\
 u\in\mathbb{R}^n\end{aligned}\right\}
 \end{aligned}\]</div>
-<p>上文要求，<span class="arithmatex">\(\forall u\in F(x^*),u\cdot \nabla f(x^*)\le 0\)</span> ，不难看出</p>
+<p>上文要求，<span class="arithmatex">\(\forall u\in F(x^*),u\cdot \nabla f(x^*)\le 0\)</span> ，不难看出下式是满足要求的一个形式。</p>
+<div class="arithmatex">\[\begin{aligned}\nabla f(x^*) &amp;= \sum_j\lambda_j\nabla h_j(x^*)+\sum_{i\in active}\mu_i\nabla g_i(x^*)\\
+\lambda_j&amp;\in\mathbb{R},\mu_i \ge 0
+\end{aligned}\]</div>
+<p>Farkas 引理证明了该形式是唯一的，但我们这里就不再讨论了。</p>
+<p>最后还有一个小问题，上式只包含了起作用的不等式约束 <span class="arithmatex">\(g_i(x^*) = 0\)</span>，没有 <span class="arithmatex">\(g_i(x^*)&lt;0\)</span> 。我们得想个办法，在数学形式上把不起作用的不等式约束也统一进来。</p>
+<p>不妨规定：对于 <span class="arithmatex">\(g_i(x^*) = 0\)</span> ，权重 <span class="arithmatex">\(\mu_i\ge0\)</span> ；对于 <span class="arithmatex">\(g_i(x^*)&lt;0\)</span> ，权重 <span class="arithmatex">\(\mu_i=0\)</span> 。这就巧妙形成了一个新条件：</p>
+<div class="arithmatex">\[\mu_ig_i(x^*) = 0\]</div>
+<p>我们称之为“互补松弛条件”。最后，我们的结论是：</p>
 <div class="arithmatex">\[\begin{aligned}\nabla f(x^*) &amp;= \sum_j\lambda_j\nabla h_j(x^*)+\sum_i\mu_i\nabla g_i(x^*)\\
 \lambda_j&amp;\in\mathbb{R},\mu_i \ge 0,\mu_ig_i(x^*) = 0
 \end{aligned}\]</div>
-<p>是满足要求的一个形式。Farkas 引理证明了该形式是唯一的，但我们这里就不再讨论了。</p>
 <h2 id="_4">五、适用条件</h2>
 <p>KKT 条件成立有一个至关重要的前提：<strong>约束品性（Constraint Qualification, CQ）</strong>。它的存在，是为了保证极值点&nbsp;<span class="arithmatex">\(x^∗\)</span>&nbsp;附近的约束交集是一个形态正常的“光滑流形”。</p>
 <p>最常见的 CQ 被称为<strong>线性无关约束品性（LICQ）</strong>：即在极值点&nbsp;<span class="arithmatex">\(x^∗\)</span>&nbsp;处，所有等式约束和起作用的不等式约束的梯度必须线性无关。换言之，由它们构成的雅可比矩阵必须满秩：</p>
@@ -4368,6 +4453,48 @@ u\in\mathbb{R}^n\end{aligned}\right\}
 <p>以三维空间中的两个曲面&nbsp;<span class="arithmatex">\(h_1=0\)</span> 和 <span class="arithmatex">\(g_2=0\)</span>&nbsp;为例，我们可以直观地看到满秩的意义：</p>
 <p>如果&nbsp;<span class="arithmatex">\(\nabla h_1(x^∗)\)</span>&nbsp;与 <span class="arithmatex">\(\nabla g_2(x^*)\)</span> <strong>线性无关（不共线）</strong>，代表两曲面干脆利落地“横截相交”。在这种正常情况下，两个切平面的交线就是真实曲面交线的切线，代数方程算出的结果属于可行方向集合&nbsp;<span class="arithmatex">\(F(x^*)\)</span></p>
 <p>相反，如果它们<strong>线性相关（共线）</strong>，切平面重叠，说明两曲面相切了，此时交集退化成只有 <span class="arithmatex">\(x^*\)</span> 这唯一的孤立点。一旦如此，可行方向集合 <span class="arithmatex">\(F(x^*)\)</span> 就不复存在（为空集），代数推导出的方向成了空中楼阁，整个 KKT 条件的几何基石也就彻底崩塌了。</p>
+<h2 id="kkt_2">六、为什么直接用 KKT 条件求极值点？</h2>
+<p>让我们回顾上文逻辑：先假设极值点存在，然后推导极值点应该满足的条件，即 KKT 条件。由此看来，KKT 条件是极值点的必要条件，而非充分条件。为什么我们直接用 KKT 条件求极值呢？</p>
+<h3 id="_5">凸优化问题</h3>
+<p>首先，对于凸优化问题，即目标函数是凸函数、可行域是一个凸集的函数，KKT 条件事实上是一个充要条件。我们就举本文最开始的例子：</p>
+<div class="arithmatex">\[\begin{aligned}\max_{x}\ \ \ &amp;f(x)\\
+s.t.\ \ \ h_j(x) &amp;= 0,j=1,2,\cdots,q\\
+g_i(x)&amp;\le 0,i=1,2,\cdots,p
+\end{aligned}\]</div>
+<p>我们在这里要求 <span class="arithmatex">\(f(x)\)</span> 是上凸的（外国一般说是“凹的”，如果求最小值，就要求是“下凸的”“凸的”），<span class="arithmatex">\(h_j(x)\)</span> 是仿射函数（形如 <span class="arithmatex">\(w^Tx+b\)</span>），<span class="arithmatex">\(g_i(x)\)</span> 是下凸的。</p>
+<p>我们用数学语言表达。首先，因为 <span class="arithmatex">\(f(x)\)</span> 是上凸的，因此有</p>
+<p>$<span class="arithmatex">\(\begin{aligned}
+f(\lambda x_1+(1-\lambda) x_2)&amp;\ge \lambda f(x_1)+(1-\lambda)f(x_2)\\
+f(\lambda(x_1-x_2)+x_2) &amp;\ge \lambda [f(x_1)-f(x_2)]+f(x_2)\\
+\frac{f(\lambda(x_1-x_2)+x_2)-f(x_2)}{\lambda} &amp;\ge f(x_1)-f(x_2)
+\end{aligned}\)</span>$ 
+我们对两边取极限 <span class="arithmatex">\(\lambda \to 0\)</span> ，从而有</p>
+<div class="arithmatex">\[\nabla f(x_2)\cdot(x_1-x_2) \ge f(x_1)-f(x_2)\]</div>
+<p>同理有</p>
+<div class="arithmatex">\[\begin{aligned}\nabla g_i(x_2)\cdot(x_1-x_2)&amp;\le g_i(x_1)-g_i(x_2)\\
+\nabla h_j(x_2)\cdot(x_1-x_2) &amp;= h_j(x_1)-h_j(x_2)
+\end{aligned}\]</div>
+<p>我们接下来证明：对于凸优化问题，满足 KKT 条件的点 <span class="arithmatex">\(x^*\)</span> 就是极值点。即证明</p>
+<div class="arithmatex">\[\forall x \in Constraints, f(x^*) \ge f(x)\]</div>
+<p>因为 <span class="arithmatex">\(f(x)\)</span> 是上凸的，我们有 <span class="arithmatex">\(f(x^*) \ge f(x)+\nabla f(x^*) \cdot (x^* - x)\)</span> 。代入 KKT 条件，推得：</p>
+<div class="arithmatex">\[\begin{aligned}
+f(x^*) &amp;\ge f(x)+\left[\sum_j\lambda_j\nabla h_j(x^*)+\sum_i\mu_i\nabla g_i(x^*)\right] \cdot (x^* - x)\\
+\Rightarrow f(x^*)-f(x)&amp;\ge \sum_j\lambda_j\nabla h_j(x^*)\cdot (x^* - x)+\sum_i\mu_i\nabla g_i(x^*)\cdot (x^* - x)
+\end{aligned}\]</div>
+<p>由于 <span class="arithmatex">\(h_j(x)\)</span> 是仿射函数，<span class="arithmatex">\(g_i(x)\)</span> 是下凸函数，进一步推得：</p>
+<div class="arithmatex">\[\begin{aligned}
+f(x^*)-f(x)&amp;\ge \sum_j\lambda_j[h_j(x^*)-h_j(x)]+\sum_i\mu_i[g_i(x^*)-g_i(x)]
+\end{aligned}\]</div>
+<p>其中，由于 <span class="arithmatex">\(x\)</span> 和 <span class="arithmatex">\(x^*\)</span> 都满足约束条件，有 <span class="arithmatex">\(h_j(x^*)=h_j(x)=0\)</span> ；根据互补松弛条件，有 <span class="arithmatex">\(\mu_i g_i(x^*) = 0\)</span> 。所以</p>
+<div class="arithmatex">\[\begin{aligned}
+f(x^*)-f(x)\ge RHS &amp;= \sum_j\lambda_j[0-0]+\sum_i[0-\mu_ig_i(x)]\\
+&amp;= -\sum\mu_ig_i(x) \ge 0\\
+\Rightarrow f(x^*) &amp;\ge f(x)
+\end{aligned}\]</div>
+<p>证毕！</p>
+<h3 id="_6">非凸优化问题</h3>
+<p>此时情况变得相当复杂，理论做法是先用 KKT 条件筛选出一堆点，再用 Hessian Matrix 的正/负定性判断是否是局部极小/大值，再全局搜索。</p>
+<p>但事实上，对于复杂的非凸优化问题，比如深度神经网络等等，上述方法的计算复杂度是无法接受的，现实中一般采用梯度下降、启发式搜索等方式，以期找到一个较优的局部极值点。</p>
 
 
 

@@ -4680,7 +4680,6 @@
 
 
 <h1 id="git">git 相关操作</h1>
-<hr>
 <h2 id="_1">配置</h2>
 <p>在 Ubuntu 中配置 Git 主要涉及以下常见操作，包括设置用户信息、配置 SSH 密钥、设置代理等。以下是详细步骤：</p>
 <h3 id="1-git"><strong>1. 安装 Git</strong></h3>
@@ -4689,70 +4688,76 @@
 <a id="__codelineno-0-2" name="__codelineno-0-2"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>git
 </code></pre></div></td></tr></tbody></table></div>
 <h3 id="2"><strong>2. 配置全局用户信息</strong></h3>
-<p>设置提交代码时的用户名和邮箱（全局生效）：
-</p><div class="highlight"><table class="highlighttable"><tbody><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span>
+<p>设置提交代码时的用户名和邮箱（全局生效）：</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span>
 <span class="normal"><a href="#__codelineno-1-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>user.name<span class="w"> </span><span class="s2">"你的用户名"</span>
 <a id="__codelineno-1-2" name="__codelineno-1-2"></a>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>user.email<span class="w"> </span><span class="s2">"你的邮箱"</span>
-</code></pre></div></td></tr></tbody></table></div><p></p>
+</code></pre></div></td></tr></tbody></table></div>
 <h3 id="3-ssh"><strong>3. 配置 SSH 密钥（推荐）</strong></h3>
 <p>通过 SSH 密钥可以免密操作远程仓库（如 GitHub、Gitee）。</p>
 <h4 id="1-ssh"><strong>步骤 1：生成 SSH 密钥</strong></h4>
-<p></p><div class="highlight"><table class="highlighttable"><tbody><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a>ssh-keygen<span class="w"> </span>-t<span class="w"> </span>ed25519<span class="w"> </span>-C<span class="w"> </span><span class="s2">"你的邮箱"</span>
+<div class="highlight"><table class="highlighttable"><tbody><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a>ssh-keygen<span class="w"> </span>-t<span class="w"> </span>ed25519<span class="w"> </span>-C<span class="w"> </span><span class="s2">"你的邮箱"</span>
 </code></pre></div></td></tr></tbody></table></div>
-- 按回车使用默认路径（<code>~/.ssh/id_ed25519</code>）。
-- 可选：设置密钥密码（直接回车留空则无密码）。<p></p>
+<ul>
+<li>按回车使用默认路径（<code>~/.ssh/id_ed25519</code>）。</li>
+<li>可选：设置密钥密码（直接回车留空则无密码）。</li>
+</ul>
 <h4 id="2_1"><strong>步骤 2：将公钥添加到远程仓库</strong></h4>
 <ul>
-<li>查看公钥内容：
-  <div class="highlight"><table class="highlighttable"><tbody><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a>cat<span class="w"> </span>~/.ssh/id_ed25519.pub
-</code></pre></div></td></tr></tbody></table></div></li>
+<li>查看公钥内容：</li>
+</ul>
+<div class="highlight"><table class="highlighttable"><tbody><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a>cat<span class="w"> </span>~/.ssh/id_ed25519.pub
+</code></pre></div></td></tr></tbody></table></div>
+<ul>
 <li>复制公钥内容（以 <code>ssh-ed25519</code> 开头），添加到：</li>
 <li><strong>GitHub</strong>：<code>Settings -&gt; SSH and GPG keys -&gt; New SSH key</code></li>
 <li><strong>Gitee</strong>：<code>设置 -&gt; SSH 公钥</code></li>
 </ul>
 <h4 id="3-ssh_1"><strong>步骤 3：测试 SSH 连接</strong></h4>
-<p></p><div class="highlight"><table class="highlighttable"><tbody><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span>
+<div class="highlight"><table class="highlighttable"><tbody><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span>
 <span class="normal"><a href="#__codelineno-4-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a>ssh<span class="w"> </span>-T<span class="w"> </span>git@github.com<span class="w">  </span><span class="c1"># 测试 GitHub</span>
 <a id="__codelineno-4-2" name="__codelineno-4-2"></a>ssh<span class="w"> </span>-T<span class="w"> </span>git@gitee.com<span class="w">   </span><span class="c1"># 测试 Gitee</span>
 </code></pre></div></td></tr></tbody></table></div>
-成功时会显示类似：<code>Hi username! You've successfully authenticated.</code><p></p>
+<p>成功时会显示类似：<code>Hi username! You've successfully authenticated.</code></p>
 <h3 id="4-git"><strong>4. 配置 Git 代理</strong></h3>
 <p>如果访问 GitHub 等仓库较慢，可以设置代理（需提前安装代理工具如 Clash）。</p>
 <h4 id="httphttps"><strong>设置 HTTP/HTTPS 代理</strong></h4>
-<p></p><div class="highlight"><table class="highlighttable"><tbody><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span>
+<div class="highlight"><table class="highlighttable"><tbody><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span>
 <span class="normal"><a href="#__codelineno-5-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>http.proxy<span class="w"> </span>http://127.0.0.1:7890
 <a id="__codelineno-5-2" name="__codelineno-5-2"></a>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>https.proxy<span class="w"> </span>https://127.0.0.1:7890
 </code></pre></div></td></tr></tbody></table></div>
-- <code>7890</code> 是代理端口号，根据实际工具调整（如 Clash 默认为 <code>7890</code>）。<p></p>
+<ul>
+<li><code>7890</code> 是代理端口号，根据实际工具调整（如 Clash 默认为 <code>7890</code>）。</li>
+</ul>
 <h4 id="ssh"><strong>设置 SSH 代理</strong></h4>
-<p>编辑 <code>~/.ssh/config</code> 文件（没有则新建）：
-</p><div class="highlight"><table class="highlighttable"><tbody><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span>
+<p>编辑 <code>~/.ssh/config</code> 文件（没有则新建）：</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span>
 <span class="normal"><a href="#__codelineno-6-2">2</a></span>
 <span class="normal"><a href="#__codelineno-6-3">3</a></span>
 <span class="normal"><a href="#__codelineno-6-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a>Host<span class="w"> </span>github.com
 <a id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="w">  </span>HostName<span class="w"> </span>github.com
 <a id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="w">  </span>User<span class="w"> </span>git
 <a id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="w">  </span>ProxyCommand<span class="w"> </span>nc<span class="w"> </span>-x<span class="w"> </span><span class="m">127</span>.0.0.1:7890<span class="w"> </span>%h<span class="w"> </span>%p
-</code></pre></div></td></tr></tbody></table></div><p></p>
+</code></pre></div></td></tr></tbody></table></div>
 <h4 id="_2"><strong>取消代理</strong></h4>
 <div class="highlight"><table class="highlighttable"><tbody><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span>
 <span class="normal"><a href="#__codelineno-7-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>--unset<span class="w"> </span>http.proxy
 <a id="__codelineno-7-2" name="__codelineno-7-2"></a>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>--unset<span class="w"> </span>https.proxy
 </code></pre></div></td></tr></tbody></table></div>
 <h3 id="5-git"><strong>5. 配置 Git 默认编辑器</strong></h3>
-<p>设置提交代码时的默认编辑器（如 Vim、Nano）：
-</p><div class="highlight"><table class="highlighttable"><tbody><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span>
+<p>设置提交代码时的默认编辑器（如 Vim、Nano）：</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span>
 <span class="normal"><a href="#__codelineno-8-2">2</a></span>
 <span class="normal"><a href="#__codelineno-8-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>core.editor<span class="w"> </span><span class="s2">"vim"</span>
 <a id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="c1"># 或vscode:</span>
 <a id="__codelineno-8-3" name="__codelineno-8-3"></a>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>core.editor<span class="w"> </span><span class="s2">"code"</span>
-</code></pre></div></td></tr></tbody></table></div><p></p>
+</code></pre></div></td></tr></tbody></table></div>
 <h3 id="6"><strong>6. 配置换行符处理</strong></h3>
-<p>避免跨平台（Windows/Linux/macOS）换行符问题：
-</p><div class="highlight"><table class="highlighttable"><tbody><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1">1</a></span>
+<p>避免跨平台（Windows/Linux/macOS）换行符问题：</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1">1</a></span>
 <span class="normal"><a href="#__codelineno-9-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>core.autocrlf<span class="w"> </span>input<span class="w">  </span><span class="c1"># Linux/macOS 推荐</span>
 <a id="__codelineno-9-2" name="__codelineno-9-2"></a>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>core.autocrlf<span class="w"> </span><span class="nb">true</span><span class="w">   </span><span class="c1"># Windows 推荐</span>
-</code></pre></div></td></tr></tbody></table></div><p></p>
+</code></pre></div></td></tr></tbody></table></div>
 <h3 id="_3"><strong>验证所有配置</strong></h3>
 <div class="highlight"><table class="highlighttable"><tbody><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>--list
 </code></pre></div></td></tr></tbody></table></div>
@@ -4765,74 +4770,107 @@
 <hr>
 <h2 id="1">1 基础操作</h2>
 <p>提交、新建分支、更改当前分支所在位置等（略）。</p>
-<h2 id="2_2">2 子模块</h2>
 <div class="highlight"><table class="highlighttable"><tbody><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-1">1</a></span>
 <span class="normal"><a href="#__codelineno-11-2">2</a></span>
 <span class="normal"><a href="#__codelineno-11-3">3</a></span>
-<span class="normal"><a href="#__codelineno-11-4">4</a></span>
-<span class="normal"><a href="#__codelineno-11-5">5</a></span>
-<span class="normal"><a href="#__codelineno-11-6">6</a></span>
-<span class="normal"><a href="#__codelineno-11-7">7</a></span>
-<span class="normal"><a href="#__codelineno-11-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="c1"># 添加子模块</span>
-<a id="__codelineno-11-2" name="__codelineno-11-2"></a>git<span class="w"> </span>submodule<span class="w"> </span>add<span class="w"> </span><span class="o">[</span>url<span class="o">]</span>
-<a id="__codelineno-11-3" name="__codelineno-11-3"></a>
-<a id="__codelineno-11-4" name="__codelineno-11-4"></a><span class="c1"># clone一个仓库后，递归地完成子模块初始化和更新</span>
-<a id="__codelineno-11-5" name="__codelineno-11-5"></a>git<span class="w"> </span>submodule<span class="w"> </span>update<span class="w"> </span>--init<span class="w"> </span>--recursive
-<a id="__codelineno-11-6" name="__codelineno-11-6"></a>
-<a id="__codelineno-11-7" name="__codelineno-11-7"></a><span class="c1"># 更新当前项目中的所有子模块</span>
-<a id="__codelineno-11-8" name="__codelineno-11-8"></a>git<span class="w"> </span>submodule<span class="w"> </span>foreach<span class="w"> </span><span class="s2">"git submodule update"</span>
+<span class="normal"><a href="#__codelineno-11-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1"></a>git<span class="w"> </span>switch<span class="w"> </span>&lt;branch&gt;<span class="w"> </span><span class="c1"># 切换到已有分支，git checkout &lt;branch&gt;</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2"></a>git<span class="w"> </span>switch<span class="w"> </span>-c<span class="w"> </span>&lt;new&gt;<span class="w"> </span><span class="c1"># 新建并切换到新分支，也可以 git checkout -b &lt;new&gt;</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3"></a>git<span class="w"> </span>switch<span class="w"> </span>--detach<span class="w"> </span>&lt;commit&gt;<span class="w"> </span><span class="c1"># 切到某个提交（detached HEAD），也可以 git checkout &lt;commit&gt; </span>
+<a id="__codelineno-11-4" name="__codelineno-11-4"></a>git<span class="w"> </span>switch<span class="w"> </span>--track<span class="w"> </span>feature<span class="w">  </span><span class="c1"># 从远端分支创建并跟踪（常见用法），也可以 git checkout --track origin/feature</span>
 </code></pre></div></td></tr></tbody></table></div>
-<h2 id="3">3</h2>
-<p>当想删除某次 push 到远程的 commit 时，可以先 reset 到之前一次提交 (可以通过 VS Code 的图形化界面操作)，然后强行 push 上去。( VS Code 没有提交 commit 回退的选项。)</p>
-<div class="highlight"><table class="highlighttable"><tbody><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-12-1">1</a></span>
-<span class="normal"><a href="#__codelineno-12-2">2</a></span>
-<span class="normal"><a href="#__codelineno-12-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1"></a>git<span class="w"> </span>reset<span class="w"> </span>--hard<span class="w"> </span>12xasd<span class="w"> </span><span class="c1"># 提交编号</span>
-<a id="__codelineno-12-2" name="__codelineno-12-2"></a>git<span class="w"> </span>push<span class="w"> </span>--force<span class="w"> </span><span class="c1"># 这里没有显式指明远程分支，推送到默认远程分支上。推荐还是显式指定一下，比如：</span>
-<a id="__codelineno-12-3" name="__codelineno-12-3"></a>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>--force
+<hr>
+<p>第一次推送到远程仓库：</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-12-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1"></a>git<span class="w"> </span>push<span class="w"> </span>-u<span class="w"> </span>origin<span class="w"> </span>&lt;new_branch_name&gt;
 </code></pre></div></td></tr></tbody></table></div>
-<h2 id="4">4 删除分支</h2>
-<div class="highlight"><table class="highlighttable"><tbody><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-13-1">1</a></span>
-<span class="normal"><a href="#__codelineno-13-2">2</a></span>
-<span class="normal"><a href="#__codelineno-13-3">3</a></span>
-<span class="normal"><a href="#__codelineno-13-4">4</a></span>
-<span class="normal"><a href="#__codelineno-13-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="c1"># 本地分支</span>
-<a id="__codelineno-13-2" name="__codelineno-13-2"></a>git<span class="w"> </span>branch<span class="w"> </span>-d<span class="w"> </span>&lt;branch-name&gt;<span class="w">  </span><span class="c1"># 已merge的分支</span>
-<a id="__codelineno-13-3" name="__codelineno-13-3"></a>git<span class="w"> </span>branch<span class="w"> </span>-D<span class="w"> </span>&lt;branch-name&gt;<span class="w">  </span><span class="c1"># 未merge的分支</span>
-<a id="__codelineno-13-4" name="__codelineno-13-4"></a><span class="c1"># 远程分支</span>
-<a id="__codelineno-13-5" name="__codelineno-13-5"></a>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>--delete<span class="w"> </span>&lt;branch-name&gt;
+<p>其中，<code>-u</code> 是 <code>--set-upstream</code> 的简写，它的作用是把本地分支和远端分支建立“上游/跟踪”关系（upstream），以后切到该分支，直接执行 <code>git push</code> 或 <code>git pull</code> 就会默认把改动推/拉到 <code>origin/new_branch_name</code>（不需要再写 <code>origin &lt;new_branch_name&gt;</code>）。</p>
+<p>在此基础上，<code>git status</code> 会显示 <code>ahead</code> <code>behind</code> 相对 <code>origin/new_branch_name</code> 的状态。<code>git branch -vv</code> 可以看到哪个本地分支在跟踪哪个远端分支。</p>
+<p>如果本地分支名和远程分支名不同，可以用变体命令：</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-13-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1"></a>git<span class="w"> </span>push<span class="w"> </span>-u<span class="w"> </span>origin<span class="w"> </span>local-name:remote-name
 </code></pre></div></td></tr></tbody></table></div>
-<h2 id="5-worktree">5 worktree相关操作</h2>
-<p>worktree可以管理多个文件夹，每个文件夹对应一个分支，从而同时进行多分支的开发。worktree管理的多个分支共享一个.git，相较于多次clone而言，大大节省内存。</p>
+<hr>
+<h2 id="2_2">2 子模块</h2>
 <div class="highlight"><table class="highlighttable"><tbody><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-14-1">1</a></span>
 <span class="normal"><a href="#__codelineno-14-2">2</a></span>
 <span class="normal"><a href="#__codelineno-14-3">3</a></span>
 <span class="normal"><a href="#__codelineno-14-4">4</a></span>
-<span class="normal"><a href="#__codelineno-14-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1"></a>git<span class="w"> </span>worktree<span class="w"> </span>list<span class="w"> </span><span class="c1"># 查看worktree中管理了几个分支</span>
-<a id="__codelineno-14-2" name="__codelineno-14-2"></a>
-<a id="__codelineno-14-3" name="__codelineno-14-3"></a>git<span class="w"> </span>worktree<span class="w"> </span>add<span class="w"> </span>&lt;path&gt;<span class="w"> </span>&lt;branch-name&gt;<span class="w"> </span><span class="c1"># 把 &lt;branch-name&gt; 分支放到 &lt;path&gt;</span>
-<a id="__codelineno-14-4" name="__codelineno-14-4"></a>
-<a id="__codelineno-14-5" name="__codelineno-14-5"></a>git<span class="w"> </span>worktree<span class="w"> </span>remove<span class="w"> </span>&lt;path&gt;
+<span class="normal"><a href="#__codelineno-14-5">5</a></span>
+<span class="normal"><a href="#__codelineno-14-6">6</a></span>
+<span class="normal"><a href="#__codelineno-14-7">7</a></span>
+<span class="normal"><a href="#__codelineno-14-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="c1"># 添加子模块</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2"></a>git<span class="w"> </span>submodule<span class="w"> </span>add<span class="w"> </span><span class="o">[</span>url<span class="o">]</span>
+<a id="__codelineno-14-3" name="__codelineno-14-3"></a>
+<a id="__codelineno-14-4" name="__codelineno-14-4"></a><span class="c1"># clone一个仓库后，递归地完成子模块初始化和更新</span>
+<a id="__codelineno-14-5" name="__codelineno-14-5"></a>git<span class="w"> </span>submodule<span class="w"> </span>update<span class="w"> </span>--init<span class="w"> </span>--recursive
+<a id="__codelineno-14-6" name="__codelineno-14-6"></a>
+<a id="__codelineno-14-7" name="__codelineno-14-7"></a><span class="c1"># 更新当前项目中的所有子模块</span>
+<a id="__codelineno-14-8" name="__codelineno-14-8"></a>git<span class="w"> </span>submodule<span class="w"> </span>foreach<span class="w"> </span><span class="s2">"git submodule update"</span>
+</code></pre></div></td></tr></tbody></table></div>
+<h2 id="3">3</h2>
+<p>当想删除某次 push 到远程的 commit 时，可以先 reset 到之前一次提交 (可以通过 VS Code 的图形化界面操作)，然后强行 push 上去。( VS Code 没有提交 commit 回退的选项。)</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-15-1">1</a></span>
+<span class="normal"><a href="#__codelineno-15-2">2</a></span>
+<span class="normal"><a href="#__codelineno-15-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1"></a>git<span class="w"> </span>reset<span class="w"> </span>--hard<span class="w"> </span>12xasd<span class="w"> </span><span class="c1"># 提交编号</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2"></a>git<span class="w"> </span>push<span class="w"> </span>--force<span class="w"> </span><span class="c1"># 这里没有显式指明远程分支，推送到默认远程分支上。推荐还是显式指定一下，比如：</span>
+<a id="__codelineno-15-3" name="__codelineno-15-3"></a>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>--force
+</code></pre></div></td></tr></tbody></table></div>
+<p>这里的 <code>--force</code> 是无条件用本地分支覆盖远程分支历史；在团队协作中，如果别人在你更新前推了一版上去，那么他的更新会被覆盖，这不好。因此，团队协作更推荐使用 <code>--force-with-lease</code>，它会先检查远程分支是否等于你本地最后一次获知的值，若否，则放弃覆盖。</p>
+<h2 id="4">4 删除分支</h2>
+<div class="highlight"><table class="highlighttable"><tbody><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-16-1">1</a></span>
+<span class="normal"><a href="#__codelineno-16-2">2</a></span>
+<span class="normal"><a href="#__codelineno-16-3">3</a></span>
+<span class="normal"><a href="#__codelineno-16-4">4</a></span>
+<span class="normal"><a href="#__codelineno-16-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="c1"># 本地分支</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2"></a>git<span class="w"> </span>branch<span class="w"> </span>-d<span class="w"> </span>&lt;branch-name&gt;<span class="w">  </span><span class="c1"># 已merge的分支</span>
+<a id="__codelineno-16-3" name="__codelineno-16-3"></a>git<span class="w"> </span>branch<span class="w"> </span>-D<span class="w"> </span>&lt;branch-name&gt;<span class="w">  </span><span class="c1"># 未merge的分支</span>
+<a id="__codelineno-16-4" name="__codelineno-16-4"></a><span class="c1"># 远程分支</span>
+<a id="__codelineno-16-5" name="__codelineno-16-5"></a>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>--delete<span class="w"> </span>&lt;branch-name&gt;
+</code></pre></div></td></tr></tbody></table></div>
+<h2 id="5-worktree">5 worktree相关操作</h2>
+<p>worktree可以管理多个文件夹，每个文件夹对应一个分支，从而同时进行多分支的开发。worktree管理的多个分支共享一个.git，相较于多次clone而言，大大节省内存。</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-17-1">1</a></span>
+<span class="normal"><a href="#__codelineno-17-2">2</a></span>
+<span class="normal"><a href="#__codelineno-17-3">3</a></span>
+<span class="normal"><a href="#__codelineno-17-4">4</a></span>
+<span class="normal"><a href="#__codelineno-17-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1"></a>git<span class="w"> </span>worktree<span class="w"> </span>list<span class="w"> </span><span class="c1"># 查看worktree中管理了几个分支</span>
+<a id="__codelineno-17-2" name="__codelineno-17-2"></a>
+<a id="__codelineno-17-3" name="__codelineno-17-3"></a>git<span class="w"> </span>worktree<span class="w"> </span>add<span class="w"> </span>&lt;path&gt;<span class="w"> </span>&lt;branch-name&gt;<span class="w"> </span><span class="c1"># 把 &lt;branch-name&gt; 分支放到 &lt;path&gt;</span>
+<a id="__codelineno-17-4" name="__codelineno-17-4"></a>
+<a id="__codelineno-17-5" name="__codelineno-17-5"></a>git<span class="w"> </span>worktree<span class="w"> </span>remove<span class="w"> </span>&lt;path&gt;
 </code></pre></div></td></tr></tbody></table></div>
 <h2 id="6-git-rebase">6 <code>git rebase</code>操作</h2>
 <p>要处理当前提交到某一次先前的提交，可以先</p>
-<div class="highlight"><table class="highlighttable"><tbody><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-15-1">1</a></span>
-<span class="normal"><a href="#__codelineno-15-2">2</a></span>
-<span class="normal"><a href="#__codelineno-15-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1"></a>git<span class="w"> </span>rebase<span class="w"> </span>-i<span class="w"> </span>&lt;commit&gt;~
-<a id="__codelineno-15-2" name="__codelineno-15-2"></a><span class="c1"># 以上，-i 代表Make a list of the commits which are about to be rebased.在git打开的文本文件中，你可以对先前的很多提交做处理</span>
-<a id="__codelineno-15-3" name="__codelineno-15-3"></a><span class="c1"># ~ 表示包括&lt;commit&gt;本身</span>
+<div class="highlight"><table class="highlighttable"><tbody><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-18-1">1</a></span>
+<span class="normal"><a href="#__codelineno-18-2">2</a></span>
+<span class="normal"><a href="#__codelineno-18-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1"></a>git<span class="w"> </span>rebase<span class="w"> </span>-i<span class="w"> </span>&lt;commit&gt;~
+<a id="__codelineno-18-2" name="__codelineno-18-2"></a><span class="c1"># 以上，-i 代表Make a list of the commits which are about to be rebased.在git打开的文本文件中，你可以对先前的很多提交做处理</span>
+<a id="__codelineno-18-3" name="__codelineno-18-3"></a><span class="c1"># ~ 表示包括&lt;commit&gt;本身</span>
 </code></pre></div></td></tr></tbody></table></div>
-<p>会跳出一个文本界面，跟着提示做就好了，关闭文本界面就代表完成一次编辑</p>
-<div class="highlight"><table class="highlighttable"><tbody><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-16-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1"></a>git<span class="w"> </span>rebase<span class="w"> </span>abort<span class="w"> </span><span class="c1"># 退出当前正在进行的 git rebase</span>
+<p>会跳出一个文本界面，跟着提示做就好了，关闭文本界面就代表完成一次编辑。接下来，你会处于 detached HEAD ，需要先</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-19-1">1</a></span>
+<span class="normal"><a href="#__codelineno-19-2">2</a></span>
+<span class="normal"><a href="#__codelineno-19-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1"></a>git<span class="w"> </span>branch<span class="w"> </span>-f<span class="w"> </span>&lt;branch_name&gt;<span class="w"> </span>HEAD<span class="w"> </span><span class="c1"># 把某个分支强制指向当前HEAD</span>
+<a id="__codelineno-19-2" name="__codelineno-19-2"></a>git<span class="w"> </span>switch<span class="w"> </span>&lt;branch_name&gt;<span class="w"> </span><span class="c1"># 或者旧版 git 用 git checkout &lt;branch_name&gt; 切到该分支</span>
+<a id="__codelineno-19-3" name="__codelineno-19-3"></a>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>--force-with-lease
 </code></pre></div></td></tr></tbody></table></div>
-<div class="highlight"><table class="highlighttable"><tbody><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-17-1">1</a></span>
-<span class="normal"><a href="#__codelineno-17-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1"></a>git<span class="w"> </span>checkout<span class="w"> </span>--<span class="w"> </span>.<span class="w"> </span><span class="c1"># 【注意】有个点。放弃当前文件夹下所有更改，但似乎对新建文件夹无效</span>
-<a id="__codelineno-17-2" name="__codelineno-17-2"></a>git<span class="w"> </span>clean<span class="w"> </span>-fd<span class="w"> </span><span class="c1"># 清除所有没暂存的文件</span>
+<p>或者</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-20-1">1</a></span>
+<span class="normal"><a href="#__codelineno-20-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1"></a>git<span class="w"> </span>switch<span class="w"> </span>-c<span class="w"> </span>&lt;new_branch_name&gt;<span class="w"> </span><span class="c1"># 在当前 HEAD 创建新分支并切到该分支</span>
+<a id="__codelineno-20-2" name="__codelineno-20-2"></a>git<span class="w"> </span>push<span class="w"> </span>-u<span class="w"> </span>origin<span class="w"> </span>&lt;new_branch_name&gt;<span class="w"> </span><span class="c1"># 推送到远程</span>
+</code></pre></div></td></tr></tbody></table></div>
+<p>此外，如果更改过程中出现问题，以下是一些可能会用到的指令：</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-21-1">1</a></span>
+<span class="normal"><a href="#__codelineno-21-2">2</a></span>
+<span class="normal"><a href="#__codelineno-21-3">3</a></span>
+<span class="normal"><a href="#__codelineno-21-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1"></a>git<span class="w"> </span>rebase<span class="w"> </span>abort<span class="w"> </span><span class="c1"># 退出当前正在进行的 git rebase</span>
+<a id="__codelineno-21-2" name="__codelineno-21-2"></a>
+<a id="__codelineno-21-3" name="__codelineno-21-3"></a>git<span class="w"> </span>checkout<span class="w"> </span>--<span class="w"> </span>.<span class="w"> </span><span class="c1"># 【注意】有个点。放弃当前文件夹下所有更改，但似乎对新建文件夹无效</span>
+<a id="__codelineno-21-4" name="__codelineno-21-4"></a>git<span class="w"> </span>clean<span class="w"> </span>-fd<span class="w"> </span><span class="c1"># 清除所有没暂存的文件</span>
 </code></pre></div></td></tr></tbody></table></div>
 <h2 id="7-ide">7 IDE</h2>
 <p>在某些系统（比如ubuntu），默认的IDE似乎是nano，需要切换成你熟悉的IDE</p>
-<div class="highlight"><table class="highlighttable"><tbody><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-18-1">1</a></span>
-<span class="normal"><a href="#__codelineno-18-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1"></a><span class="c1"># 如vim:</span>
-<a id="__codelineno-18-2" name="__codelineno-18-2"></a>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>core.editor<span class="w"> </span><span class="s2">"vim"</span>
+<div class="highlight"><table class="highlighttable"><tbody><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-22-1">1</a></span>
+<span class="normal"><a href="#__codelineno-22-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1"></a><span class="c1"># 如vim:</span>
+<a id="__codelineno-22-2" name="__codelineno-22-2"></a>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>core.editor<span class="w"> </span><span class="s2">"vim"</span>
 </code></pre></div></td></tr></tbody></table></div>
 
 
