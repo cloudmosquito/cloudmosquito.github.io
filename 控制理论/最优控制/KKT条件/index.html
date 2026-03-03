@@ -4463,12 +4463,12 @@ g_i(x)&amp;\le 0,i=1,2,\cdots,p
 \end{aligned}\]</div>
 <p>我们在这里要求 <span class="arithmatex">\(f(x)\)</span> 是上凸的（外国一般说是“凹的”，如果求最小值，就要求是“下凸的”“凸的”），<span class="arithmatex">\(h_j(x)\)</span> 是仿射函数（形如 <span class="arithmatex">\(w^Tx+b\)</span>），<span class="arithmatex">\(g_i(x)\)</span> 是下凸的。</p>
 <p>我们用数学语言表达。首先，因为 <span class="arithmatex">\(f(x)\)</span> 是上凸的，因此有</p>
-<p>$<span class="arithmatex">\(\begin{aligned}
+<div class="arithmatex">\[\begin{aligned}
 f(\lambda x_1+(1-\lambda) x_2)&amp;\ge \lambda f(x_1)+(1-\lambda)f(x_2)\\
 f(\lambda(x_1-x_2)+x_2) &amp;\ge \lambda [f(x_1)-f(x_2)]+f(x_2)\\
 \frac{f(\lambda(x_1-x_2)+x_2)-f(x_2)}{\lambda} &amp;\ge f(x_1)-f(x_2)
-\end{aligned}\)</span>$ 
-我们对两边取极限 <span class="arithmatex">\(\lambda \to 0\)</span> ，从而有</p>
+\end{aligned}\]</div>
+<p>我们对两边取极限 <span class="arithmatex">\(\lambda \to 0\)</span> ，从而有</p>
 <div class="arithmatex">\[\nabla f(x_2)\cdot(x_1-x_2) \ge f(x_1)-f(x_2)\]</div>
 <p>同理有</p>
 <div class="arithmatex">\[\begin{aligned}\nabla g_i(x_2)\cdot(x_1-x_2)&amp;\le g_i(x_1)-g_i(x_2)\\

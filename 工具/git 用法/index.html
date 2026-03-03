@@ -4845,7 +4845,8 @@
 <a id="__codelineno-18-2" name="__codelineno-18-2"></a><span class="c1"># 以上，-i 代表Make a list of the commits which are about to be rebased.在git打开的文本文件中，你可以对先前的很多提交做处理</span>
 <a id="__codelineno-18-3" name="__codelineno-18-3"></a><span class="c1"># ~ 表示包括&lt;commit&gt;本身</span>
 </code></pre></div></td></tr></tbody></table></div>
-<p>会跳出一个文本界面，跟着提示做就好了，关闭文本界面就代表完成一次编辑。接下来，你会处于 detached HEAD ，需要先</p>
+<p>会跳出一个文本界面，跟着提示做就好了，关闭文本界面就代表完成一次编辑。</p>
+<p>接下来，建议 <code>git status</code> 看一下是否处于 detached HEAD 。若是，则需要先</p>
 <div class="highlight"><table class="highlighttable"><tbody><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-19-1">1</a></span>
 <span class="normal"><a href="#__codelineno-19-2">2</a></span>
 <span class="normal"><a href="#__codelineno-19-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1"></a>git<span class="w"> </span>branch<span class="w"> </span>-f<span class="w"> </span>&lt;branch_name&gt;<span class="w"> </span>HEAD<span class="w"> </span><span class="c1"># 把某个分支强制指向当前HEAD</span>
