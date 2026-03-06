@@ -1,3 +1,5 @@
+# KL 散度
+
 KL 散度（Kullback-Leibler divergence，简称 KLD），又有别称**相对熵** （relative entropy），消息增益（information gain），消息散度（information divergence）等。
 
 ## 定义
@@ -28,7 +30,7 @@ $$D_{\mathrm{KL}}(P||Q) = \sum_{x\in\mathcal{X}}P(x)\ln\frac{P(x)}{Q(x)} \ge 0$$
 
 #### 证明
 
-要证 $\sum_{x\in\mathcal{X}}P(x)\ln\dfrac{P(x)}{Q(x)} \ge 0$ ，即证 $-\sum_{x\in\mathcal{X}}P(x)\ln\dfrac{Q(x)}{P(x)} \ge 0$ . 
+要证 $\sum_{x\in\mathcal{X}}P(x)\ln\dfrac{P(x)}{Q(x)} \ge 0$ ，即证 $-\sum_{x\in\mathcal{X}}P(x)\ln\dfrac{Q(x)}{P(x)} \ge 0$ .
 
 设使得 $P(x) >0$ 的 $x$ 集合为 $\mathcal{M}$ . 因为 $P(x) =0$ 时，$P(x)\ln\dfrac{P(x)}{Q(x)}  = 0$ ，所以相当于要证明 $\sum_{x\in\mathcal{M}}P(x)\ln\dfrac{Q(x)}{P(x)} \le 0$ .
 
@@ -67,3 +69,35 @@ D_{KL}(P||Q)&=\mathbb{E}_{x\sim P}\left[\ln\frac{P(x)}{Q(x)}\right]\\
 因此，KL 散度就可以理解为，把一个服从 $P$ 分布的样本错误地按照 $Q$ 分布进行编码时，所“浪费”（冗余）的编码长度。“浪费”是因为我们没有按照 $P$ 分布，而是按照 $Q$ 分布进行编码。
 
 综上所述，KL 散度实际是用“熵”这一概念，来描述两个分布的“距离”。
+
+## 四、实例
+
+### 正态分布间的 KL 散度
+
+我们考虑两个一维正态分布 $X\sim\mathcal{N}(\mu_1,\sigma_1^2)$ 和 $X\sim\mathcal{N}(\mu_2,\sigma_2^2)$ ，两分布的概率密度函数分别为：
+
+$$p(x)=\frac{1}{\sqrt{2\pi}\sigma_1}e^{-\frac{(x-\mu_1)^2}{2\sigma_1^2}},q(x)=\frac{1}{\sqrt{2\pi}\sigma_2}e^{-\frac{(y-\mu_2)^2}{2\sigma_2^2}}$$
+
+取对数，有
+
+$$\ln p(x)=-\frac{(x-\mu_1)^2}{2\sigma_1^2}-\ln\left(\sqrt{2\pi}\sigma_1\right),\ln q(x)=-\frac{(x-\mu_2)^2}{2\sigma_2^2}-\ln\left(\sqrt{2\pi}\sigma_2\right)$$
+
+从而有
+
+$$\begin{aligned}
+\ln\frac{p(x)}{q(x)}&=\ln p(x)-\ln q(x)\\
+&= -\frac{(x-\mu_1)^2}{2\sigma_1^2}-\ln\left(\sqrt{2\pi}\sigma_1\right)+\frac{(x-\mu_2)^2}{2\sigma_2^2}+\ln\left(\sqrt{2\pi}\sigma_2\right)\\
+&= \frac{(x-\mu_2)^2}{2\sigma_2^2}-\frac{(x-\mu_1)^2}{2\sigma_1^2}+\ln\frac{\sigma_2}{\sigma_1}
+\end{aligned}$$
+
+从而有
+
+$$\begin{aligned}
+D_{\rm{KL}}(X||Y) &= \mathbb{E}_{x\sim p}\left[\ln \frac{p(x)}{q(x)}\right]\\
+&= \ln\frac{\sigma_2}{\sigma_1}-\frac{1}{2\sigma_1^2}\mathbb{E}_{x\sim p}\left[(x-\mu_1)^2\right]+\frac{1}{2\sigma_2^2}\mathbb{E}_{x\sim p}\left[(x-\mu_2)^2\right]\\
+&= \ln\frac{\sigma_2}{\sigma_1}-\frac{\sigma_1^2}{2\sigma_1^2}+\frac{1}{2\sigma_2^2}\mathbb{E}_{x\sim p}\left[(x-\mu_1)^2+(\mu_1-\mu_2)^2+2(\mu_1-\mu_2)(x-\mu_1)\right]\\
+&= \ln\frac{\sigma_2}{\sigma_1}-\frac{1}{2}+\frac{\sigma_1^2+(\mu_1-\mu_2)^2}{2\sigma_2^2}\\
+&= \frac{1}{2}\left[\ln\frac{\sigma_2^2}{\sigma_1^2}+\frac{\sigma_1^2}{\sigma_2^2}+\frac{(\mu_1-\mu_2)^2}{\sigma_2^2}-1\right]
+\end{aligned}$$
+
+> 推导过程中，$\mathbb{E}_{x\sim p}\left[2(\mu_1-\mu_2)(x-\mu_1)\right] = 0$ 是因为 $x$ 的分布关于 $\mu_1$ 对称。
