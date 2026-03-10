@@ -38,7 +38,7 @@ $$ \dot{\mathbf{x}}_n(t) = \mathbf{f}(\mathbf{x}_n(t)) $$
 
 如果存在一个状态 $\mathbf{x} = \mathbf{x}_e$，满足 $\mathbf{f}(\mathbf{x_e}) = 0$，则称该状态为 **平衡状态/平衡点**。
 
-!!! comment
+!!! Tip
 
     这个定义很好理解，就是该状态下，系统所有状态关于时间的变化率都为0.
 
@@ -168,7 +168,7 @@ Lyapunov 构造了一个虚拟的“能量函数” $V(x)$ ，称之为 Lyapunov
 
 **进一步地，倘若 $\left\| \mathbf{x} \right\| \to \infty$ 时， $V(\mathbf{x},t) \to \infty$ ，则原点处的平衡点是大范围渐近稳定的。**
 
-!!! thinking
+!!! TIP
 
     这里构造一个正定的 $V(\mathbf{x},t)$ ，其实是定义了一种系统的能量；要求其一阶偏导数负定，要求系统的能量随着时间流逝一直减小，这其实是一个**相当严苛**的要求。
 
@@ -192,7 +192,7 @@ Lyapunov 构造了一个虚拟的“能量函数” $V(x)$ ，称之为 Lyapunov
 
 其中的 $\Phi(t;x_0,t_0)$ 表示一条从 $(x_0, t_0)$ 出发的特定轨迹。
 
-!!! thinking
+!!! TIP
 
     这个定理其实挺直观的。它放宽了对于 $\frac{\mathrm{d}V}{\mathrm{d}t}(\mathbf{x},t)$ 的限制，只要求半负定即可，相当于大坑的坡面上有一些位置可以供小球歇脚。但显然小球不能一直歇下去，所以该定理又打了个补丁，要求任意时刻，从坡面上的任意一点出发，小球都不能一直停在坡面某个位置上不往下落。有了这个补丁，大范围渐近稳定的结论还是挺 trival 的。
 
@@ -202,7 +202,7 @@ Lyapunov 构造了一个虚拟的“能量函数” $V(x)$ ，称之为 Lyapunov
 
 **定理：（李雅普诺夫）考虑一个非线性系统 $\dot{\mathbf{x}}(t) = \mathbf{f}(\mathbf{x}(t))$ ，设其平衡状态在原点，即 $\mathbf{f}(\mathbf{0}) = \mathbf{0}$ ，对所有 $t \ge t_0$ ，如果存在一个具有连续一阶偏导数的标量函数 $V(\mathbf{x},t)$ ，满足 $V(\mathbf{x}, t)$ 正定，$\dfrac{\mathrm{d}V}{\mathrm{d}t}(\mathbf{x}, t)$ 半负定； $\dfrac{\mathrm{d}V}{\mathrm{d}t}(\Phi(t;x_0,t_0),t)$ 对于任意 $t_0$ 和任意 $x_0 \neq 0$ ，在 $t \ge t_0$ 时，恒等于 0 ，则系统在原点处的平衡状态是 Lyapunov 意义下稳定的。**
 
-!!! thinking
+!!! TIP
 
     这个定理和 Lyapunov 稳定性本身一样很难形象地理解，可能是我目前的数学直觉还没到这个层次。
 

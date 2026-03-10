@@ -2,7 +2,7 @@
 
 ## 定义
 
-!!! theorem
+!!! Info
 
     任何一个 $n$ 阶的复数矩阵 $A$ 都与一个 Jordan 标准型相似，即存在 $P$ 使得 $P^{-1}AP = J = diag\begin{bmatrix}J_1& J_2& \cdots & J_k\end{bmatrix}$ .
 
