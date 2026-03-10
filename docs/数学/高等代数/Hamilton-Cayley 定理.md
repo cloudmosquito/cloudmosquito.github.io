@@ -1,6 +1,6 @@
 # 哈密顿-凯莱定理（Hamilton-Cayley theorem）
 
-!!! theorem "Hamilton-Cayley 定理"
+!!! Info "Hamilton-Cayley 定理"
 
     设 A 是数域 P 上的 n 阶矩阵， $f(λ)=|λE-A|=λ^n+b_1λ^{n-1}+…+b_{n-1}λ+b_n$ 是A的特征多项式，则 $f(A) = A^n + b_1A^{n-1}+...+b_{n-1}A+b_nI=0$ 。
 
@@ -60,7 +60,7 @@ B_{n-1}A-B_{n-2}A^2 &= a_{n-1}A\\
 
 该定理为我们提供这样一个推论：
 
-!!! theorem
+!!! Info
 
     矩阵 $A^{k}, k \ge n$ 总可以用矩阵 $A^{j}, j=0,1,2,\cdots,n-1$ 的线性组合表示。
 

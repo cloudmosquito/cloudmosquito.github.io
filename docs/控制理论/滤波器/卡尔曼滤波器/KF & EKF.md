@@ -157,7 +157,7 @@ $$\begin{aligned}
 
 接下来，我们要找到卡尔曼系数 $K_k$ 的最优值，让误差分布的协方差矩阵的迹最小。
 
-!!! Theorem
+!!! Info
 
     【定理】 $\dfrac{\partial \mathrm{tr}\left(AB\right)}{\partial A} = \dfrac{\partial \mathrm{tr}\left(B^\top A^\top\right)}{\partial A}=B^\top$ ，其中 $A\in \mathbb{R}^{m\times n}, B \in \mathbb{R}^{n\times m}$ 。
 
