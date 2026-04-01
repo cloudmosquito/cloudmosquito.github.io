@@ -10,7 +10,7 @@
 
 ```text
 sudo apt install ntpdate
-sudo ntpdate time.windows.com
+sudo ntpdate cn.pool.ntp.org # 国家授时中心的 ntp 服务器
 sudo hwclock --localtime --systohc
 ```
 
