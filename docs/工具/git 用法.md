@@ -64,7 +64,7 @@ ssh -T git@gitee.com   # 测试 Gitee
 
 ```bash
 git config --global http.proxy http://127.0.0.1:7890
-git config --global https.proxy https://127.0.0.1:7890
+git config --global https.proxy http://127.0.0.1:7890
 ```
 
 - `7890` 是代理端口号，根据实际工具调整（如 Clash 默认为 `7890`）。
