@@ -1,5 +1,7 @@
 # git 相关操作
 
+> 推荐使用：VS Code + GitLens (paid) / \[ Git Graph + Git Blame \](free) .
+
 ## 配置
 
 在 Ubuntu 中配置 Git 主要涉及以下常见操作，包括设置用户信息、配置 SSH 密钥、设置代理等。以下是详细步骤：
@@ -62,7 +64,7 @@ ssh -T git@gitee.com   # 测试 Gitee
 
 ```bash
 git config --global http.proxy http://127.0.0.1:7890
-git config --global https.proxy https://127.0.0.1:7890
+git config --global https.proxy http://127.0.0.1:7890
 ```
 
 - `7890` 是代理端口号，根据实际工具调整（如 Clash 默认为 `7890`）。
@@ -119,18 +121,23 @@ git config --global --list
 
 ---
 
-## 1 基础操作
+## 基础操作
 
-提交、新建分支、更改当前分支所在位置等（略）。
+### 提交、新建分支、更改当前分支所在位置等
 
 ```shell
-git switch <branch> # 切换到已有分支，git checkout <branch>
-git switch -c <new> # 新建并切换到新分支，也可以 git checkout -b <new>
-git switch --detach <commit> # 切到某个提交（detached HEAD），也可以 git checkout <commit> 
-git switch --track feature  # 从远端分支创建并跟踪（常见用法），也可以 git checkout --track origin/feature
+git add . # 暂存所有更改
+git commit -m "commit message" # 提交
 ```
 
 ---
+
+```shell
+git fetch # 拉取最新远程信息
+git merge # 将远程代码和本地代码合并
+git push  # 推送到远程
+git pull  # 等价于 git fetch + git merge
+```
 
 第一次推送到远程仓库：
 
@@ -138,9 +145,9 @@ git switch --track feature  # 从远端分支创建并跟踪（常见用法）�
 git push -u origin <new_branch_name>
 ```
 
-其中，`-u` 是 `--set-upstream` 的简写，它的作用是把本地分支和远端分支建立“上游/跟踪”关系（upstream），以后切到该分支，直接执行 `git push` 或 `git pull` 就会默认把改动推/拉到 `origin/new_branch_name`（不需要再写 `origin <new_branch_name>`）。
+其中，`-u` 是 `--set-upstream` 的简写，它的作用是把本地分支和远端分支建立“上游/跟踪”关系（upstream），以后切到该分支，直接执行 `git push` 或 `git pull` 就会默认把改动推/拉到 `origin/new_branch_name`。
 
-在此基础上，`git status` 会显示 `ahead` `behind` 相对 `origin/new_branch_name` 的状态。`git branch -vv` 可以看到哪个本地分支在跟踪哪个远端分支。
+在此基础上，`git status` 会显示 `ahead` `behind` 相对 `origin/new_branch_name` 的状态。
 
 如果本地分支名和远程分支名不同，可以用变体命令：
 
@@ -150,7 +157,89 @@ git push -u origin local-name:remote-name
 
 ---
 
-## 2 子模块
+```shell
+git stash # 把当前修改存起来
+git stash pop # 把存起来的修改拿出来
+```
+
+---
+
+### 分支相关
+
+切换到已有分支
+
+```shell
+git switch <branch>
+git checkout <branch>
+```
+
+新建并切换到新分支
+
+```shell
+git switch -c <new>
+git checkout -b <new>
+```
+
+新建孤儿分支
+
+```shell
+git checkout --orphan <new-branch-name>
+```
+
+切到某个提交（会出现 detached HEAD ）
+
+```shell
+git switch --detach <commit>
+git checkout <commit>
+```
+
+> detached HEAD 指的是当前工作环境（HEAD）处于一个具体的提交或者一个没有名字的分支，在此基础上做的更改可能会丢失。
+
+
+从远程分支创建并跟踪
+
+```shell
+git switch --track <branch>  
+git checkout --track origin/branch
+
+# 在本地创建一个分支并关联远程分支，同时切过去
+git switch -c <local-branch-name> origin/<remote-branch-name> 
+```
+
+看哪个本地分支在跟踪哪个远端分支
+
+```shell
+git branch -vv
+```
+
+删除分支
+
+```shell
+# 本地分支
+git branch -d <branch-name>  # 已merge的分支
+git branch -D <branch-name>  # 未merge的分支
+# 远程分支
+git push origin --delete <branch-name>
+```
+
+
+## 撤销操作
+
+查看提交记录：
+
+```shell
+git reflog
+```
+
+回到某一次状态：
+
+```shell
+git reset --hard HEAD@{3} # 或者 git reset --hard a1b2c3d
+```
+
+---
+
+## 子模块
 
 ```shell
 # 添加子模块
@@ -163,7 +252,7 @@ git submodule update --init --recursive
 git submodule foreach "git submodule update"
 ```
 
-## 3
+## 撤回远程提交
 
 当想删除某次 push 到远程的 commit 时，可以先 reset 到之前一次提交 (可以通过 VS Code 的图形化界面操作)，然后强行 push 上去。( VS Code 没有提交 commit 回退的选项。)
 
@@ -175,17 +264,7 @@ git push origin --force
 
 这里的 `--force` 是无条件用本地分支覆盖远程分支历史；在团队协作中，如果别人在你更新前推了一版上去，那么他的更新会被覆盖，这不好。因此，团队协作更推荐使用 `--force-with-lease`，它会先检查远程分支是否等于你本地最后一次获知的值，若否，则放弃覆盖。
 
-## 4 删除分支
-
-```shell
-# 本地分支
-git branch -d <branch-name>  # 已merge的分支
-git branch -D <branch-name>  # 未merge的分支
-# 远程分支
-git push origin --delete <branch-name>
-```
-
-## 5 worktree相关操作
+## worktree相关操作
 
 worktree可以管理多个文件夹，每个文件夹对应一个分支，从而同时进行多分支的开发。worktree管理的多个分支共享一个.git，相较于多次clone而言，大大节省内存。
 
@@ -197,7 +276,7 @@ git worktree add <path> <branch-name> # 把 <branch-name> 分支放到 <path>
 git worktree remove <path>
 ```
 
-## 6 `git rebase`操作
+## 7 `git rebase`操作
 
 要处理当前提交到某一次先前的提交，可以先
 
@@ -231,14 +310,4 @@ git rebase abort # 退出当前正在进行的 git rebase
 
 git checkout -- . # 【注意】有个点。放弃当前文件夹下所有更改，但似乎对新建文件夹无效
 git clean -fd # 清除所有没暂存的文件
-```
-
-## 7 IDE
-
-在某些系统（比如ubuntu），默认的IDE似乎是nano，需要切换成你熟悉的IDE
-
-```shell
-# 如vim:
-git config --global core.editor "vim"
-
 ```
