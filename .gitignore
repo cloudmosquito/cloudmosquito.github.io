@@ -1,1 +1,3 @@
 site/
+__pycache__/
+tools/convert_config.json
