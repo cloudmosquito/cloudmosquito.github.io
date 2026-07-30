@@ -1,6 +1,7 @@
-# KKT 条件
+# KKT条件
 
-本文摘自：[非线性优化中的 KKT 条件该如何理解？ - 王小龙的回答 - 知乎](https://www.zhihu.com/question/23311674/answer/235256926)
+本文摘自：非线性优化中的 KKT 条件该如何理解？ - 王小龙的回答 - 知乎
+https://www.zhihu.com/question/23311674/answer/235256926
 
 ## 一、问题重述
 

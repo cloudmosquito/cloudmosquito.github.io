@@ -1,3 +1,4 @@
+# PID 控制器
 
 原文见 https://zju-helloworld.github.io/Wiki/ 
 
@@ -85,7 +86,7 @@ u_i(k)=\beta \sum^k_{j=t_0}K_ie(j)T \\
 1, & e(k) \in [\epsilon_l,\epsilon_u] \\
 0, & else
 \end{cases}
-  \end{align}
+\end{align}
 $$
 
 其中 $t_0$ 表示引入积分控制的时刻，阈值区间 $[\epsilon_l,\epsilon_u]$ 根据实际情况人为指定。

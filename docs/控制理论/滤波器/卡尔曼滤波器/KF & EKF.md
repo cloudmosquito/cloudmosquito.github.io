@@ -84,7 +84,8 @@ $$
 \hat{\mathbf{x}}_k = \hat{\mathbf{x}}_k^{-}+K_k\left(\mathbf{z}_k-H\hat{\mathbf{x}}_k^{-}\right) \tag{3}
 $$
 
-> 之所以采用 $K_kH$ 作为系数矩阵，是为了消去 $\hat{\mathbf{x}}_{k,meas}$ 中多数情况下不成立的 $H^{-1}$ 一项。
+> 1. 之所以采用 $K_kH$ 作为系数矩阵，是为了消去 $\hat{\mathbf{x}}_{k,meas}$ 中多数情况下不成立的 $H^{-1}$ 一项。
+> 2. 注意到 (3) 式的形式完全等同于 [Luenberger 观测器](../../观测器/Luenberger%20观测器.md) 。事实上，Kalman Filter 就是一个增益矩阵取最优的 Luenberger 观测器。
 
 从而有后验估计的误差值：
 
@@ -101,7 +102,6 @@ $$
 注意到误差满足正态分布，期望为 0 。设 $\mathbf{e}_k \sim \mathcal{N}(0,P_k)$ ，其中 $P_k$ 是协方差矩阵。
 
 我们想使误差最小，其实是想使误差分布尽可能集中在 0 附近，即方差尽可能小，即 $\mathrm{tr}(P_k)$ 尽可能小。我们接下来的任务就是寻找一个最优的卡尔曼系数 $K_k$ ，使得 $\mathrm{tr}(P_k)$ 最小。
-
 
 > 怎么计算协方差矩阵？$\mathrm{VAR}(\mathbf{x}) = \mathbb{E}\left(\mathbf{x}\mathbf{x}^{\top}\right) -\mathbb{E}^2(\mathbf{x})$ .
 
@@ -157,7 +157,7 @@ $$\begin{aligned}
 
 接下来，我们要找到卡尔曼系数 $K_k$ 的最优值，让误差分布的协方差矩阵的迹最小。
 
-!!! Info
+!!! Theorem
 
     【定理】 $\dfrac{\partial \mathrm{tr}\left(AB\right)}{\partial A} = \dfrac{\partial \mathrm{tr}\left(B^\top A^\top\right)}{\partial A}=B^\top$ ，其中 $A\in \mathbb{R}^{m\times n}, B \in \mathbb{R}^{n\times m}$ 。
 

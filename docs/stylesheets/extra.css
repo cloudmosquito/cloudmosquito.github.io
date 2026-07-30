@@ -57,3 +57,18 @@ pre,
   line-height: 1.7;
   letter-spacing: 0.01em;
 }
+
+/* 伪代码块 */
+.md-typeset .pseudocode {
+  padding: 1em 1.5em;
+  margin: 1em 0;
+  border-left: 3px solid var(--md-primary-fg-color);
+  background: var(--md-code-bg-color);
+  font-family: "JetBrains Mono", "Roboto Mono", ui-monospace, monospace;
+  font-size: 0.9em;
+  line-height: 1.6;
+  overflow-x: auto;
+}
+.md-typeset .pseudocode p {
+  margin: 0.15em 0;
+}

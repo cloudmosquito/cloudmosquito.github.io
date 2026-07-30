@@ -1,8 +1,8 @@
-# KL 散度
+# KL 散度（相对熵）
 
 KL 散度（Kullback-Leibler divergence，简称 KLD），又有别称**相对熵** （relative entropy），消息增益（information gain），消息散度（information divergence）等。
 
-## 定义
+## 一、定义
 
 对于两个定义在同一样本空间 $\mathcal{X}$ 的离散概率分布 $P$ 和 $Q$ ，KL 散度定义为
 
@@ -16,7 +16,7 @@ $$D_{\mathrm{KL}}(P||Q) = \int_{\mathcal{X}}p(x)\ln\frac{p(x)}{q(x)}$$
 
 这里的对数一般是以 $e$ 为底，单位是 nat ；若以 2 为底，单位就是 bit 。
 
-## 性质
+## 二、性质
 
 ### 非负性
 
@@ -30,7 +30,7 @@ $$D_{\mathrm{KL}}(P||Q) = \sum_{x\in\mathcal{X}}P(x)\ln\frac{P(x)}{Q(x)} \ge 0$$
 
 #### 证明
 
-要证 $\sum_{x\in\mathcal{X}}P(x)\ln\dfrac{P(x)}{Q(x)} \ge 0$ ，即证 $-\sum_{x\in\mathcal{X}}P(x)\ln\dfrac{Q(x)}{P(x)} \ge 0$ .
+要证 $\sum_{x\in\mathcal{X}}P(x)\ln\dfrac{P(x)}{Q(x)} \ge 0$ ，即证 $-\sum_{x\in\mathcal{X}}P(x)\ln\dfrac{Q(x)}{P(x)} \ge 0$ . 
 
 设使得 $P(x) >0$ 的 $x$ 集合为 $\mathcal{M}$ . 因为 $P(x) =0$ 时，$P(x)\ln\dfrac{P(x)}{Q(x)}  = 0$ ，所以相当于要证明 $\sum_{x\in\mathcal{M}}P(x)\ln\dfrac{Q(x)}{P(x)} \le 0$ .
 
@@ -52,14 +52,14 @@ $$Q(x) = P(x), x\in\mathcal{X}$$
 
 KL 散度不是一个距离函数，它是非对称的，即
 
-$$D_{KL}(P||Q) \neq D_{KL}(Q||P)$$
+$$D_{\mathrm{KL}}(P||Q) \neq D_{\mathrm{KL}}(Q||P)$$
 
-## 理解
+## 三、理解
 
 KL 散度可以表示为
 
 $$\begin{aligned}
-D_{KL}(P||Q)&=\mathbb{E}_{x\sim P}\left[\ln\frac{P(x)}{Q(x)}\right]\\
+D_{\mathrm{KL}}(P||Q)&=\mathbb{E}_{x\sim P}\left[\ln\frac{P(x)}{Q(x)}\right]\\
 &= \sum_{x\in\mathcal{X}}P(x)[-\ln Q(x)]-\sum_{x\in\mathcal{X}}P(x)[-\ln P(x)]
 \end{aligned}$$
 
