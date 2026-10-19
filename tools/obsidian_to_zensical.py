@@ -476,7 +476,7 @@ def convert_image_refs(
         def replace_image(m):
             nonlocal changes, copied
             img_name = m.group(1).strip()
-            width_px = m.group(2)  # Obsidian 的 |宽度 语法
+            size = (m.group(2) or "").strip()  # Obsidian 的 |宽度（数字）或 |图注（文字）
 
             # 清理图片名（去掉可能的路径）
             img_basename = Path(img_name).name
@@ -506,23 +506,24 @@ def convert_image_refs(
             # 生成引用（图片名不需要 URL 编码）
             rel_path = f"./{source_stem}{config.assets_suffix}/{img_file.name}"
 
-            # 宽度处理
+            # 宽度 / 图注：|数字 → 宽度；|文字 → 图片下方的图注（写进 alt）
+            alt_text = ""
             width_attr = f"width={config.default_img_width}"
-            if width_px:
-                # Obsidian 像素宽度 → 百分比（保持原有的大致比例）
-                try:
-                    px = int(width_px)
+            if size:
+                if re.fullmatch(r"\d+(?:x\d+)?", size):
+                    # Obsidian 像素宽度 → 百分比（保持原有的大致比例）
+                    px = int(size.split("x")[0])
                     # 按比例估算百分比（假设图片典型宽度 800px）
                     pct = min(100, max(10, round(px / 8)))
                     width_attr = f"width={pct}%"
-                except ValueError:
-                    pass
+                else:
+                    alt_text = size
 
             changes += 1
-            return f"![]({rel_path}){{.img-center {width_attr}}}"
+            return f"![{alt_text}]({rel_path}){{.img-center {width_attr}}}"
 
         new_line = re.sub(
-            r'!\[\[([^\[\]|]+)(?:\|(\d+(?:x\d+)?))?\]\]',
+            r'!\[\[([^\[\]|]+)(?:\|([^\[\]|]+))?\]\]',
             replace_image,
             line
         )

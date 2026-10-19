@@ -23,7 +23,7 @@
 坐标系 $\{\mathcal{W}'\}$ 是坐标系 $\{\mathcal{W}\}$ 平移到机体坐标系 $\{B\}$ 使得两原点重合的结果。
 坐标系 $\{\mathcal{C_1}\}$ 是 $\{\mathcal{W}\}$ 绕 yaw 轴（$\mathbf{z}_\mathcal{W}$）旋转了 $\psi$ 角度。坐标系 $\{\mathcal{C}_2\}$ 是坐标系 $\{\mathcal{C}_1\}$ 平移到机体坐标系 $\{\mathcal{B}\}$ 使得两原点重合的结果。坐标系 $\{\mathcal{D}\}$ 是坐标系 $\{\mathcal{C}_2\}$ 绕 roll 轴（$\mathbf{x}_{\mathcal{C}_2}$）旋转了 $\phi$ 角度，坐标系 $\{\mathcal{B}\}$ 是坐标系 $\{\mathcal{D}\}$ 绕 pitch 轴（$\mathbf{y}_{\mathcal{D}}$）旋转了 $\theta$ 角度。
 
-![](./四旋翼微分平坦与最小 snap 轨迹.assets/%E5%9D%90%E6%A0%87%E7%B3%BB.png){.img-center width=50%}
+![](./四旋翼微分平坦与最小 snap 轨迹.assets/%E5%9D%90%E6%A0%87%E7%B3%BB.png){.img-center width=70%}
 
 $$\begin{aligned}\mathcal{W} & \overset{Translation}\Longleftrightarrow \mathcal{W}'\\
 \mathcal{C}_1 &\overset{Translation}\Longleftrightarrow \mathcal{C}_2\\
@@ -58,18 +58,15 @@ $$F_i = k_F\omega_i^2, M_i = k_M\omega_i^2$$
 从而我们可以定义一个输入量 $\mathbf{u}$
 
 $$
-
 \mathbf{u} = \begin{bmatrix}F\\ M_x\\ M_y\\ M_z\end{bmatrix} = \begin{bmatrix}k_F & k_F & k_F & k_F\\
 0 & k_FL & 0 & -k_FL\\
 -k_FL & 0 & k_FL & 0\\
 k_M & -k_M & k_M & -k_M\end{bmatrix}\begin{bmatrix}\omega_1^2\\ \omega_2^2\\ \omega_3^2\\ \omega_4^2\end{bmatrix}\tag{3}
-
 $$
 
 逆变换如下：
 
 $$
-
 \begin{bmatrix}\omega_1^2\\ \omega_2^2\\\omega_3^2\\ \omega_4^2\end{bmatrix} = \begin{bmatrix}\frac{1}{4k_F} & 0 & -\frac{1}{2k_FL} & \frac{1}{4k_M}\\
 \frac{1}{4k_F} & \frac{1}{2k_FL} & 0 & -\frac{1}{4k_M}\\
 \frac{1}{4k_F} & 0 & \frac{1}{2k_FL} & \frac{1}{4k_M}\\
@@ -78,7 +75,6 @@ $$
 \begin{bmatrix}
 F \\ M_x \\ M_y \\ M_z
 \end{bmatrix}\tag{4}
-
 $$
 
 其中 $F$ 是总升力，$L$ 是旋臂长度。

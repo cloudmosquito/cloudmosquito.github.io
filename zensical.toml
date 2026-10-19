@@ -63,8 +63,9 @@ dev_addr = "localhost:8000" # 执行 Zensical serve 后的网站地址
 # Read more: https://zensical.org/docs/customization/#additional-css
 #
 extra_css = [
-    "stylesheets/extra.css",
-    "https://unpkg.com/katex@0/dist/katex.min.css"
+    # 第三方样式放在前面，自己的样式放在最后，保证覆盖顺序可控
+    "https://unpkg.com/katex@0/dist/katex.min.css",
+    "stylesheets/extra.css"
 ]
 
 # With the `extra_javascript` option you can add your own JavaScript to your
@@ -77,7 +78,8 @@ extra_css = [
 extra_javascript = [
     "javascripts/katex.js",
     "https://unpkg.com/katex@0/dist/katex.min.js",
-    "https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"
+    "https://unpkg.com/katex@0/dist/contrib/auto-render.min.js",
+    "javascripts/figure-caption.js"
 ]
 
 # ----------------------------------------------------------------------------
@@ -96,7 +98,7 @@ extra_javascript = [
 # Read more:
 # - https://zensical.org/docs/customization/#extending-the-theme
 #
-#custom_dir = "overrides"
+custom_dir = "overrides"
 
 # With the "favicon" option you can set your own image to use as the icon
 # browsers will use in the browser title bar or tab bar. The path provided
@@ -121,7 +123,7 @@ extra_javascript = [
 # Read more:
 # - https://zensical.org/docs/setup/language/
 #
-language = "en"
+language = "zh"
 
 # Zensical provides a number of feature toggles that change the behavior
 # of the documentation site.

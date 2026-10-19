@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{#-
+  字体加载。
+  alexwang.ai 用的是 Cormorant Garamond（标题）+ Newsreader（正文），
+  这里照搬这两个，并补一个思源宋体来承担中文字形（原站是纯英文站）。
+
+  - Cormorant Garamond  标题 / 站点名
+  - Newsreader         正文拉丁字符
+  - Noto Serif SC      正文中文
+  - JetBrains Mono     代码
+
+  用 fonts.loli.net（Google Fonts 的国内镜像）加载。
+  如果你在海外或镜像不可用，把 fonts.loli.net / gstatic.loli.net
+  换成 fonts.googleapis.com / fonts.gstatic.com 即可。
+  两者都不通时会自动退回系统字体，不会白屏。
+-#}
+
+{% block fonts %}
+  <link rel="preconnect" href="https://fonts.loli.net">
+  <link rel="preconnect" href="https://gstatic.loli.net" crossorigin>
+  <link rel="stylesheet" href="https://fonts.loli.net/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Newsreader:ital,wght@0,400;0,600;1,400&family=Noto+Serif+SC:wght@400;700&family=JetBrains+Mono:wght@400&display=swap">
+  <style>
+    :root {
+      --md-text-font: "Newsreader";
+      --md-code-font: "JetBrains Mono";
+    }
+  </style>
+{% endblock %}
+
+{% block extrahead %}
+  <meta name="theme-color" content="#f5f3ee" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#191817" media="(prefers-color-scheme: dark)">
+{% endblock %}
