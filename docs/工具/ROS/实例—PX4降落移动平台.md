@@ -18,7 +18,7 @@ ROS 中的基本执行单元。每一个运行的可执行程序都称作一个�
 
 订阅者通过 `nh.subscribe(topic_name, queue_size, callback)` 注册回调；发布者通过 `nh.advertise<MsgType>(topic_name, queue_size)` 创建发布者，再调用 `.publish(msg)` 发送。
 
-![](./实例—PX4降落移动平台.assets/image-1.png){.img-center width=50%}{.img-center width=50%}
+![](./实例—PX4降落移动平台.assets/image-1.png){.img-center width=50%}
 
 > Q：这里的 `queue_size` 是什么？
 > A：订阅者/发布者消息队列的大小。

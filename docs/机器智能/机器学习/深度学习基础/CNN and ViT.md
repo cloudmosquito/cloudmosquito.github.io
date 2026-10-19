@@ -43,7 +43,7 @@ CNN 的缺陷：
 
 2020 Google 论文 An Image is Worth `16*16` Words .
 
-![](./CNN and ViT.assets/image-2.png){.img-center width=50%}{.img-center width=50%}
+![ViT 结构示意图](./CNN and ViT.assets/image-2.png){.img-center width=80%}
 
 首先，将图像切割成为 `p*p*c` 的 patch 。举个例子，考虑一张尺寸为 `256*256*3` 的三通道图片，patch 尺寸一般是 `16*16*3` . 那么我们就有 `N = 196` 个 patch 。
 

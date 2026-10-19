@@ -144,6 +144,7 @@ $$
 我们主要考虑方程的上半边。首先，考虑上半边最后一个式子：
 
 $$Q_N\mathbf{x}_N-\lambda_{N-1} = \mathbf{0} \implies \lambda_{N-1} = Q_N\mathbf{x}_N$$
+
 接下来是倒数第二个式子：
 
 $$\begin{aligned}

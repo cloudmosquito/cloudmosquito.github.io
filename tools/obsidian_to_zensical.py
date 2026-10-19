@@ -538,6 +538,43 @@ def convert_image_refs(
 # ─── Pass 5: 数学公式间距修复 ─────────────────────────────────
 
 
+def normalize_math_blocks(text: str) -> str:
+    r"""删除 $$...$$ 块内部的空行。
+
+    Obsidian 允许在 $$ 块里夹空行，但 Zensical 底层的 python-markdown 会先按空行
+    切分段落，公式就被拆散了，最终会渲染成字面的 `$$` —— 这是最常见的「公式不显示」
+    原因。这里统一把块内空行去掉，块外的空行由 fix_math_block_spacing 负责。
+    """
+    lines = text.split("\n")
+    code_ranges = get_code_block_ranges(lines)
+    result = []
+    in_math = False
+
+    for i, line in enumerate(lines):
+        if is_in_code_block(i, code_ranges):
+            result.append(line)
+            continue
+
+        stripped = line.strip()
+
+        if not in_math:
+            if stripped.startswith("$$") and not (stripped.endswith("$$") and len(stripped) > 2):
+                in_math = True
+            result.append(line)
+            continue
+
+        # 块内
+        if stripped.endswith("$$"):
+            in_math = False
+            result.append(line)
+            continue
+        if stripped == "":
+            continue  # 丢掉落进公式块里的空行
+        result.append(line)
+
+    return "\n".join(result)
+
+
 def fix_math_block_spacing(text: str) -> str:
     """确保 $$...$$ 块前后各空一行（开头 $$ 前空行，结尾 $$ 后空行）。"""
     lines = text.split("\n")
@@ -722,6 +759,9 @@ def convert_file(
 
     filename_stem = source_path.stem
 
+    # Pass -1: 公式块内不能有空行（Obsidian 允许，Zensical 会因此渲染失败）
+    text = normalize_math_blocks(text)
+
     # Pass 0: 修复已有的重复属性
     text = fix_duplicate_styling(text)
 
@@ -746,6 +786,9 @@ def convert_file(
 
     # Pass 7: .md 扩展名
     text = fix_markdown_link_extensions(text, source_path, config)
+
+    # Pass 8: 再清一遍重复属性（前面的图片转换可能又叠上去）
+    text = fix_duplicate_styling(text)
 
     return text
 

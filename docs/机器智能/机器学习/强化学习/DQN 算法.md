@@ -13,9 +13,7 @@
 Q-learning 的更新规则为
 
 $$
-
 Q(s,a) \leftarrow Q(s,a) + \alpha\left[r+\gamma\max_{a'\in\mathcal{A}}Q\left(s',a'\right)-Q(s,a)\right]
-
 $$
 
 采用神经网络表示 $Q(s,a)$ 后，其更新方式变为：利用一组数据，更新 Q 网络使得损失函数最小。
@@ -31,9 +29,7 @@ $$
 【怎么定义损失函数？】按照有监督学习的常规算法，用 MSE（mean square error 均方误差）来定义损失函数：
 
 $$
-
 Loss = \frac{1}{N}\sum_{i=1}^{N}\left[Q_{\omega}(s_i,a_i)-\left(r_i+\gamma\max_{a'}Q_{\omega}\left(s_i',a'\right)\right)\right]^2
-
 $$
 
 ### 经验回放
@@ -41,9 +37,7 @@ $$
 回顾一下交互采样的流程：
 
 $$
-
 S_0^{(i)}\overset{a_0^{(i)}}\longrightarrow r_0^{(i)}, s_1^{(i)}\overset{a_1^{(i)}}\longrightarrow r_1^{(i)}, s_2^{(i)}\overset{a_2^{(i)}}\longrightarrow\cdots\overset{a_{T-1}^{(i)}}\longrightarrow r_{T-1}^{(i)}, s_T^{(i)}
-
 $$
 
 每次采样得到的数据是有关联的，如果我们按顺序使用采样结果作为样本训练神经网络，那么样本是不满足 **独立同分布** 假设的，这会大大影响神经网络的训练结果。
@@ -76,9 +70,7 @@ $$Q_{\omega^{-}}(s,a) \overset{periodcally} \leftarrow Q_{\omega}(s,a) \leftarro
 回顾目标网络提出的解决方案：
 
 $$
-
 Q_{\omega^{-}}(s,a) \overset{periodcally} \leftarrow Q_{\omega}(s,a) \leftarrow r+\gamma\max_{a'\in\mathcal{A}}Q_{\omega^{-}}(s',a')
-
 $$
 
 其本质上仍然存在原始问题：
@@ -92,9 +84,7 @@ Double DQN 的思路就是把 $Q_{\omega^{-}}\left(s', \arg\max_{a'}Q_{\omega^{-
 即把下式
 
 $$
-
 Q_{\omega^{-}}(s,a) \overset{periodcally} \leftarrow Q_{\omega}(s,a) \leftarrow r+\gamma Q_{\omega^{-}}(s', \arg\max_{a'}Q_{\omega^{-}}(s',a'))
-
 $$
 
 改为
@@ -110,9 +100,7 @@ $$Q_{\omega^{-}}(s,a) \overset{periodcally} \leftarrow Q_{\omega}(s,a) \leftarro
 Dueling DQN 的思路就是把状态动作价值函数 $Q(s,a)$ 拆成两部分，一部分是状态价值函数 $V(s)$ ，一部分是优势函数 $A(s,a)$ 。优势函数描述了在当前状态下，某一特定动作相对所有可采取的动作的"优势"有多大。显然，优势函数满足
 
 $$
-
 \sum_{a}A(s,a) = 0
-
 $$
 
 基于以上思路，最直接的想法就是训练两个网络分别表示 $V(s)$ 和 $A(s,a)$ ，然后加起来表示 $Q(s,a)$ ，即 $Q(s,a) = V(s) + A(s,a)$ 。
@@ -124,15 +112,11 @@ $$
 实际应用的时候一般是所有 (s,a) 的价值都减去状态 s 时的动作优势函数平均值。
 
 $$
-
 Q_{\eta,\alpha,\beta}(s,a) = V_{\eta,\alpha}(s) + A_{\eta,\beta}(s,a) - \frac{1}{|\mathcal{A}|}\sum_{a'}A_{\eta,\beta}(s,a')
-
 $$
 
 这里的 $\eta,\alpha,\beta$ 都表示网络参数。可见，$V$ 和 $A$ 会共用一部分隐藏层。上式的另一个好处是满足
 
 $$
-
 \sum_{a}\left[A(s,a)-\frac{1}{|\mathcal{A}|}\sum_{a'}A(s,a')\right] = 0
-
 $$
