@@ -10,11 +10,11 @@ uv venv .venv
 # Windows Powershell
 .\.venv\Scripts\activate.ps1
 
-uv pip install Zensical
+uv pip install zensical
 ```
 
 然后在根目录下运行
 
 ```Bash
-Zensical serve
+zensical serve
 ```

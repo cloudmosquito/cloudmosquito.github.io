@@ -37,7 +37,7 @@ uv 会创建以下文件：
 然后，用 `uv add <package_name>` 添加依赖，例如
 
 ```shell
-uv add --dev Zensical # 
+uv add --dev zensical # 
 ```
 
 这本质上是在修改 `pyproject.toml` 的内容，并下载包。`--dev` 就是将 Zensical 添加到 `[dependency-groups]` 字段下。
